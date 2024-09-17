@@ -1,0 +1,67 @@
+# Este archivo .gitignore debe estar en la raíz de tu proyecto de Unity
+
+# Archivos generados por Unity
+[Ll]ibrary/
+[Tt]emp/
+[Oo]bj/
+[Bb]uild/
+[Bb]uilds/
+[Ll]ogs/
+[Mm]emoryCaptures/
+
+# Archivos autogenerados por Visual Studio/VSCode
+.vscode/
+*.csproj
+*.unityproj
+*.sln
+*.suo
+*.user
+*.userprefs
+*.pidb
+*.booproj
+*.svd
+
+# Archivos meta autogenerados por Unity
+*.pidb.meta
+*.svd.meta
+
+# Archivos específicos del usuario
+*.swp
+*.tmp
+*.user
+*.userprefs
+*.blend1
+*.blend@
+*.blend2
+*.orig
+
+# Archivos de registros de errores y fallos
+*.stacktrace
+
+# Archivos binarios empaquetados
+*.pak
+
+# Archivos específicos del sistema operativo
+.DS_Store
+Thumbs.db
+
+# Carpetas de compilación de Unity
+[Bb]uilds/
+[Bb]uild/
+
+# Archivos del proyecto de JetBrains Rider
+.idea/
+
+# Ignorar archivos de registros de errores y fallos del sistema
+crash/
+error.log
+*.log
+
+# Archivos autogenerados de TextMeshPro
+[Tt]extMesh Pro/
+
+# Ignorar archivos de Unity Collaborate
+/[Uu]ser[Ss]ettings/
+
+# Ignorar resultados de pruebas en modo Play en el editor
+[Oo]bj/Editor/PlayModeTestResults.xml
