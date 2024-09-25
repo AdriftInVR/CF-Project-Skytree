@@ -132,6 +132,7 @@ GameObject:
   m_Component:
   - component: {fileID: 125588814}
   - component: {fileID: 125588813}
+  - component: {fileID: 125588815}
   m_Layer: 0
   m_Name: J1
   m_TagString: Untagged
@@ -206,6 +207,20 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &125588815
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 125588812}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 2f7bdb3a78811e34b84a0bab00afba76, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  fighterName: Brier
+  combatManager: {fileID: 1647921436}
 --- !u!1 &208551986
 GameObject:
   m_ObjectHideFlags: 0
@@ -216,6 +231,7 @@ GameObject:
   m_Component:
   - component: {fileID: 208551988}
   - component: {fileID: 208551987}
+  - component: {fileID: 208551989}
   m_Layer: 0
   m_Name: E2
   m_TagString: Untagged
@@ -290,6 +306,20 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &208551989
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 208551986}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 38073d27979d65f449554f0de7e103d8, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  fighterName: ENEM
+  combatManager: {fileID: 1647921436}
 --- !u!1 &635228125
 GameObject:
   m_ObjectHideFlags: 0
@@ -688,6 +718,50 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &1647921435
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1647921437}
+  - component: {fileID: 1647921436}
+  m_Layer: 0
+  m_Name: CombatManager
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!114 &1647921436
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1647921435}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1967081998927184bb20917d8adde65d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!4 &1647921437
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1647921435}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 5.7223883, y: -3.0313404, z: 4.6000905}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &2083720973
 GameObject:
   m_ObjectHideFlags: 0
@@ -698,6 +772,7 @@ GameObject:
   m_Component:
   - component: {fileID: 2083720975}
   - component: {fileID: 2083720974}
+  - component: {fileID: 2083720976}
   m_Layer: 0
   m_Name: J2
   m_TagString: Untagged
@@ -772,6 +847,20 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &2083720976
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2083720973}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 551ad07b865e1a04890723c6be0c3a8a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  fighterName: Timber
+  combatManager: {fileID: 1647921436}
 --- !u!1 &2101536801
 GameObject:
   m_ObjectHideFlags: 0
@@ -782,6 +871,7 @@ GameObject:
   m_Component:
   - component: {fileID: 2101536803}
   - component: {fileID: 2101536802}
+  - component: {fileID: 2101536804}
   m_Layer: 0
   m_Name: E1
   m_TagString: Untagged
@@ -856,6 +946,20 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &2101536804
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2101536801}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 38073d27979d65f449554f0de7e103d8, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  fighterName: ENEMIGO2
+  combatManager: {fileID: 1647921436}
 --- !u!1660057539 &9223372036854775807
 SceneRoots:
   m_ObjectHideFlags: 0
@@ -868,3 +972,4 @@ SceneRoots:
   - {fileID: 2083720975}
   - {fileID: 2101536803}
   - {fileID: 208551988}
+  - {fileID: 1647921437}
