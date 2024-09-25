@@ -133,6 +133,7 @@ GameObject:
   - component: {fileID: 208551988}
   - component: {fileID: 208551987}
   - component: {fileID: 208551989}
+  - component: {fileID: 208551990}
   m_Layer: 0
   m_Name: E2
   m_TagString: Untagged
@@ -219,6 +220,64 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4c1efc1bc86cc4a40886965c78b5bae1, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!114 &208551990
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 208551986}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 38073d27979d65f449554f0de7e103d8, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  fighterName: CONEJO 2
+  combatManager: {fileID: 612596494}
+--- !u!1 &612596493
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 612596495}
+  - component: {fileID: 612596494}
+  m_Layer: 0
+  m_Name: CombatManager
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!114 &612596494
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 612596493}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1967081998927184bb20917d8adde65d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!4 &612596495
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 612596493}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: -3.1479154, y: 13.895091, z: -23.744352}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &635228125
 GameObject:
   m_ObjectHideFlags: 0
@@ -739,6 +798,7 @@ GameObject:
   - component: {fileID: 1063768263}
   - component: {fileID: 1063768265}
   - component: {fileID: 1063768264}
+  - component: {fileID: 1063768266}
   m_Layer: 0
   m_Name: J1
   m_TagString: Untagged
@@ -932,6 +992,20 @@ MonoBehaviour:
   m_DefaultActionMap: PlayerMap
   m_SplitScreenIndex: -1
   m_Camera: {fileID: 0}
+--- !u!114 &1063768266
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1063768257}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 551ad07b865e1a04890723c6be0c3a8a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  fighterName: Timber
+  combatManager: {fileID: 612596494}
 --- !u!1 &1163869461
 GameObject:
   m_ObjectHideFlags: 0
@@ -948,6 +1022,7 @@ GameObject:
   - component: {fileID: 1163869467}
   - component: {fileID: 1163869468}
   - component: {fileID: 1163869469}
+  - component: {fileID: 1163869470}
   m_Layer: 0
   m_Name: J2
   m_TagString: Untagged
@@ -1142,6 +1217,20 @@ MonoBehaviour:
   m_DefaultActionMap: PlayerMap
   m_SplitScreenIndex: -1
   m_Camera: {fileID: 0}
+--- !u!114 &1163869470
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1163869461}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 2f7bdb3a78811e34b84a0bab00afba76, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  fighterName: Brier
+  combatManager: {fileID: 612596494}
 --- !u!1 &1282171493
 GameObject:
   m_ObjectHideFlags: 0
@@ -1506,6 +1595,7 @@ GameObject:
   - component: {fileID: 2101536803}
   - component: {fileID: 2101536802}
   - component: {fileID: 2101536804}
+  - component: {fileID: 2101536805}
   m_Layer: 0
   m_Name: E1
   m_TagString: Untagged
@@ -1592,6 +1682,20 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4c1efc1bc86cc4a40886965c78b5bae1, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!114 &2101536805
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2101536801}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 38073d27979d65f449554f0de7e103d8, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  fighterName: CONEJO 1
+  combatManager: {fileID: 612596494}
 --- !u!1660057539 &9223372036854775807
 SceneRoots:
   m_ObjectHideFlags: 0
@@ -1602,3 +1706,4 @@ SceneRoots:
   - {fileID: 635228129}
   - {fileID: 1851435310}
   - {fileID: 2083146513}
+  - {fileID: 612596495}
