@@ -62,6 +62,8 @@ error.log
 
 # Ignorar archivos de Unity Collaborate
 /[Uu]ser[Ss]ettings/
+Rooted Psyche/UserSettings/
+
 
 # Ignorar resultados de pruebas en modo Play en el editor
 [Oo]bj/Editor/PlayModeTestResults.xml
