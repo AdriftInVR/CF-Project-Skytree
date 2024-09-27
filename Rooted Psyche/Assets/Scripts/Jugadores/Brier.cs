@@ -45,7 +45,7 @@ public class Brier : Fighter{
         Debug.Log("Ejecutando habilidad: " + skill.skillName);
     }
     // Actualiza la interfaz cuando la vida cambie
-    public void ModifyHealth(int amount) {
+    public new void ModifyHealth(int amount) {
         base.ModifyHealth(amount);
         UpdateHealthUI(); // Actualiza la UI de vida
     }
@@ -55,7 +55,5 @@ public class Brier : Fighter{
     void UpdateHealthUI() {
         healthText.text = this.stats.health.ToString();
     }
-
-
 
 }

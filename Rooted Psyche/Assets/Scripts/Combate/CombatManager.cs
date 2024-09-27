@@ -59,9 +59,9 @@ void SortFightersBySpeed(){
             switch (this.combatStatus){
 
                 case CombatStatus.WAITING_FOR_FIGHTER:
-                //Debug.Log("Esperando por el jugador");
                 yield return null;
                 break;
+                
                 case CombatStatus.FIGTHER_ACTION:
                     //Aqui deberia estar el actualizar el turno en la interfaz de usuario
                     yield return null;

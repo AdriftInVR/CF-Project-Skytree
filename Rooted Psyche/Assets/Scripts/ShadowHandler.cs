@@ -15,7 +15,7 @@ public class ShadowHandler : MonoBehaviour
         //gets the hit from the raycast and converts it unto a vector3
         Vector3 hitPosition = hit.point;
         //transofrm the shadow to the location
-        shadow.transform.position = hitPosition;
+        shadow.transform.position = new Vector3(this.transform.position.x, hitPosition.y, this.transform.position.z);
         
     }
 }
