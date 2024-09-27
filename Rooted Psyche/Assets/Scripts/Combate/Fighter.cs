@@ -24,11 +24,13 @@ public abstract class Fighter : MonoBehaviour{
     public void ModifyHealth(int amount){
         // Se asegura de que la vida no sea menor a 0 ni mayor a la vida maxima
         this.stats.health = (int)Mathf.Clamp(this.stats.health + amount, 0f, this.stats.MaxHealth);
-        /*
-        Aqui deberia ir la barra de vida que se actualiza en la interfaz de usuario
-        this.statusPanel.SetHealth(this.stats.health);
-        */
-        
+        if (!isAlive) {
+            Die();
+        }
+    }
+
+    void Die(){
+        Destroy(gameObject);
     }
 
     public Stats GetCurrentStats(){
