@@ -351,7 +351,7 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 208551986}
-  m_Enabled: 1
+  m_Enabled: 0
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: c6e724c0088c9e64c921c18359ed14d5, type: 3}
   m_Name: 
@@ -659,7 +659,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 0, y: 0}
-  m_AnchoredPosition: {x: -14.09, y: 10.93}
+  m_AnchoredPosition: {x: -14.09, y: 13.35}
   m_SizeDelta: {x: 100.3552, y: 51.5818}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &623888026
@@ -1605,6 +1605,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   fighterName: Timber
   combatManager: {fileID: 612596494}
+  skillPanel: {fileID: 0}
 --- !u!1 &1129613909
 GameObject:
   m_ObjectHideFlags: 0
@@ -1650,7 +1651,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   skillName: Golpe
-  animationDuration: 5
+  animationDuration: 3
   selfInflicted: 0
   effectPrefab: {fileID: 3463157229188906966, guid: 47096eff328e11a418ace7db2d72aa97, type: 3}
   amount: -50
@@ -1665,13 +1666,13 @@ GameObject:
   m_Component:
   - component: {fileID: 1163869466}
   - component: {fileID: 1163869465}
-  - component: {fileID: 1163869464}
   - component: {fileID: 1163869463}
   - component: {fileID: 1163869462}
   - component: {fileID: 1163869467}
   - component: {fileID: 1163869468}
   - component: {fileID: 1163869469}
   - component: {fileID: 1163869470}
+  - component: {fileID: 1163869471}
   m_Layer: 0
   m_Name: Brier
   m_TagString: Untagged
@@ -1708,37 +1709,10 @@ BoxCollider:
   m_LayerOverridePriority: 0
   m_IsTrigger: 0
   m_ProvidesContacts: 0
-  m_Enabled: 1
+  m_Enabled: 0
   serializedVersion: 3
   m_Size: {x: 3, y: 7, z: 3}
   m_Center: {x: 0, y: 0, z: 0}
---- !u!54 &1163869464
-Rigidbody:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1163869461}
-  serializedVersion: 4
-  m_Mass: 1
-  m_Drag: 0
-  m_AngularDrag: 0.05
-  m_CenterOfMass: {x: 0, y: 0, z: 0}
-  m_InertiaTensor: {x: 1, y: 1, z: 1}
-  m_InertiaRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_IncludeLayers:
-    serializedVersion: 2
-    m_Bits: 0
-  m_ExcludeLayers:
-    serializedVersion: 2
-    m_Bits: 0
-  m_ImplicitCom: 0
-  m_ImplicitTensor: 0
-  m_UseGravity: 1
-  m_IsKinematic: 0
-  m_Interpolate: 0
-  m_Constraints: 0
-  m_CollisionDetection: 0
 --- !u!212 &1163869465
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -1780,7 +1754,7 @@ SpriteRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
-  m_Sprite: {fileID: -444625271, guid: 004e0c80952111a46a55426c951fb950, type: 3}
+  m_Sprite: {fileID: 21300000, guid: 6d4b1888fe4efdc46a48c756f9535717, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
@@ -1800,8 +1774,8 @@ Transform:
   m_GameObject: {fileID: 1163869461}
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -14.6, y: 4.15, z: -16.8}
-  m_LocalScale: {x: 1.1716, y: 1.1716, z: 1.1716}
+  m_LocalPosition: {x: -14.6, y: 5.92, z: -16.8}
+  m_LocalScale: {x: 0.48813543, y: 0.48813543, z: 0.48813543}
   m_ConstrainProportionsScale: 1
   m_Children:
   - {fileID: 1014795235}
@@ -1815,7 +1789,7 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1163869461}
-  m_Enabled: 1
+  m_Enabled: 0
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: c6e724c0088c9e64c921c18359ed14d5, type: 3}
   m_Name: 
@@ -1829,7 +1803,7 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1163869461}
-  m_Enabled: 1
+  m_Enabled: 0
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 3506f94c02c12eb439a78efc9bf411be, type: 3}
   m_Name: 
@@ -1843,7 +1817,7 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1163869461}
-  m_Enabled: 1
+  m_Enabled: 0
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 62899f850307741f2a39c98a8b639597, type: 3}
   m_Name: 
@@ -1881,6 +1855,27 @@ MonoBehaviour:
   fighterName: Brier
   combatManager: {fileID: 612596494}
   skillPanel: {fileID: 623888026}
+--- !u!95 &1163869471
+Animator:
+  serializedVersion: 5
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1163869461}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: 456ecf2444e673f4aa0816942afec59a, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_StabilizeFeet: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorStateOnDisable: 0
+  m_WriteDefaultValuesOnDisable: 0
 --- !u!1 &1396400401
 GameObject:
   m_ObjectHideFlags: 0
@@ -2370,7 +2365,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!136 &2083146510
 CapsuleCollider:
   m_ObjectHideFlags: 0
