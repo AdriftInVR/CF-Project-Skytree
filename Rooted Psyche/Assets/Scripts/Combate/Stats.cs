@@ -27,4 +27,8 @@ public class Stats
         this.AttackMultiplier = AttackMultiplier;
         this.specialAttackMultiplier = specialAttackMultiplier;
     }
+
+    public Stats Clone (){
+        return new Stats(this.health, this.MaxHealth, this.attack, this.defense, this.speed, this.level, this.Mana, this.AttackMultiplier, this.specialAttackMultiplier);
+    }
 }

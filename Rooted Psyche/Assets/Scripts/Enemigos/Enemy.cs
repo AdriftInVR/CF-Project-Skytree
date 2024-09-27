@@ -10,6 +10,14 @@ public class Enemy : Fighter
     }
     public override void InitTurn()
     {
-        
+     StartCoroutine(this.IA());   
+    }
+
+    IEnumerator IA(){
+        yield return new WaitForSeconds(1.0f);
+        Skill skill = this.skills[Random.Range(0, this.skills.Length)];
+        skill.SetEmmiterAndReciver(this, this.combatManager.GetOppositeFighter());
+        this.combatManager.OnFighterSkill(skill);
+        Debug.Log("El enemigo hizo : " + skill.skillName);
     }
 }
