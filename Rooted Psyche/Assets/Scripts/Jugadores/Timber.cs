@@ -6,9 +6,11 @@ public class Timber : Fighter{
     [Header("UI")]
     public PlayerSkillPanel skillPanel;
     
+    private Animator animator; // Referencia al Animator
     void Awake()
     {
         this.stats = new Stats(100, 100, 10, 10, 50, 1, 10, 1.0f, 1.0f);
+        this.animator = GetComponent<Animator>(); // Obtén el Animator
     }
     public override void InitTurn(){
 
@@ -25,6 +27,9 @@ public class Timber : Fighter{
 
         skill.SetEmmiterAndReciver(this, this.combatManager.GetOppositeFighter());
 
+        // Llama a la animación de ataque
+        animator.SetTrigger("Attack");
+        
         this.combatManager.OnFighterSkill(skill);
 
         Debug.Log("Ejecutando habilidad: " + skill.skillName);
