@@ -4,21 +4,21 @@ using UnityEngine;
 using TMPro;
 using System;
 
-public class PlayerSkillPanel : MonoBehaviour
+public class PlayerActionPanel : MonoBehaviour
 {
-    public GameObject[] skillButtons;
-    public TMP_Text[] skillButtonLabels;
+    public GameObject[] actionButtons;
+    public TMP_Text[] actionButtonLabels;
 
     void Awake(){
         this.Hide();
-        foreach (var btn in this.skillButtons){
+        foreach (var btn in this.actionButtons){
             btn.SetActive (false);
         }
     }
 
-    public void ConfigureButtons(int index, string skillName){
-        this.skillButtons[index].SetActive(true);
-        this.skillButtonLabels[index].text = skillName;
+    public void ConfigureButtons(int index, string actionName){
+        this.actionButtons[index].SetActive(true);
+        this.actionButtonLabels[index].text = actionName;
     }
 
     public void Show (){

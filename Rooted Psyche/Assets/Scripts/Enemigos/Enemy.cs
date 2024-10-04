@@ -15,9 +15,9 @@ public class Enemy : Fighter
 
     IEnumerator IA(){
         yield return new WaitForSeconds(1.0f);
-        Skill skill = this.skills[Random.Range(0, this.skills.Length)];
-        skill.SetEmmiterAndReciver(this, this.combatManager.GetOppositeFighter());
-        this.combatManager.OnFighterSkill(skill);
-        Debug.Log("El enemigo hizo : " + skill.skillName);
+        Action action = this.actions[Random.Range(0, this.actions.Length)];
+        action.SetEmmiterAndReciver(this, this.combatManager.GetOppositeFighter());
+        this.combatManager.OnFighterAction(action);
+        Debug.Log("El enemigo hizo : " + action.actionName);
     }
 }

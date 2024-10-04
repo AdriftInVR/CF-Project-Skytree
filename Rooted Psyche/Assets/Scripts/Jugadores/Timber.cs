@@ -6,14 +6,14 @@ using System;
 
 public class Timber: Fighter{
     [Header("UI")]
-    public PlayerSkillPanel skillPanel;
+    public PlayerActionPanel actionPanel;
     public TextMeshProUGUI healthText;
     
     private Animator animator; // Referencia al Animator
 
     void Awake()
     {
-        this.stats = new Stats(100, 100, 10, 10, 50, 1, 10, 1.0f, 1.0f);
+        this.stats = new Stats(1000, 1000, 10, 10, 50, 1, 10, 1.0f, 1.0f);
         this.animator = GetComponent<Animator>(); // Obtén el Animator
         UpdateHealthUI(); // Inicializa la UI de vida con los valores actuales
     }
@@ -24,25 +24,25 @@ public class Timber: Fighter{
 
     public override void InitTurn(){
 
-        this.skillPanel.Show();
-        for (int i = 0; i < this.skills.Length; i++){
-            this.skillPanel.ConfigureButtons(i, this.skills[i].skillName);
+        this.actionPanel.Show();
+        for (int i = 0; i < this.actions.Length; i++){
+            this.actionPanel.ConfigureButtons(i, this.actions[i].actionName);
         }
     }
 
-    public void ExecuteSkill(int index){
-        this.skillPanel.Hide();
-        Skill skill = this.skills[index];
+    public void ExecuteAction(int index){
+        this.actionPanel.Hide();
+        Action action = this.actions[index];
 
-        skill.SetEmmiterAndReciver(this, this.combatManager.GetOppositeFighter());
+        action.SetEmmiterAndReciver(this, this.combatManager.GetOppositeFighter());
 
         // Llama a la animación de ataque
         animator.SetTrigger("Attack");
 
         // Después de ejecutar la animación, realiza la habilidad
-        this.combatManager.OnFighterSkill(skill);
+        this.combatManager.OnFighterAction(action);
 
-        Debug.Log("Ejecutando habilidad: " + skill.skillName);
+        Debug.Log("Ejecutando habilidad: " + action.actionName);
     }
     // Actualiza la interfaz cuando la vida cambie
     public new void ModifyHealth(int amount) {

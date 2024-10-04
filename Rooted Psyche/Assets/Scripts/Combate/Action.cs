@@ -2,10 +2,10 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public abstract class Skill : MonoBehaviour
+public abstract class Action : MonoBehaviour
 {
-    [Header("Base Skill")]
-    public string skillName;
+    [Header("Base Action")]
+    public string actionName;
     public float animationDuration;
 
     public bool selfInflicted;

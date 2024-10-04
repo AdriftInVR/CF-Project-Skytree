@@ -16,7 +16,7 @@ public class CombatManager : MonoBehaviour{
     private int turno = 1; // Variable para depuración no hace nada en el estado del juego
     private bool isCombatActive = false;
     private CombatStatus combatStatus;
-    private Skill currentFigtherSkill;
+    private Action currentFigtherAction;
 
     void Start(){
 
@@ -27,7 +27,9 @@ public class CombatManager : MonoBehaviour{
         {
             fighter.combatManager = this;
         }
+        // Establece el estado del combate
         this.combatStatus = CombatStatus.NEXT_TURN;
+        // Asigna el turno al primer peleador basado en la velocidad
         SortFightersBySpeed(); 
         this.currentFighterIndex = -1;
         this.isCombatActive = true;
@@ -67,13 +69,13 @@ void SortFightersBySpeed(){
                     yield return null;
 
                     // Ejecutar la habilidad del personaje
-                    currentFigtherSkill.Run();
+                    currentFigtherAction.Run();
 
                     // Espera la animación del personaje
-                    yield return new WaitForSeconds(currentFigtherSkill.animationDuration);
+                    yield return new WaitForSeconds(currentFigtherAction.animationDuration);
                     this.combatStatus = CombatStatus.CHECK_FOR_VICTORY;
 
-                    currentFigtherSkill = null;
+                    currentFigtherAction = null;
                     break;
 
                 case CombatStatus.CHECK_FOR_VICTORY:
@@ -120,9 +122,11 @@ void SortFightersBySpeed(){
                     break;
 
             }
-            // this.EndTurn(); // Puedes implementar la lógica para terminar el turno aquí
+            
         }
     }
+
+    // Método para obtener el peleador opuesto al actual en el turno - IA
     public Fighter GetOppositeFighter(){
         if (this.currentFighterIndex == 0){
             return this.fighters[1];
@@ -131,8 +135,8 @@ void SortFightersBySpeed(){
         }
     }
 
-    public void OnFighterSkill(Skill skill){
-        this.currentFigtherSkill = skill;
+    public void OnFighterAction(Action action){
+        this.currentFigtherAction = action;
         this.combatStatus = CombatStatus.FIGTHER_ACTION;
     }
 }

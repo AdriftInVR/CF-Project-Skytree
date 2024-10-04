@@ -8,7 +8,7 @@ public abstract class Fighter : MonoBehaviour{
     public CombatManager combatManager;
     public Stats stats;
 
-    protected Skill[] skills;
+    protected Action[] actions;
 
     public bool isAlive{
         get => this.stats.health > 0;
@@ -18,7 +18,7 @@ public abstract class Fighter : MonoBehaviour{
    // Estadisticas iniciales de los personajes en el UI de los jugadores
     protected virtual void Start(){
         //this.statusPanel.SetStats(this.stats);
-        this.skills = this.GetComponentsInChildren<Skill>();
+        this.actions = this.GetComponentsInChildren<Action>();
     }
 
     public void ModifyHealth(int amount){

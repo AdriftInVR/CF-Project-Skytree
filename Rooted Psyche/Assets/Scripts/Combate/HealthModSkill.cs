@@ -5,7 +5,7 @@ using UnityEngine;
 public enum HealthModType{
     STAT_BASED, FIXED
 }
-public class HealthModSkill : Skill
+public class HealthModAction : Action
 {
     [Header("Health Mod")]
 
@@ -20,6 +20,7 @@ public class HealthModSkill : Skill
     public int GetModification(){
         switch (this.modType){
             case HealthModType.STAT_BASED:
+            // En caso de que el ataque sea basado en stats se obtienen los stats actuales del emisor y receptor
             Stats emitterStats = this.emitter.GetCurrentStats();
             Stats receiverStats = this.reciver.GetCurrentStats();
             //Formula de daño basado en stats
@@ -28,6 +29,6 @@ public class HealthModSkill : Skill
             case HealthModType.FIXED:
                 return this.amount;
         }
-        throw new System.InvalidOperationException("HelthModSkill::GetDamage(). Unrecheable!");
+        throw new System.InvalidOperationException("HelthModAction::GetDamage(). Unrecheable!");
     }
 }
