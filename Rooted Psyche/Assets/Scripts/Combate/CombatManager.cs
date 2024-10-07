@@ -18,6 +18,10 @@ public class CombatManager : MonoBehaviour{
     private CombatStatus combatStatus;
     private Action currentFigtherAction;
 
+    public int EnemySelect, PlayerSelect;
+
+    public GameObject enemies, players;
+
     void Start(){
 
         Debug.Log("El combate ha iniciado");
