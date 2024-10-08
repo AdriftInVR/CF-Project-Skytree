@@ -34,16 +34,16 @@ public class Timber: Fighter{
         this.actionPanel.Hide();
         Action action = this.actions[index];
 
-        action.SetEmmiterAndReciver(this, this.combatManager.GetOppositeFighter());
+        this.combatManager.PlayerTurn(this, action);
+
+        // Después de ejecutar la animación, realiza la habilidad
+        //this.combatManager.OnFighterAction(action);
 
         // Llama a la animación de ataque
         animator.SetTrigger("Attack");
 
-        // Después de ejecutar la animación, realiza la habilidad
-        this.combatManager.OnFighterAction(action);
-
-        Debug.Log("Ejecutando habilidad: " + action.actionName);
     }
+
     // Actualiza la interfaz cuando la vida cambie
     public new void ModifyHealth(int amount) {
         base.ModifyHealth(amount);

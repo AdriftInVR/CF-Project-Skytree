@@ -2,7 +2,13 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
+    public enum Team {
+        Player,
+        Enemy
+    }
 public abstract class Fighter : MonoBehaviour{
+
+    public Team team;
     
     public string fighterName;
     public CombatManager combatManager;
@@ -13,6 +19,8 @@ public abstract class Fighter : MonoBehaviour{
     public bool isAlive{
         get => this.stats.health > 0;
     }
+
+
     
 
    // Estadisticas iniciales de los personajes en el UI de los jugadores
