@@ -2127,6 +2127,37 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
+--- !u!1 &995281021
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 995281022}
+  m_Layer: 0
+  m_Name: GameObject
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &995281022
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 995281021}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 5.9453096, y: 20.668455, z: -37.203724}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &997163192
 GameObject:
   m_ObjectHideFlags: 0
@@ -2734,12 +2765,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6bb6b67b60a742e4d8859fb821b52855, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  actionName: Golpe a
-  animationDuration: 2
-  selfInflicted: 0
-  effectPrefab: {fileID: 7728366230342544413, guid: 212ef1a41838ce044a9ac54994866708, type: 3}
-  amount: -50
-  modType: 0
+  actionName: Curacion
+  animationDuration: 3
+  selfInflicted: 1
+  effectPrefab: {fileID: 7802979462468201273, guid: bddb971e34eb14d48be30c7b922eb077, type: 3}
+  amount: 100
+  modType: 1
 --- !u!1 &1578642387
 GameObject:
   m_ObjectHideFlags: 0
@@ -3216,7 +3247,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!4 &1779885500
 Transform:
   m_ObjectHideFlags: 0
@@ -3244,12 +3275,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6bb6b67b60a742e4d8859fb821b52855, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  actionName: Golpe a
-  animationDuration: 2
-  selfInflicted: 0
-  effectPrefab: {fileID: 7728366230342544413, guid: 212ef1a41838ce044a9ac54994866708, type: 3}
-  amount: -50
-  modType: 0
+  actionName: Curacion
+  animationDuration: 3
+  selfInflicted: 1
+  effectPrefab: {fileID: 7802979462468201273, guid: bddb971e34eb14d48be30c7b922eb077, type: 3}
+  amount: 100
+  modType: 1
 --- !u!1 &1786581651
 GameObject:
   m_ObjectHideFlags: 0
@@ -3659,7 +3690,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &2094643318
 Transform:
   m_ObjectHideFlags: 0
@@ -3836,3 +3867,4 @@ SceneRoots:
   - {fileID: 612596495}
   - {fileID: 2061364890}
   - {fileID: 730277865}
+  - {fileID: 995281022}

@@ -181,7 +181,8 @@ IEnumerator HandleTargetSelection(Fighter player, Action action, Fighter[] enemi
             MoveArrowToTarget(enemies[selectedEnemyIndex]);
         } else if (Input.GetKeyDown(KeyCode.Return)) {  // Seleccionar con Enter
             action.SetEmmiterAndReciver(player, enemies[selectedEnemyIndex]);
-            player.GetComponent<Animator>().SetTrigger("Attack");
+           // player.GetComponent<Animator>().SetTrigger("Attack");
+            player.GetComponent<Animator>().SetTrigger("Heal");
             OnFighterAction(action);
 
             // Destruir la flecha al confirmar la selección

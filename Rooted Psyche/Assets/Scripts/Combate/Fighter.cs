@@ -25,7 +25,6 @@ public abstract class Fighter : MonoBehaviour{
 
    // Estadisticas iniciales de los personajes en el UI de los jugadores
     protected virtual void Start(){
-        //this.statusPanel.SetStats(this.stats);
         this.actions = this.GetComponentsInChildren<Action>();
     }
 
