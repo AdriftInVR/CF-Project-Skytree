@@ -37,8 +37,7 @@ public class Brier : Fighter {
         // Iniciar el proceso de selección de objetivo, delegando al CombatManager
         this.combatManager.PlayerTurn(this, action);
 
-        // Llama a la animación de ataque (la animación puede empezar luego de seleccionar el objetivo)
-        animator.SetTrigger("Attack");
+        //animator.SetTrigger("esto lo cambiamos por la animacion de pensar- solo agregas el trigger en el animator");
     }
 
     public new void ModifyHealth(int amount) {

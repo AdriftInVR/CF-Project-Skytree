@@ -24,6 +24,10 @@ public class CombatManager : MonoBehaviour{
 
     public GameObject enemies, players;
 
+    public GameObject targetArrowPrefab; // Prefab de la flecha para indicar el objetivo
+    private GameObject currentTargetArrow; // Instancia de la flecha
+
+
     void Start(){
 
         Debug.Log("El combate ha iniciado");
@@ -100,19 +104,20 @@ void SortFightersBySpeed(){
 
                     break;
                 case CombatStatus.NEXT_TURN:
+                yield return new WaitForSeconds(1f);
 
-                    yield return new WaitForSeconds(1f);
+                // Buscar al siguiente peleador vivo
+                do {
                     this.currentFighterIndex = (this.currentFighterIndex + 1) % this.fighters.Length;
+                } while (!this.fighters[this.currentFighterIndex].isAlive);
 
-                    var currentTurn = this.fighters[this.currentFighterIndex];
+                var currentTurn = this.fighters[this.currentFighterIndex];
+                Debug.Log("El turno es de " + currentTurn.fighterName + " en el turno " + turno);
+                turno++; // No hace nada fin de depuración
+                currentTurn.InitTurn();
 
-                    if (currentTurn.isAlive) {
-                        Debug.Log("El turno es de " + currentTurn.fighterName + "En el turno " + turno);
-                         turno++;
-                        currentTurn.InitTurn();
-                    }
-                    this.combatStatus = CombatStatus.WAITING_FOR_FIGHTER;
-                    break;
+                this.combatStatus = CombatStatus.WAITING_FOR_FIGHTER;
+                break;
 
             }
             
@@ -153,26 +158,50 @@ public bool IsTeamDefeated(Team team) {
     return true; // Si todos los miembros están muertos, el equipo está derrotado
 }
 
-    IEnumerator HandleTargetSelection(Fighter player, Action action, Fighter[] enemies) {
-        selectedEnemyIndex = 0;  // Inicia en el primer enemigo
-        HighlightTarget(enemies[selectedEnemyIndex]);  // Resalta el objetivo seleccionado
+IEnumerator HandleTargetSelection(Fighter player, Action action, Fighter[] enemies) {
+    selectedEnemyIndex = 0;  // Inicia en el primer enemigo
+    HighlightTarget(enemies[selectedEnemyIndex]);  // Resalta el primer objetivo seleccionado
 
-        while (true) {
-            if (Input.GetKeyDown(KeyCode.UpArrow)) {
-                selectedEnemyIndex = (selectedEnemyIndex - 1 + enemies.Length) % enemies.Length;  // Mover hacia arriba
-                HighlightTarget(enemies[selectedEnemyIndex]);
-            } else if (Input.GetKeyDown(KeyCode.DownArrow)) {
-                selectedEnemyIndex = (selectedEnemyIndex + 1) % enemies.Length;  // Mover hacia abajo
-                HighlightTarget(enemies[selectedEnemyIndex]);
-            } else if (Input.GetKeyDown(KeyCode.Return)) {  // Seleccionar con Enter
-                action.SetEmmiterAndReciver(player, enemies[selectedEnemyIndex]);
-                OnFighterAction(action);
-                break;
-            }
+    // Instanciar la flecha sobre el enemigo seleccionado
+    if (currentTargetArrow == null) {
+        currentTargetArrow = Instantiate(targetArrowPrefab);
+    }
 
-            yield return null;
+    // Posicionar la flecha sobre el enemigo seleccionado
+    MoveArrowToTarget(enemies[selectedEnemyIndex]);
+
+    while (true) {
+        if (Input.GetKeyDown(KeyCode.UpArrow)) {
+            selectedEnemyIndex = (selectedEnemyIndex - 1 + enemies.Length) % enemies.Length;  // Mover hacia arriba
+            HighlightTarget(enemies[selectedEnemyIndex]);
+            MoveArrowToTarget(enemies[selectedEnemyIndex]);
+        } else if (Input.GetKeyDown(KeyCode.DownArrow)) {
+            selectedEnemyIndex = (selectedEnemyIndex + 1) % enemies.Length;  // Mover hacia abajo
+            HighlightTarget(enemies[selectedEnemyIndex]);
+            MoveArrowToTarget(enemies[selectedEnemyIndex]);
+        } else if (Input.GetKeyDown(KeyCode.Return)) {  // Seleccionar con Enter
+            action.SetEmmiterAndReciver(player, enemies[selectedEnemyIndex]);
+            player.GetComponent<Animator>().SetTrigger("Attack");
+            OnFighterAction(action);
+
+            // Destruir la flecha al confirmar la selección
+            Destroy(currentTargetArrow);
+            currentTargetArrow = null;
+            break;
+        }
+
+        yield return null;
+    }
+}
+
+    void MoveArrowToTarget(Fighter target) {
+        if (currentTargetArrow != null) {
+        // Actualiza la posición de la flecha para que siga al enemigo
+        currentTargetArrow.transform.position = target.transform.position + new Vector3(0, 6.0f, 0); // Ajusta el valor '2.0f' para elevar la flecha sobre el enemigo
         }
     }
+
+
 
     // Método para resaltar el objetivo actual (puedes personalizar el resaltado)
     void HighlightTarget(Fighter target) {

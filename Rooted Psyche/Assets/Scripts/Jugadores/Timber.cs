@@ -35,13 +35,8 @@ public class Timber: Fighter{
         Action action = this.actions[index];
 
         this.combatManager.PlayerTurn(this, action);
-
-        // Después de ejecutar la animación, realiza la habilidad
-        //this.combatManager.OnFighterAction(action);
-
-        // Llama a la animación de ataque
-        animator.SetTrigger("Attack");
-
+        
+         //animator.SetTrigger("esto lo cambiamos por la animacion de pensar- solo agregas el trigger en el animator");
     }
 
     // Actualiza la interfaz cuando la vida cambie

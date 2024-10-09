@@ -4,6 +4,7 @@ using UnityEngine;
 
 public class Enemy : Fighter
 {
+    public bool type;
     void Awake()
     {
         this.stats = new Stats(100, 100, 10, 10, 5, 1, 10, 1.0f, 1.0f);
@@ -11,6 +12,7 @@ public class Enemy : Fighter
     public override void InitTurn()
     {
      StartCoroutine(this.IA());   
+     StartCoroutine(AnimAttack());
     }
 
     IEnumerator IA(){
@@ -20,4 +22,12 @@ public class Enemy : Fighter
         this.combatManager.OnFighterAction(action);
         Debug.Log("El enemigo hizo : " + action.actionName);
     }
+    IEnumerator AnimAttack(){
+        float mov = 0.9f;
+        if (!type) mov *= -4;
+        transform.position = new Vector3(transform.position.x + mov, transform.position.y, transform.position.z);
+        yield return new WaitForSeconds(0.2f);
+        transform.position = new Vector3(transform.position.x - mov, transform.position.y, transform.position.z);
+    }
+    
 }
