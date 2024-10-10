@@ -8,29 +8,35 @@ public abstract class Action : MonoBehaviour
     public string actionName;
     public float animationDuration;
 
-    public bool selfInflicted;
+    public bool isTeamAction; // Cambiado de selfInflicted a isTeamAction
 
+    public bool selfInflicted;
     public GameObject effectPrefab;
 
     protected Fighter emitter;
-    protected Fighter reciver;
+    protected Fighter receiver;
 
     private void Animate(){
-        var go = Instantiate(this.effectPrefab, this.reciver.transform.position, Quaternion.identity);
+        var go = Instantiate(this.effectPrefab, this.receiver.transform.position, Quaternion.identity);
         Destroy(go, this.animationDuration);
     }
 
     public void Run(){
+        if (this.isTeamAction){
+            // Si es una acción de equipo, puedes aplicarla a aliados o a ti mismo
+            this.receiver = this.receiver ?? this.emitter; // Si no hay receptor asignado, usar el emisor
+        }
         if (this.selfInflicted){
-            this.reciver = this.emitter;
+            this.receiver = this.emitter;
         }
         this.Animate();
         this.OnRun();
     }
 
-    public void SetEmmiterAndReciver(Fighter _emitter, Fighter _reciver){
+    public void SetEmmiterAndReceiver(Fighter _emitter, Fighter _receiver){
         this.emitter = _emitter;
-        this.reciver = _reciver;
+        this.receiver = _receiver;
     }
+
     protected abstract void OnRun();
 }

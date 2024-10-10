@@ -18,10 +18,12 @@ public class Enemy : Fighter
     IEnumerator IA(){
         yield return new WaitForSeconds(1.0f);
         Action action = this.actions[Random.Range(0, this.actions.Length)];
-        action.SetEmmiterAndReciver(this, this.combatManager.GetOppositeFighter());
+        action.SetEmmiterAndReceiver(this, this.combatManager.GetOppositeFighter());
         this.combatManager.OnFighterAction(action);
         Debug.Log("El enemigo hizo : " + action.actionName);
     }
+
+    //Animacion de ataque del  enemigo 
     IEnumerator AnimAttack(){
         float mov = 0.9f;
         if (!type) mov *= -4;

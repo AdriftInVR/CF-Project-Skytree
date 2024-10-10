@@ -138,7 +138,7 @@ void SortFightersBySpeed(){
         this.currentFigtherAction = action;
         this.combatStatus = CombatStatus.FIGTHER_ACTION;
     }
-
+/*
     public void PlayerTurn(Fighter player, Action action) {
         
         var enemies = System.Array.FindAll(this.fighters, f => f.team == Team.Enemy && f.isAlive);
@@ -146,7 +146,7 @@ void SortFightersBySpeed(){
         if (enemies.Length == 0) return;  // Si no hay enemigos vivos, no hacer nada
 
         StartCoroutine(HandleTargetSelection(player, action, enemies));
-    }
+    }*/
 
 public bool IsTeamDefeated(Team team) {
     // Busca en todos los peleadores y verifica si algún miembro del equipo sigue vivo
@@ -158,6 +158,7 @@ public bool IsTeamDefeated(Team team) {
     return true; // Si todos los miembros están muertos, el equipo está derrotado
 }
 
+    // Método para seleccionar un objetivo enemigo con las teclas de flecha y Enter
 IEnumerator HandleTargetSelection(Fighter player, Action action, Fighter[] enemies) {
     selectedEnemyIndex = 0;  // Inicia en el primer enemigo
     HighlightTarget(enemies[selectedEnemyIndex]);  // Resalta el primer objetivo seleccionado
@@ -180,9 +181,17 @@ IEnumerator HandleTargetSelection(Fighter player, Action action, Fighter[] enemi
             HighlightTarget(enemies[selectedEnemyIndex]);
             MoveArrowToTarget(enemies[selectedEnemyIndex]);
         } else if (Input.GetKeyDown(KeyCode.Return)) {  // Seleccionar con Enter
-            action.SetEmmiterAndReciver(player, enemies[selectedEnemyIndex]);
-           // player.GetComponent<Animator>().SetTrigger("Attack");
-            player.GetComponent<Animator>().SetTrigger("Heal");
+            action.SetEmmiterAndReceiver(player, enemies[selectedEnemyIndex]);
+
+            // Añadir lógica para activar las animaciones correctas según el tipo de acción
+            if (action.isTeamAction) {
+                // Si es una acción de equipo (curación), activar la animación de curación
+                player.GetComponent<Animator>().SetTrigger("Heal");
+            } else {
+                // Si es una acción de ataque, activar la animación de ataque
+                player.GetComponent<Animator>().SetTrigger("Attack");
+            }
+
             OnFighterAction(action);
 
             // Destruir la flecha al confirmar la selección
@@ -195,10 +204,29 @@ IEnumerator HandleTargetSelection(Fighter player, Action action, Fighter[] enemi
     }
 }
 
+// Actualizar el método para decidir los objetivos
+public void PlayerTurn(Fighter player, Action action) {
+    Fighter[] possibleTargets;
+    
+    if (action.isTeamAction) {
+        // Si es una acción de equipo, permite seleccionar entre aliados
+        possibleTargets = System.Array.FindAll(this.fighters, f => f.team == player.team && f.isAlive);
+    } else {
+        // Si es una acción normal, seleccionar enemigos
+        possibleTargets = System.Array.FindAll(this.fighters, f => f.team != player.team && f.isAlive);
+    }
+
+    if (possibleTargets.Length == 0) return;  // Si no hay objetivos vivos, no hacer nada
+
+    StartCoroutine(HandleTargetSelection(player, action, possibleTargets));
+}
+
+
+
     void MoveArrowToTarget(Fighter target) {
         if (currentTargetArrow != null) {
         // Actualiza la posición de la flecha para que siga al enemigo
-        currentTargetArrow.transform.position = target.transform.position + new Vector3(0, 6.0f, 0); // Ajusta el valor '2.0f' para elevar la flecha sobre el enemigo
+        currentTargetArrow.transform.position = target.transform.position + new Vector3(-3f, 6.5f, 0); // Ajusta el valor '2.0f' para elevar la flecha sobre el enemigo
         }
     }
 

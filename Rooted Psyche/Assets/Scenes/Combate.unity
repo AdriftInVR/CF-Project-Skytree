@@ -240,7 +240,7 @@ GameObject:
   - component: {fileID: 101056677}
   - component: {fileID: 101056678}
   m_Layer: 0
-  m_Name: Embestida_skill (1)
+  m_Name: Ataque2
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -275,6 +275,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   actionName: a2
   animationDuration: 2
+  isTeamAction: 0
   selfInflicted: 0
   effectPrefab: {fileID: 3463157229188906966, guid: 47096eff328e11a418ace7db2d72aa97, type: 3}
   amount: -30
@@ -290,7 +291,7 @@ GameObject:
   - component: {fileID: 107403433}
   - component: {fileID: 107403434}
   m_Layer: 0
-  m_Name: Embestida_skill (2)
+  m_Name: Ataque3
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -325,6 +326,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   actionName: a3
   animationDuration: 2
+  isTeamAction: 1
   selfInflicted: 0
   effectPrefab: {fileID: 3463157229188906966, guid: 47096eff328e11a418ace7db2d72aa97, type: 3}
   amount: -30
@@ -391,7 +393,7 @@ SpriteRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_Sprite: {fileID: 21300000, guid: 3ddc9bfaf70695b43ad7aaa6b8eebec5, type: 3}
-  m_Color: {r: 0.427451, g: 0.427451, b: 0.427451, a: 1}
+  m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
   m_DrawMode: 0
@@ -506,6 +508,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   actionName: Golpe a
   animationDuration: 2
+  isTeamAction: 0
   selfInflicted: 0
   effectPrefab: {fileID: 7728366230342544413, guid: 212ef1a41838ce044a9ac54994866708, type: 3}
   amount: -50
@@ -521,7 +524,7 @@ GameObject:
   - component: {fileID: 284901812}
   - component: {fileID: 284901813}
   m_Layer: 0
-  m_Name: Embestida_skill
+  m_Name: Ataque1
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -556,6 +559,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   actionName: Embestida
   animationDuration: 2
+  isTeamAction: 0
   selfInflicted: 0
   effectPrefab: {fileID: 3463157229188906966, guid: 47096eff328e11a418ace7db2d72aa97, type: 3}
   amount: -30
@@ -724,6 +728,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   actionName: Golpe a
   animationDuration: 2
+  isTeamAction: 0
   selfInflicted: 0
   effectPrefab: {fileID: 7728366230342544413, guid: 212ef1a41838ce044a9ac54994866708, type: 3}
   amount: -50
@@ -1139,7 +1144,7 @@ MonoBehaviour:
   PlayerSelect: 0
   enemies: {fileID: 641011875}
   players: {fileID: 1060549687}
-  targetArrowPrefab: {fileID: 5510775513875915677, guid: 9a2707941c2d17b44be5e25f6047ce18, type: 3}
+  targetArrowPrefab: {fileID: 695949141237208257, guid: 9a3fbaeee693eb144927bc61a9398d42, type: 3}
 --- !u!4 &612596495
 Transform:
   m_ObjectHideFlags: 0
@@ -1708,6 +1713,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   actionName: b
   animationDuration: 2
+  isTeamAction: 0
   selfInflicted: 0
   effectPrefab: {fileID: 3463157229188906966, guid: 47096eff328e11a418ace7db2d72aa97, type: 3}
   amount: -35
@@ -1758,6 +1764,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   actionName: "Morida \xD1Am"
   animationDuration: 2
+  isTeamAction: 0
   selfInflicted: 0
   effectPrefab: {fileID: 7728366230342544413, guid: 212ef1a41838ce044a9ac54994866708, type: 3}
   amount: -35
@@ -1808,6 +1815,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   actionName: Golpe a
   animationDuration: 2
+  isTeamAction: 0
   selfInflicted: 0
   effectPrefab: {fileID: 7728366230342544413, guid: 212ef1a41838ce044a9ac54994866708, type: 3}
   amount: -20
@@ -2503,6 +2511,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   actionName: Te pego uy
   animationDuration: 2
+  isTeamAction: 0
   selfInflicted: 0
   effectPrefab: {fileID: 3463157229188906966, guid: 47096eff328e11a418ace7db2d72aa97, type: 3}
   amount: -35
@@ -2767,7 +2776,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   actionName: Curacion
   animationDuration: 3
-  selfInflicted: 1
+  isTeamAction: 0
+  selfInflicted: 0
   effectPrefab: {fileID: 7802979462468201273, guid: bddb971e34eb14d48be30c7b922eb077, type: 3}
   amount: 100
   modType: 1
@@ -3277,7 +3287,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   actionName: Curacion
   animationDuration: 3
-  selfInflicted: 1
+  isTeamAction: 1
+  selfInflicted: 0
   effectPrefab: {fileID: 7802979462468201273, guid: bddb971e34eb14d48be30c7b922eb077, type: 3}
   amount: 100
   modType: 1
@@ -3327,6 +3338,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   actionName: A
   animationDuration: 2
+  isTeamAction: 0
   selfInflicted: 0
   effectPrefab: {fileID: 3463157229188906966, guid: 47096eff328e11a418ace7db2d72aa97, type: 3}
   amount: -35
@@ -3495,6 +3507,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   actionName: Curacion
   animationDuration: 2
+  isTeamAction: 0
   selfInflicted: 1
   effectPrefab: {fileID: 7802979462468201273, guid: bddb971e34eb14d48be30c7b922eb077, type: 3}
   amount: 50
@@ -3720,6 +3733,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   actionName: golpe
   animationDuration: 2
+  isTeamAction: 0
   selfInflicted: 0
   effectPrefab: {fileID: 7728366230342544413, guid: 212ef1a41838ce044a9ac54994866708, type: 3}
   amount: 100
@@ -3786,7 +3800,7 @@ SpriteRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_Sprite: {fileID: 21300000, guid: a4f2ca9a372fc8d409a8acfc9fe71b44, type: 3}
-  m_Color: {r: 0.6886792, g: 0.65666354, b: 0.25663045, a: 1}
+  m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
   m_DrawMode: 0

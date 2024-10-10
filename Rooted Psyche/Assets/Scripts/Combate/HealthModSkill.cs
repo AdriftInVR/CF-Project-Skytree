@@ -14,7 +14,7 @@ public class HealthModAction : Action
 
     protected override void OnRun(){
         int amount = this.GetModification();
-        this.reciver.ModifyHealth(amount);
+        this.receiver.ModifyHealth(amount);
     }
 
     public int GetModification(){
@@ -22,7 +22,7 @@ public class HealthModAction : Action
             case HealthModType.STAT_BASED:
             // En caso de que el ataque sea basado en stats se obtienen los stats actuales del emisor y receptor
             Stats emitterStats = this.emitter.GetCurrentStats();
-            Stats receiverStats = this.reciver.GetCurrentStats();
+            Stats receiverStats = this.receiver.GetCurrentStats();
             //Formula de daño basado en stats
             float amount = (emitterStats.level * emitterStats.attack) / (receiverStats.level * receiverStats.defense) * emitterStats.AttackMultiplier * emitterStats.specialAttackMultiplier;
                 return Mathf.FloorToInt(this.amount);
