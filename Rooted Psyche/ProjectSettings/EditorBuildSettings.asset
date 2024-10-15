@@ -6,12 +6,12 @@ EditorBuildSettings:
   serializedVersion: 2
   m_Scenes:
   - enabled: 1
-    path: Assets/Menu/Scenes-Menu/MenuPrincipal.unity
+    path: Assets/Cuarto/Scenes1/MenuPrincipal.unity
     guid: 5eb3786b46e1dcb49a7a274ffd5b48ae
   - enabled: 1
-    path: Assets/Scenes/CuartoSkyler.unity
+    path: Assets/Cuarto/Scenes1/CuartoSkyler.unity
     guid: 3377a18f7e583465bbd77a5e82ca5b4b
   - enabled: 1
-    path: Assets/Menu/Scenes-Menu/Combate.unity
+    path: Assets/Combate/Scenes/Combate.unity
     guid: 99e33770929a88a4bb8a88523678fa7c
   m_configObjects: {}
