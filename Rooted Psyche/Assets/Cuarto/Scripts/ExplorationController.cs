@@ -8,6 +8,7 @@ public class ExplorationController : MonoBehaviour
     Rigidbody rb;
     public bool canJump = true;
 
+    
     [SerializeField]
     private Transform cam;
 
@@ -24,7 +25,7 @@ public class ExplorationController : MonoBehaviour
         SetMaxVelocity(spd);
     }
 
-   void FixedUpdate()
+    void FixedUpdate()
     {
         Vector2 direction2D = myInput.actions["Direction"].ReadValue<Vector2>();
         direction2D.Normalize();
@@ -62,18 +63,12 @@ public class ExplorationController : MonoBehaviour
         }
     }
 
-    private void OnJump()
-    {
-        if (canJump)
-        {
-            rb.velocity = new Vector3(rb.velocity.x, jumpSpd, rb.velocity.z);
+
+    private void OnJump(){
+        if(canJump){
+            rb.velocity = new Vector3(0,jumpSpd,0);
             canJump = false;
         }
-    }
-
-    void OnMove(InputValue value)
-    {
-        Vector2 moveInput = value.Get<Vector2>();
     }
 
     private void SetMaxVelocity(float maxVelocity)
@@ -83,10 +78,21 @@ public class ExplorationController : MonoBehaviour
     }
 
     private void OnCollisionEnter(Collision col) {
-        if(col.contacts[0].normal == Vector3.up)
+        
+        // Print how many points are colliding with this transform
+        Debug.Log("Points colliding: " + col.contacts.Length);
+
+        // Print the normal of the first point in the collision.
+        Debug.Log("Normal of the first point: " + col.contacts[0].normal);
+
+        // Draw a different colored ray for every normal in the collision
+        foreach (var item in col.contacts)
+        {
+            Debug.DrawRay(item.point, item.normal * 100, Random.ColorHSV(0f, 1f, 1f, 1f, 0.5f, 1f), 10f);
+        }
+        if(col.gameObject.tag == "Floor")
         {
             canJump = true;
         }
     }
-
 }

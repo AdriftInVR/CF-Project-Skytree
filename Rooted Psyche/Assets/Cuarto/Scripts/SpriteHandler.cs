@@ -2,15 +2,8 @@ using UnityEngine;
 
 public class SpriteHandler : MonoBehaviour
 {
-    private Camera mainCamera;
-
-    void Start()
-    {
-        mainCamera = Camera.main;
-    }
-
     void Update()
     {
-        transform.rotation = Quaternion.Euler(mainCamera.transform.rotation.eulerAngles.x, mainCamera.transform.rotation.eulerAngles.y, 0);
+        transform.rotation = Quaternion.Euler(Camera.main.transform.rotation.eulerAngles.x, Camera.main.transform.rotation.eulerAngles.y,transform.rotation.eulerAngles.z);
     }
 }
