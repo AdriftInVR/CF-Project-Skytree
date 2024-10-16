@@ -14,6 +14,7 @@ public class HealthModAction : Action
 
     protected override void OnRun(){
         int amount = this.GetModification();
+        Debug.Log("Amount " + amount);
         this.receiver.ModifyHealth(amount);
     }
 
