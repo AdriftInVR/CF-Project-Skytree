@@ -6,11 +6,14 @@ TagManager:
   tags:
   - Floor
   - Wall
+  - Sprite
+  - Enemy
+  - ActionCube
   layers:
   - Default
   - TransparentFX
   - Ignore Raycast
-  - Player
+  - Terrain
   - Water
   - UI
   - 

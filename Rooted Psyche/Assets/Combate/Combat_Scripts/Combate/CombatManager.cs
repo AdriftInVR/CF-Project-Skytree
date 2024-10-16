@@ -28,14 +28,14 @@ public class CombatManager : MonoBehaviour{
     public static bool playerLock;
     private CombatStatus combatStatus;
     private Action currentFigtherAction;
-    private Vector2 direction;
+    public static Vector2 direction;
     public int selectedEnemyIndex = 0;  // Índice del enemigo seleccionado
     public int EnemySelect, PlayerSelect;
     public GameObject[] targetArrows; // Prefab de la flecha para indicar el objetivo
     private GameObject currentTargetArrow; // Instancia de la flecha
     private PlayerInput myInput;
-    public static InputAction confirmButton;
-    private bool confirm {get; set;}
+    private static InputAction confirmButton;
+    public static bool confirm {get; private set;}
     public static string activeFighter;
     void Start(){
         // Busca a los peleadores en la escena
@@ -122,7 +122,6 @@ public class CombatManager : MonoBehaviour{
                     yield return null;
                     break;
                 case CombatStatus.NEXT_TURN:
-                    yield return new WaitForSeconds(2f);
 
                     // Buscar al siguiente peleador vivo
                     do {
@@ -135,6 +134,7 @@ public class CombatManager : MonoBehaviour{
                     currentTurn.InitTurn();
 
                     combatStatus = CombatStatus.WAITING_FOR_FIGHTER;
+                    yield return null;
                     break;
 
             }
@@ -200,7 +200,7 @@ public class CombatManager : MonoBehaviour{
         selectedEnemyIndex = 0;  // Inicia en el primer enemigo
         Vector3 arrowScale = new Vector3(0,0,0);
         selectedEnemyIndex = Mathf.Clamp(0, targets.Length-1, selectedEnemyIndex);
-if (targets[0].team == Team.Player)
+        if (targets[0].team == Team.Player)
         {
             arrowScale = new Vector3(7f,7f,7f);
             selectedEnemyIndex = lastPlayerIndex;
