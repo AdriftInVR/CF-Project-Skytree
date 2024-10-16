@@ -65,5 +65,6 @@ error.log
 Rooted Psyche/UserSettings/
 
 
+
 # Ignorar resultados de pruebas en modo Play en el editor
 [Oo]bj/Editor/PlayModeTestResults.xml
