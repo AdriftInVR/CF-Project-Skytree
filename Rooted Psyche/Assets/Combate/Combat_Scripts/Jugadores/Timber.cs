@@ -20,20 +20,24 @@ public class Timber: Fighter{
     }
 
     public override void InitTurn(){
-
         this.actionPanel.Show();
         for (int i = 0; i < this.actions.Length; i++){
             this.actionPanel.ConfigureButtons(i, this.actions[i].actionName);
         }
     }
 
-    public void ExecuteAction(int index){
+    public void Act(int index)
+    {
+        StartCoroutine(Action(index));
+    }
+
+    IEnumerator Action(int index){
         this.actionPanel.Hide();
         Action action = this.actions[index];
-
         this.combatManager.PlayerTurn(this, action);
+        yield return null;
         
-         //animator.SetTrigger("esto lo cambiamos por la animacion de pensar- solo agregas el trigger en el animator");
+        //animator.SetTrigger("esto lo cambiamos por la animacion de pensar- solo agregas el trigger en el animator");
     }
 
     // Actualiza la interfaz cuando la vida cambie
@@ -41,7 +45,6 @@ public class Timber: Fighter{
         base.ModifyHealth(amount);
         UpdateHealthUI(); // Actualiza la UI de vida
     }
-
 
     // Método para actualizar solo la vida en la interfaz
     void UpdateHealthUI() {

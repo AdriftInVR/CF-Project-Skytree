@@ -16,11 +16,11 @@ public abstract class Action : MonoBehaviour
     protected Fighter emitter;
     protected Fighter receiver;
 
-    private void Animate(){
+    private void VFX(){
         GameObject go = Instantiate(this.effectPrefab, this.receiver.transform.position, Quaternion.identity);
     }
 
-    public void Run(){
+    public IEnumerator Run(float Duration){
         if (this.isTeamAction){
             // Si es una acción de equipo, puedes aplicarla a aliados o a ti mismo
             this.receiver = this.receiver ?? this.emitter; // Si no hay receptor asignado, usar el emisor
@@ -28,8 +28,13 @@ public abstract class Action : MonoBehaviour
         if (this.selfInflicted){
             this.receiver = this.emitter;
         }
-        this.Animate();
+        // Espera la animación del personaje
+        yield return new WaitForSeconds(Duration);
+        this.VFX();
         this.OnRun();
+        yield return new WaitForSeconds(1f);
+        PlayerController.locked = false;
+        CombatManager.combatStatus = CombatStatus.CHECK_FOR_VICTORY;
     }
 
     public void SetEmmiterAndReceiver(Fighter _emitter, Fighter _receiver){

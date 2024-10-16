@@ -27,13 +27,17 @@ public class Brier : Fighter {
     }
 
     // Método llamado cuando se elige una acción
-    public void ExecuteAction(int index) {
+    public void Act(int index)
+    {
+        StartCoroutine(Action(index));
+    }
+
+    IEnumerator Action(int index){
         this.actionPanel.Hide();
         Action action = this.actions[index];
-
-        // Iniciar el proceso de selección de objetivo, delegando al CombatManager
         this.combatManager.PlayerTurn(this, action);
-
+        yield return null;
+        
         //animator.SetTrigger("esto lo cambiamos por la animacion de pensar- solo agregas el trigger en el animator");
     }
 

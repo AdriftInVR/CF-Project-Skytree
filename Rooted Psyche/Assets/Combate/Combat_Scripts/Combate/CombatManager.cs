@@ -26,7 +26,7 @@ public class CombatManager : MonoBehaviour{
     
     private bool selectorPositioned = true;
     public static bool playerLock;
-    private CombatStatus combatStatus;
+    public static CombatStatus combatStatus;
     private Action currentFigtherAction;
     public static Vector2 direction;
     public int selectedEnemyIndex = 0;  // Índice del enemigo seleccionado
@@ -36,7 +36,6 @@ public class CombatManager : MonoBehaviour{
     private PlayerInput myInput;
     private static InputAction confirmButton;
     public static bool confirm {get; private set;}
-    public static string activeFighter;
     void Start(){
         // Busca a los peleadores en la escena
         fighters = FindObjectsOfType<Fighter>();
@@ -57,22 +56,6 @@ public class CombatManager : MonoBehaviour{
 
     void FixedUpdate()
     {
-        //if not multiplayer
-        //{
-        switch(activeFighter)
-        {
-            case "Timber":
-                confirmButton = myInput.actions["Timber"];
-                index = 0;
-                break;
-            case "Brier":
-                confirmButton = myInput.actions["Brier"];
-                index = 1;
-                break;
-            default:
-                break;
-        }
-        //}
         confirm = confirmButton.WasPressedThisFrame();
     }
 
@@ -108,13 +91,9 @@ public class CombatManager : MonoBehaviour{
                     yield return null;
                 
                     // Ejecutar la habilidad del personaje
-                    currentFigtherAction.Run();
-
-                    // Espera la animación del personaje
-                    yield return new WaitForSeconds(currentFigtherAction.animationDuration);
-                    combatStatus = CombatStatus.CHECK_FOR_VICTORY;
-
+                    StartCoroutine(currentFigtherAction.Run(currentFigtherAction.animationDuration));
                     currentFigtherAction = null;
+                    combatStatus = CombatStatus.WAITING_FOR_FIGHTER;
                     break;
 
                 case CombatStatus.CHECK_FOR_VICTORY:
@@ -129,7 +108,7 @@ public class CombatManager : MonoBehaviour{
                     } while (!fighters[currentFighterIndex].isAlive);
 
                     var currentTurn = fighters[currentFighterIndex];
-                    Debug.Log("El turno es de " + currentTurn.fighterName + " en el turno " + turno);
+                    Debug.Log("El turno es de " + currentTurn.fighterName + " en el turno " + (int)(turno/fighters.Length+1));
                     turno++; // No hace nada fin de depuración
                     currentTurn.InitTurn();
 
@@ -197,6 +176,7 @@ public class CombatManager : MonoBehaviour{
 
     // Método para seleccionar un objetivo enemigo con las teclas de flecha y Enter
     IEnumerator HandleTargetSelection(Fighter player, Action action, Fighter[] targets) {
+        PlayerController.locked = true;
         selectedEnemyIndex = 0;  // Inicia en el primer enemigo
         Vector3 arrowScale = new Vector3(0,0,0);
         selectedEnemyIndex = Mathf.Clamp(0, targets.Length-1, selectedEnemyIndex);
@@ -268,7 +248,17 @@ public class CombatManager : MonoBehaviour{
 
     // Actualizar el método para decidir los objetivos
     public void PlayerTurn(Fighter player, Action action) {
-        activeFighter = player.fighterName;
+        confirmButton = myInput.actions[player.fighterName];
+        switch(player.fighterName)
+        {
+            default:
+            case "Timber":
+                index = 0;
+                break;
+            case "Brier":
+                index = 1;
+                break;
+        }
         Fighter[] possibleTargets;
         if (action.isTeamAction) {
             // Si es una acción de equipo, permite seleccionar entre aliados

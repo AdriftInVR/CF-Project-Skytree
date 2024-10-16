@@ -6,7 +6,7 @@ using UnityEngine;
 public class CubeHandler : MonoBehaviour
 {
     //TODO Add action functionality as a gameobject variable
-
+    public GameObject[] actionButtons;
     // Update is called once per frame
     void Update()
     {

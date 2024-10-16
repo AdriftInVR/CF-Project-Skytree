@@ -21,17 +21,10 @@ public class PlayerController : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if(playerName == "Brier") // TODO: add && multiplayer
-        {
-            actionButton = myInput.actions["Brier"];
-        }
-        else
-        {
-            actionButton = myInput.actions["Timber"];
-        }      
+        actionButton = myInput.actions[gameObject.name];    
         if(!locked)
         {
-            if(actionButton.WasPressedThisFrame() && canJump)
+            if(actionButton.WasPressedThisFrame() && canJump && !locked)
             {
                 rb.velocity = Vector3.up*50f;
                 canJump = false;
@@ -48,7 +41,8 @@ public class PlayerController : MonoBehaviour
     {
         if (other.gameObject.tag == "ActionCube")
         {
-            rb.velocity = Vector3.zero;
+            WheelSelection.lockRotation = true;
+            rb.velocity = -rb.velocity;
         }
     }
 }

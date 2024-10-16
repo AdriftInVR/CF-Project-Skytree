@@ -22,9 +22,6 @@ public abstract class Fighter : MonoBehaviour{
         get => this.stats.health > 0;
     }
 
-
-    
-
    // Estadisticas iniciales de los personajes en el UI de los jugadores
     protected virtual void Start(){
         this.actions = this.GetComponentsInChildren<Action>();
@@ -47,12 +44,11 @@ public abstract class Fighter : MonoBehaviour{
     }
 
     void Explode(){
-        Destroy(gameObject, 1.5f);
+        Destroy(gameObject);
     }
 
     public Stats GetCurrentStats(){
         return this.stats;
     }
     public abstract void InitTurn();
-
 }
