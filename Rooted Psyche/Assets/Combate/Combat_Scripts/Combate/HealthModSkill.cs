@@ -26,7 +26,7 @@ public class HealthModAction : Action
             Stats receiverStats = this.receiver.GetCurrentStats();
             //Formula de daño basado en stats
             float amount = (emitterStats.level * emitterStats.attack) / (receiverStats.level * receiverStats.defense) * emitterStats.AttackMultiplier * emitterStats.specialAttackMultiplier;
-                return Mathf.FloorToInt(this.amount);
+                return Mathf.FloorToInt(amount*-1);
             case HealthModType.FIXED:
                 return this.amount;
         }

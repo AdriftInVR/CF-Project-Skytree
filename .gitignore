@@ -63,6 +63,7 @@ error.log
 # Ignorar archivos de Unity Collaborate
 /[Uu]ser[Ss]ettings/
 Rooted Psyche/UserSettings/
+Rooted Psyche/UserSettings/EditorUserSettings.asset
 
 
 
