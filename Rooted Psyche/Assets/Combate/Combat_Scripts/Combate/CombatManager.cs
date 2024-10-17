@@ -148,7 +148,6 @@ public class CombatManager : MonoBehaviour{
         bool end = false;
         players = GameObject.FindGameObjectsWithTag("Player");
         enemies = GameObject.FindGameObjectsWithTag("Enemy");
-        Debug.Log(enemies.Length);
         if (players.Length == 0) {
             end = true;
             Debug.Log("El equipo del jugador ha sido derrotado.");
