@@ -1118,8 +1118,8 @@ MonoBehaviour:
   isTeamAction: 0
   selfInflicted: 0
   effectPrefab: {fileID: 7728366230342544413, guid: 212ef1a41838ce044a9ac54994866708, type: 3}
-  amount: -1
-  modType: 0
+  amount: -50
+  modType: 1
 --- !u!1 &830936401
 GameObject:
   m_ObjectHideFlags: 0
@@ -3109,7 +3109,11 @@ PrefabInstance:
       objectReference: {fileID: 612596494}
     - target: {fileID: 9069454449920927126, guid: 76bc5477ad8b359458243adf40512f3b, type: 3}
       propertyPath: amount
-      value: -1
+      value: -50
+      objectReference: {fileID: 0}
+    - target: {fileID: 9069454449920927126, guid: 76bc5477ad8b359458243adf40512f3b, type: 3}
+      propertyPath: modType
+      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -3126,7 +3130,7 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 1410544692464226402, guid: 57e3bfa2301fe384a827960786fe57e0, type: 3}
       propertyPath: amount
-      value: -1
+      value: -25
       objectReference: {fileID: 0}
     - target: {fileID: 3356628084068803888, guid: 57e3bfa2301fe384a827960786fe57e0, type: 3}
       propertyPath: m_LocalPosition.x
