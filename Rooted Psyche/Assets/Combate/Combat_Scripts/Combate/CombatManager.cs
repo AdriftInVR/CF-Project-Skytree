@@ -146,9 +146,17 @@ public class CombatManager : MonoBehaviour{
     void CheckWinLoss()
     {
         bool end = false;
-        players = GameObject.FindGameObjectsWithTag("Player");
+        bool allPlayersDefeated = true;
         enemies = GameObject.FindGameObjectsWithTag("Enemy");
-        if (players.Length == 0) {
+        // Filtrar los personajes del equipo del jugador que aún están vivos y verificar si todos están derrotados
+        foreach (var fighter in fighters)
+        {
+        if (fighter.team == Team.Player && fighter.isAlive)
+        {
+            allPlayersDefeated = false;
+                }
+        }
+        if (allPlayersDefeated) {
             end = true;
             Debug.Log("El equipo del jugador ha sido derrotado.");
         }
