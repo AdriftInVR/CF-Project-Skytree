@@ -9,6 +9,7 @@ public class Enemy : Fighter
     void Awake()
     {
         this.stats = new Stats(100, 100, 10, 10, 5, 1, 10, 1.0f, 1.0f);
+        // HP, MaxHP, Atk, Def, Spd, Lv, SP, Multiplier, ATKMult
     }
     public override void InitTurn()
     {

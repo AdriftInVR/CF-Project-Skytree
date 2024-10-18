@@ -14,6 +14,7 @@ public class Timber: Fighter{
     {
         _ActionWheel = ActionWheel;
         this.stats = new Stats(100, 100, 10, 10, 1, 1, 10, 1.0f, 1.0f);
+        // HP, MaxHP, Atk, Def, Spd, Lv, SP, Multiplier, ATKMult
         UpdateHealthUI(); // Inicializa la UI de vida con los valores actuales
     }
 
@@ -25,7 +26,7 @@ public class Timber: Fighter{
     {
         CombatManager.playerTurn = true;
         WheelSelection.lockedRotation = false;
-        Vector3 offset = this.transform.position + new Vector3(0f,17.31f,7.5f);
+        Vector3 offset = this.transform.position + new Vector3(0f,17.5f,7.5f);
         _ActionWheel = Instantiate(ActionWheel, offset, ActionWheel.transform.rotation);
     }
 

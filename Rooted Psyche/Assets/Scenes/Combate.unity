@@ -447,6 +447,7 @@ MonoBehaviour:
   team: 0
   fighterName: Brier
   combatManager: {fileID: 612596494}
+  _ActionWheel: {fileID: 0}
   anim: {fileID: 2120166101}
   actionPanel: {fileID: 565010046}
   healthText: {fileID: 1857975698}
@@ -1038,8 +1039,16 @@ PrefabInstance:
       value: HUD
       objectReference: {fileID: 0}
     - target: {fileID: 590469885686121784, guid: 19e70c8982f40ea48a72e3029784a2bc, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: -415.6
+      objectReference: {fileID: 0}
+    - target: {fileID: 590469885686121784, guid: 19e70c8982f40ea48a72e3029784a2bc, type: 3}
       propertyPath: m_LocalPosition.y
       value: -488
+      objectReference: {fileID: 0}
+    - target: {fileID: 2271215243527750741, guid: 19e70c8982f40ea48a72e3029784a2bc, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: -694
       objectReference: {fileID: 0}
     - target: {fileID: 2271215243527750741, guid: 19e70c8982f40ea48a72e3029784a2bc, type: 3}
       propertyPath: m_LocalPosition.y
@@ -1101,6 +1110,10 @@ PrefabInstance:
       propertyPath: m_hasFontAssetChanged
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 3531830399439429975, guid: 19e70c8982f40ea48a72e3029784a2bc, type: 3}
+      propertyPath: m_SortingOrder
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 4105393260384958001, guid: 19e70c8982f40ea48a72e3029784a2bc, type: 3}
       propertyPath: m_Enabled
       value: 0
@@ -1131,6 +1144,10 @@ PrefabInstance:
       objectReference: {fileID: -2803190767285496319, guid: 16b2a4bf0f5381440a680baa5901e510, type: 2}
     - target: {fileID: 7513253819977011811, guid: 19e70c8982f40ea48a72e3029784a2bc, type: 3}
       propertyPath: m_hasFontAssetChanged
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7755106988693409158, guid: 19e70c8982f40ea48a72e3029784a2bc, type: 3}
+      propertyPath: m_SortingOrder
       value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 8890067162740995123, guid: 19e70c8982f40ea48a72e3029784a2bc, type: 3}
@@ -1397,6 +1414,7 @@ MonoBehaviour:
   team: 0
   fighterName: Timber
   combatManager: {fileID: 612596494}
+  _ActionWheel: {fileID: 0}
   anim: {fileID: 1334316817}
   actionPanel: {fileID: 668463559}
   healthText: {fileID: 524443792}

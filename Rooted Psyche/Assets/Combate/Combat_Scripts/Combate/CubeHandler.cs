@@ -9,10 +9,14 @@ public class CubeHandler : MonoBehaviour
     public Action[] Actions;
     public CombatManager combatManager;
     // Update is called once per frame
+
+    protected Vector3 CamEulers;
+
     void Update()
     {
         // Ensures Cube looks towards the camera
-        transform.rotation = Quaternion.Euler(Camera.main.transform.rotation.eulerAngles.x, 0, 0);
+        CamEulers = Camera.main.transform.eulerAngles;
+        transform.rotation = Quaternion.Euler(0, CamEulers.y, 0);
     }
 
     void OnTriggerEnter(Collider other)

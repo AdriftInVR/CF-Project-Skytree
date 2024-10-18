@@ -4,12 +4,11 @@ using UnityEngine;
 
 public class MonoActionCube : CubeHandler
 {
-    // Start is called before the first frame update
-
     void Update()
     {
         // Ensures Cube looks towards the camera
-        transform.rotation = Quaternion.Euler(Camera.main.transform.rotation.eulerAngles.x, 0, 0);
+        CamEulers = Camera.main.transform.eulerAngles;
+        transform.rotation = Quaternion.Euler(0, CamEulers.y, 0);
     }
 
     

@@ -21,7 +21,7 @@ public class CubeBob : MonoBehaviour
     }
     void Update()
     {
-        pos.y = 16.31f + Mathf.Sin(Time.time * frequency) * amplitude;
+        pos.y = 17.5f + Mathf.Sin(Time.time * frequency) * amplitude;
         transform.position = pos;
     }
 }

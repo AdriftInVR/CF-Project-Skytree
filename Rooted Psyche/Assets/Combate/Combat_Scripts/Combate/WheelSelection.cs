@@ -67,6 +67,8 @@ public class WheelSelection : MonoBehaviour
 
     IEnumerator SpawnWheel(Transform cube, int i)
     {
+        
+        lockedRotation = true;
         bool spawned = false;
         bool lerping = false;
         Transform targetRot = Instantiate(cube.gameObject, cube.position, cube.rotation).transform;
@@ -94,6 +96,7 @@ public class WheelSelection : MonoBehaviour
             }
             yield return null;
         }
+        lockedRotation = false;
         Destroy(targetRot.gameObject);
         spawned = true;
         yield return null;

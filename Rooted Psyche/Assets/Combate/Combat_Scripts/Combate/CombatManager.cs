@@ -262,7 +262,6 @@ public class CombatManager : MonoBehaviour{
     // Actualizar el método para decidir los objetivos
     public void PlayerTurn(Fighter player, Action action) {
         confirmButton = myInput.actions[player.fighterName];
-        
         Wheel = player._ActionWheel;
         Wheel.SetActive(true);
         switch(player.fighterName)
@@ -284,9 +283,7 @@ public class CombatManager : MonoBehaviour{
             // Si es una acción normal, seleccionar enemigos
             possibleTargets = System.Array.FindAll(fighters, f => f.team != player.team && f.isAlive);
         }
-
         if (possibleTargets.Length == 0) return;  // Si no hay objetivos vivos, no hacer nada
-
         StartCoroutine(HandleTargetSelection(player, action, possibleTargets));
     }
 
@@ -327,8 +324,6 @@ public class CombatManager : MonoBehaviour{
         selectorPositioned = true;
         yield return null;
     }
-
-
 
     // Método para resaltar el objetivo actual (puedes personalizar el resaltado)
     void HighlightTarget(Fighter target) {
