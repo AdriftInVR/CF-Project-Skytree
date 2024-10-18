@@ -15,7 +15,7 @@ public class CubeBob : MonoBehaviour
 
     private Vector3 pos = new Vector3(0,0,0);
 
-    void Start()
+    void Awake()
     {
         pos = transform.position;
     }

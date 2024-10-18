@@ -12,6 +12,7 @@ public class Enemy : Fighter
     }
     public override void InitTurn()
     {
+        CombatManager.playerTurn = false;
         StartCoroutine(this.IA());   
         StartCoroutine(AnimAttack());
     }
@@ -35,9 +36,10 @@ public class Enemy : Fighter
         Debug.Log("El enemigo se movio");
     }
 
-    void OnDestroy()
+    public override IEnumerator Die()
     {
+        Destroy(gameObject,1.2f);
+        yield return new WaitForSeconds(1f);
         GameObject explode = Instantiate(DefeatEffect, transform.position, Quaternion.identity);
     }
-    
 }

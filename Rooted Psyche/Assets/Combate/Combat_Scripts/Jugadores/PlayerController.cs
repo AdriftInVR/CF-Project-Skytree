@@ -41,7 +41,7 @@ public class PlayerController : MonoBehaviour
     {
         if (other.gameObject.tag == "ActionCube")
         {
-            WheelSelection.lockRotation = true;
+            WheelSelection.lockedRotation = true;
             rb.velocity = -rb.velocity;
         }
     }

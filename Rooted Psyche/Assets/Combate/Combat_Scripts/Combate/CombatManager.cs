@@ -15,17 +15,16 @@ public class CombatManager : MonoBehaviour{
     private Fighter[] fighters;
 
     private GameObject[] enemies;
-    private GameObject[] players; 
-
+    private GameObject[] players;
     private int currentFighterIndex;
     private int lastEnemyIndex;
     private int lastPlayerIndex;
     private int index;
     private int turno = 1; // Variable para depuración no hace nada en el estado del juego
-    private bool isCombatActive = false;
+    public static bool isCombatActive = false;
     
     private bool selectorPositioned = true;
-    public static bool playerLock;
+    public static bool playerTurn = true;
     public static CombatStatus combatStatus;
     private Action currentFigtherAction;
     public static Vector2 direction;
@@ -33,9 +32,13 @@ public class CombatManager : MonoBehaviour{
     public int EnemySelect, PlayerSelect;
     public GameObject[] targetArrows; // Prefab de la flecha para indicar el objetivo
     private GameObject currentTargetArrow; // Instancia de la flecha
+    private GameObject Wheel;
     private PlayerInput myInput;
-    private static InputAction confirmButton;
+    public static InputAction confirmButton;
+    public static InputAction cancelButton;
     public static bool confirm {get; private set;}
+    
+    public static bool cancel {get; private set;}
     void Start(){
         // Busca a los peleadores en la escena
         fighters = FindObjectsOfType<Fighter>();
@@ -52,11 +55,13 @@ public class CombatManager : MonoBehaviour{
         StartCoroutine(CombatLoop());
         myInput = GetComponent<PlayerInput>();
         confirmButton = myInput.actions["Timber"];
+        cancelButton = myInput.actions["Cancel"];
     }
 
     void FixedUpdate()
     {
         confirm = confirmButton.WasPressedThisFrame();
+        cancel = cancelButton.WasPressedThisFrame();
     }
 
     void SortFightersBySpeed(){
@@ -97,8 +102,8 @@ public class CombatManager : MonoBehaviour{
                     break;
 
                 case CombatStatus.CHECK_FOR_VICTORY:
+                    yield return new WaitForSeconds(0.5f);
                     CheckWinLoss();
-                    yield return null;
                     break;
                 case CombatStatus.NEXT_TURN:
 
@@ -141,6 +146,7 @@ public class CombatManager : MonoBehaviour{
         }
         else
         {
+            PlayerController.locked = true;
             isCombatActive = false;
         }
     }
@@ -204,7 +210,7 @@ public class CombatManager : MonoBehaviour{
 
         // Posicionar la flecha sobre el enemigo seleccionado
         int oldIndex = selectedEnemyIndex; 
-        while (true) {
+        while (!cancelButton.WasPressedThisFrame()) {
             oldIndex = selectedEnemyIndex;
             if (Mathf.Abs(direction.y)>0 && selectorPositioned) {
                 selectedEnemyIndex = (selectedEnemyIndex + (int)Mathf.Sign(direction.y) + targets.Length) % targets.Length;  // Mover hacia arriba
@@ -239,21 +245,32 @@ public class CombatManager : MonoBehaviour{
 
                 // Destruir la flecha al confirmar la selección
                 Destroy(currentTargetArrow);
+                Destroy(player._ActionWheel);
                 break;
             }
-
             yield return null;
+        }
+        if(cancelButton.WasPressedThisFrame())
+        {
+            combatStatus = CombatStatus.WAITING_FOR_FIGHTER;
+            Destroy(currentTargetArrow);
+            WheelSelection.lockedRotation = false;
+            PlayerController.locked = false;
         }
     }
 
     // Actualizar el método para decidir los objetivos
     public void PlayerTurn(Fighter player, Action action) {
         confirmButton = myInput.actions[player.fighterName];
+        
+        Wheel = player._ActionWheel;
+        Wheel.SetActive(true);
         switch(player.fighterName)
         {
             default:
             case "Timber":
                 index = 0;
+
                 break;
             case "Brier":
                 index = 1;

@@ -6,19 +6,20 @@ using UnityEngine.InputSystem;
 public class WheelSelection : MonoBehaviour
 {
     private PlayerInput myInput;
-    private InputAction cancelButton;
     private bool rotationComplete = true;
-    public Transform targetRotation;
-    public static bool lockRotation = false;
+    //public Transform targetRot;
+    public static bool lockedRotation = false;
     private int cubes = 0;
     private Transform[] cubeTransforms = new Transform[10]; 
+
+    public static int lastCube;
     
 
     // Start is called before the first frame update
     void Start()
     {
         foreach (Transform child in transform){
-            if(child.gameObject.active)
+            if(child.gameObject.activeSelf)
             {
                 cubeTransforms[cubes] = child;
                 cubes++; 
@@ -26,44 +27,75 @@ public class WheelSelection : MonoBehaviour
         }
         for (int i = 0; i<cubes; i++)
         {
-            cubeTransforms[i].Rotate(Vector3.up,i*(360f/cubes),Space.Self);
+
+            StartCoroutine(SpawnWheel(cubeTransforms[i], i));
         }
         myInput = GetComponent<PlayerInput>();
-        cancelButton = myInput.actions["Cancel"];
     }
 
     // Update is called once per frame
     void Update()
     {
-        if (!lockRotation)
+        if (!lockedRotation)
         {
             if (Mathf.Abs(CombatManager.direction.x)>0 && rotationComplete) {
                 StartCoroutine(RotateWheel((int)Mathf.Sign(CombatManager.direction.x)));
             }
         }
-        else
-        {
-            if (cancelButton.WasPressedThisFrame() && lockRotation)
-            {
-                lockRotation = false;
-            }
-        }
     }
 
-    IEnumerator RotateWheel(int direction) {
+    IEnumerator RotateWheel(int direction)
+    {
         rotationComplete = false;
-        targetRotation.Rotate(Vector3.up,direction*(360f/cubes),Space.Self);
+        Transform targetRot = Instantiate(gameObject, transform.position, transform.rotation).transform;
+        targetRot.SetParent(transform.parent);
+        targetRot.gameObject.SetActive(false);
+        targetRot.Rotate(Vector3.up,direction*(360f/cubes),Space.Self);
         while (!rotationComplete){
-            transform.rotation = Quaternion.Lerp(transform.rotation, targetRotation.rotation, 0.1f);
-            if (Mathf.Abs(targetRotation.rotation.x - transform.rotation.x) <0.0001f)
+            transform.rotation = Quaternion.Lerp(transform.rotation, targetRot.rotation, 0.1f);
+            if (Mathf.Abs(targetRot.rotation.x - transform.rotation.x) <0.0001f)
             {
-                transform.rotation = targetRotation.rotation;
+                transform.rotation = targetRot.rotation;
                 break;
             }
             yield return null;
         }
         rotationComplete = true;
+        Destroy(targetRot.gameObject);
         yield return null;
     }
 
+    IEnumerator SpawnWheel(Transform cube, int i)
+    {
+        bool spawned = false;
+        bool lerping = false;
+        Transform targetRot = Instantiate(cube.gameObject, cube.position, cube.rotation).transform;
+        targetRot.SetParent(cube.parent);
+        targetRot.gameObject.SetActive(false);
+        targetRot.Rotate(Vector3.up,-i*(360f/cubes),Space.Self);
+        float targetEuler = targetRot.eulerAngles.y;
+        while (!spawned && i!=0){
+            if(360-cube.localEulerAngles.y >= 180/cubes*i && !lerping && cube.localEulerAngles.y!=0)
+            {
+                lerping = true;
+            }
+            if(!lerping)
+            {
+                cube.Rotate(Vector3.up,-i,Space.Self);
+            }
+            else
+            {
+                cube.rotation = Quaternion.Lerp(cube.rotation, targetRot.rotation, 0.05f);
+            }
+            if (Mathf.Abs(targetEuler - cube.eulerAngles.y)<1f&&Mathf.Abs(targetEuler - cube.eulerAngles.y)>-1f)
+            {
+                cube.rotation = targetRot.rotation;
+                break;
+            }
+            yield return null;
+        }
+        Destroy(targetRot.gameObject);
+        spawned = true;
+        yield return null;
+    }
 }
