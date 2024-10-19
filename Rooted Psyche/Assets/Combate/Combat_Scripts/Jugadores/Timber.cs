@@ -11,7 +11,7 @@ public class Timber: Fighter{
 
     void Awake()
     {
-        this.stats = new Stats(100, 100, 10, 10, 1, 1, 10, 1.0f, 1.0f);
+        this.stats = new Stats(100, 100, 10, 10, 70, 50, 10, 1.5f, 1.5f);
         UpdateHealthUI(); // Inicializa la UI de vida con los valores actuales
     }
 
