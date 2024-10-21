@@ -7,4 +7,5 @@ public class PlayerData
 {
     public float[] position;
     public int score;
+    public string sceneName;  // Añadimos el nombre de la escena
 }
