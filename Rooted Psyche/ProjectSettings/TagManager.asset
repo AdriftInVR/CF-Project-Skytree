@@ -6,6 +6,9 @@ TagManager:
   tags:
   - Floor
   - Wall
+  - Sprite
+  - Enemy
+  - Skyler
   layers:
   - Default
   - TransparentFX

@@ -56,7 +56,7 @@ public class PlayerDataManager : MonoBehaviour
         yield return null;
 
         // Buscar el GameObject del jugador en la escena cargada
-        GameObject player = GameObject.FindWithTag("Player"); // Asegúrate de que el Player tiene el tag "Player"
+        GameObject player = GameObject.FindWithTag("Skyler"); // Asegúrate de que el Player tiene el tag "Player"
         if (player != null)
         {
             playerTransform = player.transform;
