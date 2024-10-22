@@ -1,15 +1,24 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 using System.IO;
 using System.Text;
 using System.Security.Cryptography;
-using UnityEngine.SceneManagement;
+using System.Collections;
+using UnityEngine.Events;
 
 public class PlayerDataManager : MonoBehaviour
 {
     public Transform playerTransform;
     public int score;
+
+    private bool isNewGame = false;  // Bandera para indicar si es una nueva partida
+    // Guardar una referencia al delegado del evento
+    private UnityAction<Scene, LoadSceneMode> sceneLoadedAction;
+
+    public void NewGame()
+    {
+        isNewGame = true;
+    }
 
     // Clave de encriptación AES (debe ser de 16,24 o 32 caracteres)
     private static readonly byte[] aesKey = Encoding.UTF8.GetBytes("4PPC0D320164G012");
@@ -25,21 +34,19 @@ public class PlayerDataManager : MonoBehaviour
         string path = Application.persistentDataPath + "/playerData.json";
         if (File.Exists(path))
         {
-            // Leer archivo encriptado
+            // Leer y desencriptar los datos
             byte[] encryptedData = File.ReadAllBytes(path);
-
-            // Desencriptar los datos
             string json = DecryptStringFromBytes_Aes(encryptedData);
-
-            // Convertir de JSON a PlayerData
             PlayerData loadedData = JsonUtility.FromJson<PlayerData>(json);
 
-            // Registrar el evento que se llama cuando la escena ha terminado de cargar
-            SceneManager.sceneLoaded += (Scene scene, LoadSceneMode mode) =>
+            // Asignar la función a la referencia
+            sceneLoadedAction = (Scene scene, LoadSceneMode mode) =>
             {
-                // Buscar el jugador una vez que la escena ha sido cargada
                 StartCoroutine(SetPlayerPosition(loadedData));
             };
+
+            // Suscribirse al evento
+            SceneManager.sceneLoaded += sceneLoadedAction;
 
             // Cargar la escena guardada
             SceneManager.LoadScene(loadedData.sceneName);
@@ -52,18 +59,13 @@ public class PlayerDataManager : MonoBehaviour
 
     private IEnumerator SetPlayerPosition(PlayerData loadedData)
     {
-        // Esperar un frame para asegurarse de que todo ha sido inicializado
-        yield return null;
+        yield return null; // Esperar un frame para asegurarse de que la escena está cargada
 
-        // Buscar el GameObject del jugador en la escena cargada
-        GameObject player = GameObject.FindWithTag("Skyler"); // Asegúrate de que el Player tiene el tag "Player"
+        GameObject player = GameObject.FindWithTag("Skyler");
         if (player != null)
         {
             playerTransform = player.transform;
-
-            // Actualizar posición del jugador
-            Vector3 loadedPosition = new Vector3(loadedData.position[0], loadedData.position[1], loadedData.position[2]);
-            playerTransform.position = loadedPosition;
+            playerTransform.position = new Vector3(loadedData.position[0], loadedData.position[1], loadedData.position[2]);
 
             Debug.Log("Game loaded and player repositioned.");
         }
@@ -72,8 +74,8 @@ public class PlayerDataManager : MonoBehaviour
             Debug.LogWarning("Player not found in the scene.");
         }
 
-        // Una vez que la escena y el jugador están listos, desuscribirse del evento
-        SceneManager.sceneLoaded -= (Scene scene, LoadSceneMode mode) => StartCoroutine(SetPlayerPosition(loadedData));
+        // Desuscribirse del evento después de reposicionar al jugador
+        SceneManager.sceneLoaded -= sceneLoadedAction;
     }
 
 
@@ -149,10 +151,9 @@ public class PlayerDataManager : MonoBehaviour
 
     public void ResetPlayerData()
     {
-        // Si el playerTransform no ha sido asignado, buscar el jugador por su tag
         if (playerTransform == null)
         {
-            GameObject player = GameObject.FindWithTag("Player");
+            GameObject player = GameObject.FindWithTag("Skyler");  // Buscar el jugador por su tag si aún no ha sido asignado
             if (player != null)
             {
                 playerTransform = player.transform;
@@ -160,14 +161,12 @@ public class PlayerDataManager : MonoBehaviour
             else
             {
                 Debug.LogWarning("Player not found in the scene.");
-                return;  // No seguir si no se encontró el jugador
+                return;
             }
         }
 
-        // Resetear los datos del jugador
-        playerTransform.position = Vector3.zero;  // O la posición inicial deseada
-        score = 0;  // Restablecer el puntaje
         Debug.Log("Player data has been reset.");
     }
+
 }
 

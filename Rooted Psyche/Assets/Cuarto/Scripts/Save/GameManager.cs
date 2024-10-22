@@ -12,15 +12,15 @@ public class GameManager : MonoBehaviour
         string path = Application.persistentDataPath + "/playerData.json";
         if (File.Exists(path))
         {
-            File.Delete(path);  // Borrar archivo de datos guardados
+            File.Delete(path);
             Debug.Log("Previous save file deleted.");
         }
 
-        // 2. Restablecer las variables del juego, como el puntaje y posición del jugador
+        // 2. Restablecer los datos del jugador
         playerDataManager.ResetPlayerData();
 
-        // 3. Cargar la escena inicial de juego (puedes cambiar el nombre de la escena según necesites)
-        SceneManager.LoadScene("CuartoSkyler");  // Cambia esto por el nombre de tu escena inicial
+        // 3. Cargar la escena inicial del juego
+        SceneManager.LoadScene("CuartoSkyler");
     }
 
 }
