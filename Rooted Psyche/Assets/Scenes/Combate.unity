@@ -403,7 +403,7 @@ GameObject:
   - component: {fileID: 599792478}
   - component: {fileID: 599792485}
   - component: {fileID: 599792486}
-  - component: {fileID: 599792479}
+  - component: {fileID: 599792488}
   - component: {fileID: 599792487}
   - component: {fileID: 599792483}
   - component: {fileID: 599792481}
@@ -432,26 +432,6 @@ Transform:
   - {fileID: 2065036797}
   m_Father: {fileID: 1060549688}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &599792479
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 599792477}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 2f7bdb3a78811e34b84a0bab00afba76, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  team: 0
-  fighterName: Brier
-  combatManager: {fileID: 612596494}
-  _ActionWheel: {fileID: 0}
-  anim: {fileID: 2120166101}
-  actionPanel: {fileID: 565010046}
-  healthText: {fileID: 1857975698}
-  ActionWheel: {fileID: 7834813607110961082, guid: 4ef0accb201196a40a4c5c489aa08324, type: 3}
 --- !u!114 &599792481
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -559,6 +539,30 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   playerName: Brier
+--- !u!114 &599792488
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 599792477}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 551ad07b865e1a04890723c6be0c3a8a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  team: 0
+  fighterName: Brier
+  combatManager: {fileID: 612596494}
+  anim: {fileID: 2120166101}
+  actionPanel: {fileID: 565010046}
+  healthText: {fileID: 1857975698}
+  ActionWheel: {fileID: 7834813607110961082, guid: 4ef0accb201196a40a4c5c489aa08324, type: 3}
+  offset: {x: 0, y: 0, z: 0}
+  SoloActions:
+  - {fileID: 804837764}
+  DuoActions:
+  - {fileID: 1566402732}
 --- !u!1 &612596493
 GameObject:
   m_ObjectHideFlags: 0
@@ -867,6 +871,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   actionButtons:
   - {fileID: 1003860373}
+  - {fileID: 1003860373}
   actionButtonLabels:
   - {fileID: 1590860804}
 --- !u!114 &668463560
@@ -1046,6 +1051,14 @@ PrefabInstance:
       propertyPath: m_LocalPosition.y
       value: -488
       objectReference: {fileID: 0}
+    - target: {fileID: 1816745431518248823, guid: 19e70c8982f40ea48a72e3029784a2bc, type: 3}
+      propertyPath: m_CullTransparentMesh
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 2157296641544413811, guid: 19e70c8982f40ea48a72e3029784a2bc, type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 2271215243527750741, guid: 19e70c8982f40ea48a72e3029784a2bc, type: 3}
       propertyPath: m_LocalPosition.x
       value: -694
@@ -1096,7 +1109,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 3025443143599623409, guid: 19e70c8982f40ea48a72e3029784a2bc, type: 3}
       propertyPath: m_text
-      value: 0
+      value: 789
       objectReference: {fileID: 0}
     - target: {fileID: 3025443143599623409, guid: 19e70c8982f40ea48a72e3029784a2bc, type: 3}
       propertyPath: m_fontAsset
@@ -1120,7 +1133,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 5006342239009966837, guid: 19e70c8982f40ea48a72e3029784a2bc, type: 3}
       propertyPath: m_text
-      value: 0
+      value: 000
       objectReference: {fileID: 0}
     - target: {fileID: 5006342239009966837, guid: 19e70c8982f40ea48a72e3029784a2bc, type: 3}
       propertyPath: m_fontAsset
@@ -1133,6 +1146,14 @@ PrefabInstance:
     - target: {fileID: 5006342239009966837, guid: 19e70c8982f40ea48a72e3029784a2bc, type: 3}
       propertyPath: m_hasFontAssetChanged
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7513253819977011811, guid: 19e70c8982f40ea48a72e3029784a2bc, type: 3}
+      propertyPath: m_text
+      value: 123
+      objectReference: {fileID: 0}
+    - target: {fileID: 7513253819977011811, guid: 19e70c8982f40ea48a72e3029784a2bc, type: 3}
+      propertyPath: m_Enabled
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 7513253819977011811, guid: 19e70c8982f40ea48a72e3029784a2bc, type: 3}
       propertyPath: m_fontAsset
@@ -1152,7 +1173,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 8890067162740995123, guid: 19e70c8982f40ea48a72e3029784a2bc, type: 3}
       propertyPath: m_text
-      value: 0
+      value: 456
       objectReference: {fileID: 0}
     - target: {fileID: 8890067162740995123, guid: 19e70c8982f40ea48a72e3029784a2bc, type: 3}
       propertyPath: m_fontAsset
@@ -1414,11 +1435,15 @@ MonoBehaviour:
   team: 0
   fighterName: Timber
   combatManager: {fileID: 612596494}
-  _ActionWheel: {fileID: 0}
   anim: {fileID: 1334316817}
   actionPanel: {fileID: 668463559}
   healthText: {fileID: 524443792}
   ActionWheel: {fileID: 7834813607110961082, guid: 4ef0accb201196a40a4c5c489aa08324, type: 3}
+  offset: {x: 0, y: 0, z: 0}
+  SoloActions:
+  - {fileID: 2094643319}
+  DuoActions:
+  - {fileID: 1779885501}
 --- !u!114 &907883409
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1610,7 +1635,7 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 599792479}
+      - m_Target: {fileID: 0}
         m_TargetAssemblyTypeName: Brier, Assembly-CSharp
         m_MethodName: Act
         m_Mode: 3
@@ -2152,7 +2177,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!4 &1566402731
 Transform:
   m_ObjectHideFlags: 0
@@ -2182,7 +2207,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   actionName: Curacion
   animationDuration: 3
-  isTeamAction: 0
+  isTeamAction: 1
   selfInflicted: 0
   effectPrefab: {fileID: 7802979462468201273, guid: bddb971e34eb14d48be30c7b922eb077, type: 3}
   amount: 100
@@ -2199,7 +2224,7 @@ GameObject:
   - component: {fileID: 1578642390}
   - component: {fileID: 1578642389}
   - component: {fileID: 1578642388}
-  m_Layer: 3
+  m_Layer: 0
   m_Name: Terreno
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -2639,7 +2664,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!4 &1779885500
 Transform:
   m_ObjectHideFlags: 0

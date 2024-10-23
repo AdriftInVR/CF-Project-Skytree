@@ -13,7 +13,6 @@ public abstract class Fighter : MonoBehaviour{
     public string fighterName;
     public CombatManager combatManager;
     public Stats stats;
-    public GameObject _ActionWheel;
     public Animator anim;
 
     protected Action[] actions;

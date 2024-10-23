@@ -113,7 +113,7 @@ public class CombatManager : MonoBehaviour{
                     } while (!fighters[currentFighterIndex].isAlive);
 
                     var currentTurn = fighters[currentFighterIndex];
-                    Debug.Log("El turno es de " + currentTurn.fighterName + " en el turno " + (int)(turno/fighters.Length+1));
+                    Debug.Log("Turno " + (int)(turno/fighters.Length+1) + " / Es el turno de " + currentTurn.fighterName + ".");
                     turno++; // No hace nada fin de depuración
                     currentTurn.InitTurn();
 
@@ -181,7 +181,7 @@ public class CombatManager : MonoBehaviour{
 
 
     // Método para seleccionar un objetivo enemigo con las teclas de flecha y Enter
-    IEnumerator HandleTargetSelection(Fighter player, Action action, Fighter[] targets) {
+    IEnumerator HandleTargetSelection(Player player, Action action, Fighter[] targets) {
         PlayerController.locked = true;
         selectedEnemyIndex = 0;  // Inicia en el primer enemigo
         Vector3 arrowScale = new Vector3(0,0,0);
@@ -245,7 +245,8 @@ public class CombatManager : MonoBehaviour{
 
                 // Destruir la flecha al confirmar la selección
                 Destroy(currentTargetArrow);
-                Destroy(player._ActionWheel);
+                Destroy(Wheel);
+                player.currentAction = null;
                 break;
             }
             yield return null;
@@ -256,35 +257,34 @@ public class CombatManager : MonoBehaviour{
             Destroy(currentTargetArrow);
             WheelSelection.lockedRotation = false;
             PlayerController.locked = false;
+            player.currentAction = null;
+            StartCoroutine(PlayerTurn(player));
         }
     }
 
     // Actualizar el método para decidir los objetivos
-    public void PlayerTurn(Fighter player, Action action) {
+    public IEnumerator PlayerTurn(Player player) {
         confirmButton = myInput.actions[player.fighterName];
-        Wheel = player._ActionWheel;
-        Wheel.SetActive(true);
-        switch(player.fighterName)
+        Vector3 offset = player.transform.position + new Vector3(0f,17.5f,7.5f);
+        if(!Wheel)
         {
-            default:
-            case "Timber":
-                index = 0;
-
-                break;
-            case "Brier":
-                index = 1;
-                break;
-        }
+            Wheel = Instantiate(player.ActionWheel, offset, player.ActionWheel.transform.rotation);
+        } 
+        index = player.fighterName == "Timber" ? 0 : 1;
         Fighter[] possibleTargets;
-        if (action.isTeamAction) {
+        while (player.currentAction == null)
+        {
+            yield return null;
+        }
+        if (player.currentAction.isTeamAction) {
             // Si es una acción de equipo, permite seleccionar entre aliados
             possibleTargets = System.Array.FindAll(fighters, f => f.team == player.team && f.isAlive);
         } else {
             // Si es una acción normal, seleccionar enemigos
             possibleTargets = System.Array.FindAll(fighters, f => f.team != player.team && f.isAlive);
         }
-        if (possibleTargets.Length == 0) return;  // Si no hay objetivos vivos, no hacer nada
-        StartCoroutine(HandleTargetSelection(player, action, possibleTargets));
+        StartCoroutine(HandleTargetSelection(player, player.currentAction, possibleTargets));
+        yield return null;
     }
 
     void SetArrowToTarget(GameObject arrow, Fighter target) {

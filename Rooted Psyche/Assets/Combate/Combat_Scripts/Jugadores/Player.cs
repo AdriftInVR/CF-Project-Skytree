@@ -4,17 +4,19 @@ using UnityEngine;
 using TMPro;
 using System;
 
-public class Timber: Fighter{
+public class Player: Fighter{
     [Header("UI")]
     public PlayerActionPanel actionPanel;
     public TextMeshProUGUI healthText;
     public GameObject ActionWheel;
+    public Action currentAction;
+    public Action[] SoloActions;
+    public Action[] DuoActions; 
 
     void Awake()
     {
-        _ActionWheel = ActionWheel;
-        this.stats = new Stats(100, 100, 10, 10, 1, 1, 10, 1.0f, 1.0f);
-        // HP, MaxHP, Atk, Def, Spd, Lv, SP, Multiplier, ATKMult
+        this.stats = new Stats(100, 100, 10, 10, 1, 1, 10);
+        // HP, MaxHP, Atk, Def, Spd, Lv, SP
         UpdateHealthUI(); // Inicializa la UI de vida con los valores actuales
     }
 
@@ -26,22 +28,18 @@ public class Timber: Fighter{
     {
         CombatManager.playerTurn = true;
         WheelSelection.lockedRotation = false;
-        Vector3 offset = this.transform.position + new Vector3(0f,17.5f,7.5f);
-        _ActionWheel = Instantiate(ActionWheel, offset, ActionWheel.transform.rotation);
+        StartCoroutine(combatManager.PlayerTurn(this));
     }
 
     // Método llamado cuando se elige una acción
-    public void Act(int index)
+    public void SoloAction(int index)
     {
-        StartCoroutine(Action(index));
+        currentAction = SoloActions[index];
     }
 
-    IEnumerator Action(int index){
-        this.actionPanel.Hide();
-        Action action = this.actions[index];
-        this.combatManager.PlayerTurn(this, action);
-        yield return null;
-        //animator.SetTrigger("esto lo cambiamos por la animacion de pensar- solo agregas el trigger en el animator");
+
+    public void DuoAction(int index){
+        currentAction = DuoActions[index];
     }
 
     // Actualiza la interfaz cuando la vida cambie

@@ -7,9 +7,7 @@ public abstract class Action : MonoBehaviour
     [Header("Base Action")]
     public string actionName;
     public float animationDuration;
-
     public bool isTeamAction; // Cambiado de selfInflicted a isTeamAction
-
     public bool selfInflicted;
     public GameObject effectPrefab;
 

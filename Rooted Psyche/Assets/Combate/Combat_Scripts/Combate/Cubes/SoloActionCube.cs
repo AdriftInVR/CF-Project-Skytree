@@ -1,0 +1,19 @@
+using System.Collections;
+using System.Collections.Generic;
+using UnityEngine;
+
+public class SoloActionCube : MonoBehaviour
+{
+    private Vector3 CamEulers;
+    void Update()
+    {
+        // Ensures Cube looks towards the camera
+        CamEulers = Camera.main.transform.eulerAngles;
+        transform.rotation = Quaternion.Euler(0, CamEulers.y, 0);
+    }
+
+    void OnTriggerEnter(Collider other)
+    {
+        other.gameObject.GetComponent<Player>().SoloAction(0);        
+    }
+}
