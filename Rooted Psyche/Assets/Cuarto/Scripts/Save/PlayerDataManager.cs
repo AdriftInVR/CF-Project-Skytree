@@ -5,20 +5,22 @@ using System.Text;
 using System.Security.Cryptography;
 using System.Collections;
 using UnityEngine.Events;
+using UnityEngine.UI;
 
 public class PlayerDataManager : MonoBehaviour
 {
     public Transform playerTransform;
     public int score;
 
-    private bool isNewGame = false;  // Bandera para indicar si es una nueva partida
+     // Add UI components
+    [Header("UI Elements")]
+    public GameObject notificationPanel; // Assign in inspector
+    public Text notificationText; // Assign in inspector
+    public float notificationDuration = 3f; // How long the notification stays visible
+
+    
     // Guardar una referencia al delegado del evento
     private UnityAction<Scene, LoadSceneMode> sceneLoadedAction;
-
-    public void NewGame()
-    {
-        isNewGame = true;
-    }
 
     // Clave de encriptación AES (debe ser de 16,24 o 32 caracteres)
     private static readonly byte[] aesKey = Encoding.UTF8.GetBytes("4PPC0D320164G012");
@@ -27,8 +29,14 @@ public class PlayerDataManager : MonoBehaviour
     void Awake()
     {
         DontDestroyOnLoad(gameObject);
-    }
 
+        // Hide notification panel at start
+        if (notificationPanel != null)
+        {
+            notificationPanel.SetActive(false);
+        } 
+    }
+    
     public void LoadGame()
     {
         string path = Application.persistentDataPath + "/playerData.json";
@@ -53,7 +61,34 @@ public class PlayerDataManager : MonoBehaviour
         }
         else
         {
+            // Show notification when no save file exists
+            ShowNotification("¡No existe una partida guardada!");
             Debug.LogWarning("Save file not found in " + path);
+        }
+    }
+
+    // New method to show notifications
+    private void ShowNotification(string message)
+    {
+        if (notificationPanel != null && notificationText != null)
+        {
+            notificationText.text = message;
+            notificationPanel.SetActive(true);
+            StartCoroutine(HideNotificationAfterDelay());
+        }
+        else
+        {
+            Debug.LogWarning("Notification UI elements are not assigned in the inspector!");
+        }
+    }
+
+    // Coroutine to hide the notification after a delay
+    private IEnumerator HideNotificationAfterDelay()
+    {
+        yield return new WaitForSeconds(notificationDuration);
+        if (notificationPanel != null)
+        {
+            notificationPanel.SetActive(false);
         }
     }
 

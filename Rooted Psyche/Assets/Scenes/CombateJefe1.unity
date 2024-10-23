@@ -3164,7 +3164,7 @@ MonoBehaviour:
   isTeamAction: 0
   selfInflicted: 0
   effectPrefab: {fileID: 5933602760919840800, guid: fcb74f28d107e284e80af037bfec14ca, type: 3}
-  amount: -1
+  amount: -50
   modType: 0
 --- !u!1 &715028286
 GameObject:
@@ -6177,15 +6177,15 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 2320430180737451130, guid: 7c5921d781cf5614691c402476f851f1, type: 3}
       propertyPath: m_LocalPosition.x
-      value: -40.449997
+      value: -52.2
       objectReference: {fileID: 0}
     - target: {fileID: 2320430180737451130, guid: 7c5921d781cf5614691c402476f851f1, type: 3}
       propertyPath: m_LocalPosition.y
-      value: 5
+      value: -0.19
       objectReference: {fileID: 0}
     - target: {fileID: 2320430180737451130, guid: 7c5921d781cf5614691c402476f851f1, type: 3}
       propertyPath: m_LocalPosition.z
-      value: 3.58
+      value: 30.88
       objectReference: {fileID: 0}
     - target: {fileID: 2320430180737451130, guid: 7c5921d781cf5614691c402476f851f1, type: 3}
       propertyPath: m_LocalRotation.w
