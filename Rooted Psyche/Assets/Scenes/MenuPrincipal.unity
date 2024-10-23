@@ -422,7 +422,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 23.5, y: 122}
+  m_AnchoredPosition: {x: 23.5, y: 112}
   m_SizeDelta: {x: 413.3909, y: 95.8816}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &144926349
@@ -4111,7 +4111,7 @@ MonoBehaviour:
   score: 0
   notificationPanel: {fileID: 1540781858}
   notificationText: {fileID: 1832089578}
-  notificationDuration: 3
+  notificationDuration: 2
 --- !u!1 &1333201117
 GameObject:
   m_ObjectHideFlags: 0
