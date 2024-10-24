@@ -9,6 +9,8 @@ TagManager:
   - Sprite
   - Enemy
   - Skyler
+  - SpawnPoint
+  - Rooms
   layers:
   - Default
   - TransparentFX
