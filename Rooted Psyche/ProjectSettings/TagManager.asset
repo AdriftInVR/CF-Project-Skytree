@@ -8,6 +8,7 @@ TagManager:
   - Wall
   - Sprite
   - Enemy
+  - ActionCube
   - Skyler
   - SpawnPoint
   - Rooms
@@ -15,7 +16,7 @@ TagManager:
   - Default
   - TransparentFX
   - Ignore Raycast
-  - Player
+  - Terrain
   - Water
   - UI
   - 

@@ -1,5 +1,9 @@
 fileFormatVersion: 2
+<<<<<<<< HEAD:Rooted Psyche/Assets/Prefabs/Red Nebula Studios/RNLowPolyDungeonLite/Materials/RNLowPolyDungeon_Main.mat.meta
 guid: 1f8d2199140247d4ba1ebb1b78b62bae
+========
+guid: 6eb9ed363b40d074686700c8faf9a192
+>>>>>>>> PS_02_Sebastian_V2:Rooted Psyche/Assets/Combate/Combat_Prefabs/Materials/DuoCube.mat.meta
 NativeFormatImporter:
   externalObjects: {}
   mainObjectFileID: 2100000

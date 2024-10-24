@@ -17,7 +17,7 @@ public class Boss1 : Fighter
     //     9. specialAttackMultiplier; (float)
     void Awake()
     {
-        this.stats = new Stats(250, 250, 100, 100, 100, 5, 10, 1.0f, 1.0f);
+        this.stats = new Stats(250, 250, 100, 100, 100, 5, 10);
     }
     public override void InitTurn()
     {
@@ -44,9 +44,12 @@ public class Boss1 : Fighter
         Debug.Log("El enemigo se movio");
     }
 
-    void OnDestroy()
+    public override IEnumerator Die()
     {
+        Destroy(gameObject,1.2f);
+        yield return new WaitForSeconds(1f);
         GameObject explode = Instantiate(DefeatEffect, transform.position, Quaternion.identity);
     }
+
     
 }

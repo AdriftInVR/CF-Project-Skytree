@@ -15,28 +15,31 @@ public class CombatManager : MonoBehaviour{
     private Fighter[] fighters;
 
     private GameObject[] enemies;
-    private GameObject[] players; 
-
+    private GameObject[] players;
     private int currentFighterIndex;
     private int lastEnemyIndex;
     private int lastPlayerIndex;
     private int index;
     private int turno = 1; // Variable para depuración no hace nada en el estado del juego
-    private bool isCombatActive = false;
+    public static bool isCombatActive = false;
     
     private bool selectorPositioned = true;
-    public static bool playerLock;
-    private CombatStatus combatStatus;
+    public static bool playerTurn = true;
+    public static bool menuOpen = false;
+    public static CombatStatus combatStatus;
     private Action currentFigtherAction;
-    private Vector2 direction;
+    public static Vector2 direction;
     public int selectedEnemyIndex = 0;  // Índice del enemigo seleccionado
     public int EnemySelect, PlayerSelect;
     public GameObject[] targetArrows; // Prefab de la flecha para indicar el objetivo
     private GameObject currentTargetArrow; // Instancia de la flecha
+    private GameObject Wheel;
     private PlayerInput myInput;
     public static InputAction confirmButton;
-    private bool confirm {get; set;}
-    public static string activeFighter;
+    public static InputAction cancelButton;
+    public static bool confirm {get; private set;}
+    
+    public static bool cancel {get; private set;}
     void Start(){
         // Busca a los peleadores en la escena
         fighters = FindObjectsOfType<Fighter>();
@@ -53,27 +56,13 @@ public class CombatManager : MonoBehaviour{
         StartCoroutine(CombatLoop());
         myInput = GetComponent<PlayerInput>();
         confirmButton = myInput.actions["Timber"];
+        cancelButton = myInput.actions["Cancel"];
     }
 
     void FixedUpdate()
     {
-        //if not multiplayer
-        //{
-        switch(activeFighter)
-        {
-            case "Timber":
-                confirmButton = myInput.actions["Timber"];
-                index = 0;
-                break;
-            case "Brier":
-                confirmButton = myInput.actions["Brier"];
-                index = 1;
-                break;
-            default:
-                break;
-        }
-        //}
         confirm = confirmButton.WasPressedThisFrame();
+        cancel = cancelButton.WasPressedThisFrame();
     }
 
     void SortFightersBySpeed(){
@@ -108,21 +97,16 @@ public class CombatManager : MonoBehaviour{
                     yield return null;
                 
                     // Ejecutar la habilidad del personaje
-                    currentFigtherAction.Run();
-
-                    // Espera la animación del personaje
-                    yield return new WaitForSeconds(currentFigtherAction.animationDuration);
-                    combatStatus = CombatStatus.CHECK_FOR_VICTORY;
-
+                    StartCoroutine(currentFigtherAction.Run(currentFigtherAction.animationDuration));
                     currentFigtherAction = null;
+                    combatStatus = CombatStatus.WAITING_FOR_FIGHTER;
                     break;
 
                 case CombatStatus.CHECK_FOR_VICTORY:
+                    yield return new WaitForSeconds(0.5f);
                     CheckWinLoss();
-                    yield return null;
                     break;
                 case CombatStatus.NEXT_TURN:
-                    yield return new WaitForSeconds(2f);
 
                     // Buscar al siguiente peleador vivo
                     do {
@@ -130,11 +114,12 @@ public class CombatManager : MonoBehaviour{
                     } while (!fighters[currentFighterIndex].isAlive);
 
                     var currentTurn = fighters[currentFighterIndex];
-                    Debug.Log("El turno es de " + currentTurn.fighterName + " en el turno " + turno);
+                    Debug.Log("Turno " + (int)(turno/fighters.Length+1) + " / Es el turno de " + currentTurn.fighterName + ".");
                     turno++; // No hace nada fin de depuración
                     currentTurn.InitTurn();
 
                     combatStatus = CombatStatus.WAITING_FOR_FIGHTER;
+                    yield return null;
                     break;
 
             }
@@ -169,6 +154,7 @@ public class CombatManager : MonoBehaviour{
         }
         else
         {
+            PlayerController.locked = true;
             isCombatActive = false;
         }
     }
@@ -203,11 +189,12 @@ public class CombatManager : MonoBehaviour{
 
 
     // Método para seleccionar un objetivo enemigo con las teclas de flecha y Enter
-    IEnumerator HandleTargetSelection(Fighter player, Action action, Fighter[] targets) {
+    IEnumerator HandleTargetSelection(Player player, Action action, Fighter[] targets) {
+        PlayerController.locked = true;
         selectedEnemyIndex = 0;  // Inicia en el primer enemigo
         Vector3 arrowScale = new Vector3(0,0,0);
         selectedEnemyIndex = Mathf.Clamp(0, targets.Length-1, selectedEnemyIndex);
-if (targets[0].team == Team.Player)
+        if (targets[0].team == Team.Player)
         {
             arrowScale = new Vector3(7f,7f,7f);
             selectedEnemyIndex = lastPlayerIndex;
@@ -231,7 +218,7 @@ if (targets[0].team == Team.Player)
 
         // Posicionar la flecha sobre el enemigo seleccionado
         int oldIndex = selectedEnemyIndex; 
-        while (true) {
+        while (!cancelButton.WasPressedThisFrame()) {
             oldIndex = selectedEnemyIndex;
             if (Mathf.Abs(direction.y)>0 && selectorPositioned) {
                 selectedEnemyIndex = (selectedEnemyIndex + (int)Mathf.Sign(direction.y) + targets.Length) % targets.Length;  // Mover hacia arriba
@@ -266,39 +253,64 @@ if (targets[0].team == Team.Player)
 
                 // Destruir la flecha al confirmar la selección
                 Destroy(currentTargetArrow);
+                Destroy(Wheel);
+                player.currentAction = null;
                 break;
             }
-
             yield return null;
+        }
+        if(cancelButton.WasPressedThisFrame())
+        {
+            Destroy(currentTargetArrow);
+            player.currentAction = null;
+            StartCoroutine(PlayerTurn(player));
+            PanelHandler.ReopenActive();
+            combatStatus = CombatStatus.WAITING_FOR_FIGHTER;
         }
     }
 
     // Actualizar el método para decidir los objetivos
-    public void PlayerTurn(Fighter player, Action action) {
-        activeFighter = player.fighterName;
+    public IEnumerator PlayerTurn(Player player) {
+        WheelSelection.lastCube = player.lastCube;
+        //TODO: if not multiplayer...
+        confirmButton = myInput.actions[player.fighterName];
+        Vector3 offset = player.transform.position + new Vector3(0f,12.5f,7.5f);
+        if(!Wheel)
+        {
+            PlayerController.locked = true;
+            yield return new WaitForSeconds(0.5f);
+            Wheel = Instantiate(player.ActionWheel, offset, player.ActionWheel.transform.rotation);
+        }
+        index = player.fighterName == "Timber" ? 0 : 1;
         Fighter[] possibleTargets;
-        if (action.isTeamAction) {
+        while (player.currentAction == null)
+        {
+            yield return null;
+        }
+        WheelSelection.lockedRotation = true;
+        PanelHandler.ClosePanel();
+        if (player.currentAction.isTeamAction) {
             // Si es una acción de equipo, permite seleccionar entre aliados
             possibleTargets = System.Array.FindAll(fighters, f => f.team == player.team && f.isAlive);
         } else {
             // Si es una acción normal, seleccionar enemigos
             possibleTargets = System.Array.FindAll(fighters, f => f.team != player.team && f.isAlive);
         }
-
-        if (possibleTargets.Length == 0) return;  // Si no hay objetivos vivos, no hacer nada
-
-        StartCoroutine(HandleTargetSelection(player, action, possibleTargets));
+        StartCoroutine(HandleTargetSelection(player, player.currentAction, possibleTargets));
+        yield return null;
     }
 
     void SetArrowToTarget(GameObject arrow, Fighter target) {
-        Vector3 offset = new Vector3(0,9f,0);
+        Vector3 offset = new Vector3(0f,0f,0f);
         if (target.team == Team.Player)
         {
-            offset.x += 5f;
+            offset.x = 5f;
+            offset.y = 5f;
         }
         else
         {
-            offset.x -= 8f;
+            offset.x = -8f;
+            offset.y = 9f;
         }
         arrow.transform.position = target.transform.position + offset;
         selectorPositioned = true;
@@ -327,8 +339,6 @@ if (targets[0].team == Team.Player)
         selectorPositioned = true;
         yield return null;
     }
-
-
 
     // Método para resaltar el objetivo actual (puedes personalizar el resaltado)
     void HighlightTarget(Fighter target) {

@@ -96,7 +96,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   actionName: Mordida
-  animationDuration: 2
+  animationDuration: 0
   isTeamAction: 0
   selfInflicted: 0
   effectPrefab: {fileID: 3463157229188906966, guid: 47096eff328e11a418ace7db2d72aa97, type: 3}
@@ -219,7 +219,6 @@ GameObject:
   - component: {fileID: 7099643794943208998}
   - component: {fileID: 5299603057488671440}
   - component: {fileID: 2806157564515133385}
-  - component: {fileID: 7415667105968761550}
   m_Layer: 0
   m_Name: Shadow
   m_TagString: Untagged
@@ -236,9 +235,9 @@ Transform:
   m_GameObject: {fileID: 3243501232551361109}
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 0, y: -4.94, z: 0}
-  m_LocalScale: {x: 12, y: 1.2000002, z: 12}
-  m_ConstrainProportionsScale: 1
+  m_LocalPosition: {x: 0, y: -5.37, z: 0}
+  m_LocalScale: {x: 12, y: 0.5, z: 12}
+  m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 3356628084068803888}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -292,29 +291,6 @@ MeshRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_AdditionalVertexStreams: {fileID: 0}
---- !u!136 &7415667105968761550
-CapsuleCollider:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 3243501232551361109}
-  m_Material: {fileID: 0}
-  m_IncludeLayers:
-    serializedVersion: 2
-    m_Bits: 0
-  m_ExcludeLayers:
-    serializedVersion: 2
-    m_Bits: 0
-  m_LayerOverridePriority: 0
-  m_IsTrigger: 0
-  m_ProvidesContacts: 0
-  m_Enabled: 0
-  serializedVersion: 2
-  m_Radius: 0.5000001
-  m_Height: 2
-  m_Direction: 1
-  m_Center: {x: 0.000000059604645, y: 0, z: -0.00000008940697}
 --- !u!1 &4769897764944723024
 GameObject:
   m_ObjectHideFlags: 0
@@ -427,7 +403,7 @@ Transform:
   m_GameObject: {fileID: 5742927987335989165}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0.6, z: 0}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
@@ -455,8 +431,8 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 3356628084068803888}
-  - component: {fileID: 8748509004056841049}
   - component: {fileID: 7679836949363918723}
+  - component: {fileID: 8748509004056841049}
   m_Layer: 0
   m_Name: Sombroso
   m_TagString: Enemy
@@ -477,11 +453,27 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 1
   m_Children:
-  - {fileID: 7099643794943208998}
   - {fileID: 616923898623430017}
   - {fileID: 3956259488608489427}
+  - {fileID: 7099643794943208998}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &7679836949363918723
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5971547971619684149}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c6e724c0088c9e64c921c18359ed14d5, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  shadow: {fileID: 3243501232551361109}
+  layerMask:
+    serializedVersion: 2
+    m_Bits: 0
 --- !u!114 &8748509004056841049
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -500,20 +492,6 @@ MonoBehaviour:
   anim: {fileID: 3618163279936362467}
   DefeatEffect: {fileID: 7728366230342544413, guid: 75d7b625fe044a749b94b5aabe6284e0, type: 3}
   type: 0
---- !u!114 &7679836949363918723
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 5971547971619684149}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: c6e724c0088c9e64c921c18359ed14d5, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  shadow: {fileID: 3243501232551361109}
-  offset: 0
 --- !u!1 &7962471782012167146
 GameObject:
   m_ObjectHideFlags: 0

@@ -8,10 +8,12 @@ public class Enemy : Fighter
     public bool type;
     void Awake()
     {
-        this.stats = new Stats(100, 100, 10, 10, 5, 1, 10, 1.0f, 1.0f);
+        this.stats = new Stats(100, 100, 10, 10, 5, 1, 10);
+        // HP, MaxHP, Atk, Def, Spd, Lv, SP, Multiplier, ATKMult
     }
     public override void InitTurn()
     {
+        CombatManager.playerTurn = false;
         StartCoroutine(this.IA());   
         StartCoroutine(AnimAttack());
     }
@@ -35,9 +37,10 @@ public class Enemy : Fighter
         Debug.Log("El enemigo se movio");
     }
 
-    void OnDestroy()
+    public override IEnumerator Die()
     {
+        Destroy(gameObject,1.2f);
+        yield return new WaitForSeconds(1f);
         GameObject explode = Instantiate(DefeatEffect, transform.position, Quaternion.identity);
     }
-    
 }

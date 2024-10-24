@@ -1355,7 +1355,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   canJump: 0
   cam: {fileID: 681988610}
-  spd: 2.5
+  spd: 3
   jumpSpd: 0
 --- !u!1 &238323517
 GameObject:
