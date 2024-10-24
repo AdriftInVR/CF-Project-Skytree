@@ -1546,7 +1546,7 @@ GameObject:
   - component: {fileID: 4981063060662518983}
   - component: {fileID: 1851341662697499532}
   m_Layer: 0
-  m_Name: SpawnP_Bottom
+  m_Name: SpawnP_Top
   m_TagString: SpawnPoint
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -1561,7 +1561,7 @@ Transform:
   m_GameObject: {fileID: 5297141107124595351}
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 20}
+  m_LocalPosition: {x: 0, y: 0, z: -20}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -1579,7 +1579,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9b56e39916cf458479c298a320632b2c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  openSide: 1
+  openSide: 2
   spawned: 0
 --- !u!54 &4981063060662518983
 Rigidbody:

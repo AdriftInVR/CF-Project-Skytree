@@ -12,7 +12,6 @@ public class RoomSpawner : MonoBehaviour
     // 4 --> Right Door
     private RoomTemplates templates;
     private int rand;
-    private int totalRooms;
     public bool spawned = false;
     
     // Start is called before the first frame update
@@ -22,15 +21,9 @@ public class RoomSpawner : MonoBehaviour
         Invoke("Spawn", 0.1f);
     }
 
-    void Update()
-    {
-        totalRooms = templates.rooms.Count;
-        Debug.Log("El numero total de salas actualmente es de: " + totalRooms);
-    }
 
     void Spawn()
     {
-        if (totalRooms < 50){
             if (spawned == false){
 
                 if (openSide == 1)
@@ -55,8 +48,6 @@ public class RoomSpawner : MonoBehaviour
                 }
                 spawned = true;
             }
-        }
-  
     }
 
     private void  OnTriggerEnter(Collider other)
