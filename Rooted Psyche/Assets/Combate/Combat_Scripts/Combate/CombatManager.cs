@@ -25,6 +25,7 @@ public class CombatManager : MonoBehaviour{
     
     private bool selectorPositioned = true;
     public static bool playerTurn = true;
+    public static bool menuOpen = false;
     public static CombatStatus combatStatus;
     private Action currentFigtherAction;
     public static Vector2 direction;
@@ -253,29 +254,34 @@ public class CombatManager : MonoBehaviour{
         }
         if(cancelButton.WasPressedThisFrame())
         {
-            combatStatus = CombatStatus.WAITING_FOR_FIGHTER;
             Destroy(currentTargetArrow);
-            WheelSelection.lockedRotation = false;
-            PlayerController.locked = false;
             player.currentAction = null;
             StartCoroutine(PlayerTurn(player));
+            PanelHandler.ReopenActive();
+            combatStatus = CombatStatus.WAITING_FOR_FIGHTER;
         }
     }
 
     // Actualizar el método para decidir los objetivos
     public IEnumerator PlayerTurn(Player player) {
+        WheelSelection.lastCube = player.lastCube;
+        //TODO: if not multiplayer...
         confirmButton = myInput.actions[player.fighterName];
-        Vector3 offset = player.transform.position + new Vector3(0f,17.5f,7.5f);
+        Vector3 offset = player.transform.position + new Vector3(0f,12.5f,7.5f);
         if(!Wheel)
         {
+            PlayerController.locked = true;
+            yield return new WaitForSeconds(0.5f);
             Wheel = Instantiate(player.ActionWheel, offset, player.ActionWheel.transform.rotation);
-        } 
+        }
         index = player.fighterName == "Timber" ? 0 : 1;
         Fighter[] possibleTargets;
         while (player.currentAction == null)
         {
             yield return null;
         }
+        WheelSelection.lockedRotation = true;
+        PanelHandler.ClosePanel();
         if (player.currentAction.isTeamAction) {
             // Si es una acción de equipo, permite seleccionar entre aliados
             possibleTargets = System.Array.FindAll(fighters, f => f.team == player.team && f.isAlive);
@@ -288,14 +294,16 @@ public class CombatManager : MonoBehaviour{
     }
 
     void SetArrowToTarget(GameObject arrow, Fighter target) {
-        Vector3 offset = new Vector3(0,9f,0);
+        Vector3 offset = new Vector3(0f,0f,0f);
         if (target.team == Team.Player)
         {
-            offset.x += 5f;
+            offset.x = 5f;
+            offset.y = 5f;
         }
         else
         {
-            offset.x -= 8f;
+            offset.x = -8f;
+            offset.y = 9f;
         }
         arrow.transform.position = target.transform.position + offset;
         selectorPositioned = true;

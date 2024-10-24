@@ -22,7 +22,7 @@ public class PlayerController : MonoBehaviour
     void Update()
     {
         actionButton = myInput.actions[gameObject.name];    
-        if(!locked)
+        if(!locked && !CombatManager.menuOpen)
         {
             if(actionButton.WasPressedThisFrame() && canJump && !locked)
             {
@@ -41,7 +41,6 @@ public class PlayerController : MonoBehaviour
     {
         if (other.gameObject.tag == "ActionCube")
         {
-            WheelSelection.lockedRotation = true;
             rb.velocity = -rb.velocity;
         }
     }

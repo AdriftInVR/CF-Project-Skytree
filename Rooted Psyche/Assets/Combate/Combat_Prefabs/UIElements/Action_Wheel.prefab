@@ -45,6 +45,7 @@ GameObject:
   - component: {fileID: 7029860945524932838}
   - component: {fileID: 1947332880107253745}
   - component: {fileID: 7503590406851427749}
+  - component: {fileID: 8547193747912160450}
   m_Layer: 0
   m_Name: DuoCube
   m_TagString: ActionCube
@@ -150,7 +151,19 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d5d945b7523de8f46b8a447283fc77b3, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  combatManager: {fileID: 0}
+--- !u!114 &8547193747912160450
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2515142381379047085}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 027339898499c124ab84c32c2b869163, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  cubeID: 1
 --- !u!1 &3932108098572442167
 GameObject:
   m_ObjectHideFlags: 0
@@ -184,8 +197,8 @@ Transform:
   m_Children:
   - {fileID: 1016463238848951951}
   - {fileID: 5991916391732738115}
-  - {fileID: 2948467904203407243}
   - {fileID: 2629303783899839746}
+  - {fileID: 2948467904203407243}
   - {fileID: 2426946590940747532}
   m_Father: {fileID: 3359597024555191691}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -275,7 +288,8 @@ GameObject:
   - component: {fileID: 6544313077370893551}
   - component: {fileID: 960573978722072845}
   - component: {fileID: 8376324066885073407}
-  - component: {fileID: 6513955921097772085}
+  - component: {fileID: 5901461658000210053}
+  - component: {fileID: 3851689832836380547}
   m_Layer: 0
   m_Name: ItemCube
   m_TagString: ActionCube
@@ -369,7 +383,7 @@ BoxCollider:
   serializedVersion: 3
   m_Size: {x: 1, y: 1, z: 1}
   m_Center: {x: 0, y: 0, z: 0}
---- !u!114 &6513955921097772085
+--- !u!114 &5901461658000210053
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -378,10 +392,22 @@ MonoBehaviour:
   m_GameObject: {fileID: 4943373501439155363}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: fc0d9ca10d054a74c8e80623919d12e9, type: 3}
+  m_Script: {fileID: 11500000, guid: 07ce0149cafa30a4f839e9c29869d666, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  combatManager: {fileID: 0}
+--- !u!114 &3851689832836380547
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4943373501439155363}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 027339898499c124ab84c32c2b869163, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  cubeID: 3
 --- !u!1 &5503035811841726675
 GameObject:
   m_ObjectHideFlags: 0
@@ -394,9 +420,10 @@ GameObject:
   - component: {fileID: 3702552200716558307}
   - component: {fileID: 678210141705703362}
   - component: {fileID: 8102768237389163298}
-  - component: {fileID: 6100653724912809205}
+  - component: {fileID: 1031813197438311930}
+  - component: {fileID: 1277098704404909050}
   m_Layer: 0
-  m_Name: Run
+  m_Name: RunCube
   m_TagString: ActionCube
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -488,7 +515,7 @@ BoxCollider:
   serializedVersion: 3
   m_Size: {x: 1, y: 1, z: 1}
   m_Center: {x: 0, y: 0, z: 0}
---- !u!114 &6100653724912809205
+--- !u!114 &1031813197438311930
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -497,10 +524,22 @@ MonoBehaviour:
   m_GameObject: {fileID: 5503035811841726675}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: fc0d9ca10d054a74c8e80623919d12e9, type: 3}
+  m_Script: {fileID: 11500000, guid: c959102e1d6cec44ebbc4ea7fde0b9d7, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  combatManager: {fileID: 0}
+--- !u!114 &1277098704404909050
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5503035811841726675}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 027339898499c124ab84c32c2b869163, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  cubeID: 2
 --- !u!1 &5727174932404626040
 GameObject:
   m_ObjectHideFlags: 0
@@ -546,6 +585,7 @@ GameObject:
   - component: {fileID: 7451513565116693693}
   - component: {fileID: 5525247125310570401}
   - component: {fileID: 2874430667419101731}
+  - component: {fileID: 5766803883834777306}
   m_Layer: 0
   m_Name: SoloCube
   m_TagString: ActionCube
@@ -651,7 +691,19 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 427c732f86f6f1644ab7139c831a9b83, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  combatManager: {fileID: 0}
+--- !u!114 &5766803883834777306
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5770304994787955708}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 027339898499c124ab84c32c2b869163, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  cubeID: 0
 --- !u!1 &5931076222354228089
 GameObject:
   m_ObjectHideFlags: 0
@@ -696,7 +748,8 @@ GameObject:
   - component: {fileID: 1411177313941614936}
   - component: {fileID: 8411416028311146558}
   - component: {fileID: 6213587144046718392}
-  - component: {fileID: 833696376576557443}
+  - component: {fileID: 2779236486300799407}
+  - component: {fileID: 3937104059419449396}
   m_Layer: 0
   m_Name: FusionCube
   m_TagString: ActionCube
@@ -790,7 +843,7 @@ BoxCollider:
   serializedVersion: 3
   m_Size: {x: 1, y: 1, z: 1}
   m_Center: {x: 0, y: 0, z: 0}
---- !u!114 &833696376576557443
+--- !u!114 &2779236486300799407
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -799,10 +852,25 @@ MonoBehaviour:
   m_GameObject: {fileID: 6093607373767195459}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: fc0d9ca10d054a74c8e80623919d12e9, type: 3}
+  m_Script: {fileID: 11500000, guid: 5883e4d2e767ba14fa53baa65b1a4a34, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  combatManager: {fileID: 0}
+  Colors:
+  - {fileID: 2100000, guid: 2a02f0b5a19d4b04da1774e9657faba6, type: 2}
+  - {fileID: 2100000, guid: b7c454e4d8bce9846a4085a2bd3e2cb7, type: 2}
+--- !u!114 &3937104059419449396
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6093607373767195459}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 027339898499c124ab84c32c2b869163, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  cubeID: 4
 --- !u!1 &6258012175474066767
 GameObject:
   m_ObjectHideFlags: 0
@@ -813,7 +881,7 @@ GameObject:
   m_Component:
   - component: {fileID: 2629303783899839746}
   m_Layer: 0
-  m_Name: RunCube
+  m_Name: Run
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -861,7 +929,7 @@ Transform:
   m_GameObject: {fileID: 7834813607110961082}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0.9914449, z: -0.13052616, w: 0}
-  m_LocalPosition: {x: 0, y: 17.5, z: 0}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:

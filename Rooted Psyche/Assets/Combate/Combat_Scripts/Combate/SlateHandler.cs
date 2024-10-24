@@ -2,7 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class SlatePosition : MonoBehaviour
+public class SlateHandler : MonoBehaviour
 {
     private bool slatePositioned = true;
     

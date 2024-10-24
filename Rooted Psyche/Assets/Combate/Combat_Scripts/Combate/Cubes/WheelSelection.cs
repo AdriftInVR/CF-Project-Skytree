@@ -9,11 +9,9 @@ public class WheelSelection : MonoBehaviour
     private bool rotationComplete = true;
     //public Transform targetRot;
     public static bool lockedRotation = false;
-    private int cubes = 0;
-    private Transform[] cubeTransforms = new Transform[10]; 
-
+    private int cubes;
+    private List<Transform> cubeTrans = new List<Transform>();
     public static int lastCube;
-    
 
     // Start is called before the first frame update
     void Start()
@@ -21,14 +19,13 @@ public class WheelSelection : MonoBehaviour
         foreach (Transform child in transform){
             if(child.gameObject.activeSelf)
             {
-                cubeTransforms[cubes] = child;
+                cubeTrans.Add(child);
                 cubes++; 
             }
         }
         for (int i = 0; i<cubes; i++)
         {
-
-            StartCoroutine(SpawnWheel(cubeTransforms[i], i));
+            StartCoroutine(SpawnWheel(cubeTrans[(i + lastCube) % cubes], i));
         }
         myInput = GetComponent<PlayerInput>();
     }
@@ -36,7 +33,7 @@ public class WheelSelection : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if (!lockedRotation)
+        if (!lockedRotation && !CombatManager.menuOpen)
         {
             if (Mathf.Abs(CombatManager.direction.x)>0 && rotationComplete) {
                 StartCoroutine(RotateWheel((int)Mathf.Sign(CombatManager.direction.x)));
@@ -51,9 +48,10 @@ public class WheelSelection : MonoBehaviour
         targetRot.SetParent(transform.parent);
         targetRot.gameObject.SetActive(false);
         targetRot.Rotate(Vector3.up,direction*(360f/cubes),Space.Self);
+        float targetEuler = targetRot.eulerAngles.y;
         while (!rotationComplete){
-            transform.rotation = Quaternion.Lerp(transform.rotation, targetRot.rotation, 0.1f);
-            if (Mathf.Abs(targetRot.rotation.x - transform.rotation.x) <0.0001f)
+            transform.rotation = Quaternion.Lerp(transform.rotation, targetRot.rotation, 0.11f);
+            if ((Mathf.Abs(targetEuler - transform.eulerAngles.y)<1f&&Mathf.Abs(targetEuler - transform.eulerAngles.y)>-1f))
             {
                 transform.rotation = targetRot.rotation;
                 break;
@@ -62,12 +60,10 @@ public class WheelSelection : MonoBehaviour
         }
         rotationComplete = true;
         Destroy(targetRot.gameObject);
-        yield return null;
     }
 
     IEnumerator SpawnWheel(Transform cube, int i)
     {
-        
         lockedRotation = true;
         bool spawned = false;
         bool lerping = false;
@@ -99,6 +95,7 @@ public class WheelSelection : MonoBehaviour
         lockedRotation = false;
         Destroy(targetRot.gameObject);
         spawned = true;
+        PlayerController.locked = false;
         yield return null;
     }
 }

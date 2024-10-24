@@ -1,9 +1,11 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class DuoActionCube : MonoBehaviour
+public class CubeHandler : MonoBehaviour
 {
+    public int cubeID;
     private Vector3 CamEulers;
     void Update()
     {
@@ -14,6 +16,6 @@ public class DuoActionCube : MonoBehaviour
 
     void OnTriggerEnter(Collider other)
     {
-        other.gameObject.GetComponent<Player>().DuoAction(0);        
+        other.gameObject.GetComponent<Player>().lastCube = cubeID;    
     }
 }

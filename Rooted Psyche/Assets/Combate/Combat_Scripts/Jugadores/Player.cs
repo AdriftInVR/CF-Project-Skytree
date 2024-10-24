@@ -6,12 +6,12 @@ using System;
 
 public class Player: Fighter{
     [Header("UI")]
-    public PlayerActionPanel actionPanel;
     public TextMeshProUGUI healthText;
     public GameObject ActionWheel;
     public Action currentAction;
+    public int lastCube;
     public Action[] SoloActions;
-    public Action[] DuoActions; 
+    public Action[] DuoActions;
 
     void Awake()
     {
