@@ -671,7 +671,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 2727496600493853276, guid: c64cd56d66a62e245a8e9fd6b90f3327, type: 3}
       propertyPath: m_IsActive
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 2886808435677453456, guid: c64cd56d66a62e245a8e9fd6b90f3327, type: 3}
       propertyPath: m_Mesh
@@ -6045,7 +6045,7 @@ GameObject:
   - component: {fileID: 1610134024}
   m_Layer: 0
   m_Name: Player
-  m_TagString: Skyler
+  m_TagString: Player
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -6064,7 +6064,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   canJump: 0
   cam: {fileID: 1804303822}
-  spd: 6
+  spd: 4
   jumpSpd: 0
 --- !u!114 &1610134025
 MonoBehaviour:
@@ -6154,15 +6154,15 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1610134023}
   serializedVersion: 2
-  m_LocalRotation: {x: 0, y: -0.7071068, z: 0, w: 0.7071068}
-  m_LocalPosition: {x: 3.515, y: 1.019, z: 4.942}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 2.78, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 1637143298}
   - {fileID: 295071125}
   m_Father: {fileID: 0}
-  m_LocalEulerAnglesHint: {x: 0, y: -90, z: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1637143297
 GameObject:
   m_ObjectHideFlags: 0
@@ -8471,7 +8471,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 5016646486965536877, guid: 8a9aa75837146e34e859b7074fd75a86, type: 3}
       propertyPath: m_IsActive
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 5166109906124921101, guid: 8a9aa75837146e34e859b7074fd75a86, type: 3}
       propertyPath: m_Mesh
