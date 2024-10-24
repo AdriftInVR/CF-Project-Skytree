@@ -78,7 +78,7 @@ GameObject:
   - component: {fileID: 3064978294295218392}
   - component: {fileID: 5398440731842538523}
   - component: {fileID: -1857938527606837022}
-  - component: {fileID: -4793647227145778382}
+  - component: {fileID: 1574512811061843668}
   m_Layer: 0
   m_Name: Loboscuro
   m_TagString: Enemy
@@ -138,7 +138,7 @@ BoxCollider:
   serializedVersion: 3
   m_Size: {x: 1, y: 1, z: 1}
   m_Center: {x: 0, y: 0, z: 0}
---- !u!114 &-4793647227145778382
+--- !u!114 &1574512811061843668
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -147,7 +147,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 4260195588355564170}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: b6bcfb1db01305d4ebf7fd71d404cd81, type: 3}
+  m_Script: {fileID: 11500000, guid: 2c9a91ca4d3fe234db609875d3ea80e9, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
 --- !u!1 &4571390037358027066
