@@ -61,15 +61,12 @@ public class ExplorationController : MonoBehaviour
             // Apply counter-force to stop instantly
             rb.AddForce(new Vector3(-rb.velocity.x,0,-rb.velocity.z), ForceMode.Impulse);
         }
-    }
-
-
-    private void OnJump(){
-        if(canJump){
+        if(myInput.actions["Timber"].WasPressedThisFrame() && canJump){
             rb.velocity = new Vector3(0,jumpSpd,0);
             canJump = false;
         }
     }
+
 
     private void SetMaxVelocity(float maxVelocity)
     {
