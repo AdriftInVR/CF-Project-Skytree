@@ -7,6 +7,6 @@ public class DuoCube : MonoBehaviour
     void OnTriggerEnter(Collider other)
     {
         WheelSelection.lockedRotation = true;
-        PanelHandler.DuoActive();      
+        PanelHandler.DuoActive(other.gameObject.GetComponent<Player>());      
     }
 }

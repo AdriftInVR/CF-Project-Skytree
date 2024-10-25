@@ -14,6 +14,9 @@ public class PanelHandler : MonoBehaviour
     private static GameObject Fusion;
     private static GameObject Run;
     private static GameObject Current;
+    public static List<Action> actions = new List<Action>();
+    // TODO: Inventario
+    // private static Dictionary<string><int> = Inventario
     
     void Awake()
     {
@@ -33,15 +36,33 @@ public class PanelHandler : MonoBehaviour
         };
     }
 
-    public static void SoloActive()
+    public static void SoloActive(Player player)
     {
-        Solo.SetActive(true);
+        actions.Clear();
+        foreach(Action action in player.SoloActions)
+        {
+            actions.Add(action);
+        }
+        foreach(Action action in actions)
+        {
+            Debug.Log(action.actionName);
+        } 
         CombatManager.menuOpen = true;
+        Solo.SetActive(true);
         Current = Solo;
     }
 
-    public static void DuoActive()
+    public static void DuoActive(Player player)
     {
+        actions.Clear();
+        foreach(Action action in player.DuoActions)
+        {
+            actions.Add(action);
+        }
+        foreach(Action action in actions)
+        {
+            Debug.Log(action.actionName);
+        } 
         Duo.SetActive(true);
         CombatManager.menuOpen = true;
         Current = Duo;
