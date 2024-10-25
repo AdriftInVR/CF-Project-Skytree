@@ -12,6 +12,7 @@ public class ExplorationSpriteHandler : MonoBehaviour
     Animator anim;
     PlayerInput myInput;
     Vector2 direction;
+    public Rigidbody rb;
 
     public SpriteLibrary sprites;
 
@@ -65,7 +66,7 @@ public class ExplorationSpriteHandler : MonoBehaviour
             Flip();
         }
 
-        if(direction.magnitude > 0.01)
+        if(direction.magnitude > 0.01 && rb.velocity.magnitude>0)
         {
             anim.SetBool("isWalking", true);
         }

@@ -15,6 +15,7 @@ public class RoomTemplates : MonoBehaviour
     public GameObject boss;
     public GameObject shop;
     public GameObject enemies;
+    public GameObject enemyParent;
 
     private void Start()
     {
@@ -23,13 +24,19 @@ public class RoomTemplates : MonoBehaviour
 
     void Generate_Lv()
     {
-        Instantiate(boss, rooms[rooms.Count - 1].transform.position, Quaternion.identity);
+        GameObject bossInstance;
+        GameObject shopInstance;
+        GameObject roomInstance;
+        bossInstance = Instantiate(boss, rooms[rooms.Count - 1].transform.position, Quaternion.identity);
+        bossInstance.transform.parent = enemyParent.transform;
         //rooms.RemoveAt(rooms.Count - 1);
-        Instantiate(shop, rooms[rooms.Count - 2].transform.position, Quaternion.identity);
+        shopInstance = Instantiate(shop, rooms[Random.Range(1, rooms.Count-2)].transform.position, Quaternion.identity);
+        shopInstance.transform.parent = enemyParent.transform;
         //rooms.RemoveAt(rooms.Count - 1);
         for (int i = 0; i < rooms.Count-1; i++)
         {
-            Instantiate(enemies, rooms[i].transform.position, Quaternion.identity);
+            roomInstance = Instantiate(enemies, rooms[i].transform.position, Quaternion.identity);
+            roomInstance.transform.parent = enemyParent.transform;
         }
     }
 

@@ -15,7 +15,7 @@ public class Player: Fighter{
 
     void Awake()
     {
-        this.stats = new Stats(100, 100, 10, 10, 1, 1, 10);
+        this.stats = new Stats(100, 100, 40, 10, 1, 1, 10);
         // HP, MaxHP, Atk, Def, Spd, Lv, SP
         UpdateHealthUI(); // Inicializa la UI de vida con los valores actuales
     }

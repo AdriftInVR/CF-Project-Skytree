@@ -7,15 +7,11 @@ public class ExplorationController : MonoBehaviour
 {
     Rigidbody rb;
     public bool canJump = true;
-
-    
     [SerializeField]
     private Transform cam;
-
     [SerializeField]
     private float spd, jumpSpd;
     private float sqrspd;
-
     PlayerInput myInput;
 
     void Start()

@@ -14,7 +14,7 @@ GameObject:
   - component: {fileID: 8171937645661311624}
   - component: {fileID: 3568348539120844979}
   - component: {fileID: 1200040564965063303}
-  m_Layer: 0
+  m_Layer: 3
   m_Name: Left
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -363,7 +363,7 @@ GameObject:
   m_Component:
   - component: {fileID: 7005702377919571728}
   - component: {fileID: -3057308368461123307}
-  m_Layer: 0
+  m_Layer: 3
   m_Name: TB
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -416,7 +416,7 @@ GameObject:
   - component: {fileID: 3471121246962833339}
   - component: {fileID: 6494204727234744799}
   - component: {fileID: 7046480846253281066}
-  m_Layer: 0
+  m_Layer: 3
   m_Name: SpawnP_Bottom
   m_TagString: SpawnPoint
   m_Icon: {fileID: 0}
@@ -514,7 +514,7 @@ GameObject:
   - component: {fileID: 5953657294211648115}
   - component: {fileID: 5525542300824969821}
   - component: {fileID: 6863228714035784225}
-  m_Layer: 0
+  m_Layer: 3
   m_Name: Right
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -865,7 +865,7 @@ GameObject:
   - component: {fileID: 6001476743070422459}
   - component: {fileID: 7593802621808950402}
   - component: {fileID: 2933724357778645154}
-  m_Layer: 0
+  m_Layer: 3
   m_Name: Piso
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -971,7 +971,7 @@ GameObject:
   - component: {fileID: 3117095274428649720}
   - component: {fileID: 8444340655816178419}
   - component: {fileID: 8866389703364571172}
-  m_Layer: 0
+  m_Layer: 3
   m_Name: SpawnP_Top
   m_TagString: SpawnPoint
   m_Icon: {fileID: 0}
@@ -1069,7 +1069,7 @@ GameObject:
   - component: {fileID: 5818753217769242099}
   - component: {fileID: 5934858523541097645}
   - component: {fileID: 6135724529536279489}
-  m_Layer: 0
+  m_Layer: 3
   m_Name: Bottom
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1643,7 +1643,7 @@ GameObject:
   - component: {fileID: 686299010299334265}
   - component: {fileID: 9188968348836674207}
   - component: {fileID: 1496121829744862663}
-  m_Layer: 0
+  m_Layer: 3
   m_Name: Top
   m_TagString: Untagged
   m_Icon: {fileID: 0}

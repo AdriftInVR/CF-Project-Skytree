@@ -14,7 +14,7 @@ GameObject:
   - component: {fileID: 8171937645661311624}
   - component: {fileID: 3568348539120844979}
   - component: {fileID: 1200040564965063303}
-  m_Layer: 0
+  m_Layer: 3
   m_Name: Top
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -363,7 +363,7 @@ GameObject:
   m_Component:
   - component: {fileID: 7005702377919571728}
   - component: {fileID: -1788730281360087378}
-  m_Layer: 0
+  m_Layer: 3
   m_Name: L
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -415,7 +415,7 @@ GameObject:
   - component: {fileID: 3471121246962833339}
   - component: {fileID: 6494204727234744799}
   - component: {fileID: 6362386727940422352}
-  m_Layer: 0
+  m_Layer: 3
   m_Name: SpawnP_Left
   m_TagString: SpawnPoint
   m_Icon: {fileID: 0}
@@ -513,7 +513,7 @@ GameObject:
   - component: {fileID: 5953657294211648115}
   - component: {fileID: 5525542300824969821}
   - component: {fileID: 6863228714035784225}
-  m_Layer: 0
+  m_Layer: 3
   m_Name: Bottom
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -866,7 +866,7 @@ GameObject:
   - component: {fileID: 4890343663123896267}
   - component: {fileID: 3198920288601658009}
   - component: {fileID: 7419881246819176181}
-  m_Layer: 0
+  m_Layer: 3
   m_Name: Right
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1217,7 +1217,7 @@ GameObject:
   - component: {fileID: 6001476743070422459}
   - component: {fileID: 7593802621808950402}
   - component: {fileID: 2933724357778645154}
-  m_Layer: 0
+  m_Layer: 3
   m_Name: Piso
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1325,7 +1325,7 @@ GameObject:
   - component: {fileID: 686299010299334265}
   - component: {fileID: 9188968348836674207}
   - component: {fileID: 1496121829744862663}
-  m_Layer: 0
+  m_Layer: 3
   m_Name: Left
   m_TagString: Untagged
   m_Icon: {fileID: 0}

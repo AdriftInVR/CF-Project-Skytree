@@ -14,7 +14,11 @@ public class PanelHandler : MonoBehaviour
     private static GameObject Fusion;
     private static GameObject Run;
     private static GameObject Current;
-    public static List<Action> actions = new List<Action>();
+    public static List<GameObject> actions = new List<GameObject>();
+    private static GameObject button;
+    private static Transform self;
+
+    public GameObject _button;
     // TODO: Inventario
     // private static Dictionary<string><int> = Inventario
     
@@ -25,6 +29,8 @@ public class PanelHandler : MonoBehaviour
         Item = Panels[2];
         Fusion = Panels[3];
         Run = Panels[4];
+        button = _button;
+        self = transform;
     }
 
     void Update()
@@ -38,15 +44,17 @@ public class PanelHandler : MonoBehaviour
 
     public static void SoloActive(Player player)
     {
+        foreach(GameObject button in actions)
+        {
+            Destroy(button);
+        }
         actions.Clear();
         foreach(Action action in player.SoloActions)
         {
-            actions.Add(action);
+            GameObject newButton = Instantiate(button, self.position, self.rotation, Solo.transform);
+            newButton.GetComponent<ButtonHandler>().UpdateButton(player, action);
+            actions.Add(newButton);
         }
-        foreach(Action action in actions)
-        {
-            Debug.Log(action.actionName);
-        } 
         CombatManager.menuOpen = true;
         Solo.SetActive(true);
         Current = Solo;
@@ -54,15 +62,17 @@ public class PanelHandler : MonoBehaviour
 
     public static void DuoActive(Player player)
     {
+        foreach(GameObject button in actions)
+        {
+            Destroy(button);
+        }
         actions.Clear();
         foreach(Action action in player.DuoActions)
         {
-            actions.Add(action);
+            GameObject newButton = Instantiate(button, self.position, self.rotation, Duo.transform);
+            newButton.GetComponent<ButtonHandler>().UpdateButton(player, action);
+            actions.Add(newButton);
         }
-        foreach(Action action in actions)
-        {
-            Debug.Log(action.actionName);
-        } 
         Duo.SetActive(true);
         CombatManager.menuOpen = true;
         Current = Duo;

@@ -9,7 +9,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1220591238493973268}
-  m_Layer: 0
+  m_Layer: 3
   m_Name: Paredes
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -48,7 +48,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 6266068206578679872}
-  m_Layer: 0
+  m_Layer: 3
   m_Name: RoomTemplate
   m_TagString: Respawn
   m_Icon: {fileID: 0}
@@ -82,7 +82,7 @@ GameObject:
   - component: {fileID: 7162827640965789361}
   - component: {fileID: 5854190397540230172}
   - component: {fileID: 906048585648744894}
-  m_Layer: 0
+  m_Layer: 3
   m_Name: Right2
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -187,7 +187,7 @@ GameObject:
   - component: {fileID: 4000776529585186935}
   - component: {fileID: 324230293259700078}
   - component: {fileID: 4926054434136175108}
-  m_Layer: 0
+  m_Layer: 3
   m_Name: Bottom2
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -292,7 +292,7 @@ GameObject:
   - component: {fileID: 7142875106843135065}
   - component: {fileID: 1544508420940257741}
   - component: {fileID: 2432451899446309176}
-  m_Layer: 0
+  m_Layer: 3
   m_Name: Piso
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -398,7 +398,7 @@ GameObject:
   - component: {fileID: 1649395858756914850}
   - component: {fileID: 6765083431800528435}
   - component: {fileID: 4905562382721124609}
-  m_Layer: 0
+  m_Layer: 3
   m_Name: Left
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -503,7 +503,7 @@ GameObject:
   - component: {fileID: 7852262719407496151}
   - component: {fileID: 3805051483773524769}
   - component: {fileID: 3462411961999056288}
-  m_Layer: 0
+  m_Layer: 3
   m_Name: Left2
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -605,7 +605,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 4204748244056416499}
-  m_Layer: 0
+  m_Layer: 3
   m_Name: Lobby_old
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -642,7 +642,7 @@ GameObject:
   - component: {fileID: 1229423130623547264}
   - component: {fileID: 4126328749177134399}
   - component: {fileID: 8539201549730153686}
-  m_Layer: 0
+  m_Layer: 3
   m_Name: Bottom
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -747,7 +747,7 @@ GameObject:
   - component: {fileID: 1167773757142523266}
   - component: {fileID: 6054566748204348441}
   - component: {fileID: 3548340064852413205}
-  m_Layer: 0
+  m_Layer: 3
   m_Name: Top2
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -852,7 +852,7 @@ GameObject:
   - component: {fileID: 8553223334834487714}
   - component: {fileID: 4403960908535390965}
   - component: {fileID: 1915052741336865267}
-  m_Layer: 0
+  m_Layer: 3
   m_Name: Right
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -957,7 +957,7 @@ GameObject:
   - component: {fileID: 608856112267726284}
   - component: {fileID: 6159444127156429352}
   - component: {fileID: 4458256555537659821}
-  m_Layer: 0
+  m_Layer: 3
   m_Name: Top
   m_TagString: Untagged
   m_Icon: {fileID: 0}
