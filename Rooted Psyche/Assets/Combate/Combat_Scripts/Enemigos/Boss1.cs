@@ -17,7 +17,8 @@ public class Boss1 : Fighter
     //     9. specialAttackMultiplier; (float)
     void Awake()
     {
-        this.stats = new Stats(250, 250, 100, 100, 100, 5, 10);
+        this.stats = new Stats(250, 250, 100, 10, 100, 1, 10);
+        // HP, MaxHP, Atk, Def, Spd, Lv, SP
     }
     public override void InitTurn()
     {

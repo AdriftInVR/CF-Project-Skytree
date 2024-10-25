@@ -8,13 +8,15 @@ public class ShadowHandler : MonoBehaviour
     Ray shadowRay;
     RaycastHit hit;
     public LayerMask layerMask;
+    private Vector3 offset;
+    public float offX, offZ;
 
     private void FixedUpdate()
     {
         shadowRay = new Ray(transform.position, -Vector3.up);
         if(Physics.Raycast(shadowRay, out hit, 50f, layerMask))
         {
-            shadow.transform.position = new Vector3(this.transform.position.x, hit.point.y, this.transform.position.z);   
+            shadow.transform.position = new Vector3(this.transform.position.x + offX, hit.point.y, this.transform.position.z + offZ);   
         }
     }
 }

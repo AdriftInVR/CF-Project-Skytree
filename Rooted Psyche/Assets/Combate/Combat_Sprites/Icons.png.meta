@@ -7,7 +7,7 @@ TextureImporter:
   mipmaps:
     mipMapMode: 0
     enableMipMap: 0
-    sRGBTexture: 0
+    sRGBTexture: 1
     linearTexture: 0
     fadeOut: 0
     borderMipMap: 0
@@ -44,13 +44,13 @@ TextureImporter:
   lightmap: 0
   compressionQuality: 50
   spriteMode: 2
-  spriteExtrude: 0
+  spriteExtrude: 1
   spriteMeshType: 1
   alignment: 0
   spritePivot: {x: 0.5, y: 0.5}
   spritePixelsToUnits: 100
   spriteBorder: {x: 0, y: 0, z: 0, w: 0}
-  spriteGenerateFallbackPhysicsShape: 0
+  spriteGenerateFallbackPhysicsShape: 1
   alphaUsage: 1
   alphaIsTransparency: 1
   spriteTessellationDetail: -1
@@ -118,14 +118,14 @@ TextureImporter:
         width: 127
         height: 133
       alignment: 0
-      pivot: {x: 0.5, y: 0.5}
+      pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 42ad56bb1ca08c54ab2f708f57099526
-      internalID: -159013926
+      spriteID: d0f36fcf88a0af7458e611982b100013
+      internalID: -1290839110
       vertices: []
       indices: 
       edges: []
@@ -135,18 +135,18 @@ TextureImporter:
       rect:
         serializedVersion: 2
         x: 141
-        y: 113
+        y: 114
         width: 134
         height: 134
       alignment: 0
-      pivot: {x: 0.5, y: 0.5}
+      pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 4b6c4a98636716743a78c85f67b28d46
-      internalID: -1622054589
+      spriteID: f41b0c916568c4f478dda8c6098c61c8
+      internalID: -1903291058
       vertices: []
       indices: 
       edges: []
@@ -155,19 +155,19 @@ TextureImporter:
       name: Item
       rect:
         serializedVersion: 2
-        x: 298
+        x: 299
         y: 118
-        width: 119
+        width: 118
         height: 132
       alignment: 0
-      pivot: {x: 0.5, y: 0.5}
+      pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: ae3a82209551b534b852d50a3c8c4199
-      internalID: 107711271
+      spriteID: 6478df63f9a097144b54350eadbd3acc
+      internalID: 678964367
       vertices: []
       indices: 
       edges: []
@@ -177,18 +177,18 @@ TextureImporter:
       rect:
         serializedVersion: 2
         x: 34
-        y: 4
+        y: 5
         width: 143
-        height: 100
+        height: 99
       alignment: 0
-      pivot: {x: 0.5, y: 0.5}
+      pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: caaccdb8e7aabb44092246bb20b2c29c
-      internalID: -1382080064
+      spriteID: f8db84c0cb5a8b74c8b7e21ae39e65e8
+      internalID: -1199952435
       vertices: []
       indices: 
       edges: []
@@ -200,16 +200,16 @@ TextureImporter:
         x: 207
         y: 0
         width: 139
-        height: 100
+        height: 101
       alignment: 0
-      pivot: {x: 0.5, y: 0.5}
+      pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 95fdd776f2e62424d99faa658ad2e77d
-      internalID: 328661147
+      spriteID: 8f3190ea37d361843b8f1c152b6043de
+      internalID: -2041793122
       vertices: []
       indices: 
       edges: []
@@ -217,7 +217,7 @@ TextureImporter:
     outline: []
     physicsShape: []
     bones: []
-    spriteID: 5e97eb03825dee720800000000000000
+    spriteID: 7cf665d5a7c69c94d9a075b72f1db1b3
     internalID: 0
     vertices: []
     indices: 
@@ -225,15 +225,16 @@ TextureImporter:
     weights: []
     secondaryTextures: []
     nameFileIdTable:
-      Duo: -1622054589
-      Fusion: 328661147
-      Icons_4: 347933959
-      Icons_6: 2017216676
-      Icons_7: -72231156
-      Icons_8: 638933599
-      Item: 107711271
-      Run: -1382080064
-      Solo: -159013926
+      Duo: -1903291058
+      Fusion: -2041793122
+      Icons_1: 1203000861
+      Icons_4: -1281374273
+      Icons_6: -806319317
+      Icons_8: -196877176
+      Icons_9: 2042398447
+      Item: 678964367
+      Run: -1199952435
+      Solo: -1290839110
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 

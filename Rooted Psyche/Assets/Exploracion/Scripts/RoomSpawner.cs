@@ -29,25 +29,24 @@ public class RoomSpawner : MonoBehaviour
             {
                 case 1:
                     rand = Random.Range(0, templates.bottomRooms.Length);
-                    room = Instantiate(templates.bottomRooms[rand], transform.position, templates.bottomRooms[rand].transform.rotation);
+                    room = Instantiate(templates.bottomRooms[rand], transform.position, templates.bottomRooms[rand].transform.rotation, transform.parent.parent);
                     break;
                 case 2:
                     rand = Random.Range(0, templates.topRooms.Length);
-                    room = Instantiate(templates.topRooms[rand], transform.position, templates.topRooms[rand].transform.rotation);
+                    room = Instantiate(templates.topRooms[rand], transform.position, templates.topRooms[rand].transform.rotation, transform.parent.parent);
                     break;
                 case 3:
                     rand = Random.Range(0, templates.leftRooms.Length);
-                    room = Instantiate(templates.leftRooms[rand], transform.position, templates.leftRooms[rand].transform.rotation);
+                    room = Instantiate(templates.leftRooms[rand], transform.position, templates.leftRooms[rand].transform.rotation, transform.parent.parent);
                     break;
                 case 4:
                     rand = Random.Range(0, templates.rightRooms.Length);
-                    room = Instantiate(templates.rightRooms[rand], transform.position, templates.rightRooms[rand].transform.rotation);
+                    room = Instantiate(templates.rightRooms[rand], transform.position, templates.rightRooms[rand].transform.rotation, transform.parent.parent);
                     break;
                 default:
                     break;
             }
             spawned = true;
-            room.transform.parent = transform.parent.parent;
         }
     }
 
@@ -58,9 +57,15 @@ public class RoomSpawner : MonoBehaviour
             if (other.GetComponent<RoomSpawner>().spawned == false && spawned == false)
             {
                 Instantiate(templates.closedRoom, transform.position, Quaternion.identity);
+                StartCoroutine(SelfDestruct());
             }
             spawned = true;
-            Destroy(gameObject);
         }
+    }
+
+    IEnumerator SelfDestruct()
+    {
+        yield return new WaitForSeconds(0.05f);
+        Destroy(gameObject);
     }
 }

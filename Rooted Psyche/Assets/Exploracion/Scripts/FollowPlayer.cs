@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class FollowPlayer : MonoBehaviour
 {
-    private Vector3 offset = new Vector3(0, 5, -6);
+    private Vector3 offset = new Vector3(0, 10, -12);
     public Transform player;
 
     // Update is called once per frame

@@ -307,7 +307,11 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   shadow: {fileID: 2510940550239012893}
-  offset: 0
+  layerMask:
+    serializedVersion: 2
+    m_Bits: 8
+  offX: 0
+  offZ: 0
 --- !u!114 &-1839557338960379603
 MonoBehaviour:
   m_ObjectHideFlags: 0

@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.InputSystem;
+using UnityEngine.SceneManagement;
 
 public enum CombatStatus{
     WAITING_FOR_FIGHTER,
@@ -156,6 +157,8 @@ public class CombatManager : MonoBehaviour{
         {
             PlayerController.locked = true;
             isCombatActive = false;
+            // TODO: Victory Sequence
+            SceneManager.LoadScene("Exploracion");
         }
     }
 
