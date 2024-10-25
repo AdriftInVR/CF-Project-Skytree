@@ -7,6 +7,6 @@ public class SoloCube : MonoBehaviour
     void OnTriggerEnter(Collider other)
     {
         WheelSelection.lockedRotation = true;
-        PanelHandler.SoloActive();
+        PanelHandler.SoloActive(other.gameObject.GetComponent<Player>());
     }
 }
