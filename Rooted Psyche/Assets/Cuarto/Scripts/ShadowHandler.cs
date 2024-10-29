@@ -16,7 +16,8 @@ public class ShadowHandler : MonoBehaviour
         shadowRay = new Ray(transform.position, -Vector3.up);
         if(Physics.Raycast(shadowRay, out hit, 50f, layerMask))
         {
-            shadow.transform.position = new Vector3(this.transform.position.x + offX, hit.point.y, this.transform.position.z + offZ);   
+            Vector3 targetPos = new Vector3(this.transform.position.x + offX, hit.point.y, this.transform.position.z + offZ);
+            shadow.transform.position = Vector3.Lerp(shadow.transform.position, targetPos, 1.1f);   
         }
     }
 }

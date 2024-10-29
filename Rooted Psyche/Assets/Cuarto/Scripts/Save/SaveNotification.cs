@@ -41,7 +41,7 @@ public class SaveNotification : MonoBehaviour
     private IEnumerator HideNotificationAfterDelay()
     {
         // Wait for display time
-        yield return new WaitForSeconds(displayTime);
+        yield return new WaitForSecondsRealtime(displayTime);
         
         // Fade out
         float elapsedTime = 0f;

@@ -49,7 +49,7 @@ public class ExplorationSpriteHandler : MonoBehaviour
             }
         }
 
-        if(Mathf.Abs(direction.x)>Mathf.Abs(direction.y))
+        if(Mathf.Abs(direction.x)*1.1f>Mathf.Abs(direction.y))
         {
             sprites.spriteLibraryAsset = directionSprites[1];//Right
         }
@@ -66,7 +66,7 @@ public class ExplorationSpriteHandler : MonoBehaviour
             Flip();
         }
 
-        if(direction.magnitude > 0.01 && rb.velocity.magnitude>0)
+        if(direction.magnitude > 0.01 && rb.velocity.magnitude>0.2f)
         {
             anim.SetBool("isWalking", true);
         }

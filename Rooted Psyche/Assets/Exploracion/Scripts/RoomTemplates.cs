@@ -9,13 +9,12 @@ public class RoomTemplates : MonoBehaviour
     public GameObject[] leftRooms;
     public GameObject[] rightRooms;
     public GameObject closedRoom;
-
     public List<GameObject> rooms;
-
     public GameObject boss;
     public GameObject shop;
     public GameObject enemies;
     public GameObject enemyParent;
+    public float spawnDelay = 0.1f;
 
     private void Start()
     {

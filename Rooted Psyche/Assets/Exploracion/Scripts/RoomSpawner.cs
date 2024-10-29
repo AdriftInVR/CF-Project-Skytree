@@ -13,19 +13,24 @@ public class RoomSpawner : MonoBehaviour
     private int rand;
     public bool spawned = false;
     private GameObject room;
-    
-    // Start is called before the first frame update
+
     void Start()
     {
         templates = GameObject.FindGameObjectWithTag("Rooms").GetComponent<RoomTemplates>();
-        Invoke("Spawn",0.1f);
+        StartCoroutine(SpawnWithDelay());
     }
 
+    IEnumerator SpawnWithDelay()
+    {
+        yield return new WaitForSeconds(templates.spawnDelay);  // Espera el tiempo definido
+        Spawn();
+    }
 
     void Spawn()
     {
-        if (!spawned){
-            switch(openSide)
+        if (!spawned)
+        {
+            switch (openSide)
             {
                 case 1:
                     rand = Random.Range(0, templates.bottomRooms.Length);
@@ -52,7 +57,7 @@ public class RoomSpawner : MonoBehaviour
 
     private void OnTriggerEnter(Collider other)
     {
-        if (other.gameObject.tag=="SpawnPoint")
+        if (other.gameObject.tag == "SpawnPoint")
         {
             if (other.GetComponent<RoomSpawner>().spawned == false && spawned == false)
             {

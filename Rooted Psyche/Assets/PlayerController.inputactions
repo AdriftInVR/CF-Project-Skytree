@@ -15,9 +15,27 @@
                     "initialStateCheck": true
                 },
                 {
-                    "name": "Pausa",
+                    "name": "Pause",
                     "type": "Button",
                     "id": "e2da967e-4872-4db4-81a9-97316465b9f7",
+                    "expectedControlType": "Button",
+                    "processors": "",
+                    "interactions": "",
+                    "initialStateCheck": false
+                },
+                {
+                    "name": "Timber",
+                    "type": "Button",
+                    "id": "bea1d88c-4aab-4365-97da-e629be6fcd47",
+                    "expectedControlType": "Button",
+                    "processors": "",
+                    "interactions": "",
+                    "initialStateCheck": false
+                },
+                {
+                    "name": "Brier",
+                    "type": "Button",
+                    "id": "ea9e0453-fcaf-478b-8cfe-6c6fc2c21bf0",
                     "expectedControlType": "Button",
                     "processors": "",
                     "interactions": "",
@@ -98,7 +116,7 @@
                     "interactions": "",
                     "processors": "",
                     "groups": "",
-                    "action": "Pausa",
+                    "action": "Pause",
                     "isComposite": false,
                     "isPartOfComposite": false
                 },
@@ -109,7 +127,51 @@
                     "interactions": "",
                     "processors": "",
                     "groups": "",
-                    "action": "Pausa",
+                    "action": "Pause",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "d70b8a11-0483-4a74-ae24-a216b2c2a662",
+                    "path": "<Gamepad>/buttonEast",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "Timber",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "76192760-0925-42c4-bd3d-3789c5d2b2a3",
+                    "path": "<Mouse>/leftButton",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "Timber",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "1c32d51c-e1c5-4e6e-9af4-6aa19d62f179",
+                    "path": "<Gamepad>/buttonSouth",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "Brier",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "bb9fefc0-a46e-4c1d-90b2-3f976140dbbb",
+                    "path": "<Mouse>/rightButton",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "Brier",
                     "isComposite": false,
                     "isPartOfComposite": false
                 }
@@ -181,6 +243,17 @@
                 },
                 {
                     "name": "",
+                    "id": "400342a2-2543-4187-87d2-f1f10c77ba8c",
+                    "path": "<Keyboard>/z",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "Timber",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
                     "id": "fc437806-6644-466f-b5ac-6cbecad13547",
                     "path": "<Mouse>/rightButton",
                     "interactions": "",
@@ -194,6 +267,17 @@
                     "name": "",
                     "id": "ac818bee-50ef-48cf-90e3-0ccaf3391b3f",
                     "path": "<Gamepad>/buttonSouth",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "Brier",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "b27577cc-5954-4947-96ff-8bb8851f81fe",
+                    "path": "<Keyboard>/x",
                     "interactions": "",
                     "processors": "",
                     "groups": "",

@@ -11,6 +11,10 @@ public class ExplorationController : MonoBehaviour
     private Transform cam;
     [SerializeField]
     private float spd, jumpSpd;
+
+    [SerializeField]
+    private int player;
+    private string playerName;
     private float sqrspd;
     PlayerInput myInput;
 
@@ -19,6 +23,8 @@ public class ExplorationController : MonoBehaviour
         rb = GetComponent<Rigidbody>();
         myInput = GetComponent<PlayerInput>();
         SetMaxVelocity(spd);
+        // if multiplayer
+        playerName = player==0?"Timber":"Brier";
     }
 
     void FixedUpdate()
@@ -47,18 +53,19 @@ public class ExplorationController : MonoBehaviour
             rb.velocity = new Vector3(moveDir.x * spd, rb.velocity.y, moveDir.z * spd);
         } 
 
-        if(myInput.actions["Direction"].ReadValue<Vector2>().sqrMagnitude > 0f)
+        transform.LookAt(transform.position+direction3D);
+        if(player == 0 &&myInput.actions["Direction"].ReadValue<Vector2>().sqrMagnitude > 0f)
         {            
             // Apply force to move instantly
-            rb.AddForce(direction3D * spd, ForceMode.Impulse);
+            rb.AddForce(transform.forward * spd, ForceMode.Impulse);
         }
         else
         {
             // Apply counter-force to stop instantly
             rb.AddForce(new Vector3(-rb.velocity.x,0,-rb.velocity.z), ForceMode.Impulse);
         }
-        if(myInput.actions["Timber"].WasPressedThisFrame() && canJump){
-            rb.velocity = new Vector3(0,jumpSpd,0);
+        if(myInput.actions[playerName].WasPressedThisFrame() && canJump){
+            rb.velocity = new Vector3(rb.velocity.x,jumpSpd,rb.velocity.z);
             canJump = false;
         }
     }
@@ -71,21 +78,13 @@ public class ExplorationController : MonoBehaviour
     }
 
     private void OnCollisionEnter(Collision col) {
-        
-        // Print how many points are colliding with this transform
-        Debug.Log("Points colliding: " + col.contacts.Length);
-
-        // Print the normal of the first point in the collision.
-        Debug.Log("Normal of the first point: " + col.contacts[0].normal);
-
         // Draw a different colored ray for every normal in the collision
-        foreach (var item in col.contacts)
+        foreach (var contact in col.contacts)
         {
-            Debug.DrawRay(item.point, item.normal * 100, Random.ColorHSV(0f, 1f, 1f, 1f, 0.5f, 1f), 10f);
-        }
-        if(col.gameObject.tag == "Floor")
-        {
-            canJump = true;
+            if(contact.normal.y > 0.9f)
+            {
+                canJump = true;
+            }
         }
     }
 }

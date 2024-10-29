@@ -95,7 +95,10 @@ public class WheelSelection : MonoBehaviour
         lockedRotation = false;
         Destroy(targetRot.gameObject);
         spawned = true;
-        PlayerController.locked = false;
+        if(i == cubes-1)
+        {
+            PlayerController.locked = false;
+        }
         yield return null;
     }
 }
