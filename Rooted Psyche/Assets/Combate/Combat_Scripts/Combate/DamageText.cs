@@ -1,27 +1,18 @@
+using System.Collections;
+using System.Collections.Generic;
 using UnityEngine;
-using TMPro;
 
 public class DamageText : MonoBehaviour
 {
-    public TextMeshProUGUI damageText;
-
-    public void SetDamage(int damageAmount)
-    {
-        damageText.text = damageAmount.ToString();
+    public float DestroyTime = 1f;
+    public Vector3 RamdomizeIntensity = new Vector3(0.5f, 0, 0);
+    void Start(){
+        ShowAndDestroy();
     }
-
     public void ShowAndDestroy()
     {
-        // Mover y desaparecer (aquí puedes agregar efectos como animación o partículas)
-        // Destruir después de 1 segundo
-        Destroy(gameObject, 1f);
-    }
+       Destroy(gameObject, DestroyTime);
+       //transform.localPosition += new Vector3(Random.Range(-RamdomizeIntensity.x, RamdomizeIntensity.x), Random.Range(-RamdomizeIntensity.y, RamdomizeIntensity.y), Random.Range(-RamdomizeIntensity.z, RamdomizeIntensity.z));
 
-    private void Update()
-    {
-        transform.Translate(Vector3.up * Time.deltaTime);
-        Color color = damageText.color;
-        color.a -= Time.deltaTime; // Se desvanece gradualmente
-        damageText.color = color;
     }
 }
