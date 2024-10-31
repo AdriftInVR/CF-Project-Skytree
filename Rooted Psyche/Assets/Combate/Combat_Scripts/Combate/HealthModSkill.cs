@@ -44,7 +44,8 @@ public class HealthModAction : Action
                     go.GetComponent<TextMeshPro>().text = damageAmount.ToString();
                     break;
                 default:
-                    go.GetComponent<TextMeshPro>().text = damageAmount.ToString().Substring(1);
+                    //go.GetComponent<TextMeshPro>().text = damageAmount.ToString().Substring(1);
+                    go.GetComponent<TextMeshPro>().text = damageAmount.ToString();
                     break;
             }
             
