@@ -15,7 +15,7 @@ EditorBuildSettings:
     path: Assets/Scenes/CombatePrueba.unity
     guid: 99e33770929a88a4bb8a88523678fa7c
   - enabled: 1
-    path: Assets/Scenes/Exploracion.unity
+    path: Assets/Scenes/Exploracion Old.unity
     guid: 3873e8bb93bf6394686295f4bdd62e2a
   - enabled: 1
     path: Assets/Scenes/CombateJefe1.unity
