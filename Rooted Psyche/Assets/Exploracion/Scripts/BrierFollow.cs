@@ -31,9 +31,15 @@ public class BrierFollow : MonoBehaviour
             rb.velocity = new Vector3(controller.direction3D.x * controller.spd, rb.velocity.y, controller.direction3D.z * controller.spd);
         } 
         transform.LookAt(targetPos);
+
         if(controller.direction2D.sqrMagnitude>0f)
         {
             rb.AddForce(transform.forward* controller.spd, ForceMode.Impulse);
+        }
+        else
+        {
+            // Apply counter-force to stop instantly
+            rb.AddForce(new Vector3(-rb.velocity.x,0,-rb.velocity.z), ForceMode.Impulse);
         }
         
         if(controller.myInput.actions["Brier"].WasPressedThisFrame() && controller.canJump){
