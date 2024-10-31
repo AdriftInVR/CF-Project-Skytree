@@ -17,6 +17,7 @@ public class ExplorationSpriteHandler : MonoBehaviour
     public SpriteLibrary sprites;
 
     public SpriteLibraryAsset[] directionSprites;
+    public ExplorationController PlayerBody;
 
 
 
@@ -34,9 +35,9 @@ public class ExplorationSpriteHandler : MonoBehaviour
         direction = myInput.actions["Direction"].ReadValue<Vector2>();
         direction.Normalize();
 
-        if(Mathf.Abs(direction.y)>0.5)
+        if(Mathf.Abs(PlayerBody.direction3D.z)>0.5)
         {
-            switch(Mathf.Sign(direction.y))
+            switch(Mathf.Sign(PlayerBody.direction3D.z))
             {
                 case 1:
                     sprites.spriteLibraryAsset = directionSprites[2];//Up
@@ -49,19 +50,19 @@ public class ExplorationSpriteHandler : MonoBehaviour
             }
         }
 
-        if(Mathf.Abs(direction.x)*1.1f>Mathf.Abs(direction.y))
+        if(Mathf.Abs(PlayerBody.direction3D.x)*1.1f>Mathf.Abs(PlayerBody.direction3D.z))
         {
             sprites.spriteLibraryAsset = directionSprites[1];//Right
         }
 
 
 
-        if(direction.x < -0.1 && facingRight)
+        if(PlayerBody.direction3D.x < -0.1 && facingRight)
         {
             Flip();
         }
         
-        if(direction.x > 0.1 && !facingRight)
+        if(PlayerBody.direction3D.x > 0.1 && !facingRight)
         {
             Flip();
         }

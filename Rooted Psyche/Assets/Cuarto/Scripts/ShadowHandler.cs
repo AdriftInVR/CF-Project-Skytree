@@ -11,13 +11,13 @@ public class ShadowHandler : MonoBehaviour
     private Vector3 offset;
     public float offX, offZ;
 
-    private void FixedUpdate()
+    private void Update()
     {
         shadowRay = new Ray(transform.position, -Vector3.up);
         if(Physics.Raycast(shadowRay, out hit, 50f, layerMask))
         {
             Vector3 targetPos = new Vector3(this.transform.position.x + offX, hit.point.y, this.transform.position.z + offZ);
-            shadow.transform.position = Vector3.Lerp(shadow.transform.position, targetPos, 1.1f);   
+            shadow.transform.position = targetPos;   
         }
     }
 }

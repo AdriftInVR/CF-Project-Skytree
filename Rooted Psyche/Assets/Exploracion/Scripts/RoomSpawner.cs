@@ -13,11 +13,13 @@ public class RoomSpawner : MonoBehaviour
     private int rand;
     public bool spawned = false;
     private GameObject room;
+    private Vector3 position; 
 
     void Start()
     {
         templates = GameObject.FindGameObjectWithTag("Rooms").GetComponent<RoomTemplates>();
         StartCoroutine(SpawnWithDelay());
+        position = transform.position;
     }
 
     IEnumerator SpawnWithDelay()
@@ -59,9 +61,9 @@ public class RoomSpawner : MonoBehaviour
     {
         if (other.gameObject.tag == "SpawnPoint")
         {
-            if (other.GetComponent<RoomSpawner>().spawned == false && spawned == false)
+            if (!spawned && !other.GetComponent<RoomSpawner>().spawned)
             {
-                Instantiate(templates.closedRoom, transform.position, Quaternion.identity);
+                Instantiate(templates.closedRoom, position, Quaternion.identity);
                 StartCoroutine(SelfDestruct());
             }
             spawned = true;

@@ -14,6 +14,7 @@ public class Enemy : Fighter
     public override void InitTurn()
     {
         CombatManager.playerTurn = false;
+        PlayerController.locked = false;
         StartCoroutine(this.IA());   
         StartCoroutine(AnimAttack());
     }

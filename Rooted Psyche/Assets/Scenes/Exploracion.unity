@@ -1967,6 +1967,37 @@ Mesh:
     offset: 0
     size: 0
     path: 
+--- !u!1 &402088323
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 402088324}
+  m_Layer: 6
+  m_Name: BrierTarget
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &402088324
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 402088323}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: -1}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 1610134028}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!43 &412267049
 Mesh:
   m_ObjectHideFlags: 0
@@ -3094,6 +3125,7 @@ MonoBehaviour:
   - {fileID: 7108339969198208228, guid: f6a72e8cdd5ee4d7ea736608ffee7d7e, type: 3}
   - {fileID: 7108339969198208228, guid: a0b03ccecf2ba488cb6cd5270fb1c939, type: 3}
   - {fileID: 7108339969198208228, guid: 2b44157a121d84727aaede2c4d0574da, type: 3}
+  PlayerBody: {fileID: 1610134024}
 --- !u!114 &803188671
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -4681,6 +4713,7 @@ MonoBehaviour:
   - {fileID: 7108339969198208228, guid: f6a72e8cdd5ee4d7ea736608ffee7d7e, type: 3}
   - {fileID: 7108339969198208228, guid: a0b03ccecf2ba488cb6cd5270fb1c939, type: 3}
   - {fileID: 7108339969198208228, guid: 2b44157a121d84727aaede2c4d0574da, type: 3}
+  PlayerBody: {fileID: 1822394419}
 --- !u!114 &1007524129
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -6666,14 +6699,13 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1610134028}
-  - component: {fileID: 1610134030}
   - component: {fileID: 1610134031}
   - component: {fileID: 1610134026}
   - component: {fileID: 1610134025}
   - component: {fileID: 1610134024}
   - component: {fileID: 1610134029}
   m_Layer: 6
-  m_Name: Player
+  m_Name: Timber
   m_TagString: Player
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -6693,9 +6725,11 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   canJump: 1
   cam: {fileID: 1804303822}
+  sqrspd: 0
   spd: 8
   jumpSpd: 40
-  player: 0
+  myInput: {fileID: 0}
+  direction3D: {x: 0, y: 0, z: 0}
 --- !u!114 &1610134025
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -6767,6 +6801,7 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 1637143298}
+  - {fileID: 402088324}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &1610134029
@@ -6787,27 +6822,6 @@ MonoBehaviour:
     m_Bits: 8
   offX: 0.2
   offZ: -1
---- !u!65 &1610134030
-BoxCollider:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1610134023}
-  m_Material: {fileID: 13400000, guid: c204255dfe6af204c87bd2d611203e61, type: 2}
-  m_IncludeLayers:
-    serializedVersion: 2
-    m_Bits: 0
-  m_ExcludeLayers:
-    serializedVersion: 2
-    m_Bits: 64
-  m_LayerOverridePriority: 0
-  m_IsTrigger: 0
-  m_ProvidesContacts: 0
-  m_Enabled: 1
-  serializedVersion: 3
-  m_Size: {x: 0.75, y: 1.9, z: 0.75}
-  m_Center: {x: 0, y: 0, z: 0}
 --- !u!136 &1610134031
 CapsuleCollider:
   m_ObjectHideFlags: 0
@@ -7622,13 +7636,13 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1804303819}
   serializedVersion: 2
-  m_LocalRotation: {x: 0.3420201, y: 0, z: 0, w: 0.9396927}
-  m_LocalPosition: {x: 0, y: 10, z: -5}
+  m_LocalRotation: {x: 0.2588191, y: 0, z: 0, w: 0.9659258}
+  m_LocalPosition: {x: 0, y: 8, z: -10}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 0}
-  m_LocalEulerAnglesHint: {x: 40, y: 0, z: 0}
+  m_LocalEulerAnglesHint: {x: 30, y: 0, z: 0}
 --- !u!114 &1804303823
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -7651,14 +7665,14 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1822394423}
-  - component: {fileID: 1822394424}
   - component: {fileID: 1822394425}
   - component: {fileID: 1822394421}
   - component: {fileID: 1822394420}
   - component: {fileID: 1822394419}
+  - component: {fileID: 1822394426}
   - component: {fileID: 1822394418}
   m_Layer: 6
-  m_Name: Player (1)
+  m_Name: Brier
   m_TagString: Player
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -7696,9 +7710,11 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   canJump: 1
   cam: {fileID: 1804303822}
+  sqrspd: 0
   spd: 8
   jumpSpd: 40
-  player: 1
+  myInput: {fileID: 0}
+  direction3D: {x: 0, y: 0, z: 0}
 --- !u!114 &1822394420
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -7765,34 +7781,13 @@ Transform:
   m_GameObject: {fileID: 1822394417}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -1.9, y: 2, z: 0}
+  m_LocalPosition: {x: -2, y: 2, z: 0}
   m_LocalScale: {x: 2, y: 2, z: 2}
-  m_ConstrainProportionsScale: 0
+  m_ConstrainProportionsScale: 1
   m_Children:
   - {fileID: 2146263110}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!65 &1822394424
-BoxCollider:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1822394417}
-  m_Material: {fileID: 13400000, guid: c204255dfe6af204c87bd2d611203e61, type: 2}
-  m_IncludeLayers:
-    serializedVersion: 2
-    m_Bits: 0
-  m_ExcludeLayers:
-    serializedVersion: 2
-    m_Bits: 64
-  m_LayerOverridePriority: 0
-  m_IsTrigger: 0
-  m_ProvidesContacts: 0
-  m_Enabled: 1
-  serializedVersion: 3
-  m_Size: {x: 0.75, y: 1.9, z: 0.75}
-  m_Center: {x: 0, y: 0, z: 0}
 --- !u!136 &1822394425
 CapsuleCollider:
   m_ObjectHideFlags: 0
@@ -7816,6 +7811,20 @@ CapsuleCollider:
   m_Height: 1.9
   m_Direction: 1
   m_Center: {x: 0, y: 0, z: 0}
+--- !u!114 &1822394426
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1822394417}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: df44ad1da5d7d724faa3068b37ccef61, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  following: 1
+  target: {fileID: 402088324}
 --- !u!43 &1861429927
 Mesh:
   m_ObjectHideFlags: 0

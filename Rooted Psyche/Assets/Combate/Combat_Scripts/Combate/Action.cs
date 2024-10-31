@@ -31,7 +31,6 @@ public abstract class Action : MonoBehaviour
         this.VFX();
         this.OnRun();
         yield return new WaitForSeconds(1f);
-        PlayerController.locked = false;
         CombatManager.combatStatus = CombatStatus.CHECK_FOR_VICTORY;
     }
 
