@@ -65,7 +65,9 @@ error.log
 Rooted Psyche/UserSettings/
 Rooted Psyche/UserSettings/EditorUserSettings.asset
 
-
+/[Ll]ayouts/
+Rooted Psyche/UserSettings/Layouts
+Rooted Psyche/UserSettings/default-2022.dwlt
 
 # Ignorar resultados de pruebas en modo Play en el editor
 [Oo]bj/Editor/PlayModeTestResults.xml

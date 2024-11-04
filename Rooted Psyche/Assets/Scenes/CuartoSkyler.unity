@@ -853,6 +853,7 @@ MonoBehaviour:
   - {fileID: 7108339969198208228, guid: f6a72e8cdd5ee4d7ea736608ffee7d7e, type: 3}
   - {fileID: 7108339969198208228, guid: a0b03ccecf2ba488cb6cd5270fb1c939, type: 3}
   - {fileID: 7108339969198208228, guid: 2b44157a121d84727aaede2c4d0574da, type: 3}
+  PlayerBody: {fileID: 224868470}
 --- !u!114 &118796016
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1239,7 +1240,7 @@ GameObject:
   - component: {fileID: 224868466}
   - component: {fileID: 224868470}
   m_Layer: 0
-  m_Name: Player
+  m_Name: Timber
   m_TagString: Skyler
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -1356,8 +1357,12 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   canJump: 0
   cam: {fileID: 681988610}
+  sqrspd: 0
   spd: 3
   jumpSpd: 0
+  myInput: {fileID: 0}
+  direction2D: {x: 0, y: 0}
+  direction3D: {x: 0, y: 0, z: 0}
 --- !u!1 &238323517
 GameObject:
   m_ObjectHideFlags: 0
@@ -3251,7 +3256,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0}
   m_AnchorMax: {x: 0.5, y: 0}
-  m_AnchoredPosition: {x: 500, y: 62.581}
+  m_AnchoredPosition: {x: 500, y: 62.580994}
   m_SizeDelta: {x: 417.41, y: 100.73}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &738456311
@@ -6827,7 +6832,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 1, y: 1}
-  m_AnchoredPosition: {x: 7, y: -245.512}
+  m_AnchoredPosition: {x: 7, y: -245.51196}
   m_SizeDelta: {x: -72.388, y: -569.131}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1331364675
@@ -6931,7 +6936,7 @@ AudioSource:
   m_Enabled: 1
   serializedVersion: 4
   OutputAudioMixerGroup: {fileID: 0}
-  m_audioClip: {fileID: 8300000, guid: 0e154ad472c3e450e8189e997d7e927a, type: 3}
+  m_audioClip: {fileID: 8300000, guid: 913a874987110d64e832611310159380, type: 3}
   m_PlayOnAwake: 1
   m_Volume: 1
   m_Pitch: 1
@@ -12575,9 +12580,9 @@ Canvas:
   m_GameObject: {fileID: 1788197683}
   m_Enabled: 1
   serializedVersion: 3
-  m_RenderMode: 0
-  m_Camera: {fileID: 0}
-  m_PlaneDistance: 100
+  m_RenderMode: 1
+  m_Camera: {fileID: 681988609}
+  m_PlaneDistance: 1
   m_PixelPerfect: 0
   m_ReceivesEvents: 1
   m_OverrideSorting: 0
@@ -14029,7 +14034,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0}
   m_AnchorMax: {x: 0.5, y: 0}
-  m_AnchoredPosition: {x: -500, y: 62.58}
+  m_AnchoredPosition: {x: -500, y: 62.579987}
   m_SizeDelta: {x: 413.3909, y: 95.88159}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &2138354578
