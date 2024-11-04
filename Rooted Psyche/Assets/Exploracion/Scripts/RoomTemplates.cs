@@ -4,6 +4,7 @@ using UnityEngine;
 
 public class RoomTemplates : MonoBehaviour
 {
+    public static RoomTemplates instance;
     public GameObject[] bottomRooms;
     public GameObject[] topRooms;
     public GameObject[] leftRooms;
@@ -15,6 +16,19 @@ public class RoomTemplates : MonoBehaviour
     public GameObject enemies;
     public GameObject enemyParent;
     public float spawnDelay = 0.1f;
+
+    private void Awake()
+    {
+        if (RoomTemplates.instance == null)
+        {
+            RoomTemplates.instance = this;
+            DontDestroyOnLoad(this.gameObject);
+        }
+        else
+        {
+            Destroy(this.gameObject);
+        }
+    }
 
     private void Start()
     {
@@ -28,10 +42,8 @@ public class RoomTemplates : MonoBehaviour
         GameObject roomInstance;
         bossInstance = Instantiate(boss, rooms[rooms.Count - 1].transform.position, Quaternion.identity);
         bossInstance.transform.parent = enemyParent.transform;
-        //rooms.RemoveAt(rooms.Count - 1);
         shopInstance = Instantiate(shop, rooms[Random.Range(1, rooms.Count-2)].transform.position, Quaternion.identity);
         shopInstance.transform.parent = enemyParent.transform;
-        //rooms.RemoveAt(rooms.Count - 1);
         for (int i = 0; i < rooms.Count-1; i++)
         {
             roomInstance = Instantiate(enemies, rooms[i].transform.position, Quaternion.identity);

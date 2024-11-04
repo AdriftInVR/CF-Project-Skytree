@@ -12,6 +12,7 @@ TagManager:
   - Skyler
   - SpawnPoint
   - Rooms
+  - Combat
   layers:
   - Default
   - TransparentFX

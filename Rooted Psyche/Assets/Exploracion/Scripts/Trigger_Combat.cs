@@ -11,6 +11,7 @@ public class Trigger_Combat : MonoBehaviour
         {
             Debug.Log("Player has entered the combat zone");
             SceneManager.LoadScene("Combate");
+            Destroy(this.gameObject);
         }
     }
 }
