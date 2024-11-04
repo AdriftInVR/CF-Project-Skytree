@@ -844,7 +844,7 @@ GameObject:
   - component: {fileID: 213982979}
   m_Layer: 0
   m_Name: EXP
-  m_TagString: Untagged
+  m_TagString: Exploracion
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -875,12 +875,11 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 1195543874}
-  - {fileID: 2138592419}
   - {fileID: 716880903}
   - {fileID: 1340209575}
   - {fileID: 1804303822}
-  - {fileID: 762962564}
   - {fileID: 1479487670}
+  - {fileID: 518659285}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!43 &228034011
@@ -1884,7 +1883,7 @@ GameObject:
   - component: {fileID: 518659285}
   - component: {fileID: 518659284}
   m_Layer: 0
-  m_Name: RoomTemplate (1)
+  m_Name: RoomTemplate
   m_TagString: Rooms
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -1937,12 +1936,12 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 518659283}
   serializedVersion: 2
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 19.92, y: 0, z: 0}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 23.450346, y: -7.6116014, z: -0.9890363}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
-  m_Father: {fileID: 0}
+  m_Father: {fileID: 213982980}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!850595691 &595444125
 LightingSettings:
@@ -2116,7 +2115,7 @@ GameObject:
   - component: {fileID: 762962563}
   - component: {fileID: 762962562}
   m_Layer: 0
-  m_Name: Main Camera (1)
+  m_Name: CamaraAlt
   m_TagString: MainCamera
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -2190,11 +2189,11 @@ Transform:
   m_GameObject: {fileID: 762962561}
   serializedVersion: 2
   m_LocalRotation: {x: 0.42261827, y: -0, z: -0, w: 0.9063079}
-  m_LocalPosition: {x: 3.530346, y: 80.588394, z: -114.98904}
+  m_LocalPosition: {x: 0, y: 88.2, z: -114}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
-  m_Father: {fileID: 213982980}
+  m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 50, y: 0, z: 0}
 --- !u!4 &786702734 stripped
 Transform:
@@ -4502,87 +4501,9 @@ Mesh:
     offset: 0
     size: 0
     path: 
---- !u!1 &2138592417
-GameObject:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  serializedVersion: 6
-  m_Component:
-  - component: {fileID: 2138592419}
-  - component: {fileID: 2138592418}
-  m_Layer: 0
-  m_Name: RoomTemplate
-  m_TagString: Rooms
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 0
---- !u!114 &2138592418
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2138592417}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: d42332f664fb06d4899f096c62912f71, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  bottomRooms:
-  - {fileID: 4618915192087451551, guid: 46a885e946cf73b488cd7fcf77e813c8, type: 3}
-  - {fileID: 1808258821074947072, guid: 659943ea8e1185f4eba06ed49749a01f, type: 3}
-  - {fileID: 1808258821074947072, guid: 53ad9a2b06c232447a1338caa0763d35, type: 3}
-  - {fileID: 1808258821074947072, guid: 295ce82bedc81d842b185ab01999856c, type: 3}
-  topRooms:
-  - {fileID: 1808258821074947072, guid: 16f63c4e0ea6a7541a5154d51142a7d8, type: 3}
-  - {fileID: 1808258821074947072, guid: 8aae62f311e3b0140922fe3d948fc320, type: 3}
-  - {fileID: 1808258821074947072, guid: c8ab2c1a24fc5d6468ef8094fb8eaa94, type: 3}
-  - {fileID: 1808258821074947072, guid: 53ad9a2b06c232447a1338caa0763d35, type: 3}
-  leftRooms:
-  - {fileID: 1808258821074947072, guid: d96274d1b2298a84ab71227168b79595, type: 3}
-  - {fileID: 1808258821074947072, guid: c8ab2c1a24fc5d6468ef8094fb8eaa94, type: 3}
-  - {fileID: 1808258821074947072, guid: 295ce82bedc81d842b185ab01999856c, type: 3}
-  - {fileID: 1808258821074947072, guid: ec4e7a3fe93dcf340a063c0abe1418e9, type: 3}
-  rightRooms:
-  - {fileID: 1808258821074947072, guid: 0e955ca21083b0443b2929ee3efa6912, type: 3}
-  - {fileID: 1808258821074947072, guid: ec4e7a3fe93dcf340a063c0abe1418e9, type: 3}
-  - {fileID: 1808258821074947072, guid: 8aae62f311e3b0140922fe3d948fc320, type: 3}
-  - {fileID: 1808258821074947072, guid: 659943ea8e1185f4eba06ed49749a01f, type: 3}
-  closedRoom: {fileID: 2727496600493853276, guid: 7f523008eeaa1bf489d242bb8359c108, type: 3}
-  rooms: []
-  boss: {fileID: 4260195588355564170, guid: 6d00e22a54e7e4e428ed0cb86a42ddaf, type: 3}
-  shop: {fileID: 5928091072986562279, guid: 270150935aa630848b21b61802838b81, type: 3}
-  enemies: {fileID: 8021544286448713587, guid: 86ef074f3c6e63d468aff43b716509b2, type: 3}
-  enemyParent: {fileID: 716880902}
-  spawnDelay: 0.1
---- !u!4 &2138592419
-Transform:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2138592417}
-  serializedVersion: 2
-  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 23.450346, y: -7.6116014, z: -0.9890363}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_ConstrainProportionsScale: 0
-  m_Children: []
-  m_Father: {fileID: 213982980}
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1660057539 &9223372036854775807
 SceneRoots:
   m_ObjectHideFlags: 0
   m_Roots:
-  - {fileID: 1804303822}
   - {fileID: 762962564}
-  - {fileID: 1479487670}
-  - {fileID: 2138592419}
   - {fileID: 213982980}
-  - {fileID: 518659285}    
-  - {fileID: 1195543874}
-  - {fileID: 716880903}
-  - {fileID: 731094466}

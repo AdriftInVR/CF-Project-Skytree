@@ -17,19 +17,27 @@ public class RoomSave : MonoBehaviour
     }
     }
 
+private void Update()
+{
+    GameObject combatObject = GameObject.FindWithTag("Combat");
 
-     private void Update()
+    // Verifica si hay un objeto con el tag "Combat"
+    if (combatObject != null)
     {
-        GameObject combatObject = GameObject.FindWithTag("Combat");
-
-        // Activa o desactiva este objeto basado en si se encontró o no el objeto con tag "Combat"
-        if (combatObject != null)
+        // Desactiva todos los hijos
+        foreach (Transform child in transform)
         {
-            gameObject.SetActive(false); // Desactiva este objeto si hay un objeto con el tag "Combat"
-        }
-        else
-        {
-            gameObject.SetActive(true); // Activa este objeto si no se encuentra el objeto con el tag "Combat"
+            child.gameObject.SetActive(false);
         }
     }
+    else
+    {
+        // Activa todos los hijos
+        foreach (Transform child in transform)
+        {
+            child.gameObject.SetActive(true);
+        }
+    }
+}
+
 }
