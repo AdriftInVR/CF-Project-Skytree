@@ -32,7 +32,7 @@ public class BrierFollow : MonoBehaviour
         } 
         transform.LookAt(targetPos);
 
-        if(controller.direction2D.sqrMagnitude>0f)
+        if(controller.direction2D.sqrMagnitude>0f || transform.position.sqrMagnitude - target.transform.position.sqrMagnitude != 0f)
         {
             rb.AddForce(transform.forward* controller.spd, ForceMode.Impulse);
         }
