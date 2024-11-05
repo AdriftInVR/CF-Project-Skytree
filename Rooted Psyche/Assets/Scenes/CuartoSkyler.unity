@@ -4279,10 +4279,11 @@ MonoBehaviour:
   mainCamera: {fileID: 681988609}
   focusCamera: {fileID: 712115857}
   focusButton: {fileID: 1287113451}
-  exitButton: {fileID: 355504100}
+  exitButton: {fileID: 1561810362}
   additionalButtons:
   - {fileID: 1070646949}
   - {fileID: 2061700578}
+  - {fileID: 812870819}
 --- !u!1 &864403086
 GameObject:
   m_ObjectHideFlags: 0
@@ -5578,10 +5579,11 @@ MonoBehaviour:
   mainCamera: {fileID: 681988609}
   focusCamera: {fileID: 1491115406}
   focusButton: {fileID: 1070646949}
-  exitButton: {fileID: 1561810362}
+  exitButton: {fileID: 355504100}
   additionalButtons:
   - {fileID: 1287113451}
   - {fileID: 2061700578}
+  - {fileID: 812870819}
 --- !u!4 &1080642058
 Transform:
   m_ObjectHideFlags: 0
@@ -12581,7 +12583,7 @@ Canvas:
   m_Enabled: 1
   serializedVersion: 3
   m_RenderMode: 1
-  m_Camera: {fileID: 681988609}
+  m_Camera: {fileID: 0}
   m_PlaneDistance: 1
   m_PixelPerfect: 0
   m_ReceivesEvents: 1
