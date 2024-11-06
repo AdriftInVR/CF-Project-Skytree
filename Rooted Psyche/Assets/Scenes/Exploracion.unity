@@ -1925,7 +1925,12 @@ MonoBehaviour:
   rooms: []
   boss: {fileID: 4260195588355564170, guid: 6d00e22a54e7e4e428ed0cb86a42ddaf, type: 3}
   shop: {fileID: 5928091072986562279, guid: 270150935aa630848b21b61802838b81, type: 3}
-  enemies: {fileID: 8021544286448713587, guid: 86ef074f3c6e63d468aff43b716509b2, type: 3}
+  enemies:
+  - {fileID: 8021544286448713587, guid: 33f3a8e8a3a1f2048af4165a64fc1e3a, type: 3}
+  - {fileID: 8021544286448713587, guid: 9239aea8762fbbe4385a4c9ba76c9635, type: 3}
+  - {fileID: 8021544286448713587, guid: 019d3c61d6873424c84816691d97a32b, type: 3}
+  - {fileID: 8021544286448713587, guid: 07d80a931adc0fd4f99aa05c906d6433, type: 3}
+  - {fileID: 8021544286448713587, guid: 86ef074f3c6e63d468aff43b716509b2, type: 3}
   enemyParent: {fileID: 716880902}
   spawnDelay: 0.1
 --- !u!4 &518659285

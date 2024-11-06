@@ -13,7 +13,7 @@ public class RoomTemplates : MonoBehaviour
     public List<GameObject> rooms;
     public GameObject boss;
     public GameObject shop;
-    public GameObject enemies;
+    public GameObject[] enemies;
     public GameObject enemyParent;
     public float spawnDelay = 0.1f;
 
@@ -46,7 +46,8 @@ public class RoomTemplates : MonoBehaviour
         shopInstance.transform.parent = enemyParent.transform;
         for (int i = 0; i < rooms.Count-1; i++)
         {
-            roomInstance = Instantiate(enemies, rooms[i].transform.position, Quaternion.identity);
+            GameObject randomEnemy = enemies[Random.Range(0, enemies.Length)];
+            roomInstance = Instantiate(randomEnemy, rooms[i].transform.position, Quaternion.identity);
             roomInstance.transform.parent = enemyParent.transform;
         }
     }
