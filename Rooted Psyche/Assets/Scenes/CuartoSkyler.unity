@@ -1240,7 +1240,7 @@ GameObject:
   - component: {fileID: 224868466}
   - component: {fileID: 224868470}
   m_Layer: 0
-  m_Name: Timber
+  m_Name: Skyler
   m_TagString: Skyler
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
