@@ -19,21 +19,21 @@ MonoBehaviour:
     m_OverrideEntries:
     - m_Name: Idle
       m_Hash: 1008081451
-      m_Sprite: {fileID: -728385840, guid: 9065c0eb2680b4fd4be0b9b2c08d479e, type: 3}
+      m_Sprite: {fileID: 21300000, guid: 86c032027f8284909ab664b0f4bd0765, type: 3}
       m_FromMain: 0
-      m_SpriteOverride: {fileID: -728385840, guid: 9065c0eb2680b4fd4be0b9b2c08d479e, type: 3}
+      m_SpriteOverride: {fileID: 21300000, guid: 86c032027f8284909ab664b0f4bd0765, type: 3}
     - m_Name: Step_1
       m_Hash: 58635061
-      m_Sprite: {fileID: 205226541, guid: 9065c0eb2680b4fd4be0b9b2c08d479e, type: 3}
+      m_Sprite: {fileID: 21300000, guid: 3b71a838686df4e658f9df805b42fd62, type: 3}
       m_FromMain: 0
-      m_SpriteOverride: {fileID: 205226541, guid: 9065c0eb2680b4fd4be0b9b2c08d479e, type: 3}
+      m_SpriteOverride: {fileID: 21300000, guid: 3b71a838686df4e658f9df805b42fd62, type: 3}
     - m_Name: Step_2
       m_Hash: 444064399
-      m_Sprite: {fileID: 1428335766, guid: 9065c0eb2680b4fd4be0b9b2c08d479e, type: 3}
+      m_Sprite: {fileID: 21300000, guid: 97d4f7b195e8649b99922259256969e0, type: 3}
       m_FromMain: 0
-      m_SpriteOverride: {fileID: 1428335766, guid: 9065c0eb2680b4fd4be0b9b2c08d479e, type: 3}
+      m_SpriteOverride: {fileID: 21300000, guid: 97d4f7b195e8649b99922259256969e0, type: 3}
     m_FromMain: 0
     m_EntryOverrideCount: 3
   m_PrimaryLibraryGUID: 
-  m_ModificationHash: 638641599759252410
+  m_ModificationHash: 638664568490962740
   m_Version: 1
