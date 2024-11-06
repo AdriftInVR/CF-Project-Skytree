@@ -6,6 +6,12 @@ using TMPro;
 public enum HealthModType{
     STAT_BASED, FIXED
 }
+
+public enum ActionType{
+    SoloAction, DuoAction
+}
+
+
 public class HealthModAction : Action
 {
     [Header("Health Mod")]
@@ -13,6 +19,7 @@ public class HealthModAction : Action
     public int amount;
     public GameObject damageFloat;
     public HealthModType modType;
+    public ActionType actType;
 
     protected override void OnRun(){
         int amount = this.GetModification();
