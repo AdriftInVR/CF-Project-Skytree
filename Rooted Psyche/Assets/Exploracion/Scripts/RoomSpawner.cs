@@ -1,6 +1,8 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using Unity.AI.Navigation;
+using UnityEngine.AI;  // Importa la biblioteca de navegación
 
 public class RoomSpawner : MonoBehaviour
 {
@@ -14,6 +16,7 @@ public class RoomSpawner : MonoBehaviour
     public bool spawned = false;
     private GameObject room;
     private Vector3 position; 
+    [SerializeField] NavMeshSurface navMeshSurface;
 
     void Start()
     {
@@ -32,6 +35,7 @@ public class RoomSpawner : MonoBehaviour
     {
         if (!spawned)
         {
+            // Instanciamos la sala según el lado abierto
             switch (openSide)
             {
                 case 1:
@@ -53,6 +57,14 @@ public class RoomSpawner : MonoBehaviour
                 default:
                     break;
             }
+            
+            // Construcción de la NavMesh para la sala generada
+            navMeshSurface = room.GetComponent<NavMeshSurface>();
+            if (navMeshSurface != null)
+            {
+                navMeshSurface.BuildNavMesh();
+            }
+
             spawned = true;
         }
     }
