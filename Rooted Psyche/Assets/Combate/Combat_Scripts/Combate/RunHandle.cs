@@ -10,7 +10,7 @@ public class RunHandle : MonoBehaviour
     public static bool running;
     public static bool canRun = true;
 
-    public void Run()
+    public void RunSetup()
     {
         running = true;
         PanelHandler.ClosePanel();

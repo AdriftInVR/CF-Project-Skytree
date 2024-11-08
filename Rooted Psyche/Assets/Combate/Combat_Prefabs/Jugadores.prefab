@@ -326,7 +326,7 @@ MonoBehaviour:
   selfInflicted: 0
   effectPrefab: {fileID: 7802979462468201273, guid: bddb971e34eb14d48be30c7b922eb077, type: 3}
   amount: 100
-  damageFloat: {fileID: 0}
+  indicator: {fileID: 8716103323917899588, guid: 0b4926547b9b74a40932479183f42162, type: 3}
   modType: 1
   actType: 0
 --- !u!1 &2133446813170180066
@@ -379,7 +379,7 @@ MonoBehaviour:
   selfInflicted: 0
   effectPrefab: {fileID: 7728366230342544413, guid: 212ef1a41838ce044a9ac54994866708, type: 3}
   amount: -50
-  damageFloat: {fileID: 0}
+  indicator: {fileID: 0}
   modType: 0
   actType: 0
 --- !u!1 &2635567587436376860
@@ -477,7 +477,7 @@ MonoBehaviour:
   selfInflicted: 0
   effectPrefab: {fileID: 7802979462468201273, guid: bddb971e34eb14d48be30c7b922eb077, type: 3}
   amount: 100
-  damageFloat: {fileID: 0}
+  indicator: {fileID: 8716103323917899588, guid: 0b4926547b9b74a40932479183f42162, type: 3}
   modType: 1
   actType: 0
 --- !u!1 &4260768273303009306
@@ -840,7 +840,7 @@ MonoBehaviour:
   selfInflicted: 0
   effectPrefab: {fileID: 7728366230342544413, guid: 212ef1a41838ce044a9ac54994866708, type: 3}
   amount: -50
-  damageFloat: {fileID: 0}
+  indicator: {fileID: 0}
   modType: 0
   actType: 0
 --- !u!1 &5001296462832575797
@@ -888,13 +888,13 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   actionName: Strike
-  animationDuration: 2
+  animationDuration: 1.2
   isTeamAction: 0
   selfInflicted: 0
   effectPrefab: {fileID: 7728366230342544413, guid: 212ef1a41838ce044a9ac54994866708, type: 3}
   amount: -50
-  damageFloat: {fileID: 0}
-  modType: 1
+  indicator: {fileID: 8716103323917899588, guid: f9593a735b8fe7842979fbb61cf39a76, type: 3}
+  modType: 0
   actType: 0
 --- !u!1 &6049312886008200694
 GameObject:
@@ -1024,8 +1024,8 @@ MonoBehaviour:
   isTeamAction: 0
   selfInflicted: 0
   effectPrefab: {fileID: 7728366230342544413, guid: 212ef1a41838ce044a9ac54994866708, type: 3}
-  amount: 100
-  damageFloat: {fileID: 0}
+  amount: 0
+  indicator: {fileID: 8716103323917899588, guid: f9593a735b8fe7842979fbb61cf39a76, type: 3}
   modType: 0
   actType: 0
 --- !u!1 &9175517635877989545

@@ -11,13 +11,12 @@ public enum ActionType{
     SoloAction, DuoAction
 }
 
-
 public class HealthModAction : Action
 {
     [Header("Health Mod")]
 
     public int amount;
-    public GameObject damageFloat;
+    public GameObject indicator;
     public HealthModType modType;
     public ActionType actType;
 
@@ -44,7 +43,7 @@ public class HealthModAction : Action
     }
 
         void ShowDamageText(int damageAmount) {
-            var go = Instantiate(damageFloat, this.receiver.transform.position + damageFloat.transform.position, Quaternion.identity);
+            var go = Instantiate(indicator, this.receiver.transform.position + indicator.transform.position, Quaternion.identity);
             switch(damageAmount)
             {
                 case > 0:
@@ -52,16 +51,15 @@ public class HealthModAction : Action
                     break;
                 default:
                     //go.GetComponent<TextMeshPro>().text = damageAmount.ToString().Substring(1);
-                    go.GetComponent<TextMeshPro>().text = damageAmount.ToString();
+                    go.GetComponent<TextMeshPro>().text = damageAmount.ToString().Substring(1);
                     break;
-            }
-            
+            }   
         }
     
 /*        void ShowDamageText(int damageAmount) {
         Debug.Log("Amount que llego" + damageAmount);
         // Aqui se Instancia el prefab en la posición del receptor par que el texto salga a flote
-        GameObject damageTextObj = Instantiate(damageFloat, this.receiver.transform.position, Quaternion.identity);
+        GameObject damageTextObj = Instantiate(indicator, this.receiver.transform.position, Quaternion.identity);
         DamageText damageText = damageTextObj.GetComponent<DamageText>();
         
         if (damageText != null) {
