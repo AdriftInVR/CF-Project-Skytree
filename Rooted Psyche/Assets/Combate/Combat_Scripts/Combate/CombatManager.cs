@@ -8,7 +8,8 @@ public enum CombatStatus{
     WAITING_FOR_FIGHTER,
     FIGTHER_ACTION,
     CHECK_FOR_VICTORY,
-    NEXT_TURN
+    NEXT_TURN,
+    RUNNING
 }
 
 
@@ -64,6 +65,10 @@ public class CombatManager : MonoBehaviour{
     {
         confirm = confirmButton.WasPressedThisFrame();
         cancel = cancelButton.WasPressedThisFrame();
+        if (RunHandle.running)
+        {
+            combatStatus = CombatStatus.RUNNING;
+        }
     }
 
     void SortFightersBySpeed(){
@@ -122,7 +127,10 @@ public class CombatManager : MonoBehaviour{
                     combatStatus = CombatStatus.WAITING_FOR_FIGHTER;
                     yield return null;
                     break;
-
+                case CombatStatus.RUNNING:
+                    Destroy(Wheel);
+                    yield return null;
+                    break;
             }
             
         }

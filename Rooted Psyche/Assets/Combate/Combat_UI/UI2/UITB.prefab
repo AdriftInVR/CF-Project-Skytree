@@ -2440,6 +2440,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 832f7d224f31fb44d93f665071e99b55, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  players:
+  - {fileID: 0}
+  - {fileID: 0}
   playerSprites:
   - {fileID: 0}
   - {fileID: 0}

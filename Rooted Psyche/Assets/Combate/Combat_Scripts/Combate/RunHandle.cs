@@ -5,33 +5,19 @@ using UnityEngine.SceneManagement;
 
 public class RunHandle : MonoBehaviour
 {
-    private GameObject[] players;
+    public GameObject[] players;
     public GameObject[] playerSprites;
-    // Start is called before the first frame update
-    void Start()
-    {
-        players = GameObject.FindGameObjectsWithTag("Player");
-    }
-
-    // Update is called once per frame
-    void Update()
-    {
-        if(Input.GetKeyDown(KeyCode.Space))
-        {
-            Debug.Log(players);
-        }
-    }
+    public static bool running;
+    public static bool canRun = true;
 
     public void Run()
     {
+        running = true;
         PanelHandler.ClosePanel();
         Flip(playerSprites);
-        foreach(GameObject player in players)
-        {
-            Rigidbody rb = player.GetComponent<Rigidbody>();
-            rb.AddForce(player.transform.forward*-3f, ForceMode.Impulse);
-        }
+        PlayerController.locked = true;
         StartCoroutine(BackToExplore());
+        StartCoroutine(RunAway());
     }
 
     void Flip(GameObject[] sprites)
@@ -46,7 +32,25 @@ public class RunHandle : MonoBehaviour
 
     IEnumerator BackToExplore()
     {
-        yield return new WaitForSeconds(3f);
+        yield return new WaitForSeconds(1.5f);
         SceneManager.LoadScene("Exploracion");
+    }
+
+    IEnumerator RunAway()
+    {
+        while(true)
+        {
+            foreach(GameObject player in players)
+            {
+                Rigidbody rb = player.GetComponent<Rigidbody>();
+                rb.AddForce(player.transform.right*-1f, ForceMode.Impulse);
+                if(player.transform.position.x < -30f)
+                {
+                    running = false;
+                    break;
+                }
+            }
+            yield return null;
+        }
     }
 }

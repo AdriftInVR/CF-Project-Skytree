@@ -1334,6 +1334,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c959102e1d6cec44ebbc4ea7fde0b9d7, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  Colors:
+  - {fileID: 2100000, guid: c85727fe06f231045a018858fd80b3db, type: 2}
+  - {fileID: 2100000, guid: 891026cfe0a41c741a1f255ae875fc02, type: 2}
 --- !u!4 &5865289965700259398 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 3587543013062370279, guid: 1da7b6e43b6fab24dafc9dafe2aabdbb, type: 3}
