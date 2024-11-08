@@ -3546,6 +3546,14 @@ PrefabInstance:
       propertyPath: cam
       value: 
       objectReference: {fileID: 1804303822}
+    - target: {fileID: 1711071742077780719, guid: 5396f6b66f752b043880837190697836, type: 3}
+      propertyPath: m_Layer
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1711071742077780719, guid: 5396f6b66f752b043880837190697836, type: 3}
+      propertyPath: m_TagString
+      value: Player
+      objectReference: {fileID: 0}
     - target: {fileID: 2196381494834477178, guid: 5396f6b66f752b043880837190697836, type: 3}
       propertyPath: m_LocalPosition.x
       value: 3.530346
@@ -3642,6 +3650,10 @@ PrefabInstance:
       propertyPath: m_Library.Array.data[0].m_CategoryList.Array.data[0].m_Name
       value: Entry
       objectReference: {fileID: 0}
+    - target: {fileID: 5220916554571616214, guid: 5396f6b66f752b043880837190697836, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 5475069194791843848, guid: 5396f6b66f752b043880837190697836, type: 3}
       propertyPath: directionSprites.Array.data[0]
       value: 
@@ -3658,6 +3670,14 @@ PrefabInstance:
       propertyPath: cam
       value: 
       objectReference: {fileID: 1804303822}
+    - target: {fileID: 6271515778886063309, guid: 5396f6b66f752b043880837190697836, type: 3}
+      propertyPath: m_Size.x
+      value: 1.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 6271515778886063309, guid: 5396f6b66f752b043880837190697836, type: 3}
+      propertyPath: m_Size.z
+      value: 1.5
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []

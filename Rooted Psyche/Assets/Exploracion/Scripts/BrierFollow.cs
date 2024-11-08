@@ -7,6 +7,7 @@ public class BrierFollow : MonoBehaviour
     Rigidbody rb;
     ExplorationController controller;
     public bool following;
+    private bool positioned;
     public Transform target;
     Vector3 targetPos;
     private List<Vector3> positions = new List<Vector3>();
@@ -32,7 +33,7 @@ public class BrierFollow : MonoBehaviour
         } 
         transform.LookAt(targetPos);
 
-        if(controller.direction2D.sqrMagnitude>0f || transform.position.sqrMagnitude - target.transform.position.sqrMagnitude != 0f)
+        if(!positioned)
         {
             rb.AddForce(transform.forward* controller.spd, ForceMode.Impulse);
         }
@@ -46,5 +47,18 @@ public class BrierFollow : MonoBehaviour
             rb.velocity = new Vector3(rb.velocity.x,controller.jumpSpd,rb.velocity.z);
             controller.canJump = false;
         }
+    }
+
+    void OnTriggerStay(Collider other)
+    {
+        if(other.gameObject.name == "BrierTarget")
+        {
+            positioned = true;
+        }
+    }
+
+    void OnTriggerExit(Collider other)
+    {
+        positioned = false;
     }
 }
