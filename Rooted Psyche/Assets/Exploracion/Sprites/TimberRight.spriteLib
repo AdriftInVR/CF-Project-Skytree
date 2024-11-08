@@ -21,7 +21,7 @@ MonoBehaviour:
       m_Hash: 1008081451
       m_Sprite: {fileID: -809094366, guid: 78d9c638b77814ef3b76d2d890ae7b6d, type: 3}
       m_FromMain: 1
-      m_SpriteOverride: {fileID: -1074483657, guid: 78d9c638b77814ef3b76d2d890ae7b6d, type: 3}
+      m_SpriteOverride: {fileID: 21300000, guid: 01b6b0a68ed4f453583d7fcde79f1c0c, type: 3}
     - m_Name: Step_1
       m_Hash: 58635061
       m_Sprite: {fileID: -1082024450, guid: 78d9c638b77814ef3b76d2d890ae7b6d, type: 3}
@@ -35,5 +35,5 @@ MonoBehaviour:
     m_FromMain: 1
     m_EntryOverrideCount: 3
   m_PrimaryLibraryGUID: 845d0ea6922104a07a9d08afbb5b9661
-  m_ModificationHash: 638665975011153090
+  m_ModificationHash: 638666568067073930
   m_Version: 1
