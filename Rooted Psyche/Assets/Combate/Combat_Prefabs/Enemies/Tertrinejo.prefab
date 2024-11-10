@@ -85,7 +85,9 @@ MonoBehaviour:
   selfInflicted: 0
   effectPrefab: {fileID: 3463157229188906966, guid: 47096eff328e11a418ace7db2d72aa97, type: 3}
   amount: -30
+  indicator: {fileID: 0}
   modType: 1
+  actType: 0
 --- !u!1 &2911087158990939623
 GameObject:
   m_ObjectHideFlags: 0
@@ -219,7 +221,9 @@ MonoBehaviour:
   selfInflicted: 1
   effectPrefab: {fileID: 7802979462468201273, guid: bddb971e34eb14d48be30c7b922eb077, type: 3}
   amount: 50
+  indicator: {fileID: 0}
   modType: 1
+  actType: 0
 --- !u!1 &3108189636412493705
 GameObject:
   m_ObjectHideFlags: 0
@@ -272,6 +276,8 @@ MonoBehaviour:
   layerMask:
     serializedVersion: 2
     m_Bits: 0
+  offX: 0
+  offZ: 0
 --- !u!114 &5590336772868453678
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -385,7 +391,9 @@ MonoBehaviour:
   selfInflicted: 0
   effectPrefab: {fileID: 3463157229188906966, guid: 47096eff328e11a418ace7db2d72aa97, type: 3}
   amount: -30
+  indicator: {fileID: 0}
   modType: 1
+  actType: 0
 --- !u!1 &5758970093241899947
 GameObject:
   m_ObjectHideFlags: 0
@@ -436,7 +444,9 @@ MonoBehaviour:
   selfInflicted: 0
   effectPrefab: {fileID: 3463157229188906966, guid: 47096eff328e11a418ace7db2d72aa97, type: 3}
   amount: -10
-  modType: 0
+  indicator: {fileID: 8716103323917899588, guid: f9593a735b8fe7842979fbb61cf39a76, type: 3}
+  modType: 1
+  actType: 0
 --- !u!1 &7543147888155051378
 GameObject:
   m_ObjectHideFlags: 0
