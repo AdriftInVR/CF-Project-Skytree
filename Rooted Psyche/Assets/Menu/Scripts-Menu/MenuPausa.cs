@@ -7,11 +7,12 @@ public class MenuPausa : MonoBehaviour
 {
     [SerializeField] private GameObject menuPausa;
     [SerializeField] private GameObject botonPausa;
-    private bool paused = false;
-    public PlayerInput myInput;
+    public static bool paused;
+    private PlayerInput myInput;
 
     void Awake()
     {
+        paused = false;
         myInput = GetComponent<PlayerInput>();
     }
 
@@ -19,13 +20,13 @@ public class MenuPausa : MonoBehaviour
     {
         if (myInput.actions["Pause"].WasPressedThisFrame())
         {
-            if (paused)
+            if (!paused)
             {
-                Reanudar();
+                Pausa();
             }
             else
             {
-                Pausa();
+                Reanudar();
             }
         }
     }

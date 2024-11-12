@@ -23,45 +23,48 @@ public class ExplorationController : MonoBehaviour
 
     void FixedUpdate()
     {
-        direction2D = myInput.actions["Direction"].ReadValue<Vector2>();
-        direction2D.Normalize();
+        if(!MenuPausa.paused)
+        {   
+            direction2D = myInput.actions["Direction"].ReadValue<Vector2>();
+            direction2D.Normalize();
 
-        Vector3 camF = cam.forward;
-        Vector3 camR = cam.right;
+            Vector3 camF = cam.forward;
+            Vector3 camR = cam.right;
 
-        camF.y = 0;
-        camR.y = 0;
+            camF.y = 0;
+            camR.y = 0;
 
-        Vector3 relF = camF * direction2D.y;
-        Vector3 relR = camR * direction2D.x;
-        Vector3 moveDir = relF + relR;
+            Vector3 relF = camF * direction2D.y;
+            Vector3 relR = camR * direction2D.x;
+            Vector3 moveDir = relF + relR;
 
-        direction3D = direction2D.magnitude>0.5?new Vector3(moveDir.x, 0, moveDir.z):direction3D;
-        if(!gameObject.GetComponent<BrierFollow>() || !gameObject.GetComponent<BrierFollow>().following)
-        {
-
-            var v = rb.velocity;
-
-            // Check if the velocity vector is greater than the maximum allowed
-            if(v.sqrMagnitude > sqrspd){
-                // Trunk the excess speed back to the limit with the normalized vector
-                rb.velocity = new Vector3(moveDir.x * spd, rb.velocity.y, moveDir.z * spd);
-            } 
-
-            transform.LookAt(transform.position+direction3D);
-            if(myInput.actions["Direction"].ReadValue<Vector2>().sqrMagnitude > 0f)
-            {            
-                // Apply force to move instantly
-                rb.AddForce(transform.forward * spd, ForceMode.Impulse);
-            }
-            else
+            direction3D = direction2D.magnitude>0.5?new Vector3(moveDir.x, 0, moveDir.z):direction3D;
+            if(!gameObject.GetComponent<BrierFollow>() || !gameObject.GetComponent<BrierFollow>().following)
             {
-                // Apply counter-force to stop instantly
-                rb.AddForce(new Vector3(-rb.velocity.x,0,-rb.velocity.z), ForceMode.Impulse);
-            }
-            if(myInput.actions["Timber"].WasPressedThisFrame() && canJump){
-                rb.velocity = new Vector3(rb.velocity.x,jumpSpd,rb.velocity.z);
-                canJump = false;
+
+                var v = rb.velocity;
+
+                // Check if the velocity vector is greater than the maximum allowed
+                if(v.sqrMagnitude > sqrspd){
+                    // Trunk the excess speed back to the limit with the normalized vector
+                    rb.velocity = new Vector3(moveDir.x * spd, rb.velocity.y, moveDir.z * spd);
+                } 
+
+                transform.LookAt(transform.position+direction3D);
+                if(myInput.actions["Direction"].ReadValue<Vector2>().sqrMagnitude > 0f)
+                {            
+                    // Apply force to move instantly
+                    rb.AddForce(transform.forward * spd, ForceMode.Impulse);
+                }
+                else
+                {
+                    // Apply counter-force to stop instantly
+                    rb.AddForce(new Vector3(-rb.velocity.x,0,-rb.velocity.z), ForceMode.Impulse);
+                }
+                if(myInput.actions["Timber"].WasPressedThisFrame() && canJump){
+                    rb.velocity = new Vector3(rb.velocity.x,jumpSpd,rb.velocity.z);
+                    canJump = false;
+                }
             }
         }
     }
