@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 using Photon.Pun;
+using Photon.Realtime;
 using TMPro;
 
 public class Rooms_Multiplayer : MonoBehaviourPunCallbacks
@@ -12,7 +13,7 @@ public class Rooms_Multiplayer : MonoBehaviourPunCallbacks
 
     public void CreateRoom()
     {
-        PhotonNetwork.CreateRoom(input_Create.text);
+        PhotonNetwork.JoinOrCreateRoom(input_Create.text, new RoomOptions() { MaxPlayers = 2 }, TypedLobby.Default, null);
     }
 
     public void JoinRoom()
@@ -22,7 +23,8 @@ public class Rooms_Multiplayer : MonoBehaviourPunCallbacks
 
     public override void OnJoinedRoom()
     {
-        PhotonNetwork.LoadLevel("CuartoSkyler");
+        PhotonNetwork.LoadLevel("M_CuartoSkyler");
+        print(PhotonNetwork.CountOfPlayersInRooms);
     }
 
 }
