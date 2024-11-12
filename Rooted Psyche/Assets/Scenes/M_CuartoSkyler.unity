@@ -1958,7 +1958,7 @@ GameObject:
   - component: {fileID: 549694844}
   m_Layer: 0
   m_Name: spawner
-  m_TagString: Untagged
+  m_TagString: Combat
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -1975,8 +1975,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0b8468e1717ee0a44813535c811a6fd1, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  player1: {fileID: 0}
-  player2: {fileID: 0}
+  SpawnTime: 0
 --- !u!4 &549694845
 Transform:
   m_ObjectHideFlags: 0
@@ -12062,7 +12061,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   menuPausa: {fileID: 1216320839}
   botonPausa: {fileID: 812870817}
-  myInput: {fileID: 0}
 --- !u!114 &1788197690
 MonoBehaviour:
   m_ObjectHideFlags: 0

@@ -89,7 +89,7 @@ public class CombatManager : MonoBehaviour{
     }
 
     IEnumerator CombatLoop(){
-        
+        RunHandle.running = false;
         while (isCombatActive){
 
             switch (combatStatus){

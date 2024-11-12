@@ -2248,12 +2248,12 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 655011649}
   serializedVersion: 2
-  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -0, y: -0, z: -0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_LocalRotation: {x: -0.18395132, y: 0.0010552104, z: -0.00019749475, w: 0.9829348}
+  m_LocalPosition: {x: -4907.2354, y: -4033.6238, z: 373.94476}
+  m_LocalScale: {x: 1303.6754, y: 1303.6752, z: 1303.6753}
   m_ConstrainProportionsScale: 0
   m_Children: []
-  m_Father: {fileID: 0}
+  m_Father: {fileID: 1788197684}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!43 &662291211
 Mesh:
@@ -6673,6 +6673,37 @@ Transform:
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 1013.9321, y: 572.2513, z: -3.9777973}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &1353340161
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1353340162}
+  m_Layer: 0
+  m_Name: CuartoManager
+  m_TagString: Combat
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &1353340162
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1353340161}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 5.61733, y: 2.3092031, z: 4.2420077}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -12165,6 +12196,7 @@ RectTransform:
   - {fileID: 1328776258}
   - {fileID: 1196667959}
   - {fileID: 1331364674}
+  - {fileID: 655011652}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
@@ -12261,7 +12293,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   menuPausa: {fileID: 1216320839}
   botonPausa: {fileID: 812870817}
-  myInput: {fileID: 0}
 --- !u!114 &1788197690
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -15018,7 +15049,7 @@ SceneRoots:
   - {fileID: 1824466048}
   - {fileID: 277410625}
   - {fileID: 1788197684}
-  - {fileID: 655011652}
   - {fileID: 472623264}
   - {fileID: 664009027}
   - {fileID: 1352710513}
+  - {fileID: 1353340162}

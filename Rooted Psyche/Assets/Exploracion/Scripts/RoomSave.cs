@@ -38,6 +38,7 @@ private void Update()
             child.gameObject.SetActive(true);
         }
     }
+    
 }
 
 }

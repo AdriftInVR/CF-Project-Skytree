@@ -112,6 +112,7 @@ public class PanelHandler : MonoBehaviour
         Item.SetActive(false);
         Fusion.SetActive(false);
         Run.SetActive(false);
+        WheelSelection.lockedRotation = false;
         PlayerController.locked = false;
         CombatManager.menuOpen = false;
     }
