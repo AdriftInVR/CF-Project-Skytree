@@ -19,4 +19,11 @@ public class Conection_Server : MonoBehaviourPunCallbacks
     {
         SceneManager.LoadScene("MenuPrincipal");
     }
+
+    public override void OnDisconnected(DisconnectCause cause)
+    {
+        // Si se desconecta o falla la conexión, carga la pantalla de inicio || no lo he probado
+        Debug.LogWarning("Desconectado de Photon: " + cause);
+        SceneManager.LoadScene("MenuPrincipal");
+    }
 }
