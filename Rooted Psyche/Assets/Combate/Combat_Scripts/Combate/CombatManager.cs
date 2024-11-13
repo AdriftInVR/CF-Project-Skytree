@@ -170,34 +170,39 @@ public class CombatManager : MonoBehaviour{
         }
     }
 
-    // Método para obtener el peleador opuesto al actual en el turno - IA
-    public Fighter GetOppositeFighter() {
-    // Filtrar los personajes del equipo del jugador que aún están vivos
-    var playerTeam = System.Array.FindAll(this.fighters, fighter => fighter.team == Team.Player && fighter.isAlive);
+    // Método para obtener un peleador opuesto al actual en el turno - IA
+    public Fighter GetOppositeFighter(Team team) {
+        // Filtrar los personajes del equipo enemigo que aún están vivos
+        var opposingTeam = System.Array.FindAll(this.fighters, fighter => fighter.team != team && fighter.isAlive);
 
-    // Si hay personajes del equipo del jugador vivos, selecciona uno aleatoriamente
-    if (playerTeam.Length > 0) {
-        return playerTeam[Random.Range(0, playerTeam.Length)];
+        // Si hay personajes del equipo enemigo vivos, selecciona uno aleatoriamente
+        if (opposingTeam.Length > 0) {
+            return opposingTeam[Random.Range(0, opposingTeam.Length)];
+        }
+        
+        // Si no hay personajes vivos en el equipo enemigo, retorna null
+        return null;
     }
 
-    // Si no hay personajes vivos en el equipo del jugador, retorna null
-    return null;
+
+    // Método para obtener un peleador aliado al actual en el turno - IA
+    public Fighter GetTeamFighter(Team team) {
+        // Filtrar los personajes del equipo aliad que aún están vivos
+        var allyTeam = System.Array.FindAll(this.fighters, fighter => fighter.team == team && fighter.isAlive);
+
+        // Si hay personajes del equipo aliado vivos, selecciona uno aleatoriamente
+        if (allyTeam.Length > 0) {
+            return allyTeam[Random.Range(0, allyTeam.Length)];
+        }
+
+        // Si no hay personajes vivos en el equipo aliado, retorna null
+        return null;
     }
 
     public void OnFighterAction(Action action){
         currentFigtherAction = action;
         combatStatus = CombatStatus.FIGTHER_ACTION;
     }
-    /*
-        public void PlayerTurn(Fighter player, Action action) {
-            
-            var enemies = System.Array.FindAll(fighters, f => f.team == Team.Enemy && f.isAlive);
-
-            if (enemies.Length == 0) return;  // Si no hay enemigos vivos, no hacer nada
-
-            StartCoroutine(HandleTargetSelection(player, action, enemies));
-        }*/
-
 
     // Método para seleccionar un objetivo enemigo con las teclas de flecha y Enter
     IEnumerator HandleTargetSelection(Player player, Action action, Fighter[] targets) {
@@ -240,7 +245,7 @@ public class CombatManager : MonoBehaviour{
                 }
             }
             if (confirmButton.WasPressedThisFrame()) {  // Seleccionar con Enter
-                action.SetEmmiterAndReceiver(player, targets[selectedEnemyIndex]);
+                action.SetEmitterAndReceiver(player, targets[selectedEnemyIndex]);
 
                 // Añadir lógica para activar las animaciones correctas según el tipo de acción
                 if (action.isTeamAction) {
@@ -312,16 +317,14 @@ public class CombatManager : MonoBehaviour{
     }
 
     void SetArrowToTarget(GameObject arrow, Fighter target) {
-        Vector3 offset = new Vector3(0f,0f,0f);
+        Vector3 offset = new Vector3(0f,9f,0f);
         if (target.team == Team.Player)
         {
             offset.x = 5f;
-            offset.y = 5f;
         }
         else
         {
             offset.x = -8f;
-            offset.y = 9f;
         }
         arrow.transform.position = target.transform.position + offset;
         selectorPositioned = true;
@@ -335,7 +338,7 @@ public class CombatManager : MonoBehaviour{
         }
         else
         {
-            offset.x -= 8f;
+            offset.x -= 6f;
         }
         Vector3 targetPos = target.transform.position + offset;
         selectorPositioned = false;

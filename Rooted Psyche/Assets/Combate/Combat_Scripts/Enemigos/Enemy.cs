@@ -8,6 +8,7 @@ public class Enemy : Fighter
     public bool type;
     void Awake()
     {
+        this.fighterName = gameObject.name;
         this.stats = new Stats(100, 100, 10, 10, 5, 1, 10);
         // HP, MaxHP, Atk, Def, Spd, Lv, SP, Multiplier, ATKMult
     }
@@ -15,15 +16,22 @@ public class Enemy : Fighter
     {
         CombatManager.playerTurn = false;
         PlayerController.locked = false;
-        StartCoroutine(this.IA());   
+        StartCoroutine(IA());
         StartCoroutine(AnimAttack());
     }
 
     IEnumerator IA(){
         yield return new WaitForSeconds(1f);
-        Action action = this.actions[Random.Range(0, this.actions.Length)];
-        action.SetEmmiterAndReceiver(this, this.combatManager.GetOppositeFighter());
-        this.combatManager.OnFighterAction(action);
+        Action action = actions[Random.Range(0, actions.Length)];
+        if(action.isTeamAction)
+        {
+            action.SetEmitterAndReceiver(this, combatManager.GetTeamFighter(Team.Enemy));
+        }
+        else
+        {
+            action.SetEmitterAndReceiver(this, combatManager.GetOppositeFighter(Team.Enemy));
+        }
+        combatManager.OnFighterAction(action);
         Debug.Log("El enemigo hizo " + action.actionName);
     }
 

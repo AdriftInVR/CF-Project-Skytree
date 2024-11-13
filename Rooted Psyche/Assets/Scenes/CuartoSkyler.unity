@@ -14948,6 +14948,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Skyler
       objectReference: {fileID: 0}
+    - target: {fileID: 7853339797043608232, guid: 7a0bcc4dfd9392f4cbc38f445038dbed, type: 3}
+      propertyPath: m_Material
+      value: 
+      objectReference: {fileID: 13400000, guid: c204255dfe6af204c87bd2d611203e61, type: 2}
     - target: {fileID: 7860574121779204652, guid: 7a0bcc4dfd9392f4cbc38f445038dbed, type: 3}
       propertyPath: cam
       value: 

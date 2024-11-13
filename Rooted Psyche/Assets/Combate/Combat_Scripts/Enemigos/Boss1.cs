@@ -32,7 +32,7 @@ public class Boss1 : Fighter
     IEnumerator IA(){
         yield return new WaitForSeconds(1f);
         Action action = this.actions[Random.Range(0, this.actions.Length)];
-        action.SetEmmiterAndReceiver(this, this.combatManager.GetOppositeFighter());
+        action.SetEmitterAndReceiver(this, this.combatManager.GetOppositeFighter(Team.Enemy));
         this.combatManager.OnFighterAction(action);
         Debug.Log("El enemigo hizo " + action.actionName);
     }

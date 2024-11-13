@@ -85,7 +85,7 @@ MonoBehaviour:
   - {fileID: 7108339969198208228, guid: f6a72e8cdd5ee4d7ea736608ffee7d7e, type: 3}
   - {fileID: 7108339969198208228, guid: a0b03ccecf2ba488cb6cd5270fb1c939, type: 3}
   - {fileID: 7108339969198208228, guid: 2b44157a121d84727aaede2c4d0574da, type: 3}
-  PlayerBody: {fileID: 1592738678760719954}
+  PlayerBody: {fileID: 0}
 --- !u!212 &2311411948202195375
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -198,7 +198,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 5220916554571616214}
-  - component: {fileID: 6271515778886063309}
+  - component: {fileID: 6559681830762397180}
   m_Layer: 6
   m_Name: BrierTarget
   m_TagString: Untagged
@@ -221,8 +221,8 @@ Transform:
   m_Children: []
   m_Father: {fileID: 9115635411114283998}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!65 &6271515778886063309
-BoxCollider:
+--- !u!136 &6559681830762397180
+CapsuleCollider:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
@@ -239,8 +239,10 @@ BoxCollider:
   m_IsTrigger: 1
   m_ProvidesContacts: 0
   m_Enabled: 1
-  serializedVersion: 3
-  m_Size: {x: 1.5, y: 2, z: 1.5}
+  serializedVersion: 2
+  m_Radius: 1
+  m_Height: 5
+  m_Direction: 1
   m_Center: {x: 0, y: 0, z: 0}
 --- !u!1 &3227318717349655882
 GameObject:
@@ -765,7 +767,7 @@ MonoBehaviour:
   - {fileID: 7108339969198208228, guid: f6a72e8cdd5ee4d7ea736608ffee7d7e, type: 3}
   - {fileID: 7108339969198208228, guid: a0b03ccecf2ba488cb6cd5270fb1c939, type: 3}
   - {fileID: 7108339969198208228, guid: 2b44157a121d84727aaede2c4d0574da, type: 3}
-  PlayerBody: {fileID: 5722119944462752085}
+  PlayerBody: {fileID: 0}
 --- !u!212 &85358716901669312
 SpriteRenderer:
   m_ObjectHideFlags: 0
