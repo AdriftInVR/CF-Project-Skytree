@@ -67,7 +67,9 @@ public class ExplorationSpriteHandler : MonoBehaviour
             Flip();
         }
 
-        if(direction.magnitude > 0.01 && rb.velocity.magnitude>0.2f)
+        Vector3 vel = new Vector3(rb.velocity.x,0,rb.velocity.z); 
+
+        if(vel.magnitude>0.3f)
         {
             anim.SetBool("isWalking", true);
         }
