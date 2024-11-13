@@ -2091,8 +2091,8 @@ MonoBehaviour:
     m_PersistentCalls:
       m_Calls:
       - m_Target: {fileID: 2066691817}
-        m_TargetAssemblyTypeName: Multiplayer_Rooms, Assembly-CSharp
-        m_MethodName: OnJoinedRoom
+        m_TargetAssemblyTypeName: Rooms_Multiplayer, Assembly-CSharp
+        m_MethodName: JoinRoom
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}

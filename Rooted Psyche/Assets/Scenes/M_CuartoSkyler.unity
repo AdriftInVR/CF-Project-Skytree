@@ -617,10 +617,10 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 472623265}
-        m_TargetAssemblyTypeName: ChangeScenes, Assembly-CSharp
-        m_MethodName: ChangeScene
-        m_Mode: 5
+      - m_Target: {fileID: 1328776261}
+        m_TargetAssemblyTypeName: ExitLobby, Assembly-CSharp
+        m_MethodName: LeaveRoom
+        m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
           m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
@@ -3207,18 +3207,6 @@ MonoBehaviour:
         m_TargetAssemblyTypeName: UnityEngine.GameObject, UnityEngine
         m_MethodName: SetActive
         m_Mode: 6
-        m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 0
-          m_FloatArgument: 0
-          m_StringArgument: 
-          m_BoolArgument: 1
-        m_CallState: 2
-      - m_Target: {fileID: 1788197689}
-        m_TargetAssemblyTypeName: Pausa, Assembly-CSharp
-        m_MethodName: MenuPausa
-        m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
           m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
@@ -6170,6 +6158,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1328776258}
   - component: {fileID: 1328776260}
+  - component: {fileID: 1328776261}
   - component: {fileID: 1328776259}
   m_Layer: 5
   m_Name: Salir
@@ -6238,6 +6227,18 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1328776257}
   m_CullTransparentMesh: 1
+--- !u!114 &1328776261
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1328776257}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: cc60e227a55e99e42b160f956c2fe1b5, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &1331364673
 GameObject:
   m_ObjectHideFlags: 0
@@ -7442,7 +7443,7 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: Home
+  m_Text: Desconectar
 --- !u!222 &1504092550
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -12258,7 +12259,7 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: "\xBFSeguro que quieres salir al menu principal?"
+  m_Text: "\xBFSeguro que quieres salir de la partida?"
 --- !u!222 &1847343745
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -13168,7 +13169,7 @@ MonoBehaviour:
           m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
           m_IntArgument: 0
           m_FloatArgument: 0
-          m_StringArgument: Exploracion
+          m_StringArgument: M_Exploracion
           m_BoolArgument: 1
         m_CallState: 2
 --- !u!114 &2061700579
@@ -13823,9 +13824,7 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: 'Home
-
-'
+  m_Text: Desconectar
 --- !u!222 &2143436358
 CanvasRenderer:
   m_ObjectHideFlags: 0

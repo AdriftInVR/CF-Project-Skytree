@@ -11,19 +11,21 @@ public class Conection_Server : MonoBehaviourPunCallbacks
     {
         PhotonNetwork.ConnectUsingSettings();
     }
+// En caso de que se conecte al servidor se unira al lobby   
     public override void OnConnectedToMaster()
     {
         PhotonNetwork.JoinLobby();
     }
 
+// En caso de que se conecte al servidor se cargara el menu principal con conexion
     public override void OnJoinedLobby()
     {
         SceneManager.LoadScene("MenuPrincipal");
     }
 
+// En caso de que se desconecte de Photon se regresara al menu principal sin conexion
     public override void OnDisconnected(DisconnectCause cause)
     {
-        // Si se desconecta o falla la conexión, carga la pantalla de inicio || no lo he probado
         Debug.LogWarning("Desconectado de Photon: " + cause);
         SceneManager.LoadScene("MenuPrincipal");
     }

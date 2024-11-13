@@ -27,4 +27,10 @@ public class Rooms_Multiplayer : MonoBehaviourPunCallbacks
         print(PhotonNetwork.CountOfPlayersInRooms);
     }
 
+        public override void OnJoinRoomFailed(short returnCode, string message)
+    {
+        // Maneja el caso en el que no se puede unir al cuarto
+        Debug.LogWarning("No se encontró el cuarto: " + message);
+    }
+
 }

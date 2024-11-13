@@ -38,6 +38,12 @@ public class MenuPausa : MonoBehaviour
         botonPausa.SetActive(false);
     }
 
+    public void M_Pausa()
+    {
+        menuPausa.SetActive(true);
+        botonPausa.SetActive(false);
+    }
+
     public void Reanudar()
     {
         paused = false;
