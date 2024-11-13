@@ -3811,7 +3811,8 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 860188738}
-  - component: {fileID: 860188739}
+  - component: {fileID: 860188740}
+  - component: {fileID: 860188741}
   m_Layer: 0
   m_Name: CameraManager1
   m_TagString: Untagged
@@ -3834,7 +3835,7 @@ Transform:
   m_Children: []
   m_Father: {fileID: 757042065}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &860188739
+--- !u!114 &860188740
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -3843,10 +3844,9 @@ MonoBehaviour:
   m_GameObject: {fileID: 860188737}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: b8be858f8ac724f71ace69da636d0b64, type: 3}
+  m_Script: {fileID: 11500000, guid: c80fd4e85224b88439d36723b5c72659, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  player: {fileID: 0}
   targetObject: {fileID: 4849617453500299202}
   triggerDistance: 2
   mainCamera: {fileID: 681988609}
@@ -3857,6 +3857,28 @@ MonoBehaviour:
   - {fileID: 1070646949}
   - {fileID: 2061700578}
   - {fileID: 812870819}
+--- !u!114 &860188741
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 860188737}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: aa584fbee541324448dd18d8409c7a41, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  ObservedComponentsFoldoutOpen: 1
+  Group: 0
+  prefixField: -1
+  Synchronization: 3
+  OwnershipTransfer: 0
+  observableSearch: 2
+  ObservedComponents: []
+  sceneViewId: 1
+  InstantiationId: 0
+  isRuntimeInstantiated: 0
 --- !u!1 &864403086
 GameObject:
   m_ObjectHideFlags: 0
@@ -5126,7 +5148,8 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1080642058}
-  - component: {fileID: 1080642057}
+  - component: {fileID: 1080642059}
+  - component: {fileID: 1080642060}
   m_Layer: 0
   m_Name: CameraManager2
   m_TagString: Untagged
@@ -5134,29 +5157,6 @@ GameObject:
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
---- !u!114 &1080642057
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1080642056}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: b8be858f8ac724f71ace69da636d0b64, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  player: {fileID: 0}
-  targetObject: {fileID: 5798699844192260376}
-  triggerDistance: 2
-  mainCamera: {fileID: 681988609}
-  focusCamera: {fileID: 1491115406}
-  focusButton: {fileID: 1070646949}
-  exitButton: {fileID: 355504100}
-  additionalButtons:
-  - {fileID: 1287113451}
-  - {fileID: 2061700578}
-  - {fileID: 812870819}
 --- !u!4 &1080642058
 Transform:
   m_ObjectHideFlags: 0
@@ -5172,6 +5172,50 @@ Transform:
   m_Children: []
   m_Father: {fileID: 757042065}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1080642059
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1080642056}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c80fd4e85224b88439d36723b5c72659, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  targetObject: {fileID: 5798699844192260376}
+  triggerDistance: 2
+  mainCamera: {fileID: 681988609}
+  focusCamera: {fileID: 1491115406}
+  focusButton: {fileID: 1070646949}
+  exitButton: {fileID: 355504100}
+  additionalButtons:
+  - {fileID: 1287113451}
+  - {fileID: 2061700578}
+  - {fileID: 812870819}
+--- !u!114 &1080642060
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1080642056}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: aa584fbee541324448dd18d8409c7a41, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  ObservedComponentsFoldoutOpen: 1
+  Group: 0
+  prefixField: -1
+  Synchronization: 3
+  OwnershipTransfer: 0
+  observableSearch: 2
+  ObservedComponents: []
+  sceneViewId: 2
+  InstantiationId: 0
+  isRuntimeInstantiated: 0
 --- !u!1001 &1084305307
 PrefabInstance:
   m_ObjectHideFlags: 0

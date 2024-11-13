@@ -16,6 +16,11 @@ public class GameManager : MonoBehaviour
             Debug.Log("Previous save file deleted.");
         }
 
+        GameObject objToRemove = GameObject.Find("EXP");
+        if (objToRemove != null) {
+                Destroy(objToRemove);
+            }
+
         // 2. Restablecer los datos del jugador
         playerDataManager.ResetPlayerData();
 
