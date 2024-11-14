@@ -12045,7 +12045,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2e77120856a764ce8a31e048df63cbe6, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  nextSceneName: M_Exploracion
+  nextSceneName: M_CuartoSkyler
 --- !u!114 &1788197689
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -13160,7 +13160,7 @@ MonoBehaviour:
       m_Calls:
       - m_Target: {fileID: 1788197688}
         m_TargetAssemblyTypeName: ChangeScenes, Assembly-CSharp
-        m_MethodName: ChangeScene
+        m_MethodName: M_ChangeScene
         m_Mode: 5
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
