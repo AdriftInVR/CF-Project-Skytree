@@ -3716,6 +3716,10 @@ PrefabInstance:
       propertyPath: m_WasSpriteAssigned
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 1231491417887540130, guid: 5396f6b66f752b043880837190697836, type: 3}
+      propertyPath: m_Name
+      value: TimberSprite
+      objectReference: {fileID: 0}
     - target: {fileID: 1592738678760719954, guid: 5396f6b66f752b043880837190697836, type: 3}
       propertyPath: cam
       value: 
@@ -3771,7 +3775,7 @@ PrefabInstance:
     - target: {fileID: 2311411948202195375, guid: 5396f6b66f752b043880837190697836, type: 3}
       propertyPath: m_Sprite
       value: 
-      objectReference: {fileID: -1074483657, guid: 78d9c638b77814ef3b76d2d890ae7b6d, type: 3}
+      objectReference: {fileID: 21300000, guid: 01b6b0a68ed4f453583d7fcde79f1c0c, type: 3}
     - target: {fileID: 2761575817047503350, guid: 5396f6b66f752b043880837190697836, type: 3}
       propertyPath: m_SpriteLibraryAsset
       value: 
@@ -3784,6 +3788,10 @@ PrefabInstance:
       propertyPath: m_IsActive
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 3543584853139808172, guid: 5396f6b66f752b043880837190697836, type: 3}
+      propertyPath: PlayerBody
+      value: 
+      objectReference: {fileID: 2118719898}
     - target: {fileID: 3543584853139808172, guid: 5396f6b66f752b043880837190697836, type: 3}
       propertyPath: directionSprites.Array.data[0]
       value: 
@@ -3825,6 +3833,10 @@ PrefabInstance:
       value: Entry
       objectReference: {fileID: 0}
     - target: {fileID: 5475069194791843848, guid: 5396f6b66f752b043880837190697836, type: 3}
+      propertyPath: PlayerBody
+      value: 
+      objectReference: {fileID: 813247796}
+    - target: {fileID: 5475069194791843848, guid: 5396f6b66f752b043880837190697836, type: 3}
       propertyPath: directionSprites.Array.data[0]
       value: 
       objectReference: {fileID: 7108339969198208228, guid: 845d0ea6922104a07a9d08afbb5b9661, type: 3}
@@ -3840,6 +3852,18 @@ PrefabInstance:
       propertyPath: cam
       value: 
       objectReference: {fileID: 1804303822}
+    - target: {fileID: 6271515778886063309, guid: 5396f6b66f752b043880837190697836, type: 3}
+      propertyPath: m_Size.y
+      value: 4
+      objectReference: {fileID: 0}
+    - target: {fileID: 6559681830762397180, guid: 5396f6b66f752b043880837190697836, type: 3}
+      propertyPath: m_Radius
+      value: 0.9
+      objectReference: {fileID: 0}
+    - target: {fileID: 6727986967136429398, guid: 5396f6b66f752b043880837190697836, type: 3}
+      propertyPath: m_Name
+      value: BrierSprite
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -7095,7 +7119,7 @@ AudioSource:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1380501322}
-  m_Enabled: 1
+  m_Enabled: 0
   serializedVersion: 4
   OutputAudioMixerGroup: {fileID: 0}
   m_audioClip: {fileID: 8300000, guid: 913a874987110d64e832611310159380, type: 3}
@@ -9945,6 +9969,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7b743370ac3e4ec2a1668f5455a8ef8a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!4 &2118719898 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 6336021141675276476, guid: 5396f6b66f752b043880837190697836, type: 3}
+  m_PrefabInstance: {fileID: 731094466}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1001 &6992665768778832885
 PrefabInstance:
   m_ObjectHideFlags: 0

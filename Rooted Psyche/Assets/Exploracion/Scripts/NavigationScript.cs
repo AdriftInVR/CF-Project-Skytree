@@ -12,7 +12,7 @@ public class NavigationScript : MonoBehaviour
 
     private NavMeshAgent navMeshAgent;
     private Transform playerTransform;
-    private bool isIconVisible = false;
+    private bool seen = false;
 
     void Start()
     {
@@ -20,7 +20,7 @@ public class NavigationScript : MonoBehaviour
 
         // Buscar al jugador por su etiqueta
         GameObject player = GameObject.FindGameObjectWithTag(playerTag);
-        if (player != null)
+        if (player)
         {
             playerTransform = player.transform;
         }
@@ -28,17 +28,11 @@ public class NavigationScript : MonoBehaviour
         {
             Debug.LogError("No se encontró un objeto con la etiqueta " + playerTag);
         }
-
-        // Desactivar el ícono de sorpresa al inicio
-        if (surpriseIcon != null)
-        {
-            surpriseIcon.SetActive(false);
-        }
     }
 
     void Update()
     {
-        if (playerTransform != null)
+        if (playerTransform)
         {
             // Calcula la distancia entre el agente y el jugador
             float distanceToPlayer = Vector3.Distance(transform.position, playerTransform.position);
@@ -49,7 +43,7 @@ public class NavigationScript : MonoBehaviour
                 navMeshAgent.SetDestination(playerTransform.position);
 
                 // Mostrar el ícono de sorpresa si aún no está visible
-                if (!isIconVisible)
+                if (!seen)
                 {
                     StartCoroutine(ShowSurpriseIcon());
                 }
@@ -60,17 +54,20 @@ public class NavigationScript : MonoBehaviour
                 navMeshAgent.ResetPath();
             }
         }
+        else
+        {
+            seen = false; 
+        }
     }
 
     IEnumerator ShowSurpriseIcon()
     {
-        if (surpriseIcon != null)
+        seen = true;
+        if (surpriseIcon)
         {
             surpriseIcon.SetActive(true);    // Activar el ícono
-            isIconVisible = true;
             yield return new WaitForSeconds(iconDisplayTime); // Esperar el tiempo especificado
             surpriseIcon.SetActive(false);   // Desactivar el ícono
-            isIconVisible = false;
         }
     }
 }

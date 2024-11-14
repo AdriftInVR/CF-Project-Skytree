@@ -39,7 +39,7 @@ public class HealthModAction : Action
             case HealthModType.FIXED:
                 return this.amount;
         }
-        throw new System.InvalidOperationException("HelthModAction::GetDamage(). Unrecheable!");
+        throw new System.InvalidOperationException("HealthModAction::GetDamage(). Unreachable!");
     }
 
         void ShowDamageText(int damageAmount) {

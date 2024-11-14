@@ -10,7 +10,6 @@ public abstract class Action : MonoBehaviour
     public bool isTeamAction; // Cambiado de selfInflicted a isTeamAction
     public bool selfInflicted;
     public GameObject effectPrefab;
-
     protected Fighter emitter;
     protected Fighter receiver;
 
@@ -34,7 +33,7 @@ public abstract class Action : MonoBehaviour
         CombatManager.combatStatus = CombatStatus.CHECK_FOR_VICTORY;
     }
 
-    public void SetEmmiterAndReceiver(Fighter _emitter, Fighter _receiver){
+    public void SetEmitterAndReceiver(Fighter _emitter, Fighter _receiver){
         this.emitter = _emitter;
         this.receiver = _receiver;
     }

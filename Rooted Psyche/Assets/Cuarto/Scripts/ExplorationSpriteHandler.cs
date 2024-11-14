@@ -17,7 +17,7 @@ public class ExplorationSpriteHandler : MonoBehaviour
     public SpriteLibrary sprites;
 
     public SpriteLibraryAsset[] directionSprites;
-    public ExplorationController PlayerBody;
+    public Transform PlayerBody;
 
 
 
@@ -35,9 +35,9 @@ public class ExplorationSpriteHandler : MonoBehaviour
         direction = myInput.actions["Direction"].ReadValue<Vector2>();
         direction.Normalize();
 
-        if(Mathf.Abs(PlayerBody.direction3D.z)>0.5)
+        if(Mathf.Abs(PlayerBody.forward.z)>0.5)
         {
-            switch(Mathf.Sign(PlayerBody.direction3D.z))
+            switch(Mathf.Sign(PlayerBody.forward.z))
             {
                 case 1:
                     sprites.spriteLibraryAsset = directionSprites[2];//Up
@@ -50,24 +50,26 @@ public class ExplorationSpriteHandler : MonoBehaviour
             }
         }
 
-        if(Mathf.Abs(PlayerBody.direction3D.x)*1.1f>Mathf.Abs(PlayerBody.direction3D.z))
+        if(Mathf.Abs(PlayerBody.forward.x)*1.1f>Mathf.Abs(PlayerBody.forward.z))
         {
             sprites.spriteLibraryAsset = directionSprites[1];//Right
         }
 
 
 
-        if(PlayerBody.direction3D.x < -0.1 && facingRight)
+        if(PlayerBody.forward.x < -0.1 && facingRight)
         {
             Flip();
         }
         
-        if(PlayerBody.direction3D.x > 0.1 && !facingRight)
+        if(PlayerBody.forward.x > 0.1 && !facingRight)
         {
             Flip();
         }
 
-        if(direction.magnitude > 0.01 && rb.velocity.magnitude>0.2f)
+        Vector3 vel = new Vector3(rb.velocity.x,0,rb.velocity.z); 
+
+        if(vel.magnitude>0.3f)
         {
             anim.SetBool("isWalking", true);
         }
