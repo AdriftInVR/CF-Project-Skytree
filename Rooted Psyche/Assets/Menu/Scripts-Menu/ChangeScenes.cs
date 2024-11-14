@@ -6,20 +6,18 @@ using Photon.Pun;
 
 public class ChangeScenes : MonoBehaviourPunCallbacks
 {
-    public string nextSceneName;
+    void Awake() {
+        PhotonNetwork.AutomaticallySyncScene = true; // Sincroniza escenas automáticamente
+    }
     public void ChangeScene(string sceneName)
     {
         SceneManager.LoadScene(sceneName);
     }
-    [PunRPC]
+    
     public void M_ChangeScene(string sceneName)
     {
         PhotonNetwork.LoadLevel(sceneName);
 
     }
-    public void M_ChangeScene_RPC(string sceneName)
-    {
-        photonView.RPC("M_ChangeScene", RpcTarget.All, sceneName);
-    } 
 
 }

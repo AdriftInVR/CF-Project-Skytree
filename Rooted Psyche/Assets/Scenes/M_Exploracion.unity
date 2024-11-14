@@ -2237,7 +2237,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2e77120856a764ce8a31e048df63cbe6, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  nextSceneName: 
 --- !u!114 &334143154
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -9934,6 +9933,10 @@ PrefabInstance:
     - target: {fileID: 6935195306435701495, guid: c119ebdb361ce7f4d804158b39010fe1, type: 3}
       propertyPath: m_IsActive
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7492860722252457376, guid: c119ebdb361ce7f4d804158b39010fe1, type: 3}
+      propertyPath: m_Text
+      value: Desconectar
       objectReference: {fileID: 0}
     - target: {fileID: 7869600572275778328, guid: c119ebdb361ce7f4d804158b39010fe1, type: 3}
       propertyPath: m_OnValueChanged.m_PersistentCalls.m_Calls.Array.data[0].m_Target
