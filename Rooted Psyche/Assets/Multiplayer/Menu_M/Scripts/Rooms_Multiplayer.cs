@@ -23,7 +23,7 @@ public class Rooms_Multiplayer : MonoBehaviourPunCallbacks
 
     public override void OnJoinedRoom()
     {
-        PhotonNetwork.LoadLevel("M_CuartoSkyler");
+        PhotonNetwork.LoadLevel("M_Exploracion");
         print(PhotonNetwork.CountOfPlayersInRooms);
     }
 
