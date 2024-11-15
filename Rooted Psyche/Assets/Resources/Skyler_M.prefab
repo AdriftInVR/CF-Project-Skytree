@@ -154,7 +154,7 @@ MonoBehaviour:
   canJump: 1
   cam: {fileID: 0}
   sqrspd: 0
-  spd: 3
+  spd: 2
   jumpSpd: 0
   myInput: {fileID: 0}
   direction2D: {x: 0, y: 0}

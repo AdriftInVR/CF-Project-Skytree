@@ -1531,7 +1531,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &355504097
 RectTransform:
   m_ObjectHideFlags: 0
@@ -1779,6 +1779,7 @@ GameObject:
   - component: {fileID: 472623261}
   - component: {fileID: 472623260}
   - component: {fileID: 472623265}
+  - component: {fileID: 472623266}
   m_Layer: 0
   m_Name: Controlador de Opciones
   m_TagString: Untagged
@@ -1871,7 +1872,19 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2e77120856a764ce8a31e048df63cbe6, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  nextSceneName: 
+--- !u!114 &472623266
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 472623259}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ccd0c1898497704429d3d778fc12091e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  hostButton: {fileID: 2061700576}
 --- !u!1 &516332026
 GameObject:
   m_ObjectHideFlags: 0
@@ -1976,7 +1989,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0b8468e1717ee0a44813535c811a6fd1, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  SpawnTime: 0
+  spawnTime: 0
+  timberPrefab: {fileID: 4192612216229252905, guid: 86bb87befe15da84ba42d306a6d39a8e, type: 3}
+  brierPrefab: {fileID: 4192612216229252905, guid: 86bb87befe15da84ba42d306a6d39a8e, type: 3}
 --- !u!4 &549694845
 Transform:
   m_ObjectHideFlags: 0
@@ -4989,7 +5004,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &1070646946
 RectTransform:
   m_ObjectHideFlags: 0
@@ -5802,7 +5817,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &1287113448
 RectTransform:
   m_ObjectHideFlags: 0
@@ -7715,7 +7730,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &1561810361
 RectTransform:
   m_ObjectHideFlags: 0
@@ -12045,7 +12060,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2e77120856a764ce8a31e048df63cbe6, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  nextSceneName: M_CuartoSkyler
 --- !u!114 &1788197689
 MonoBehaviour:
   m_ObjectHideFlags: 0

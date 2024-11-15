@@ -17,7 +17,6 @@ public class ChangeScenes : MonoBehaviourPunCallbacks
     public void M_ChangeScene(string sceneName)
     {
         PhotonNetwork.LoadLevel(sceneName);
-
     }
 
 }
