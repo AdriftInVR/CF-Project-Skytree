@@ -17,6 +17,7 @@ public class CombatManager : MonoBehaviour{
     private Fighter[] fighters;
 
     private GameObject[] enemies;
+    private GameObject boss;
     private GameObject[] players;
     private int currentFighterIndex;
     private int lastEnemyIndex;
@@ -142,7 +143,7 @@ public class CombatManager : MonoBehaviour{
         bool end = false;
         bool allPlayersDefeated = true;
         enemies = GameObject.FindGameObjectsWithTag("Enemy");
-        GameObject boss = GameObject.FindWithTag("Boss");
+        boss = GameObject.FindWithTag("Boss");
         // Filtrar los personajes del equipo del jugador que aún están vivos y verificar si todos están derrotados
         foreach (var fighter in fighters)
         {
