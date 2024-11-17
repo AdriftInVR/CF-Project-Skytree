@@ -8,9 +8,9 @@ public class PlayerController : MonoBehaviour
     private PlayerInput myInput;
     private static InputAction actionButton;
     private Rigidbody rb;
-    public string playerName;
+    public string inputAction;
     public static bool locked = false;
-    private bool canJump = false;
+    public bool canJump = false;
     // Start is called before the first frame update
     void Start()
     {
@@ -21,12 +21,12 @@ public class PlayerController : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        actionButton = myInput.actions[gameObject.name];    
+        actionButton = myInput.actions[inputAction];    
         if(!locked && !CombatManager.menuOpen)
         {
             if(actionButton.WasPressedThisFrame() && canJump && !locked)
             {
-                rb.velocity = Vector3.up*50f;
+                rb.velocity = CombatManager.playerTurn? Vector3.up*50f:Vector3.up*60f;
                 canJump = false;
             }
         }

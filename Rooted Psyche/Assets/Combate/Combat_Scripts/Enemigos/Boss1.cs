@@ -5,7 +5,6 @@ using UnityEngine;
 public class Boss1 : Fighter
 {
     public GameObject DefeatEffect;
-    public bool type;
     //     1. health;
     //     2. MaxHealth;
     //     3. attack;
@@ -26,7 +25,6 @@ public class Boss1 : Fighter
         CombatManager.playerTurn = false;
         PlayerController.locked = false;
         StartCoroutine(this.IA());   
-        StartCoroutine(AnimAttack());
     }
 
     IEnumerator IA(){
@@ -37,20 +35,9 @@ public class Boss1 : Fighter
         Debug.Log("El enemigo hizo " + action.actionName);
     }
 
-    //Animacion de ataque del  enemigo 
-    IEnumerator AnimAttack(){
-        float mov = 0.9f;
-        if (!type)
-            mov *= -4;
-        transform.position = new Vector3(transform.position.x + mov, transform.position.y, transform.position.z);
-        yield return new WaitForSeconds(0.2f);
-        transform.position = new Vector3(transform.position.x - mov, transform.position.y, transform.position.z);
-        Debug.Log("El enemigo se movio");
-    }
-
     public override IEnumerator Die()
     {
-        Destroy(gameObject,1.2f);
+        Destroy(gameObject,10f);
         yield return new WaitForSeconds(1f);
         GameObject explode = Instantiate(DefeatEffect, transform.position, Quaternion.identity);
     }

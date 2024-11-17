@@ -5,7 +5,7 @@ using UnityEngine.SceneManagement;
 
 public class RunHandle : MonoBehaviour
 {
-    public GameObject[] players;
+    public Rigidbody[] players;
     public GameObject[] playerSprites;
     public static bool running;
     public static bool canRun = true;
@@ -40,10 +40,9 @@ public class RunHandle : MonoBehaviour
     {
         while(true)
         {
-            foreach(GameObject player in players)
+            foreach(Rigidbody player in players)
             {
-                Rigidbody rb = player.GetComponent<Rigidbody>();
-                rb.AddForce(player.transform.right*-1f, ForceMode.Impulse);
+                player.AddForce(player.gameObject.transform.right*-5f, ForceMode.Impulse);
                 if(player.transform.position.x < -30f)
                 {
                     running = false;
