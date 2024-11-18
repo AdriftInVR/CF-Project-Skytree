@@ -1,6 +1,8 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using Photon.Pun;
+using Unity.AI.Navigation;
 
 public class RoomTemplates_M : MonoBehaviour
 {
@@ -10,12 +12,16 @@ public class RoomTemplates_M : MonoBehaviour
     public GameObject[] leftRooms;
     public GameObject[] rightRooms;
     public GameObject closedRoom;
-    public List<GameObject> rooms;
+    public List<GameObject> rooms = new List<GameObject>();
+
     public GameObject boss;
     public GameObject shop;
     public GameObject[] enemies;
     public GameObject enemyParent;
-    public float spawnDelay = 0.1f;
+
+     public float spawnDelay = 0.1f;
+
+    private NavMeshSurface navMeshSurface; // Referencia al NavMeshSurface global
 
     private void Awake()
     {
@@ -30,26 +36,34 @@ public class RoomTemplates_M : MonoBehaviour
         }
     }
 
-    private void Start()
+    public void GenerateLevel()
     {
-        Invoke("Generate_Lv", 5.0f);
-    }
-
-    void Generate_Lv()
-    {
-        GameObject bossInstance;
-        GameObject shopInstance;
-        GameObject roomInstance;
-        bossInstance = Instantiate(boss, rooms[rooms.Count - 1].transform.position, Quaternion.identity);
-        bossInstance.transform.parent = enemyParent.transform;
-        shopInstance = Instantiate(shop, rooms[Random.Range(1, rooms.Count-2)].transform.position, Quaternion.identity);
-        shopInstance.transform.parent = enemyParent.transform;
-        for (int i = 0; i < rooms.Count-1; i++)
+        if (PhotonNetwork.IsMasterClient)
         {
-            GameObject randomEnemy = enemies[Random.Range(0, enemies.Length)];
-            roomInstance = Instantiate(randomEnemy, rooms[i].transform.position, Quaternion.identity);
-            roomInstance.transform.parent = enemyParent.transform;
+            foreach (var room in rooms)
+            {
+                GenerateEnemies(room);
+            }
+
+            // Reconstruimos el NavMesh después de que se generan todas las habitaciones
+            RebuildNavMesh();
         }
     }
 
+    private void GenerateEnemies(GameObject room)
+    {
+        GameObject randomEnemy = enemies[Random.Range(0, enemies.Length)];
+        PhotonNetwork.Instantiate(randomEnemy.name, room.transform.position, Quaternion.identity);
+    }
+
+    private void RebuildNavMesh()
+    {
+        // Encuentra todos los NavMeshSurface y reconstruye el NavMesh global
+        NavMeshSurface[] navMeshSurfaces = FindObjectsOfType<NavMeshSurface>();
+
+        foreach (var surface in navMeshSurfaces)
+        {
+            surface.BuildNavMesh();
+        }
+    }
 }

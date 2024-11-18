@@ -1,33 +1,31 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using Photon.Pun;
 using Unity.AI.Navigation;
-using UnityEngine.AI;  // Importa la biblioteca de navegación
 
-public class RoomSpawner_M : MonoBehaviour
+public class RoomSpawner_M : MonoBehaviourPun
 {
     public int openSide;
-    // 1 --> Bottom Door
-    // 2 --> Top Door
-    // 3 --> Left Door
-    // 4 --> Right Door
-    private RoomTemplates templates;
-    private int rand;
     public bool spawned = false;
-    private GameObject room;
-    private Vector3 position; 
-    [SerializeField] NavMeshSurface navMeshSurface;
+    private RoomTemplates_M templates;
+
+    private NavMeshSurface navMeshSurface; // Referencia al NavMeshSurface
 
     void Start()
     {
-        templates = GameObject.FindGameObjectWithTag("Rooms").GetComponent<RoomTemplates>();
-        StartCoroutine(SpawnWithDelay());
-        position = transform.position;
+        templates = GameObject.FindGameObjectWithTag("Rooms").GetComponent<RoomTemplates_M>();
+
+        if (PhotonNetwork.IsMasterClient)
+        {
+            // Solo el host genera las habitaciones
+            StartCoroutine(SpawnWithDelay());
+        }
     }
 
     IEnumerator SpawnWithDelay()
     {
-        yield return new WaitForSeconds(templates.spawnDelay);  // Espera el tiempo definido
+        yield return new WaitForSeconds(templates.spawnDelay);
         Spawn();
     }
 
@@ -35,34 +33,39 @@ public class RoomSpawner_M : MonoBehaviour
     {
         if (!spawned)
         {
-            // Instanciamos la sala según el lado abierto
+            int rand;
+            GameObject room = null;
+
             switch (openSide)
             {
                 case 1:
                     rand = Random.Range(0, templates.bottomRooms.Length);
-                    room = Instantiate(templates.bottomRooms[rand], transform.position, templates.bottomRooms[rand].transform.rotation, transform.parent.parent);
+                    room = PhotonNetwork.Instantiate(templates.bottomRooms[rand].name, transform.position, Quaternion.identity);
                     break;
                 case 2:
                     rand = Random.Range(0, templates.topRooms.Length);
-                    room = Instantiate(templates.topRooms[rand], transform.position, templates.topRooms[rand].transform.rotation, transform.parent.parent);
+                    room = PhotonNetwork.Instantiate(templates.topRooms[rand].name, transform.position, Quaternion.identity);
                     break;
                 case 3:
                     rand = Random.Range(0, templates.leftRooms.Length);
-                    room = Instantiate(templates.leftRooms[rand], transform.position, templates.leftRooms[rand].transform.rotation, transform.parent.parent);
+                    room = PhotonNetwork.Instantiate(templates.leftRooms[rand].name, transform.position, Quaternion.identity);
                     break;
                 case 4:
                     rand = Random.Range(0, templates.rightRooms.Length);
-                    room = Instantiate(templates.rightRooms[rand], transform.position, templates.rightRooms[rand].transform.rotation, transform.parent.parent);
-                    break;
-                default:
+                    room = PhotonNetwork.Instantiate(templates.rightRooms[rand].name, transform.position, Quaternion.identity);
                     break;
             }
-            
-            // Construcción de la NavMesh para la sala generada
-            navMeshSurface = room.GetComponent<NavMeshSurface>();
-            if (navMeshSurface != null)
+
+            if (room != null)
             {
-                navMeshSurface.BuildNavMesh();
+                templates.rooms.Add(room);
+                navMeshSurface = room.GetComponent<NavMeshSurface>();
+
+                // Si la sala tiene NavMeshSurface, construimos el NavMesh
+                if (navMeshSurface != null)
+                {
+                    navMeshSurface.BuildNavMesh();
+                }
             }
 
             spawned = true;
@@ -71,20 +74,17 @@ public class RoomSpawner_M : MonoBehaviour
 
     private void OnTriggerEnter(Collider other)
     {
-        if (other.gameObject.tag == "SpawnPoint")
+        if (other.CompareTag("SpawnPoint") && !spawned)
         {
-            if (!spawned && !other.GetComponent<RoomSpawner_M>().spawned)
+            if (!other.GetComponent<RoomSpawner_M>().spawned)
             {
-                Instantiate(templates.closedRoom, position, Quaternion.identity);
-                StartCoroutine(SelfDestruct());
+                if (PhotonNetwork.IsMasterClient)
+                {
+                    PhotonNetwork.Instantiate(templates.closedRoom.name, transform.position, Quaternion.identity);
+                }
             }
+
             spawned = true;
         }
-    }
-
-    IEnumerator SelfDestruct()
-    {
-        yield return new WaitForSeconds(0.05f);
-        Destroy(gameObject);
     }
 }
