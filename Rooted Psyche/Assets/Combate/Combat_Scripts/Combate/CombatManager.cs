@@ -107,7 +107,7 @@ public class CombatManager : MonoBehaviour{
                     break;
 
                 case CombatStatus.CHECK_FOR_VICTORY:
-                    yield return new WaitForSeconds(0.5f);
+                    yield return new WaitForSeconds(1f);
                     CheckWinLoss();
                     break;
                 case CombatStatus.NEXT_TURN:

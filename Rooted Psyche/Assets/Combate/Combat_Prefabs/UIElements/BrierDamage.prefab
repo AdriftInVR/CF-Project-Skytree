@@ -14,7 +14,7 @@ GameObject:
   - component: {fileID: 282388369887509081}
   - component: {fileID: 8546130740256810770}
   m_Layer: 0
-  m_Name: Damage
+  m_Name: BrierDamage
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -111,7 +111,7 @@ MonoBehaviour:
   m_fontColor32:
     serializedVersion: 2
     rgba: 4279308782
-  m_fontColor: {r: 0.93333334, g: 0.06666667, b: 0.06666667, a: 1}
+  m_fontColor: {r: 0.8559404, g: 0.60275006, b: 0.990566, a: 1}
   m_enableVertexGradient: 1
   m_colorMode: 2
   m_fontColorGradient:
@@ -186,7 +186,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   DestroyTime: 1
-  Offset: {x: 1, y: 2, z: -2}
   RamdomizeIntensity: {x: 0.5, y: 0, z: 0}
 --- !u!95 &8546130740256810770
 Animator:

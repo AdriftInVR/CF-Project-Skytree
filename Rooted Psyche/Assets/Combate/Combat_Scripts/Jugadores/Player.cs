@@ -13,7 +13,11 @@ public class Player: Fighter{
     public Transform ActionParent;
     private PlayerController PC;
     private Rigidbody RB;
+
+    [SerializeField]
     public List<Action> SoloActions = new List<Action>();
+    
+    [SerializeField]
     public List<Action> DuoActions = new List<Action>();
 
     void Awake()
@@ -69,12 +73,13 @@ public class Player: Fighter{
                 Action act = child.gameObject.GetComponent<Action>();
                 switch(act.actType)
                 {
-                    default:
                     case ActionType.SoloAction:
                         SoloActions.Add(act);
                         break;
                     case ActionType.DuoAction:
                         DuoActions.Add(act);
+                        break;
+                    default:
                         break;
                 }
             }

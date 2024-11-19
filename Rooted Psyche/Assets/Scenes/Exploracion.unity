@@ -3189,9 +3189,6 @@ GameObject:
   m_Component:
   - component: {fileID: 312255544}
   - component: {fileID: 312255540}
-  - component: {fileID: 312255543}
-  - component: {fileID: 312255542}
-  - component: {fileID: 312255541}
   m_Layer: 0
   m_Name: UICam
   m_TagString: Untagged
@@ -3250,43 +3247,6 @@ Camera:
   m_OcclusionCulling: 1
   m_StereoConvergence: 10
   m_StereoSeparation: 0.022
---- !u!114 &312255541
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 312255539}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 32956250b4c445f47bd8d1024aba7589, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  player: {fileID: 813247796}
-  wallLayer:
-    serializedVersion: 2
-    m_Bits: 8
---- !u!81 &312255542
-AudioListener:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 312255539}
-  m_Enabled: 1
---- !u!114 &312255543
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 312255539}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 3d593c02600774e47bd55aaebb96c512, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  player: {fileID: 813247796}
 --- !u!4 &312255544
 Transform:
   m_ObjectHideFlags: 0
@@ -6463,7 +6423,6 @@ GameObject:
   m_Component:
   - component: {fileID: 762962564}
   - component: {fileID: 762962563}
-  - component: {fileID: 762962562}
   m_Layer: 0
   m_Name: CamaraAlt
   m_TagString: MainCamera
@@ -6471,14 +6430,6 @@ GameObject:
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 0
---- !u!81 &762962562
-AudioListener:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 762962561}
-  m_Enabled: 1
 --- !u!20 &762962563
 Camera:
   m_ObjectHideFlags: 0
@@ -13438,7 +13389,7 @@ Camera:
   m_Depth: -1
   m_CullingMask:
     serializedVersion: 2
-    m_Bits: 4294967295
+    m_Bits: 95
   m_RenderingPath: -1
   m_TargetTexture: {fileID: 0}
   m_TargetDisplay: 0

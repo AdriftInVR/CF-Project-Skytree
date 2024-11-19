@@ -1,7 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-using TMPro;
 
 public enum HealthModType{
     STAT_BASED, FIXED
@@ -29,7 +28,6 @@ public abstract class Action : MonoBehaviour
     private Stats defender;
     
     [Header("Health Mod")]
-    public GameObject indicator;
     public HealthModType modType;
     public int amount;
     public int counterAmount;
@@ -40,7 +38,6 @@ public abstract class Action : MonoBehaviour
             // Si es una acción de equipo, puedes aplicarla a aliados o a ti mismo
             this.receiver = this.receiver ?? this.emitter; // Si no hay receptor asignado, usar el emisor
         }
-        this.complete = false;
         if (this.selfInflicted){
             this.receiver = this.emitter;
         }
@@ -60,26 +57,14 @@ public abstract class Action : MonoBehaviour
                 attacker = this.emitter.GetCurrentStats();
                 defender = this.receiver.GetCurrentStats();
                 this.damaged = this.receiver;
-                amount = GetModification();
                 break;
             case "Counter":
                 attacker = this.emitter.GetCurrentStats();
                 defender = this.receiver.GetCurrentStats();
                 this.damaged = this.emitter;
-                amount = GetModification();
                 break;
         }
-        var go = Instantiate(indicator, this.damaged.transform.position + indicator.transform.position, Quaternion.identity);
-        switch(amount)
-        {
-            case > 0:
-                go.GetComponent<TextMeshPro>().text = amount.ToString();
-                break;
-            default:
-                //go.GetComponent<TextMeshPro>().text = damageAmount.ToString().Substring(1);
-                go.GetComponent<TextMeshPro>().text = amount.ToString().Substring(1);
-                break;
-        }   
+        amount = GetModification();
         this.damaged.ModifyHealth(amount);
     }
 

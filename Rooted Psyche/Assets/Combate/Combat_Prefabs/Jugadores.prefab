@@ -55,6 +55,9 @@ MonoBehaviour:
   fighterName: Timber
   combatManager: {fileID: 0}
   anim: {fileID: 4049480975574215722}
+  modifyIndicators:
+  - {fileID: 8716103323917899588, guid: 0b4926547b9b74a40932479183f42162, type: 3}
+  - {fileID: 8716103323917899588, guid: f9593a735b8fe7842979fbb61cf39a76, type: 3}
   healthText: {fileID: 0}
   ActionWheel: {fileID: 7834813607110961082, guid: 5bcdf0ee31e3db64fab24cb83006469f, type: 3}
   currentAction: {fileID: 0}
@@ -75,6 +78,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   inputAction: Timber
+  canJump: 0
 --- !u!114 &880421061561441381
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -327,9 +331,9 @@ MonoBehaviour:
   effectPrefab: {fileID: 7802979462468201273, guid: bddb971e34eb14d48be30c7b922eb077, type: 3}
   actType: 1
   interrupted: 0
-  indicator: {fileID: 8716103323917899588, guid: 0b4926547b9b74a40932479183f42162, type: 3}
   modType: 1
   amount: 100
+  counterAmount: 0
 --- !u!1 &2133446813170180066
 GameObject:
   m_ObjectHideFlags: 0
@@ -380,9 +384,9 @@ MonoBehaviour:
   effectPrefab: {fileID: 7728366230342544413, guid: 212ef1a41838ce044a9ac54994866708, type: 3}
   actType: 0
   interrupted: 0
-  indicator: {fileID: 0}
   modType: 0
   amount: -50
+  counterAmount: 0
 --- !u!1 &2635567587436376860
 GameObject:
   m_ObjectHideFlags: 0
@@ -479,9 +483,9 @@ MonoBehaviour:
   effectPrefab: {fileID: 7802979462468201273, guid: bddb971e34eb14d48be30c7b922eb077, type: 3}
   actType: 1
   interrupted: 0
-  indicator: {fileID: 8716103323917899588, guid: 0b4926547b9b74a40932479183f42162, type: 3}
   modType: 1
   amount: 100
+  counterAmount: 0
 --- !u!1 &4260768273303009306
 GameObject:
   m_ObjectHideFlags: 0
@@ -537,6 +541,9 @@ MonoBehaviour:
   fighterName: Brier
   combatManager: {fileID: 0}
   anim: {fileID: 3545114708328747515}
+  modifyIndicators:
+  - {fileID: 8716103323917899588, guid: 0b4926547b9b74a40932479183f42162, type: 3}
+  - {fileID: 8716103323917899588, guid: 368c7459da5ebe54a8ab52952cb21ad5, type: 3}
   healthText: {fileID: 0}
   ActionWheel: {fileID: 7834813607110961082, guid: 5bcdf0ee31e3db64fab24cb83006469f, type: 3}
   currentAction: {fileID: 0}
@@ -557,6 +564,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   inputAction: Brier
+  canJump: 0
 --- !u!114 &1983475640336560464
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -843,9 +851,9 @@ MonoBehaviour:
   effectPrefab: {fileID: 7728366230342544413, guid: 212ef1a41838ce044a9ac54994866708, type: 3}
   actType: 0
   interrupted: 0
-  indicator: {fileID: 0}
   modType: 0
   amount: -50
+  counterAmount: 0
 --- !u!1 &5001296462832575797
 GameObject:
   m_ObjectHideFlags: 0
@@ -896,9 +904,9 @@ MonoBehaviour:
   effectPrefab: {fileID: 7728366230342544413, guid: 212ef1a41838ce044a9ac54994866708, type: 3}
   actType: 0
   interrupted: 0
-  indicator: {fileID: 8716103323917899588, guid: f9593a735b8fe7842979fbb61cf39a76, type: 3}
   modType: 0
   amount: -50
+  counterAmount: 0
 --- !u!1 &6049312886008200694
 GameObject:
   m_ObjectHideFlags: 0
@@ -1029,9 +1037,9 @@ MonoBehaviour:
   effectPrefab: {fileID: 7728366230342544413, guid: 212ef1a41838ce044a9ac54994866708, type: 3}
   actType: 0
   interrupted: 0
-  indicator: {fileID: 8716103323917899588, guid: f9593a735b8fe7842979fbb61cf39a76, type: 3}
   modType: 0
   amount: 0
+  counterAmount: 0
 --- !u!1 &9175517635877989545
 GameObject:
   m_ObjectHideFlags: 0
