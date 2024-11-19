@@ -80,7 +80,7 @@ GameObject:
   - component: {fileID: -1857938527606837022}
   - component: {fileID: 1574512811061843668}
   m_Layer: 0
-  m_Name: Loboscuro
+  m_Name: Exp_Loboscuro
   m_TagString: Enemy
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0

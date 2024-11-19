@@ -5,7 +5,6 @@ using UnityEngine;
 public class Enemy : Fighter
 {
     public GameObject DefeatEffect;
-    public bool type;
     void Awake()
     {
         this.fighterName = gameObject.name;
@@ -17,7 +16,6 @@ public class Enemy : Fighter
         CombatManager.playerTurn = false;
         PlayerController.locked = false;
         StartCoroutine(IA());
-        StartCoroutine(AnimAttack());
     }
 
     IEnumerator IA(){
@@ -33,17 +31,6 @@ public class Enemy : Fighter
         }
         combatManager.OnFighterAction(action);
         Debug.Log("El enemigo hizo " + action.actionName);
-    }
-
-    //Animacion de ataque del  enemigo 
-    IEnumerator AnimAttack(){
-        float mov = 0.9f;
-        if (!type)
-            mov *= -4;
-        transform.position = new Vector3(transform.position.x + mov, transform.position.y, transform.position.z);
-        yield return new WaitForSeconds(0.2f);
-        transform.position = new Vector3(transform.position.x - mov, transform.position.y, transform.position.z);
-        Debug.Log("El enemigo se movio");
     }
 
     public override IEnumerator Die()
