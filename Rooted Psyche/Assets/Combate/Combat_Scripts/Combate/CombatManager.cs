@@ -17,6 +17,7 @@ public class CombatManager : MonoBehaviour{
     private Fighter[] fighters;
 
     private GameObject[] enemies;
+    private GameObject boss;
     private GameObject[] players;
     private int currentFighterIndex;
     private int lastEnemyIndex;
@@ -142,6 +143,7 @@ public class CombatManager : MonoBehaviour{
         bool end = false;
         bool allPlayersDefeated = true;
         enemies = GameObject.FindGameObjectsWithTag("Enemy");
+        boss = GameObject.FindWithTag("Boss");
         // Filtrar los personajes del equipo del jugador que aún están vivos y verificar si todos están derrotados
         foreach (var fighter in fighters)
         {
@@ -166,7 +168,16 @@ public class CombatManager : MonoBehaviour{
             PlayerController.locked = true;
             isCombatActive = false;
             // TODO: Victory Sequence
-            SceneManager.LoadScene("Exploracion");
+            if (boss != null)
+            {
+                // If the boss exists, load the "SecuenciaFinal" scene
+                SceneManager.LoadScene("SecuenciaFinal");
+            }
+            else
+            {
+                // If no boss is found, load the "Exploracion" scene
+                SceneManager.LoadScene("Exploracion");
+            }
         }
     }
 
