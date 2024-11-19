@@ -17,5 +17,9 @@ public class ExitLobby : MonoBehaviourPunCallbacks
     {
         // Cambia a la escena de menú o la que desees
         SceneManager.LoadScene("MenuPrincipal");
+        GameObject objToRemove = GameObject.Find("EXP");
+        if (objToRemove != null) {
+            Destroy(objToRemove);
+        }
     }
 }

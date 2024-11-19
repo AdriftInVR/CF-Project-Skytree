@@ -30,7 +30,7 @@ public class CombatManager : MonoBehaviour{
     public static bool playerTurn = true;
     public static bool menuOpen = false;
     public static CombatStatus combatStatus;
-    private Action currentFigtherAction;
+    public Action currentFigtherAction;
     public static Vector2 direction;
     public int selectedEnemyIndex = 0;  // Índice del enemigo seleccionado
     public int EnemySelect, PlayerSelect;
@@ -98,14 +98,12 @@ public class CombatManager : MonoBehaviour{
                 case CombatStatus.WAITING_FOR_FIGHTER:
                     yield return null;
                     break;
-                
                 case CombatStatus.FIGTHER_ACTION:
                     //Aqui deberia estar el actualizar el turno en la interfaz de usuario
                     yield return null;
                 
                     // Ejecutar la habilidad del personaje
-                    StartCoroutine(currentFigtherAction.Run(currentFigtherAction.animationDuration));
-                    currentFigtherAction = null;
+                    StartCoroutine(currentFigtherAction.Run());
                     combatStatus = CombatStatus.WAITING_FOR_FIGHTER;
                     break;
 
@@ -161,6 +159,7 @@ public class CombatManager : MonoBehaviour{
             Debug.Log("El equipo enemigo ha sido derrotado.");
         }
         if (!end) {
+            Debug.Log("Next Fighter");
             combatStatus = CombatStatus.NEXT_TURN;
         }
         else
@@ -314,8 +313,8 @@ public class CombatManager : MonoBehaviour{
         {
             yield return null;
         }
-        WheelSelection.lockedRotation = true;
         PanelHandler.ClosePanel();
+        WheelSelection.lockedRotation = true;
         if (player.currentAction.isTeamAction) {
             // Si es una acción de equipo, permite seleccionar entre aliados
             possibleTargets = System.Array.FindAll(fighters, f => f.team == player.team && f.isAlive);

@@ -10,7 +10,6 @@ GameObject:
   m_Component:
   - component: {fileID: 2603624165346349743}
   - component: {fileID: 2504528443614492551}
-  - component: {fileID: 4105393260384958001}
   m_Layer: 0
   m_Name: UITB
   m_TagString: Untagged
@@ -86,14 +85,6 @@ Camera:
   m_OcclusionCulling: 1
   m_StereoConvergence: 10
   m_StereoSeparation: 0.022
---- !u!81 &4105393260384958001
-AudioListener:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 323371889325116506}
-  m_Enabled: 0
 --- !u!1 &1744005853952352727
 GameObject:
   m_ObjectHideFlags: 0

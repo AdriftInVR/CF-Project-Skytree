@@ -5,42 +5,36 @@ using UnityEngine.AI;
 
 public class NavigationScript : MonoBehaviour
 {
-    public string playerTag = "Player";        // Tag del jugador
     public float followRange = 20.0f;          // Distancia a la que el agente comenzará a seguir al jugador
     public GameObject surpriseIcon;            // Ícono de sorpresa como GameObject
-    public float iconDisplayTime = 2.0f;       // Duración que el ícono se muestra
-
-    private NavMeshAgent navMeshAgent;
-    private Transform playerTransform;
+    public float iconDisplayTime = 0.5f;       // Duración que el ícono se muestra
+    private NavMeshPath path;
+    private NavMeshAgent agent;
+    private Transform player;
     private bool seen = false;
+    private bool pathAvailable;
 
-    void Start()
+    void Awake()
     {
-        navMeshAgent = GetComponent<NavMeshAgent>();
+        agent = GetComponent<NavMeshAgent>();
+        path = new NavMeshPath();
 
         // Buscar al jugador por su etiqueta
-        GameObject player = GameObject.FindGameObjectWithTag(playerTag);
-        if (player)
-        {
-            playerTransform = player.transform;
-        }
-        else
-        {
-            Debug.LogError("No se encontró un objeto con la etiqueta " + playerTag);
-        }
+        player = GameObject.FindGameObjectWithTag("Player").transform;
     }
 
-    void Update()
+    void FixedUpdate()
     {
-        if (playerTransform)
+        if (player)
         {
             // Calcula la distancia entre el agente y el jugador
-            float distanceToPlayer = Vector3.Distance(transform.position, playerTransform.position);
-
+            float distanceToPlayer = Vector3.Distance(transform.position, player.position);
+            pathAvailable = CalculateNewPath();
             // Si el jugador está dentro del rango, establecer el destino hacia el jugador
-            if (distanceToPlayer <= followRange)
+            if (distanceToPlayer <= followRange && pathAvailable)
             {
-                navMeshAgent.SetDestination(playerTransform.position);
+                agent.isStopped = false;
+                agent.SetDestination(player.position);
 
                 // Mostrar el ícono de sorpresa si aún no está visible
                 if (!seen)
@@ -51,23 +45,30 @@ public class NavigationScript : MonoBehaviour
             else
             {
                 // Detener el agente si el jugador está fuera del rango
-                navMeshAgent.ResetPath();
+                agent.isStopped = true;
+                seen = false;
             }
         }
-        else
-        {
-            seen = false; 
+    }
+
+    bool CalculateNewPath() {
+        agent.CalculatePath(player.position, path);
+        if (path.status != NavMeshPathStatus.PathComplete) {
+            return false;
+        }
+        else {
+            return true;
         }
     }
 
     IEnumerator ShowSurpriseIcon()
     {
-        seen = true;
         if (surpriseIcon)
         {
             surpriseIcon.SetActive(true);    // Activar el ícono
             yield return new WaitForSeconds(iconDisplayTime); // Esperar el tiempo especificado
             surpriseIcon.SetActive(false);   // Desactivar el ícono
         }
+        seen = true;
     }
 }
