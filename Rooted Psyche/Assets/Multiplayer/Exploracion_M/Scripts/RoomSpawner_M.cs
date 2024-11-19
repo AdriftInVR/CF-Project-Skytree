@@ -81,10 +81,17 @@ public class RoomSpawner_M : MonoBehaviourPun
                 if (PhotonNetwork.IsMasterClient)
                 {
                     PhotonNetwork.Instantiate(templates.closedRoom.name, transform.position, Quaternion.identity);
+                    StartCoroutine(SelfDestruct());
                 }
             }
 
             spawned = true;
         }
+    }
+
+        IEnumerator SelfDestruct()
+    {
+        yield return new WaitForSeconds(0.05f);
+        Destroy(gameObject);
     }
 }

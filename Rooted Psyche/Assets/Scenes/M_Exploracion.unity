@@ -895,7 +895,8 @@ MonoBehaviour:
   - {fileID: 1808258821074947072, guid: 5bc7d21d74266824baae345a89dfa4eb, type: 3}
   - {fileID: 1808258821074947072, guid: 98adbaceb5b662245a37fe20b4fba38c, type: 3}
   closedRoom: {fileID: 2727496600493853276, guid: fc9306bda885ba548a6380b136704b28, type: 3}
-  bossRoomPrefab: {fileID: 4260195588355564170, guid: 6eb13902e98991642b1de11b03f7b85d, type: 3}
+  rooms: []
+  bossPrefab: {fileID: 4260195588355564170, guid: 6eb13902e98991642b1de11b03f7b85d, type: 3}
   enemies:
   - {fileID: 8021544286448713587, guid: e0eabc1f262e1984d8967005c3f39dbb, type: 3}
   - {fileID: 8021544286448713587, guid: 5b017835db2123c46abe351bb021e20d, type: 3}
@@ -903,10 +904,8 @@ MonoBehaviour:
   - {fileID: 8021544286448713587, guid: 9af2a4a9c510624448676be26772f3ea, type: 3}
   - {fileID: 8021544286448713587, guid: 92584019cbdcebb4898aabfbdfe6ff08, type: 3}
   - {fileID: 8021544286448713587, guid: fe6842d2be06a104baa8a9e613026436, type: 3}
-  spawnDelay: 0.1
-  rooms: []
-  roomParent: {fileID: 1195543873}
   enemyParent: {fileID: 716880902}
+  spawnDelay: 0.1
 --- !u!43 &535101705
 Mesh:
   m_ObjectHideFlags: 0
@@ -5068,6 +5067,7 @@ GameObject:
   - component: {fileID: 1804303823}
   - component: {fileID: 1804303820}
   - component: {fileID: 1804303824}
+  - component: {fileID: 1804303825}
   m_Layer: 0
   m_Name: Main Camera
   m_TagString: MainCamera
@@ -5178,6 +5178,24 @@ MonoBehaviour:
   wallLayer:
     serializedVersion: 2
     m_Bits: 0
+--- !u!114 &1804303825
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1804303819}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 086403d04bf265d4aa74b75f1657d07d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  players: []
+  smoothTime: 0.5
+  offset: {x: 0, y: 0, z: 0}
+  minZoom: 5
+  maxZoom: 15
+  zoomLimiter: 50
 --- !u!43 &1868339372
 Mesh:
   m_ObjectHideFlags: 0
