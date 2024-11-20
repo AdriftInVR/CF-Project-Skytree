@@ -12,7 +12,6 @@ public class RoomTemplates : MonoBehaviour
     public GameObject closedRoom;
     public List<GameObject> rooms;
     public GameObject boss;
-    public GameObject shop;
     public GameObject[] enemies;
     public GameObject enemyParent;
     public float spawnDelay = 0.1f;
@@ -32,18 +31,15 @@ public class RoomTemplates : MonoBehaviour
 
     private void Start()
     {
-        Invoke("Generate_Lv", 2.0f);
+        Invoke("Generate_Lv", 4.0f);
     }
 
     void Generate_Lv()
     {
         GameObject bossInstance;
-        GameObject shopInstance;
         GameObject roomInstance;
         bossInstance = Instantiate(boss, rooms[rooms.Count - 1].transform.position, Quaternion.identity);
         bossInstance.transform.parent = enemyParent.transform;
-        shopInstance = Instantiate(shop, rooms[Random.Range(1, rooms.Count-2)].transform.position, Quaternion.identity);
-        shopInstance.transform.parent = enemyParent.transform;
         for (int i = 0; i < rooms.Count-1; i++)
         {
             GameObject randomEnemy = enemies[Random.Range(0, enemies.Length)];
