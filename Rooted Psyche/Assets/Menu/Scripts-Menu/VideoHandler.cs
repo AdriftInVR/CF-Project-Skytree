@@ -1,36 +1,54 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 using UnityEngine.Video;
 using UnityEngine.UI;
-using UnityEngine.SceneManagement;
-using TMPro;
+using System.Collections;
+using System;
 
 public class VideoHandler : MonoBehaviour
 {
     private VideoPlayer videoPlayer;
-    [SerializeField] private TMPro.TextMeshProUGUI skipText; 
+    [SerializeField] private Text skipText; 
     private float timeToShowSkip = 5f;
+
+    [SerializeField] private string videoName; // Nombre del video sin extensión (configurable en el Inspector)
 
     private void Start()
     {
         videoPlayer = GetComponent<VideoPlayer>();
         videoPlayer.loopPointReached += OnVideoFinished;
-        
-        // Hide skip text at start
+
+        // Configurar la ruta del video según la plataforma
+        SetVideoPath();
+
+        // Ocultar el texto de "saltar" al inicio
         if (skipText != null)
         {
             skipText.gameObject.SetActive(false);
         }
 
-        // Start coroutine to show skip text after delay
+        // Iniciar la corrutina para mostrar el texto de "saltar" después de un tiempo
         StartCoroutine(ShowSkipText());
+    }
+
+    private void SetVideoPath()
+    {
+        // Ruta del video específica para WebGL y otras plataformas
+        string videoPath = System.IO.Path.Combine(Application.streamingAssetsPath, videoName + ".mp4");
+
+#if UNITY_WEBGL
+        videoPlayer.url = videoPath; // Para WebGL
+#else
+        videoPlayer.url = "file://" + videoPath; // Para otras plataformas
+#endif
+
+        Debug.Log($"Video configurado: {videoPlayer.url}");
     }
 
     private IEnumerator ShowSkipText()
     {
         yield return new WaitForSeconds(timeToShowSkip);
-        
+
         if (skipText != null)
         {
             skipText.gameObject.SetActive(true);
@@ -61,6 +79,4 @@ public class VideoHandler : MonoBehaviour
     {
         SceneManager.LoadScene("Pantalla_Carga");
     }
-
 }
-
