@@ -71,20 +71,12 @@ public class RoomSpawner : MonoBehaviour
 
     private void OnTriggerEnter(Collider other)
     {
-        if (other.gameObject.tag == "SpawnPoint")
+        if (other.CompareTag("SpawnPoint") && other.GetComponent<RoomSpawner>().spawned == false && spawned == false)
         {
-            if (!spawned && !other.GetComponent<RoomSpawner>().spawned)
-            {
-                Instantiate(templates.closedRoom, position, Quaternion.identity);
-                StartCoroutine(SelfDestruct());
-            }
-            spawned = true;
+            // Instanciamos la sala de la habitación actual
+            Instantiate(templates.closedRoom, transform.position, Quaternion.identity, transform.parent.parent);
+            Destroy(gameObject);
         }
-    }
-
-    IEnumerator SelfDestruct()
-    {
-        yield return new WaitForSeconds(0.05f);
-        Destroy(gameObject);
+        spawned = true;
     }
 }

@@ -287,6 +287,26 @@ Mesh:
     offset: 0
     size: 0
     path: 
+--- !u!1 &137475134 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 774642010272554103, guid: c64cd56d66a62e245a8e9fd6b90f3327, type: 3}
+  m_PrefabInstance: {fileID: 192869261}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &137475139
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 137475134}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9b56e39916cf458479c298a320632b2c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  openSide: 0
+  spawned: 1
+  navMeshSurface: {fileID: 0}
 --- !u!43 &148387382
 Mesh:
   m_ObjectHideFlags: 0
@@ -2621,6 +2641,9 @@ PrefabInstance:
     - targetCorrespondingSourceObject: {fileID: 6972680965285668833, guid: c64cd56d66a62e245a8e9fd6b90f3327, type: 3}
       insertIndex: -1
       addedObject: {fileID: 2010651974}
+    - targetCorrespondingSourceObject: {fileID: 774642010272554103, guid: c64cd56d66a62e245a8e9fd6b90f3327, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 137475139}
   m_SourcePrefab: {fileID: 100100000, guid: c64cd56d66a62e245a8e9fd6b90f3327, type: 3}
 --- !u!1 &213982978
 GameObject:
@@ -3190,7 +3213,6 @@ GameObject:
   - component: {fileID: 312255544}
   - component: {fileID: 312255540}
   - component: {fileID: 312255543}
-  - component: {fileID: 312255542}
   - component: {fileID: 312255541}
   m_Layer: 0
   m_Name: UICam
@@ -3266,14 +3288,6 @@ MonoBehaviour:
   wallLayer:
     serializedVersion: 2
     m_Bits: 8
---- !u!81 &312255542
-AudioListener:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 312255539}
-  m_Enabled: 1
 --- !u!114 &312255543
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -6478,7 +6492,7 @@ AudioListener:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 762962561}
-  m_Enabled: 1
+  m_Enabled: 0
 --- !u!20 &762962563
 Camera:
   m_ObjectHideFlags: 0
@@ -6486,7 +6500,7 @@ Camera:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 762962561}
-  m_Enabled: 1
+  m_Enabled: 0
   serializedVersion: 2
   m_ClearFlags: 1
   m_BackGroundColor: {r: 0.19215687, g: 0.3019608, b: 0.4745098, a: 0}

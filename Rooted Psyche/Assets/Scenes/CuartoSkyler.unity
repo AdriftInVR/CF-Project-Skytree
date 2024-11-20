@@ -14321,6 +14321,10 @@ PrefabInstance:
       propertyPath: cam
       value: 
       objectReference: {fileID: 681988610}
+    - target: {fileID: 2988583923535232387, guid: 86bb87befe15da84ba42d306a6d39a8e, type: 3}
+      propertyPath: m_CollisionDetection
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 4192612216229252905, guid: 86bb87befe15da84ba42d306a6d39a8e, type: 3}
       propertyPath: m_Name
       value: Skyler
