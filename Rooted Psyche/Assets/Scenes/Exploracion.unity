@@ -4298,24 +4298,24 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   bottomRooms:
   - {fileID: 1808258821074947072, guid: cb4511ef362ff574f97ce962bee8c3e4, type: 3}
-  - {fileID: 1808258821074947072, guid: aa0e7af5a31cd364e98ac89f9abdb007, type: 3}
   - {fileID: 1808258821074947072, guid: 2c1b3466463b656409b2d2e663654616, type: 3}
+  - {fileID: 1808258821074947072, guid: aa0e7af5a31cd364e98ac89f9abdb007, type: 3}
   - {fileID: 1808258821074947072, guid: 162df1d16850d3f409a63e2ec7d651e0, type: 3}
   topRooms:
   - {fileID: 1808258821074947072, guid: 400cca981a15d4349831f081f9c7dc57, type: 3}
-  - {fileID: 1808258821074947072, guid: 3c479d0c596ab7f4c8096e610a2db82f, type: 3}
-  - {fileID: 1808258821074947072, guid: f148d9fa33543bd4d8a3bf7d7bc46cd8, type: 3}
-  - {fileID: 1808258821074947072, guid: 2c1b3466463b656409b2d2e663654616, type: 3}
+  - {fileID: 1808258821074947072, guid: 17c883e871be9a342a0ea0abe3bbfc77, type: 3}
+  - {fileID: 1808258821074947072, guid: 3de4978431b50ec48ab911b6f3117bd7, type: 3}
+  - {fileID: 1808258821074947072, guid: a3dc3ec013e0ab54e84062b22b1ab119, type: 3}
   leftRooms:
   - {fileID: 1808258821074947072, guid: a20a18b6e5ff84f45acf7b9a91b1f05f, type: 3}
-  - {fileID: 1808258821074947072, guid: f148d9fa33543bd4d8a3bf7d7bc46cd8, type: 3}
-  - {fileID: 1808258821074947072, guid: 162df1d16850d3f409a63e2ec7d651e0, type: 3}
-  - {fileID: 1808258821074947072, guid: a17e481a7159edf47aecdfdbe1c0bf67, type: 3}
+  - {fileID: 1808258821074947072, guid: eafebdff0745f404fbf3162bf5bc9d28, type: 3}
+  - {fileID: 1808258821074947072, guid: 60e7f3c7cdccb964993c4e44776d0e24, type: 3}
+  - {fileID: 1808258821074947072, guid: c382a175bc780e04caa1b030473abde3, type: 3}
   rightRooms:
   - {fileID: 1808258821074947072, guid: a8bdba0276cda454bb8adf945098f7e2, type: 3}
-  - {fileID: 1808258821074947072, guid: a17e481a7159edf47aecdfdbe1c0bf67, type: 3}
-  - {fileID: 1808258821074947072, guid: 3c479d0c596ab7f4c8096e610a2db82f, type: 3}
-  - {fileID: 1808258821074947072, guid: aa0e7af5a31cd364e98ac89f9abdb007, type: 3}
+  - {fileID: 1808258821074947072, guid: 36fe8951a7ac2c646bc9988c5f56812d, type: 3}
+  - {fileID: 1808258821074947072, guid: fe6be189047acbb4e98dc4329d3cc235, type: 3}
+  - {fileID: 1808258821074947072, guid: 8ae014dec0eb62447803fe61250b1d8e, type: 3}
   closedRoom: {fileID: 2727496600493853276, guid: 7f523008eeaa1bf489d242bb8359c108, type: 3}
   rooms: []
   boss: {fileID: 4260195588355564170, guid: 6d00e22a54e7e4e428ed0cb86a42ddaf, type: 3}

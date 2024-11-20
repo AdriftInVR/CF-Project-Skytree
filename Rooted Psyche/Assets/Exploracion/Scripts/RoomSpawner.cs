@@ -2,7 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using Unity.AI.Navigation;
-using UnityEngine.AI;  // Importa la biblioteca de navegación
+using UnityEngine.AI; // Importa la biblioteca de navegación
 
 public class RoomSpawner : MonoBehaviour
 {
@@ -27,7 +27,7 @@ public class RoomSpawner : MonoBehaviour
 
     IEnumerator SpawnWithDelay()
     {
-        yield return new WaitForSeconds(templates.spawnDelay);  // Espera el tiempo definido
+        yield return new WaitForSeconds(templates.spawnDelay); // Espera el tiempo definido
         Spawn();
     }
 
@@ -35,7 +35,21 @@ public class RoomSpawner : MonoBehaviour
     {
         if (!spawned)
         {
-            // Instanciamos la sala según el lado abierto
+            // Comprobar si hay otro spawnPoint en el mismo punto
+            Collider[] colliders = Physics.OverlapSphere(transform.position, 0.1f); // Radio pequeño para detectar solo colisiones cercanas
+            foreach (Collider collider in colliders)
+            {
+                if (collider.CompareTag("SpawnPoint") && collider.gameObject != this.gameObject)
+                {
+                    // Si hay otro SpawnPoint en la misma posición, generar una closedRoom
+                    Instantiate(templates.closedRoom, transform.position, Quaternion.identity, transform.parent.parent);
+                    Destroy(gameObject);
+                    spawned = true;
+                    return;
+                }
+            }
+
+            // Si no hay otro spawnPoint, continuar con la generación habitual
             switch (openSide)
             {
                 case 1:
@@ -57,7 +71,7 @@ public class RoomSpawner : MonoBehaviour
                 default:
                     break;
             }
-            
+
             // Construcción de la NavMesh para la sala generada
             navMeshSurface = room.GetComponent<NavMeshSurface>();
             if (navMeshSurface != null)
@@ -73,7 +87,7 @@ public class RoomSpawner : MonoBehaviour
     {
         if (other.CompareTag("SpawnPoint") && other.GetComponent<RoomSpawner>().spawned == false && spawned == false)
         {
-            // Instanciamos la sala de la habitación actual
+            // Instanciamos la closedRoom en caso de colisión
             Instantiate(templates.closedRoom, transform.position, Quaternion.identity, transform.parent.parent);
             Destroy(gameObject);
         }
