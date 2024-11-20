@@ -60,9 +60,9 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 8053161545362808889}
-  - component: {fileID: 3471121246962833339}
   - component: {fileID: 6494204727234744799}
   - component: {fileID: 2092207989410082557}
+  - component: {fileID: 3471121246962833339}
   m_Layer: 3
   m_Name: SpawnP_Right
   m_TagString: SpawnPoint
@@ -85,20 +85,6 @@ Transform:
   m_Children: []
   m_Father: {fileID: 7005702377919571728}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &3471121246962833339
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 3571888196208503494}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 9b56e39916cf458479c298a320632b2c, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  openSide: 4
-  spawned: 0
 --- !u!54 &6494204727234744799
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -147,6 +133,21 @@ BoxCollider:
   serializedVersion: 3
   m_Size: {x: 1, y: 1, z: 1}
   m_Center: {x: 0, y: 0, z: 0}
+--- !u!114 &3471121246962833339
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3571888196208503494}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9b56e39916cf458479c298a320632b2c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  openSide: 4
+  spawned: 0
+  navMeshSurface: {fileID: 0}
 --- !u!1 &3972694419786460115
 GameObject:
   m_ObjectHideFlags: 0
@@ -156,9 +157,9 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 5663944624141353408}
-  - component: {fileID: 5526411539722857141}
   - component: {fileID: 9167022286657512404}
   - component: {fileID: 2750596030158461878}
+  - component: {fileID: 5526411539722857141}
   m_Layer: 3
   m_Name: SpawnP_Left
   m_TagString: SpawnPoint
@@ -181,20 +182,6 @@ Transform:
   m_Children: []
   m_Father: {fileID: 7005702377919571728}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &5526411539722857141
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 3972694419786460115}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 9b56e39916cf458479c298a320632b2c, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  openSide: 3
-  spawned: 0
 --- !u!54 &9167022286657512404
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -243,6 +230,21 @@ BoxCollider:
   serializedVersion: 3
   m_Size: {x: 1, y: 1, z: 1}
   m_Center: {x: 0, y: 0, z: 0}
+--- !u!114 &5526411539722857141
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3972694419786460115}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9b56e39916cf458479c298a320632b2c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  openSide: 3
+  spawned: 0
+  navMeshSurface: {fileID: 0}
 --- !u!1001 &486984881899871221
 PrefabInstance:
   m_ObjectHideFlags: 0

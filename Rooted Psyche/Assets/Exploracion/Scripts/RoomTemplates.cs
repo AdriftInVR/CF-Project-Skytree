@@ -32,7 +32,7 @@ public class RoomTemplates : MonoBehaviour
 
     private void Start()
     {
-        Invoke("Generate_Lv", 5.0f);
+        Invoke("Generate_Lv", 2.0f);
     }
 
     void Generate_Lv()
