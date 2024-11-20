@@ -11,7 +11,7 @@ GameObject:
   - component: {fileID: 1619211899553907894}
   - component: {fileID: 7956990216171382897}
   m_Layer: 0
-  m_Name: Ataque2
+  m_Name: BasicAtk
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -48,11 +48,12 @@ MonoBehaviour:
   isTeamAction: 0
   selfInflicted: 0
   effectPrefab: {fileID: 5933602760919840800, guid: fcb74f28d107e284e80af037bfec14ca, type: 3}
-  actType: 0
+  actType: 2
   interrupted: 0
-  modType: 1
+  modType: 0
   amount: -30
-  counterAmount: 0
+  cost: 0
+  mult: 1
 --- !u!1 &3388418341228796073
 GameObject:
   m_ObjectHideFlags: 0
@@ -171,6 +172,7 @@ GameObject:
   - component: {fileID: 402328283303985369}
   - component: {fileID: 5090054761145801739}
   - component: {fileID: 7638114885790394132}
+  - component: {fileID: 6233607184982299846}
   m_Layer: 0
   m_Name: Loboscuro
   m_TagString: Enemy
@@ -228,171 +230,34 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   team: 1
   fighterName: Loboscuro
+  stats: {fileID: 6233607184982299846}
   combatManager: {fileID: 0}
-  anim: {fileID: 0}
+  anim: {fileID: 3839311049866191955}
+  ActionParent: {fileID: 5779625770583000657}
   modifyIndicators:
   - {fileID: 8716103323917899588, guid: 0b4926547b9b74a40932479183f42162, type: 3}
   - {fileID: 8716103323917899588, guid: e528004d187b1c342919175b2ec2422e, type: 3}
   DefeatEffect: {fileID: 7728366230342544413, guid: 75d7b625fe044a749b94b5aabe6284e0, type: 3}
---- !u!1 &3957228660931782938
-GameObject:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  serializedVersion: 6
-  m_Component:
-  - component: {fileID: 5747430813501036536}
-  - component: {fileID: 5251824599416510234}
-  m_Layer: 0
-  m_Name: Ataque1
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 0
---- !u!4 &5747430813501036536
-Transform:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 3957228660931782938}
-  serializedVersion: 2
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_ConstrainProportionsScale: 0
-  m_Children: []
-  m_Father: {fileID: 5779625770583000657}
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &5251824599416510234
+--- !u!114 &6233607184982299846
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 3957228660931782938}
+  m_GameObject: {fileID: 3840265667763191005}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 6bb6b67b60a742e4d8859fb821b52855, type: 3}
+  m_Script: {fileID: 11500000, guid: 15326b053654aad4b9e8a4e3401cea30, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  actionName: Fire
-  isTeamAction: 0
-  selfInflicted: 0
-  effectPrefab: {fileID: 5933602760919840800, guid: fcb74f28d107e284e80af037bfec14ca, type: 3}
-  actType: 0
-  interrupted: 0
-  modType: 0
-  amount: -50
-  counterAmount: 0
---- !u!1 &5064438421672565026
-GameObject:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  serializedVersion: 6
-  m_Component:
-  - component: {fileID: 9188566892398236550}
-  - component: {fileID: 6196189277591712197}
-  m_Layer: 0
-  m_Name: Ataque3
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 0
---- !u!4 &9188566892398236550
-Transform:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 5064438421672565026}
-  serializedVersion: 2
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_ConstrainProportionsScale: 0
-  m_Children: []
-  m_Father: {fileID: 5779625770583000657}
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &6196189277591712197
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 5064438421672565026}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 6bb6b67b60a742e4d8859fb821b52855, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  actionName: a3
-  isTeamAction: 1
-  selfInflicted: 0
-  effectPrefab: {fileID: 3463157229188906966, guid: 47096eff328e11a418ace7db2d72aa97, type: 3}
-  actType: 0
-  interrupted: 0
-  modType: 1
-  amount: -30
-  counterAmount: 0
---- !u!1 &7993331045457144196
-GameObject:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  serializedVersion: 6
-  m_Component:
-  - component: {fileID: 9159009951767019321}
-  - component: {fileID: 5982501363135861158}
-  m_Layer: 0
-  m_Name: Curacion
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 0
---- !u!4 &9159009951767019321
-Transform:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 7993331045457144196}
-  serializedVersion: 2
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_ConstrainProportionsScale: 0
-  m_Children: []
-  m_Father: {fileID: 5779625770583000657}
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &5982501363135861158
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 7993331045457144196}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 6bb6b67b60a742e4d8859fb821b52855, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  actionName: Curacion
-  isTeamAction: 0
-  selfInflicted: 1
-  effectPrefab: {fileID: 7802979462468201273, guid: bddb971e34eb14d48be30c7b922eb077, type: 3}
-  actType: 0
-  interrupted: 0
-  modType: 1
-  amount: 50
-  counterAmount: 0
+  health: 200
+  maxHealth: 200
+  attack: 50
+  defense: 15
+  speed: 11
+  level: 12
+  special: 20
+  maxSpecial: 20
 --- !u!1 &8151465774407071802
 GameObject:
   m_ObjectHideFlags: 0
@@ -405,7 +270,7 @@ GameObject:
   - component: {fileID: 5311124101141302878}
   - component: {fileID: 3839311049866191955}
   m_Layer: 0
-  m_Name: SpriteRotation
+  m_Name: WolfSprite
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -420,7 +285,7 @@ Transform:
   m_GameObject: {fileID: 8151465774407071802}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: -2.56, z: 0}
+  m_LocalPosition: {x: 0, y: 2, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
@@ -470,7 +335,7 @@ GameObject:
   m_Component:
   - component: {fileID: 5779625770583000657}
   m_Layer: 0
-  m_Name: Skills
+  m_Name: Actions
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -489,10 +354,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
-  - {fileID: 5747430813501036536}
   - {fileID: 1619211899553907894}
-  - {fileID: 9188566892398236550}
-  - {fileID: 9159009951767019321}
   m_Father: {fileID: 402328283303985369}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1001 &5378288208720849231
@@ -740,12 +602,16 @@ PrefabInstance:
       value: 1.804
       objectReference: {fileID: 0}
     - target: {fileID: 7678442810270639657, guid: 1a996fc07da844906912a33e88898b15, type: 3}
+      propertyPath: m_LocalScale.y
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 7678442810270639657, guid: 1a996fc07da844906912a33e88898b15, type: 3}
       propertyPath: m_LocalPosition.x
       value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 7678442810270639657, guid: 1a996fc07da844906912a33e88898b15, type: 3}
       propertyPath: m_LocalPosition.y
-      value: 4.68
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 7678442810270639657, guid: 1a996fc07da844906912a33e88898b15, type: 3}
       propertyPath: m_LocalPosition.z

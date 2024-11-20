@@ -1,16 +1,15 @@
 using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 
 public class Enemy : Fighter
 {
     public GameObject DefeatEffect;
+
     void Awake()
-    {
-        this.fighterName = gameObject.name;
-        this.stats = new Stats(100, 100, 10, 10, 5, 1, 10);
-        // HP, MaxHP, Atk, Def, Spd, Lv, SP, Multiplier, ATKMult
+    {        
+        GetActions();
     }
+
     public override void InitTurn()
     {
         CombatManager.playerTurn = false;
@@ -18,10 +17,11 @@ public class Enemy : Fighter
         StartCoroutine(IA());
     }
 
-    IEnumerator IA(){
+    IEnumerator IA()
+    {
         yield return new WaitForSeconds(1f);
-        Action action = actions[Random.Range(0, actions.Length)];
-        if(action.isTeamAction)
+        Action action = actions[Random.Range(0, actions.Count)];
+        if (action.isTeamAction)
         {
             action.SetEmitterAndReceiver(this, combatManager.GetTeamFighter(Team.Enemy));
         }
@@ -29,8 +29,24 @@ public class Enemy : Fighter
         {
             action.SetEmitterAndReceiver(this, combatManager.GetOppositeFighter(Team.Enemy));
         }
+
         combatManager.OnFighterAction(action);
         Debug.Log("El enemigo hizo " + action.actionName);
+    }
+
+    protected override void GetActions()
+    {
+        foreach(Transform child in ActionParent)
+        {
+            if(child.gameObject.activeSelf)
+            {
+                Action act = child.gameObject.GetComponent<Action>();
+                if (act.actType == ActionType.EnemyAction)
+                {
+                    actions.Add(act);
+                }
+            }
+        }
     }
 
     public override IEnumerator Die()

@@ -27,12 +27,13 @@ public abstract class Action : MonoBehaviour
     private Stats attacker;
     private Stats defender;
     
-    [Header("Health Mod")]
+    [Header("Action Info")]
     public HealthModType modType;
-    public int amount;
-    public int counterAmount;
+    public float amount;
+    public int cost;
+    public float mult;
 
-    public IEnumerator Run(){      
+    public IEnumerator Run(){     
         this.complete = false;
         if (this.isTeamAction){
             // Si es una acción de equipo, puedes aplicarla a aliados o a ti mismo
@@ -41,6 +42,7 @@ public abstract class Action : MonoBehaviour
         if (this.selfInflicted){
             this.receiver = this.emitter;
         }
+
         StartCoroutine(OnRun());
         // Espera la animación del personaje
         do {
@@ -65,17 +67,17 @@ public abstract class Action : MonoBehaviour
                 break;
         }
         amount = GetModification();
-        this.damaged.ModifyHealth(amount);
+        this.damaged.ModifyHealth(Mathf.FloorToInt(amount));
     }
 
     public int GetModification(){
         switch (this.modType){
             case HealthModType.STAT_BASED:
             //Formula de daño basado en stats
-            float amount = (attacker.level * attacker.attack) / (defender.level * defender.defense);
+            amount = this.attacker.level * this.attacker.attack / this.defender.defense * this.mult;
                 return Mathf.FloorToInt(amount*-1);
             case HealthModType.FIXED:
-                return this.amount;
+                return Mathf.FloorToInt(this.amount);
         }
         throw new System.InvalidOperationException("HealthModAction::GetDamage(). Unreachable!");
     }

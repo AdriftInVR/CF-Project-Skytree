@@ -17,6 +17,7 @@ public class CombatManager : MonoBehaviour{
     private Fighter[] fighters;
 
     private GameObject[] enemies;
+    private GameObject boss;
     private GameObject[] players;
     private int currentFighterIndex;
     private int lastEnemyIndex;
@@ -39,9 +40,6 @@ public class CombatManager : MonoBehaviour{
     private PlayerInput myInput;
     public static InputAction confirmButton;
     public static InputAction cancelButton;
-    public static bool confirm {get; private set;}
-    
-    public static bool cancel {get; private set;}
     void Start(){
         // Busca a los peleadores en la escena
         fighters = FindObjectsOfType<Fighter>();
@@ -50,21 +48,18 @@ public class CombatManager : MonoBehaviour{
             fighter.combatManager = this;
         }
         // Establece el estado del combate
-        combatStatus = CombatStatus.NEXT_TURN;
         // Asigna el turno al primer peleador basado en la velocidad
         SortFightersBySpeed(); 
         currentFighterIndex = -1;
         isCombatActive = true;
         StartCoroutine(CombatLoop());
         myInput = GetComponent<PlayerInput>();
-        confirmButton = myInput.actions["Timber"];
         cancelButton = myInput.actions["Cancel"];
+        combatStatus = CombatStatus.NEXT_TURN;
     }
 
     void FixedUpdate()
     {
-        confirm = confirmButton.WasPressedThisFrame();
-        cancel = cancelButton.WasPressedThisFrame();
         if (RunHandle.running)
         {
             combatStatus = CombatStatus.RUNNING;
@@ -117,7 +112,7 @@ public class CombatManager : MonoBehaviour{
                         currentFighterIndex = (currentFighterIndex + 1) % fighters.Length;
                     } while (!fighters[currentFighterIndex].isAlive);
 
-                    var currentTurn = fighters[currentFighterIndex];
+                    Fighter currentTurn = fighters[currentFighterIndex];
                     Debug.Log("Turno " + (int)(turno/fighters.Length+1) + " / Es el turno de " + currentTurn.fighterName + ".");
                     turno++; // No hace nada fin de depuración
                     currentTurn.InitTurn();
@@ -140,6 +135,7 @@ public class CombatManager : MonoBehaviour{
         bool end = false;
         bool allPlayersDefeated = true;
         enemies = GameObject.FindGameObjectsWithTag("Enemy");
+        boss = GameObject.FindWithTag("Boss");
         // Filtrar los personajes del equipo del jugador que aún están vivos y verificar si todos están derrotados
         foreach (var fighter in fighters)
         {
@@ -165,7 +161,16 @@ public class CombatManager : MonoBehaviour{
             PlayerController.locked = true;
             isCombatActive = false;
             // TODO: Victory Sequence
-            SceneManager.LoadScene("Exploracion");
+            if (boss != null)
+            {
+                // If the boss exists, load the "SecuenciaFinal" scene
+                SceneManager.LoadScene("SecuenciaFinal");
+            }
+            else
+            {
+                // If no boss is found, load the "Exploracion" scene
+                SceneManager.LoadScene("Exploracion");
+            }
         }
     }
 
@@ -287,7 +292,6 @@ public class CombatManager : MonoBehaviour{
     // Actualizar el método para decidir los objetivos
     public IEnumerator PlayerTurn(Player player) {
         WheelSelection.lastCube = player.lastCube;
-        //TODO: if not multiplayer...
         confirmButton = myInput.actions[player.fighterName];
         Vector3 offset = player.transform.position + new Vector3(0f,12.5f,7.5f);
         if(!Wheel)

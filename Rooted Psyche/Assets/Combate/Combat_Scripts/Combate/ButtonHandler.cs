@@ -6,12 +6,14 @@ using TMPro;
 
 public class ButtonHandler : MonoBehaviour
 {
-    public GameObject textHolder;
+    public TMP_Text nameHolder;
+    public TMP_Text specialHolder;
     public Button button;
 
     public void UpdateButton(Player player, Action action)
     {
-        textHolder.GetComponent<TMP_Text>().text = action.actionName;
+        nameHolder.text = action.actionName;
+        specialHolder.text = action.cost > 0? action.cost.ToString() + " PS":"";
         button.onClick.AddListener(delegate {SetPlayerAction(player, action);});
     }
 

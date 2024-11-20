@@ -50,8 +50,8 @@ MonoBehaviour:
   effectPrefab: {fileID: 3463157229188906966, guid: 47096eff328e11a418ace7db2d72aa97, type: 3}
   actType: 2
   interrupted: 0
-  modType: 1
-  amount: -25
+  modType: 0
+  amount: 0
   counterAmount: 0
 --- !u!1 &2813177569342013629
 GameObject:
@@ -252,7 +252,7 @@ GameObject:
   m_Component:
   - component: {fileID: 616923898623430017}
   m_Layer: 0
-  m_Name: Skills
+  m_Name: Actions
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -330,7 +330,9 @@ GameObject:
   - component: {fileID: 3356628084068803888}
   - component: {fileID: 7679836949363918723}
   - component: {fileID: 8748509004056841049}
+  - component: {fileID: 1823536546928027661}
   - component: {fileID: 3601602623880477751}
+  - component: {fileID: 1773400812962714780}
   m_Layer: 0
   m_Name: Sombroso
   m_TagString: Enemy
@@ -346,7 +348,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 5971547971619684149}
   serializedVersion: 2
-  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 5.5, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 1
@@ -390,13 +392,61 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   team: 1
   fighterName: Sombroso
+  stats: {fileID: 1823536546928027661}
   combatManager: {fileID: 0}
   anim: {fileID: 3618163279936362467}
+  ActionParent: {fileID: 616923898623430017}
   modifyIndicators:
   - {fileID: 8716103323917899588, guid: 0b4926547b9b74a40932479183f42162, type: 3}
   - {fileID: 8716103323917899588, guid: e528004d187b1c342919175b2ec2422e, type: 3}
   DefeatEffect: {fileID: 7728366230342544413, guid: 75d7b625fe044a749b94b5aabe6284e0, type: 3}
+--- !u!114 &1823536546928027661
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5971547971619684149}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 15326b053654aad4b9e8a4e3401cea30, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  health: 80
+  maxHealth: 80
+  attack: 25
+  defense: 15
+  speed: 5
+  level: 3
+  special: 0
 --- !u!54 &3601602623880477751
+Rigidbody:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5971547971619684149}
+  serializedVersion: 4
+  m_Mass: 1
+  m_Drag: 0
+  m_AngularDrag: 0.05
+  m_CenterOfMass: {x: 0, y: 0, z: 0}
+  m_InertiaTensor: {x: 1, y: 1, z: 1}
+  m_InertiaRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ImplicitCom: 1
+  m_ImplicitTensor: 1
+  m_UseGravity: 1
+  m_IsKinematic: 0
+  m_Interpolate: 0
+  m_Constraints: 0
+  m_CollisionDetection: 0
+--- !u!54 &1773400812962714780
 Rigidbody:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}

@@ -10,7 +10,7 @@ GameObject:
   m_Component:
   - component: {fileID: 2909788770087496863}
   m_Layer: 0
-  m_Name: Skills
+  m_Name: Actions
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -30,6 +30,7 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 3649928145586404368}
+  - {fileID: 474442319265661606}
   m_Father: {fileID: 5256650465392838968}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &2911087158990939623
@@ -126,6 +127,7 @@ GameObject:
   - component: {fileID: 5256650465392838968}
   - component: {fileID: 7866798952568874844}
   - component: {fileID: 5590336772868453678}
+  - component: {fileID: 257322149576805725}
   m_Layer: 0
   m_Name: "Tenebr\xEDa"
   m_TagString: Enemy
@@ -141,7 +143,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 3108189636412493705}
   serializedVersion: 2
-  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 7, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 1
@@ -185,12 +187,33 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   team: 1
   fighterName: "Tenebr\xEDa"
+  stats: {fileID: 257322149576805725}
   combatManager: {fileID: 0}
   anim: {fileID: 1731962621899063537}
+  ActionParent: {fileID: 2909788770087496863}
   modifyIndicators:
   - {fileID: 8716103323917899588, guid: 0b4926547b9b74a40932479183f42162, type: 3}
   - {fileID: 8716103323917899588, guid: e528004d187b1c342919175b2ec2422e, type: 3}
   DefeatEffect: {fileID: 7728366230342544413, guid: 75d7b625fe044a749b94b5aabe6284e0, type: 3}
+--- !u!114 &257322149576805725
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3108189636412493705}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 15326b053654aad4b9e8a4e3401cea30, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  health: 80
+  maxHealth: 80
+  attack: 5
+  defense: 0
+  speed: 6
+  level: 6
+  special: 80
 --- !u!1 &4940535338961823699
 GameObject:
   m_ObjectHideFlags: 0
@@ -289,6 +312,59 @@ BoxCollider:
   serializedVersion: 3
   m_Size: {x: 6, y: 5.5, z: 4}
   m_Center: {x: 0, y: -0.5, z: 0}
+--- !u!1 &5364491734024637112
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 474442319265661606}
+  - component: {fileID: 5482179093471876326}
+  m_Layer: 0
+  m_Name: Healing
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &474442319265661606
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5364491734024637112}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 2909788770087496863}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &5482179093471876326
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5364491734024637112}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6bb6b67b60a742e4d8859fb821b52855, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  actionName: "Electroterap\xEDa"
+  isTeamAction: 1
+  selfInflicted: 0
+  effectPrefab: {fileID: 7802979462468201273, guid: bddb971e34eb14d48be30c7b922eb077, type: 3}
+  actType: 0
+  interrupted: 0
+  modType: 1
+  amount: 20
+  counterAmount: 0
 --- !u!1 &5758970093241899947
 GameObject:
   m_ObjectHideFlags: 0
@@ -333,14 +409,14 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6bb6b67b60a742e4d8859fb821b52855, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  actionName: "Electroterap\xEDa"
-  isTeamAction: 1
+  actionName: Piquete
+  isTeamAction: 0
   selfInflicted: 0
-  effectPrefab: {fileID: 7802979462468201273, guid: bddb971e34eb14d48be30c7b922eb077, type: 3}
+  effectPrefab: {fileID: 7728366230342544413, guid: 212ef1a41838ce044a9ac54994866708, type: 3}
   actType: 0
   interrupted: 0
-  modType: 1
-  amount: 20
+  modType: 0
+  amount: 0
   counterAmount: 0
 --- !u!1 &7543147888155051378
 GameObject:

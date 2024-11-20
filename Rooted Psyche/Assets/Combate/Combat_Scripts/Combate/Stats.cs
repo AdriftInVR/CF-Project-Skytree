@@ -2,29 +2,33 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class Stats 
+[System.Serializable]
+public class Stats : MonoBehaviour
 {
     public int health;
-    public int MaxHealth;
+    public int maxHealth;
+    public int special;
+    public int maxSpecial;
     public int attack;
     public int defense;
     public int speed;
     public int level;
-    //Los puntos de special sera lo que se necesite para usar habilidades especiales - Puede ser cambiado a Puntos de sincronizacion (PZ)
-    public int special;
 
-    public Stats(int health,int MaxHealth, int attack, int defense, int speed, int level, int special)
+    public Stats(int health, int maxHealth, int special, int maxSpecial, int attack, int defense, int speed, int level)
     {
         this.health = health;
-        this.MaxHealth = MaxHealth;
+        this.maxHealth = maxHealth;
+        this.special = special;
+        this.maxSpecial = maxSpecial;
         this.attack = attack;
         this.defense = defense;
         this.speed = speed;
         this.level = level;
-        this.special = special;
     }
 
-    public Stats Clone (){
-        return new Stats(this.health, this.MaxHealth, this.attack, this.defense, this.speed, this.level, this.special);
+    public Stats Clone()
+    {
+        return new Stats(this.health, this.maxHealth, this.special, this.maxSpecial, this.attack, this.defense, this.speed, this.level);
     }
 }
+

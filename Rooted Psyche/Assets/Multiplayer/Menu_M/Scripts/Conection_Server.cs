@@ -14,6 +14,7 @@ public class Conection_Server : MonoBehaviourPunCallbacks
 // En caso de que se conecte al servidor se unira al lobby   
     public override void OnConnectedToMaster()
     {
+        Debug.Log("Conectado al servidor");
         PhotonNetwork.JoinLobby();
     }
 
