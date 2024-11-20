@@ -1,16 +1,21 @@
 using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 
 public class Enemy : Fighter
 {
     public GameObject DefeatEffect;
-    void Awake()
+
+    [Header("Enemy Stats")] 
+    public Stats baseStats; // Configurable en el inspector
+
+    private void Awake()
     {
         this.fighterName = gameObject.name;
-        this.stats = new Stats(100, 100, 10, 10, 5, 1, 10);
-        // HP, MaxHP, Atk, Def, Spd, Lv, SP, Multiplier, ATKMult
+
+        // Clona los stats base para evitar modificar los originales.
+        this.stats = baseStats.Clone();
     }
+
     public override void InitTurn()
     {
         CombatManager.playerTurn = false;
@@ -18,10 +23,11 @@ public class Enemy : Fighter
         StartCoroutine(IA());
     }
 
-    IEnumerator IA(){
+    IEnumerator IA()
+    {
         yield return new WaitForSeconds(1f);
         Action action = actions[Random.Range(0, actions.Length)];
-        if(action.isTeamAction)
+        if (action.isTeamAction)
         {
             action.SetEmitterAndReceiver(this, combatManager.GetTeamFighter(Team.Enemy));
         }
@@ -29,14 +35,15 @@ public class Enemy : Fighter
         {
             action.SetEmitterAndReceiver(this, combatManager.GetOppositeFighter(Team.Enemy));
         }
+
         combatManager.OnFighterAction(action);
         Debug.Log("El enemigo hizo " + action.actionName);
     }
 
     public override IEnumerator Die()
     {
-        Destroy(gameObject,1.2f);
+        Destroy(gameObject, 1.2f);
         yield return new WaitForSeconds(1f);
-        GameObject explode = Instantiate(DefeatEffect, transform.position, Quaternion.identity);
+        Instantiate(DefeatEffect, transform.position, Quaternion.identity);
     }
 }
