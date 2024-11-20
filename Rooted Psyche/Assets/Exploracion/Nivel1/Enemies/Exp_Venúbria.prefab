@@ -12,7 +12,7 @@ GameObject:
   - component: {fileID: 9207759713266966429}
   - component: {fileID: 4422378600240534288}
   m_Layer: 0
-  m_Name: BunSprite
+  m_Name: SnakeSprite
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -28,8 +28,8 @@ Transform:
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0.25, z: 0}
-  m_LocalScale: {x: 0.275, y: 0.275, z: 0.275}
-  m_ConstrainProportionsScale: 0
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 1
   m_Children: []
   m_Father: {fileID: 7677273362983203821}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -132,7 +132,7 @@ Transform:
   m_GameObject: {fileID: 1677133099865316546}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 2.89, z: 0}
+  m_LocalPosition: {x: 0, y: 2, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 1
   m_Children:
@@ -162,7 +162,6 @@ GameObject:
   - component: {fileID: 2780332691713805631}
   - component: {fileID: 5190273605313948005}
   - component: {fileID: 5224971255165978550}
-  - component: {fileID: 2110694647289870996}
   m_Layer: 0
   m_Name: Shadow
   m_TagString: Untagged
@@ -179,7 +178,7 @@ Transform:
   m_GameObject: {fileID: 2510940550239012893}
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 0, y: -1.87, z: 0}
+  m_LocalPosition: {x: 0, y: -2, z: 0}
   m_LocalScale: {x: 6, y: 0.6, z: 6}
   m_ConstrainProportionsScale: 1
   m_Children: []
@@ -235,29 +234,6 @@ MeshRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_AdditionalVertexStreams: {fileID: 0}
---- !u!136 &2110694647289870996
-CapsuleCollider:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2510940550239012893}
-  m_Material: {fileID: 0}
-  m_IncludeLayers:
-    serializedVersion: 2
-    m_Bits: 0
-  m_ExcludeLayers:
-    serializedVersion: 2
-    m_Bits: 0
-  m_LayerOverridePriority: 0
-  m_IsTrigger: 0
-  m_ProvidesContacts: 0
-  m_Enabled: 0
-  serializedVersion: 2
-  m_Radius: 0.5000001
-  m_Height: 2
-  m_Direction: 1
-  m_Center: {x: 0.000000059604645, y: 0, z: -0.00000008940697}
 --- !u!1 &5083666850936945448
 GameObject:
   m_ObjectHideFlags: 0
@@ -284,8 +260,8 @@ Transform:
   m_GameObject: {fileID: 5083666850936945448}
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -0.6339, y: 6.9114, z: 1.1}
-  m_LocalScale: {x: 0.823, y: 0.7257, z: 1}
+  m_LocalPosition: {x: -3.27, y: 6.12, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 3348313439214588564}
@@ -353,10 +329,10 @@ GameObject:
   - component: {fileID: 3348313439214588564}
   - component: {fileID: 5233884574063734090}
   - component: {fileID: -1839557338960379603}
-  - component: {fileID: -2443669044601155857}
   - component: {fileID: 1293563799892479595}
   - component: {fileID: 8828226308734164562}
   - component: {fileID: -5254213375897532509}
+  - component: {fileID: 2157617360056372928}
   m_Layer: 0
   m_Name: "Exp_Ven\xFAbria"
   m_TagString: Enemy
@@ -373,13 +349,13 @@ Transform:
   m_GameObject: {fileID: 8021544286448713587}
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -1.12, y: 3.64, z: -1.1}
-  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 0.5, y: 0.5, z: 0.5}
   m_ConstrainProportionsScale: 1
   m_Children:
   - {fileID: 6230349520130600557}
-  - {fileID: 2780332691713805631}
   - {fileID: 7677273362983203821}
+  - {fileID: 2780332691713805631}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &5233884574063734090
@@ -412,27 +388,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b6bcfb1db01305d4ebf7fd71d404cd81, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
---- !u!65 &-2443669044601155857
-BoxCollider:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 8021544286448713587}
-  m_Material: {fileID: 0}
-  m_IncludeLayers:
-    serializedVersion: 2
-    m_Bits: 0
-  m_ExcludeLayers:
-    serializedVersion: 2
-    m_Bits: 0
-  m_LayerOverridePriority: 0
-  m_IsTrigger: 1
-  m_ProvidesContacts: 0
-  m_Enabled: 1
-  serializedVersion: 3
-  m_Size: {x: 1, y: 1, z: 1}
-  m_Center: {x: 0, y: 0, z: 0}
 --- !u!195 &1293563799892479595
 NavMeshAgent:
   m_ObjectHideFlags: 0
@@ -452,7 +407,7 @@ NavMeshAgent:
   m_AutoBraking: 0
   m_AutoRepath: 1
   m_Height: 2
-  m_BaseOffset: 0
+  m_BaseOffset: 2
   m_WalkableMask: 4294967295
   m_ObstacleAvoidanceType: 4
 --- !u!114 &8828226308734164562
@@ -467,7 +422,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b23f45ef2c1c643ea9922a3e2b9d8a00, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  playerTag: Player
   followRange: 15
   surpriseIcon: {fileID: 5083666850936945448}
   iconDisplayTime: 1
@@ -483,3 +437,24 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4c1efc1bc86cc4a40886965c78b5bae1, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!135 &2157617360056372928
+SphereCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8021544286448713587}
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_IsTrigger: 1
+  m_ProvidesContacts: 0
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Radius: 4
+  m_Center: {x: 0, y: 2, z: 0}

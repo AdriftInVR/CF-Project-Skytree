@@ -5,15 +5,9 @@ public class Enemy : Fighter
 {
     public GameObject DefeatEffect;
 
-    [Header("Enemy Stats")] 
-    public Stats baseStats; // Configurable en el inspector
-
-    private void Awake()
-    {
-        this.fighterName = gameObject.name;
-
-        // Clona los stats base para evitar modificar los originales.
-        this.stats = baseStats.Clone();
+    void Awake()
+    {        
+        GetActions();
     }
 
     public override void InitTurn()
@@ -26,7 +20,7 @@ public class Enemy : Fighter
     IEnumerator IA()
     {
         yield return new WaitForSeconds(1f);
-        Action action = actions[Random.Range(0, actions.Length)];
+        Action action = actions[Random.Range(0, actions.Count)];
         if (action.isTeamAction)
         {
             action.SetEmitterAndReceiver(this, combatManager.GetTeamFighter(Team.Enemy));
@@ -40,10 +34,26 @@ public class Enemy : Fighter
         Debug.Log("El enemigo hizo " + action.actionName);
     }
 
+    protected override void GetActions()
+    {
+        foreach(Transform child in ActionParent)
+        {
+            if(child.gameObject.activeSelf)
+            {
+                Action act = child.gameObject.GetComponent<Action>();
+                if (act.actType == ActionType.EnemyAction)
+                {
+                    actions.Add(act);
+                }
+            }
+        }
+    }
+
     public override IEnumerator Die()
     {
-        Destroy(gameObject, 1.2f);
-        yield return new WaitForSeconds(1f);
-        Instantiate(DefeatEffect, transform.position, Quaternion.identity);
+        isDying = true;
+        Destroy(gameObject,0.8f);
+        yield return new WaitForSeconds(0.5f);
+        GameObject explode = Instantiate(DefeatEffect, transform.position, Quaternion.identity);
     }
 }

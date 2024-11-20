@@ -10,6 +10,7 @@ GameObject:
   m_Component:
   - component: {fileID: 6975676242948179229}
   - component: {fileID: 8302807853991134074}
+  - component: {fileID: 7426769450476866777}
   - component: {fileID: 5983398505212304492}
   - component: {fileID: 880421061561441381}
   - component: {fileID: 7700477623884881298}
@@ -53,15 +54,40 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   team: 0
   fighterName: Timber
+  stats: {fileID: 7426769450476866777}
   combatManager: {fileID: 0}
   anim: {fileID: 4049480975574215722}
+  ActionParent: {fileID: 4649295132547158742}
+  modifyIndicators:
+  - {fileID: 8716103323917899588, guid: 0b4926547b9b74a40932479183f42162, type: 3}
+  - {fileID: 8716103323917899588, guid: f9593a735b8fe7842979fbb61cf39a76, type: 3}
   healthText: {fileID: 0}
+  specialText: {fileID: 0}
   ActionWheel: {fileID: 7834813607110961082, guid: 5bcdf0ee31e3db64fab24cb83006469f, type: 3}
   currentAction: {fileID: 0}
   lastCube: 0
-  ActionParent: {fileID: 4649295132547158742}
   SoloActions: []
   DuoActions: []
+--- !u!114 &7426769450476866777
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1008231279834706117}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 15326b053654aad4b9e8a4e3401cea30, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  health: 80
+  maxHealth: 80
+  attack: 40
+  defense: 25
+  speed: 24
+  level: 10
+  special: 30
+  maxSpecial: 30
 --- !u!114 &5983398505212304492
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -75,6 +101,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   inputAction: Timber
+  canJump: 0
 --- !u!114 &880421061561441381
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -171,112 +198,6 @@ Rigidbody:
   m_Interpolate: 0
   m_Constraints: 112
   m_CollisionDetection: 2
---- !u!1 &1123941599666983051
-GameObject:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  serializedVersion: 6
-  m_Component:
-  - component: {fileID: 7682314600146817790}
-  - component: {fileID: 6739044461998775560}
-  - component: {fileID: 3538823794225299970}
-  m_Layer: 0
-  m_Name: TimberSprite
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!4 &7682314600146817790
-Transform:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1123941599666983051}
-  serializedVersion: 2
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_ConstrainProportionsScale: 0
-  m_Children: []
-  m_Father: {fileID: 7426804040297395744}
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!212 &6739044461998775560
-SpriteRenderer:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1123941599666983051}
-  m_Enabled: 1
-  m_CastShadows: 0
-  m_ReceiveShadows: 0
-  m_DynamicOccludee: 1
-  m_StaticShadowCaster: 0
-  m_MotionVectors: 1
-  m_LightProbeUsage: 1
-  m_ReflectionProbeUsage: 1
-  m_RayTracingMode: 0
-  m_RayTraceProcedural: 0
-  m_RenderingLayerMask: 1
-  m_RendererPriority: 0
-  m_Materials:
-  - {fileID: 10754, guid: 0000000000000000f000000000000000, type: 0}
-  m_StaticBatchInfo:
-    firstSubMesh: 0
-    subMeshCount: 0
-  m_StaticBatchRoot: {fileID: 0}
-  m_ProbeAnchor: {fileID: 0}
-  m_LightProbeVolumeOverride: {fileID: 0}
-  m_ScaleInLightmap: 1
-  m_ReceiveGI: 1
-  m_PreserveUVs: 0
-  m_IgnoreNormalsForChartDetection: 0
-  m_ImportantGI: 0
-  m_StitchLightmapSeams: 1
-  m_SelectedEditorRenderState: 0
-  m_MinimumChartSize: 4
-  m_AutoUVMaxDistance: 0.5
-  m_AutoUVMaxAngle: 89
-  m_LightmapParameters: {fileID: 0}
-  m_SortingLayerID: 0
-  m_SortingLayer: 0
-  m_SortingOrder: 0
-  m_Sprite: {fileID: 21300000, guid: 6d4b1888fe4efdc46a48c756f9535717, type: 3}
-  m_Color: {r: 1, g: 1, b: 1, a: 1}
-  m_FlipX: 0
-  m_FlipY: 0
-  m_DrawMode: 0
-  m_Size: {x: 3.25, y: 6.9200006}
-  m_AdaptiveModeThreshold: 0.5
-  m_SpriteTileMode: 0
-  m_WasSpriteAssigned: 0
-  m_MaskInteraction: 0
-  m_SpriteSortPoint: 0
---- !u!95 &3538823794225299970
-Animator:
-  serializedVersion: 5
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1123941599666983051}
-  m_Enabled: 1
-  m_Avatar: {fileID: 0}
-  m_Controller: {fileID: 9100000, guid: 456ecf2444e673f4aa0816942afec59a, type: 2}
-  m_CullingMode: 0
-  m_UpdateMode: 0
-  m_ApplyRootMotion: 0
-  m_LinearVelocityBlending: 0
-  m_StabilizeFeet: 0
-  m_WarningMessage: 
-  m_HasTransformHierarchy: 1
-  m_AllowConstantClipSamplingOptimization: 1
-  m_KeepAnimatorStateOnDisable: 0
-  m_WriteDefaultValuesOnDisable: 0
 --- !u!1 &1196745194303932610
 GameObject:
   m_ObjectHideFlags: 0
@@ -327,9 +248,10 @@ MonoBehaviour:
   effectPrefab: {fileID: 7802979462468201273, guid: bddb971e34eb14d48be30c7b922eb077, type: 3}
   actType: 1
   interrupted: 0
-  indicator: {fileID: 8716103323917899588, guid: 0b4926547b9b74a40932479183f42162, type: 3}
   modType: 1
   amount: 100
+  cost: 0
+  mult: 0
 --- !u!1 &2133446813170180066
 GameObject:
   m_ObjectHideFlags: 0
@@ -380,9 +302,10 @@ MonoBehaviour:
   effectPrefab: {fileID: 7728366230342544413, guid: 212ef1a41838ce044a9ac54994866708, type: 3}
   actType: 0
   interrupted: 0
-  indicator: {fileID: 0}
   modType: 0
   amount: -50
+  cost: 0
+  mult: 0
 --- !u!1 &2635567587436376860
 GameObject:
   m_ObjectHideFlags: 0
@@ -394,7 +317,7 @@ GameObject:
   - component: {fileID: 1212812914941613369}
   - component: {fileID: 2405873663157797690}
   m_Layer: 0
-  m_Name: SpriteRotation
+  m_Name: BrierSprite
   m_TagString: Sprite
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -414,7 +337,6 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 4171169206717274573}
-  - {fileID: 6204562636321666546}
   m_Father: {fileID: 6511954294898933110}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &2405873663157797690
@@ -479,9 +401,10 @@ MonoBehaviour:
   effectPrefab: {fileID: 7802979462468201273, guid: bddb971e34eb14d48be30c7b922eb077, type: 3}
   actType: 1
   interrupted: 0
-  indicator: {fileID: 8716103323917899588, guid: 0b4926547b9b74a40932479183f42162, type: 3}
   modType: 1
   amount: 100
+  cost: 0
+  mult: 0
 --- !u!1 &4260768273303009306
 GameObject:
   m_ObjectHideFlags: 0
@@ -492,6 +415,7 @@ GameObject:
   m_Component:
   - component: {fileID: 6511954294898933110}
   - component: {fileID: 6649216233820605269}
+  - component: {fileID: 541090352996375625}
   - component: {fileID: 2378367618420399588}
   - component: {fileID: 1983475640336560464}
   - component: {fileID: 3318772370688647099}
@@ -535,15 +459,40 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   team: 0
   fighterName: Brier
+  stats: {fileID: 541090352996375625}
   combatManager: {fileID: 0}
   anim: {fileID: 3545114708328747515}
+  ActionParent: {fileID: 3814791782532025975}
+  modifyIndicators:
+  - {fileID: 8716103323917899588, guid: 0b4926547b9b74a40932479183f42162, type: 3}
+  - {fileID: 8716103323917899588, guid: 368c7459da5ebe54a8ab52952cb21ad5, type: 3}
   healthText: {fileID: 0}
+  specialText: {fileID: 0}
   ActionWheel: {fileID: 7834813607110961082, guid: 5bcdf0ee31e3db64fab24cb83006469f, type: 3}
   currentAction: {fileID: 0}
   lastCube: 0
-  ActionParent: {fileID: 3814791782532025975}
   SoloActions: []
   DuoActions: []
+--- !u!114 &541090352996375625
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4260768273303009306}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 15326b053654aad4b9e8a4e3401cea30, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  health: 120
+  maxHealth: 120
+  attack: 30
+  defense: 35
+  speed: 14
+  level: 10
+  special: 20
+  maxSpecial: 20
 --- !u!114 &2378367618420399588
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -557,6 +506,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   inputAction: Brier
+  canJump: 0
 --- !u!114 &1983475640336560464
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -687,112 +637,6 @@ Transform:
   - {fileID: 897153304391741774}
   m_Father: {fileID: 6511954294898933110}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!1 &4370865554689934753
-GameObject:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  serializedVersion: 6
-  m_Component:
-  - component: {fileID: 6204562636321666546}
-  - component: {fileID: 5418407176060120468}
-  - component: {fileID: 8047427494044876297}
-  m_Layer: 0
-  m_Name: BrierSprite
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!4 &6204562636321666546
-Transform:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 4370865554689934753}
-  serializedVersion: 2
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_ConstrainProportionsScale: 0
-  m_Children: []
-  m_Father: {fileID: 1212812914941613369}
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!212 &5418407176060120468
-SpriteRenderer:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 4370865554689934753}
-  m_Enabled: 1
-  m_CastShadows: 0
-  m_ReceiveShadows: 0
-  m_DynamicOccludee: 1
-  m_StaticShadowCaster: 0
-  m_MotionVectors: 1
-  m_LightProbeUsage: 1
-  m_ReflectionProbeUsage: 1
-  m_RayTracingMode: 0
-  m_RayTraceProcedural: 0
-  m_RenderingLayerMask: 1
-  m_RendererPriority: 0
-  m_Materials:
-  - {fileID: 10754, guid: 0000000000000000f000000000000000, type: 0}
-  m_StaticBatchInfo:
-    firstSubMesh: 0
-    subMeshCount: 0
-  m_StaticBatchRoot: {fileID: 0}
-  m_ProbeAnchor: {fileID: 0}
-  m_LightProbeVolumeOverride: {fileID: 0}
-  m_ScaleInLightmap: 1
-  m_ReceiveGI: 1
-  m_PreserveUVs: 0
-  m_IgnoreNormalsForChartDetection: 0
-  m_ImportantGI: 0
-  m_StitchLightmapSeams: 1
-  m_SelectedEditorRenderState: 0
-  m_MinimumChartSize: 4
-  m_AutoUVMaxDistance: 0.5
-  m_AutoUVMaxAngle: 89
-  m_LightmapParameters: {fileID: 0}
-  m_SortingLayerID: 0
-  m_SortingLayer: 0
-  m_SortingOrder: 0
-  m_Sprite: {fileID: 1031723485, guid: 2eec333c8fff2eb42b945a5d47aa6e31, type: 3}
-  m_Color: {r: 1, g: 1, b: 1, a: 1}
-  m_FlipX: 0
-  m_FlipY: 0
-  m_DrawMode: 0
-  m_Size: {x: 3.25, y: 6.9200006}
-  m_AdaptiveModeThreshold: 0.5
-  m_SpriteTileMode: 0
-  m_WasSpriteAssigned: 0
-  m_MaskInteraction: 0
-  m_SpriteSortPoint: 0
---- !u!95 &8047427494044876297
-Animator:
-  serializedVersion: 5
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 4370865554689934753}
-  m_Enabled: 1
-  m_Avatar: {fileID: 0}
-  m_Controller: {fileID: 9100000, guid: abc49ae68091a4740b577aab2145463c, type: 2}
-  m_CullingMode: 0
-  m_UpdateMode: 0
-  m_ApplyRootMotion: 0
-  m_LinearVelocityBlending: 0
-  m_StabilizeFeet: 0
-  m_WarningMessage: 
-  m_HasTransformHierarchy: 1
-  m_AllowConstantClipSamplingOptimization: 1
-  m_KeepAnimatorStateOnDisable: 0
-  m_WriteDefaultValuesOnDisable: 0
 --- !u!1 &4769161147319124895
 GameObject:
   m_ObjectHideFlags: 0
@@ -843,9 +687,10 @@ MonoBehaviour:
   effectPrefab: {fileID: 7728366230342544413, guid: 212ef1a41838ce044a9ac54994866708, type: 3}
   actType: 0
   interrupted: 0
-  indicator: {fileID: 0}
   modType: 0
   amount: -50
+  cost: 0
+  mult: 0
 --- !u!1 &5001296462832575797
 GameObject:
   m_ObjectHideFlags: 0
@@ -896,9 +741,10 @@ MonoBehaviour:
   effectPrefab: {fileID: 7728366230342544413, guid: 212ef1a41838ce044a9ac54994866708, type: 3}
   actType: 0
   interrupted: 0
-  indicator: {fileID: 8716103323917899588, guid: f9593a735b8fe7842979fbb61cf39a76, type: 3}
   modType: 0
-  amount: -50
+  amount: 0
+  cost: 0
+  mult: 1
 --- !u!1 &6049312886008200694
 GameObject:
   m_ObjectHideFlags: 0
@@ -944,7 +790,7 @@ GameObject:
   - component: {fileID: 7426804040297395744}
   - component: {fileID: 1530491759129415294}
   m_Layer: 0
-  m_Name: SpriteRotation
+  m_Name: TimberSprite
   m_TagString: Sprite
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -964,7 +810,6 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 451102995594248596}
-  - {fileID: 7682314600146817790}
   m_Father: {fileID: 6975676242948179229}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &1530491759129415294
@@ -1029,9 +874,10 @@ MonoBehaviour:
   effectPrefab: {fileID: 7728366230342544413, guid: 212ef1a41838ce044a9ac54994866708, type: 3}
   actType: 0
   interrupted: 0
-  indicator: {fileID: 8716103323917899588, guid: f9593a735b8fe7842979fbb61cf39a76, type: 3}
   modType: 0
   amount: 0
+  cost: 0
+  mult: 1
 --- !u!1 &9175517635877989545
 GameObject:
   m_ObjectHideFlags: 0

@@ -24,7 +24,7 @@ EditorBuildSettings:
     path: Assets/Scenes/CombatePrueba.unity
     guid: 99e33770929a88a4bb8a88523678fa7c
   - enabled: 1
-    path: Assets/Scenes/CombateJefe1.unity
+    path: Assets/Scenes/BossLoboscuro.unity
     guid: 0387fb2d2e4fe42f7949d641483733de
   - enabled: 1
     path: Assets/Scenes/M_CombateJefe.unity

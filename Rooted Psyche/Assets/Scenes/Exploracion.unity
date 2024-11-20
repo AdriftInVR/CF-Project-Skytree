@@ -6285,7 +6285,6 @@ GameObject:
   m_Component:
   - component: {fileID: 762962564}
   - component: {fileID: 762962563}
-  - component: {fileID: 762962562}
   m_Layer: 0
   m_Name: CamaraAlt
   m_TagString: MainCamera
@@ -12686,7 +12685,7 @@ Camera:
   m_Depth: -1
   m_CullingMask:
     serializedVersion: 2
-    m_Bits: 4294967295
+    m_Bits: 95
   m_RenderingPath: -1
   m_TargetTexture: {fileID: 0}
   m_TargetDisplay: 0

@@ -7,20 +7,24 @@ using System;
 public class Player: Fighter{
     [Header("UI")]
     public TextMeshProUGUI healthText;
+    public TextMeshProUGUI specialText;
     public GameObject ActionWheel;
     public Action currentAction;
     public int lastCube;
-    public Transform ActionParent;
     private PlayerController PC;
     private Rigidbody RB;
+
+    [SerializeField]
     public List<Action> SoloActions = new List<Action>();
+    
+    [SerializeField]
     public List<Action> DuoActions = new List<Action>();
 
     void Awake()
     {
-        this.stats = new Stats(100, 100, 40, 10, 1, 5, 10);
         // HP, MaxHP, Atk, Def, Spd, Lv, SP
         UpdateHealthUI(); // Inicializa la UI de vida con los valores actuales
+        UpdateSpecialUI(); // Inicializa la UI de vida con los valores actuales
         GetActions();
         PC = GetComponent<PlayerController>();
         RB = GetComponent<Rigidbody>();
@@ -55,12 +59,21 @@ public class Player: Fighter{
         UpdateHealthUI(); // Actualiza la UI de vida
     }
 
+    public new void ModifySpecial(int cost) {
+        base.ModifySpecial(cost);
+        UpdateSpecialUI(); // Actualiza la UI de vida
+    }
+
     // Método para actualizar solo la vida en la interfaz
     void UpdateHealthUI() {
         healthText.text = this.stats.health.ToString();
     }
+    
+    void UpdateSpecialUI() {
+        specialText.text = this.stats.special.ToString();
+    }
 
-    private void GetActions()
+    protected override void GetActions()
     {
         foreach(Transform child in ActionParent)
         {
@@ -69,12 +82,13 @@ public class Player: Fighter{
                 Action act = child.gameObject.GetComponent<Action>();
                 switch(act.actType)
                 {
-                    default:
                     case ActionType.SoloAction:
                         SoloActions.Add(act);
                         break;
                     case ActionType.DuoAction:
                         DuoActions.Add(act);
+                        break;
+                    default:
                         break;
                 }
             }

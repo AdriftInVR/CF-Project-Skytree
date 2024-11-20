@@ -5,6 +5,7 @@ using UnityEngine;
 public class HealthModAction : Action
 {
     protected override IEnumerator OnRun(){
+        emitter.ModifySpecial(cost); 
         VFX();
         ShowDamageText("Attacker");
         complete = true;

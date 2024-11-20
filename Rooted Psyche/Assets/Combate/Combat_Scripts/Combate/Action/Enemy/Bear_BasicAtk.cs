@@ -33,6 +33,10 @@ public class Bear_BasicAtk : Action
             yield return null;
         }
         StartCoroutine(BackToInit());
+        while(positioned)
+        {
+            yield return null;
+        }
         this.complete = true;
         yield return null;
     }

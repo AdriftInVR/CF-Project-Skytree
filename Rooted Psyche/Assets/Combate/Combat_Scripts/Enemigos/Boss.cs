@@ -2,23 +2,14 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class Boss1 : Fighter
+public class Boss : Fighter
 {
     public GameObject DefeatEffect;
-    //     1. health;
-    //     2. MaxHealth;
-    //     3. attack;
-    //     4. defense;
-    //     5. speed;
-    //     6. level;
-    //     7. Mana;
-    //     8. AttackMultiplier; (float)
-    //     9. specialAttackMultiplier; (float)
+
     void Awake()
     {
         RunHandle.canRun = false;
-        this.stats = new Stats(250, 250, 100, 10, 100, 1, 10);
-        // HP, MaxHP, Atk, Def, Spd, Lv, SP
+        GetActions();
     }
     public override void InitTurn()
     {
@@ -29,10 +20,25 @@ public class Boss1 : Fighter
 
     IEnumerator IA(){
         yield return new WaitForSeconds(1f);
-        Action action = this.actions[Random.Range(0, this.actions.Length)];
+        Action action = this.actions[Random.Range(0, this.actions.Count)];
         action.SetEmitterAndReceiver(this, this.combatManager.GetOppositeFighter(Team.Enemy));
         this.combatManager.OnFighterAction(action);
         Debug.Log("El enemigo hizo " + action.actionName);
+    }
+
+    protected override void GetActions()
+    {
+        foreach(Transform child in ActionParent)
+        {
+            if(child.gameObject.activeSelf)
+            {
+                Action act = child.gameObject.GetComponent<Action>();
+                if (act.actType == ActionType.EnemyAction)
+                {
+                    actions.Add(act);
+                }
+            }
+        }
     }
 
     public override IEnumerator Die()

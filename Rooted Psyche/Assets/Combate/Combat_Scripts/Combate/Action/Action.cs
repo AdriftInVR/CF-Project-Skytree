@@ -1,7 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-using TMPro;
 
 public enum HealthModType{
     STAT_BASED, FIXED
@@ -28,22 +27,22 @@ public abstract class Action : MonoBehaviour
     private Stats attacker;
     private Stats defender;
     
-    [Header("Health Mod")]
-    public GameObject indicator;
+    [Header("Action Info")]
     public HealthModType modType;
-    public int amount;
-    public int counterAmount;
+    public float amount;
+    public int cost;
+    public float mult;
 
-    public IEnumerator Run(){      
+    public IEnumerator Run(){     
         this.complete = false;
         if (this.isTeamAction){
             // Si es una acción de equipo, puedes aplicarla a aliados o a ti mismo
             this.receiver = this.receiver ?? this.emitter; // Si no hay receptor asignado, usar el emisor
         }
-        this.complete = false;
         if (this.selfInflicted){
             this.receiver = this.emitter;
         }
+
         StartCoroutine(OnRun());
         // Espera la animación del personaje
         do {
@@ -60,37 +59,25 @@ public abstract class Action : MonoBehaviour
                 attacker = this.emitter.GetCurrentStats();
                 defender = this.receiver.GetCurrentStats();
                 this.damaged = this.receiver;
-                amount = GetModification();
                 break;
             case "Counter":
                 attacker = this.emitter.GetCurrentStats();
                 defender = this.receiver.GetCurrentStats();
                 this.damaged = this.emitter;
-                amount = GetModification();
                 break;
         }
-        var go = Instantiate(indicator, this.damaged.transform.position + indicator.transform.position, Quaternion.identity);
-        switch(amount)
-        {
-            case > 0:
-                go.GetComponent<TextMeshPro>().text = amount.ToString();
-                break;
-            default:
-                //go.GetComponent<TextMeshPro>().text = damageAmount.ToString().Substring(1);
-                go.GetComponent<TextMeshPro>().text = amount.ToString().Substring(1);
-                break;
-        }   
-        this.damaged.ModifyHealth(amount);
+        amount = GetModification();
+        this.damaged.ModifyHealth(Mathf.FloorToInt(amount));
     }
 
     public int GetModification(){
         switch (this.modType){
             case HealthModType.STAT_BASED:
             //Formula de daño basado en stats
-            float amount = (attacker.level * attacker.attack) / (defender.level * defender.defense);
+            amount = this.attacker.level * this.attacker.attack / this.defender.defense * this.mult;
                 return Mathf.FloorToInt(amount*-1);
             case HealthModType.FIXED:
-                return this.amount;
+                return Mathf.FloorToInt(this.amount);
         }
         throw new System.InvalidOperationException("HealthModAction::GetDamage(). Unreachable!");
     }
