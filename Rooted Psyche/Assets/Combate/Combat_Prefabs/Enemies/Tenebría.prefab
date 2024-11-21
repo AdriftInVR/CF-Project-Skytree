@@ -185,10 +185,12 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   team: 1
   fighterName: Tetrinejo
+  stats: {fileID: 0}
   combatManager: {fileID: 0}
   anim: {fileID: 1731962621899063537}
+  ActionParent: {fileID: 0}
+  modifyIndicators: []
   DefeatEffect: {fileID: 7728366230342544413, guid: 75d7b625fe044a749b94b5aabe6284e0, type: 3}
-  type: 0
 --- !u!1 &4940535338961823699
 GameObject:
   m_ObjectHideFlags: 0
@@ -337,9 +339,10 @@ MonoBehaviour:
   effectPrefab: {fileID: 7802979462468201273, guid: bddb971e34eb14d48be30c7b922eb077, type: 3}
   actType: 0
   interrupted: 0
-  indicator: {fileID: 8716103323917899588, guid: 0b4926547b9b74a40932479183f42162, type: 3}
   modType: 1
   amount: 20
+  cost: 0
+  mult: 1
 --- !u!1 &7543147888155051378
 GameObject:
   m_ObjectHideFlags: 0
@@ -435,7 +438,7 @@ Animator:
   m_GameObject: {fileID: 7543147888155051378}
   m_Enabled: 1
   m_Avatar: {fileID: 0}
-  m_Controller: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: e3ef1b202fc85455b9c89188684d94aa, type: 2}
   m_CullingMode: 0
   m_UpdateMode: 0
   m_ApplyRootMotion: 0
