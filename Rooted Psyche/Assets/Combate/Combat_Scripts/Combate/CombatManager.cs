@@ -185,6 +185,7 @@ public class CombatManager : MonoBehaviour{
         if (allPlayersDefeated) {
             end = true;
             Debug.Log("El equipo del jugador ha sido derrotado.");
+           // SceneManager.LoadScene("Derrota");
         }
         if (enemies.Length == 0) {
             end = true;
