@@ -15,7 +15,7 @@ public class ButtonHandler : MonoBehaviour
         nameHolder.text = action.actionName;
         specialHolder.text = action.cost > 0 ? action.cost.ToString() + " PS":"";
         button.onClick.AddListener(delegate {SetPlayerAction(player, action);});
-        if(player.stats.special > action.cost)
+        if(player.stats.special >= action.cost)
         {
             button.interactable = true;
         }
