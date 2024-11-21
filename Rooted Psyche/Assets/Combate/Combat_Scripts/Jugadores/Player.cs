@@ -32,6 +32,7 @@ public class Player: Fighter{
 
     private void Update() {
         UpdateHealthUI();
+        UpdateSpecialUI();
     }
 
     public override void InitTurn()
