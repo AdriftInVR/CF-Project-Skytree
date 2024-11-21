@@ -253,12 +253,12 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   health: 200
   maxHealth: 200
-  special: 20
-  maxSpecial: 20
-  attack: 50
+  special: 30
+  maxSpecial: 30
+  attack: 55
   defense: 15
   speed: 11
-  level: 13
+  level: 15
 --- !u!1 &8151465774407071802
 GameObject:
   m_ObjectHideFlags: 0
