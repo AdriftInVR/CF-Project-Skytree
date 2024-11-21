@@ -551,6 +551,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   skipText: {fileID: 941622241}
   videoName: IntroRooted
+  nextScene: Pantalla_Carga
 --- !u!1 &1907779657
 GameObject:
   m_ObjectHideFlags: 0

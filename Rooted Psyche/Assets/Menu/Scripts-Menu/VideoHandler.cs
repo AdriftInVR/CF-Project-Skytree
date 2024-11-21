@@ -12,6 +12,8 @@ public class VideoHandler : MonoBehaviour
     private float timeToShowSkip = 5f;
 
     [SerializeField] private string videoName; // Nombre del video sin extensión (configurable en el Inspector)
+    [SerializeField]
+    private string nextScene;
 
     private void Start()
     {
@@ -77,6 +79,6 @@ public class VideoHandler : MonoBehaviour
 
     private void ChangeScene()
     {
-        SceneManager.LoadScene("Pantalla_Carga");
+        SceneManager.LoadScene(nextScene);
     }
 }
