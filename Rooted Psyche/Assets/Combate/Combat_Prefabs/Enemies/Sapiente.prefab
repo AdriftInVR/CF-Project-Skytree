@@ -214,7 +214,7 @@ MonoBehaviour:
   attack: 5
   defense: 5
   speed: 15
-  level: 3
+  level: 10
 --- !u!1 &4940535338961823699
 GameObject:
   m_ObjectHideFlags: 0

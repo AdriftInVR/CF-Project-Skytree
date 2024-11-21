@@ -10,7 +10,7 @@ public class Trigger_Boss : MonoBehaviour
         if (other.gameObject.tag == "Player")
         {
             Debug.Log("Player has entered the combat zone");
-            SceneManager.LoadScene("CombateJefe1");
+            SceneManager.LoadScene("BossLoboscuro");
             GetComponent<BoxCollider>().enabled = false;
         }
     }

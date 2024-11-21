@@ -211,11 +211,11 @@ MonoBehaviour:
   health: 80
   maxHealth: 80
   special: 80
-  maxSpecial: 0
+  maxSpecial: 80
   attack: 5
-  defense: 0
+  defense: 6
   speed: 6
-  level: 6
+  level: 10
 --- !u!1 &4940535338961823699
 GameObject:
   m_ObjectHideFlags: 0
@@ -365,8 +365,8 @@ MonoBehaviour:
   actType: 2
   interrupted: 0
   modType: 1
-  amount: 25
-  cost: 0
+  amount: 20
+  cost: 5
   mult: 0
 --- !u!1 &5758970093241899947
 GameObject:
