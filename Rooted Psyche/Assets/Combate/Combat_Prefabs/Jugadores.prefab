@@ -86,7 +86,7 @@ MonoBehaviour:
   special: 30
   maxSpecial: 30
   attack: 40
-  defense: 25
+  defense: 15
   speed: 24
   level: 10
 --- !u!114 &5983398505212304492

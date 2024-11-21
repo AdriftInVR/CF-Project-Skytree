@@ -193,7 +193,8 @@ MonoBehaviour:
   modifyIndicators:
   - {fileID: 8716103323917899588, guid: 0b4926547b9b74a40932479183f42162, type: 3}
   - {fileID: 8716103323917899588, guid: e528004d187b1c342919175b2ec2422e, type: 3}
-  DefeatEffect: {fileID: 7728366230342544413, guid: 75d7b625fe044a749b94b5aabe6284e0, type: 3}
+  - {fileID: 8716103323917899588, guid: bf97cbb841d27f640af6b6cfb259714d, type: 3}
+  DefeatEffect: {fileID: 7728366230342544413, guid: 4612c1165ce238148aeac17f1e5d4fde, type: 3}
 --- !u!114 &3104267502953542086
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -208,11 +209,12 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   health: 60
   maxHealth: 60
+  special: 10
+  maxSpecial: 0
   attack: 10
   defense: 8
   speed: 16
   level: 3
-  special: 10
 --- !u!1 &4940535338961823699
 GameObject:
   m_ObjectHideFlags: 0
@@ -363,7 +365,8 @@ MonoBehaviour:
   interrupted: 0
   modType: 1
   amount: -10
-  counterAmount: 0
+  cost: 0
+  mult: 0
 --- !u!1 &7543147888155051378
 GameObject:
   m_ObjectHideFlags: 0
