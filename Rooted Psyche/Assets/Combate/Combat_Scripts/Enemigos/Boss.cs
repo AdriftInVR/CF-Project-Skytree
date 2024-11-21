@@ -43,10 +43,12 @@ public class Boss : Fighter
 
     public override IEnumerator Die()
     {
+        CombatManager.combatStatus = CombatStatus.WAITING_FOR_FIGHTER;
         isDying = true;
-        Destroy(gameObject, 4.5f);
-        Vector3 offset = new Vector3(0,0,-1);
-        GameObject explode = Instantiate(DefeatEffect, transform.position+offset, Quaternion.identity);
+        yield return new WaitForSeconds(1f);
+        anim.SetTrigger("Death");
+        Destroy(gameObject, 4f);
+        GameObject explode = Instantiate(DefeatEffect, transform.position, Quaternion.identity);
         yield return null;
     }
 
