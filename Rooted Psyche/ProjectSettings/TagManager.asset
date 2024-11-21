@@ -15,6 +15,7 @@ TagManager:
   - Combat
   - Exploracion
   - Boss
+  - VFX
   layers:
   - Default
   - TransparentFX

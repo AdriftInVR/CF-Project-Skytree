@@ -15,17 +15,14 @@ public enum CombatStatus{
 
 public class CombatManager : MonoBehaviour{
     private Fighter[] fighters;
-
-    private GameObject[] enemies;
-    private GameObject boss;
     private GameObject[] players;
     private int currentFighterIndex;
     private int lastEnemyIndex;
     private int lastPlayerIndex;
     private int index;
     private int turno = 1; // Variable para depuración no hace nada en el estado del juego
+    private bool end = false;
     public static bool isCombatActive = false;
-    
     private bool selectorPositioned = true;
     public static bool playerTurn = true;
     public static bool menuOpen = false;
@@ -56,10 +53,9 @@ public class CombatManager : MonoBehaviour{
         SortFightersBySpeed(); 
         currentFighterIndex = -1;
         isCombatActive = true;
-        StartCoroutine(CombatLoop());
         myInput = GetComponent<PlayerInput>();
         cancelButton = myInput.actions["Cancel"];
-        combatStatus = CombatStatus.NEXT_TURN;
+        StartCoroutine(CombatLoop());
     }
 
     void FixedUpdate()
@@ -75,7 +71,6 @@ public class CombatManager : MonoBehaviour{
         // Verificar si hay spawn points disponibles
         if (SpawnPoints.Count == 0)
         {
-            Debug.LogError("No se han asignado spawn points en la escena.");
             return;
         }
         // Buscar el prefab correspondiente usando el nombre guardado en CombatData
@@ -123,38 +118,33 @@ public class CombatManager : MonoBehaviour{
 
     IEnumerator CombatLoop(){
         RunHandle.running = false;
+        end = false;
+        combatStatus = CombatStatus.NEXT_TURN;
         while (isCombatActive){
-
             switch (combatStatus){
-
                 case CombatStatus.WAITING_FOR_FIGHTER:
                     yield return null;
                     break;
                 case CombatStatus.FIGTHER_ACTION:
-                    //Aqui deberia estar el actualizar el turno en la interfaz de usuario
-                    yield return null;
-                
                     // Ejecutar la habilidad del personaje
                     StartCoroutine(currentFigtherAction.Run());
                     combatStatus = CombatStatus.WAITING_FOR_FIGHTER;
+                    yield return null;
                     break;
 
                 case CombatStatus.CHECK_FOR_VICTORY:
-                    yield return new WaitForSeconds(1f);
                     CheckWinLoss();
                     break;
-                case CombatStatus.NEXT_TURN:
 
+                case CombatStatus.NEXT_TURN:
                     // Buscar al siguiente peleador vivo
                     do {
                         currentFighterIndex = (currentFighterIndex + 1) % fighters.Length;
                     } while (!fighters[currentFighterIndex].isAlive);
-
                     Fighter currentTurn = fighters[currentFighterIndex];
                     Debug.Log("Turno " + (int)(turno/fighters.Length+1) + " / Es el turno de " + currentTurn.fighterName + ".");
                     turno++; // No hace nada fin de depuración
                     currentTurn.InitTurn();
-
                     combatStatus = CombatStatus.WAITING_FOR_FIGHTER;
                     yield return null;
                     break;
@@ -162,54 +152,71 @@ public class CombatManager : MonoBehaviour{
                     Destroy(Wheel);
                     yield return null;
                     break;
-            }
-            
+            }   
         }
-        Debug.Log("El combate ha terminado.");
     }
 
     void CheckWinLoss()
     {
-        bool end = false;
-        bool allPlayersDefeated = true;
-        enemies = GameObject.FindGameObjectsWithTag("Enemy");
-        boss = GameObject.FindWithTag("Boss");
+        int playersAlive = 0;
+        int enemiesAlive = 0;
         // Filtrar los personajes del equipo del jugador que aún están vivos y verificar si todos están derrotados
         foreach (var fighter in fighters)
         {
-        if (fighter.team == Team.Player && fighter.isAlive)
-        {
-            allPlayersDefeated = false;
-                }
+            if (fighter.team == Team.Player && fighter.isAlive)
+            {
+                playersAlive++;
+            }
         }
-        if (allPlayersDefeated) {
+        foreach (var fighter in fighters)
+        {
+            if (fighter.team == Team.Enemy && fighter.isAlive)
+            {
+                enemiesAlive++;
+            }
+        }
+        if (playersAlive == 0)
+        {
             end = true;
             Debug.Log("El equipo del jugador ha sido derrotado.");
-           // SceneManager.LoadScene("Derrota");
         }
-        if (enemies.Length == 0) {
+        if (enemiesAlive == 0)
+        {
             end = true;
             Debug.Log("El equipo enemigo ha sido derrotado.");
         }
-        if (!end) {
-            Debug.Log("Next Fighter");
-            combatStatus = CombatStatus.NEXT_TURN;
-        }
-        else
+        if (end)
         {
             PlayerController.locked = true;
             isCombatActive = false;
-            // TODO: Victory Sequence
-            if (boss != null)
-            {
-                // If the boss exists, load the "SecuenciaFinal" scene
-                SceneManager.LoadScene("SecuenciaFinal");
-            }
-            else
-            {
-                // If no boss is found, load the "Exploracion" scene
-                SceneManager.LoadScene("Exploracion");
-            }
+            StartCoroutine(WaitForEffects());
+        }
+        else
+        {
+            combatStatus = CombatStatus.NEXT_TURN;
+        }
+    }
+
+    IEnumerator WaitForEffects()
+    {
+        yield return new WaitForSeconds(1f);
+        GameObject[] effects;
+        do
+        {
+            effects = GameObject.FindGameObjectsWithTag("VFX");
+            yield return new WaitForSeconds(1f);
+        } while (effects[0] != null);
+        Scene activeScene = SceneManager.GetActiveScene();
+        yield return null;
+        if (activeScene.name.Substring(0,4) == "Boss")
+        {
+            // If its a  boss scene, load the "SecuenciaFinal" scene
+            SceneManager.LoadScene("SecuenciaFinal");
+        }
+        else
+        {
+            // If its a combate scene, load the "Exploracion" scene
+            SceneManager.LoadScene("Exploracion");
         }
     }
 
