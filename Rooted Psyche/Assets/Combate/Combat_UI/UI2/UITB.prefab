@@ -2168,7 +2168,7 @@ GameObject:
   - component: {fileID: 8350078837482981008}
   - component: {fileID: 6277529496899436517}
   m_Layer: 5
-  m_Name: Label
+  m_Name: RunLabel
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -2627,7 +2627,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 3544467295965533859, guid: bc299c511e601d64483639f8f9a1843e, type: 3}
       propertyPath: m_Name
-      value: Action (1)
+      value: Cancel
       objectReference: {fileID: 0}
     - target: {fileID: 5427006703938324409, guid: bc299c511e601d64483639f8f9a1843e, type: 3}
       propertyPath: m_Pivot.x
@@ -2757,8 +2757,13 @@ PrefabInstance:
       propertyPath: m_Material
       value: 
       objectReference: {fileID: 0}
+    - target: {fileID: 7118220419197937300, guid: bc299c511e601d64483639f8f9a1843e, type: 3}
+      propertyPath: specialHolder
+      value: 
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
-    m_RemovedGameObjects: []
+    m_RemovedGameObjects:
+    - {fileID: 1682252978221451982, guid: bc299c511e601d64483639f8f9a1843e, type: 3}
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: bc299c511e601d64483639f8f9a1843e, type: 3}
@@ -2821,7 +2826,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 3544467295965533859, guid: bc299c511e601d64483639f8f9a1843e, type: 3}
       propertyPath: m_Name
-      value: Action
+      value: Confirm
       objectReference: {fileID: 0}
     - target: {fileID: 5427006703938324409, guid: bc299c511e601d64483639f8f9a1843e, type: 3}
       propertyPath: m_Pivot.x
@@ -2935,8 +2940,13 @@ PrefabInstance:
       propertyPath: m_Material
       value: 
       objectReference: {fileID: 0}
+    - target: {fileID: 7118220419197937300, guid: bc299c511e601d64483639f8f9a1843e, type: 3}
+      propertyPath: specialHolder
+      value: 
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
-    m_RemovedGameObjects: []
+    m_RemovedGameObjects:
+    - {fileID: 1682252978221451982, guid: bc299c511e601d64483639f8f9a1843e, type: 3}
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: bc299c511e601d64483639f8f9a1843e, type: 3}
