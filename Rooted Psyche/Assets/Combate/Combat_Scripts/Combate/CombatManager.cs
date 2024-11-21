@@ -40,7 +40,11 @@ public class CombatManager : MonoBehaviour{
     private PlayerInput myInput;
     public static InputAction confirmButton;
     public static InputAction cancelButton;
+    public List<GameObject> CombatPrefabs ; // Lista de prefabs de enemigos
+    public List<Transform> SpawnPoints;   // Lista de puntos de spawn
+
     void Start(){
+        GatherEnemies();
         // Busca a los peleadores en la escena
         fighters = FindObjectsOfType<Fighter>();
         foreach (var fighter in fighters)
@@ -64,6 +68,40 @@ public class CombatManager : MonoBehaviour{
         {
             combatStatus = CombatStatus.RUNNING;
         }
+    }
+
+    void GatherEnemies()
+    {
+        // Verificar si hay spawn points disponibles
+        if (SpawnPoints.Count == 0)
+        {
+            Debug.LogError("No se han asignado spawn points en la escena.");
+            return;
+        }
+        // Buscar el prefab correspondiente usando el nombre guardado en CombatData
+        GameObject mainEnemyPrefab = CombatPrefabs.Find(prefab => prefab.name == CombatData.EnemyName.Replace("(Clone)", "").Trim());
+
+        if (mainEnemyPrefab != null)
+        {
+            mainEnemyPrefab.GetComponent<Enemy>().combatManager = GetComponent<CombatManager>();
+
+            // Spawnear al enemigo principal
+            SpawnEnemy(mainEnemyPrefab);
+        }
+        else
+        {
+            Debug.LogError($"No se encontró un prefab para el enemigo: {CombatData.EnemyName}");
+        }
+    }
+    
+
+    void SpawnEnemy(GameObject enemyPrefab)
+    {
+        // Seleccionar un spawn point aleatorio
+        Transform spawnPoint = SpawnPoints[Random.Range(0, SpawnPoints.Count)];
+
+        // Instanciar el enemigo en el spawn point seleccionado
+        Instantiate(enemyPrefab, spawnPoint.position, spawnPoint.rotation);
     }
 
     void SortFightersBySpeed(){

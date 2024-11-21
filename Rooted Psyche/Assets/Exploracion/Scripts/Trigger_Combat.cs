@@ -10,6 +10,9 @@ public class Trigger_Combat : MonoBehaviour
         if (other.gameObject.tag == "Player" && other.gameObject.name != "BrierTarget")
         {
             Debug.Log("Player has entered the combat zone");
+            // Guardar el nombre del enemigo en CombatData
+             CombatData.EnemyName = gameObject.name.Replace("(Clone)", "").Trim();
+
             SceneManager.LoadScene("Combate");
             Destroy(this.gameObject);
         }

@@ -361,12 +361,12 @@ MonoBehaviour:
   isTeamAction: 0
   selfInflicted: 0
   effectPrefab: {fileID: 3463157229188906966, guid: 47096eff328e11a418ace7db2d72aa97, type: 3}
-  actType: 0
+  actType: 2
   interrupted: 0
   modType: 0
   amount: 0
   cost: 0
-  mult: 0
+  mult: 1
 --- !u!1 &7543147888155051378
 GameObject:
   m_ObjectHideFlags: 0

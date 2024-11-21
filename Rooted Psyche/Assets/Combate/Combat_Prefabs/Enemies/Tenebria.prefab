@@ -129,7 +129,7 @@ GameObject:
   - component: {fileID: 5590336772868453678}
   - component: {fileID: 257322149576805725}
   m_Layer: 0
-  m_Name: "Tenebr\xEDa"
+  m_Name: Tenebria
   m_TagString: Enemy
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -194,6 +194,7 @@ MonoBehaviour:
   modifyIndicators:
   - {fileID: 8716103323917899588, guid: 0b4926547b9b74a40932479183f42162, type: 3}
   - {fileID: 8716103323917899588, guid: e528004d187b1c342919175b2ec2422e, type: 3}
+  - {fileID: 8716103323917899588, guid: bf97cbb841d27f640af6b6cfb259714d, type: 3}
   DefeatEffect: {fileID: 7728366230342544413, guid: 75d7b625fe044a749b94b5aabe6284e0, type: 3}
 --- !u!114 &257322149576805725
 MonoBehaviour:
@@ -209,11 +210,12 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   health: 80
   maxHealth: 80
+  special: 80
+  maxSpecial: 0
   attack: 5
   defense: 0
   speed: 6
   level: 6
-  special: 80
 --- !u!1 &4940535338961823699
 GameObject:
   m_ObjectHideFlags: 0
@@ -360,11 +362,12 @@ MonoBehaviour:
   isTeamAction: 1
   selfInflicted: 0
   effectPrefab: {fileID: 7802979462468201273, guid: bddb971e34eb14d48be30c7b922eb077, type: 3}
-  actType: 0
+  actType: 2
   interrupted: 0
   modType: 1
-  amount: 20
-  counterAmount: 0
+  amount: 25
+  cost: 0
+  mult: 0
 --- !u!1 &5758970093241899947
 GameObject:
   m_ObjectHideFlags: 0
@@ -413,11 +416,12 @@ MonoBehaviour:
   isTeamAction: 0
   selfInflicted: 0
   effectPrefab: {fileID: 7728366230342544413, guid: 212ef1a41838ce044a9ac54994866708, type: 3}
-  actType: 0
+  actType: 2
   interrupted: 0
   modType: 0
   amount: 0
-  counterAmount: 0
+  cost: 0
+  mult: 1
 --- !u!1 &7543147888155051378
 GameObject:
   m_ObjectHideFlags: 0
