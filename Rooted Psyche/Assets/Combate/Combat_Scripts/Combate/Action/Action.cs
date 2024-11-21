@@ -31,7 +31,7 @@ public abstract class Action : MonoBehaviour
     public HealthModType modType;
     public float amount;
     public int cost;
-    public float mult;
+    public float mult = 1f;
 
     public IEnumerator Run(){     
         this.complete = false;
@@ -61,8 +61,8 @@ public abstract class Action : MonoBehaviour
                 this.damaged = this.receiver;
                 break;
             case "Counter":
-                attacker = this.emitter.GetCurrentStats();
-                defender = this.receiver.GetCurrentStats();
+                attacker = this.receiver.GetCurrentStats();
+                defender = this.emitter.GetCurrentStats();
                 this.damaged = this.emitter;
                 break;
         }
@@ -75,6 +75,7 @@ public abstract class Action : MonoBehaviour
             case HealthModType.STAT_BASED:
             //Formula de daño basado en stats
             amount = this.attacker.level * this.attacker.attack / this.defender.defense * this.mult;
+            amount = amount < 1 ? 1 : amount;
                 return Mathf.FloorToInt(amount*-1);
             case HealthModType.FIXED:
                 return Mathf.FloorToInt(this.amount);

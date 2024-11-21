@@ -112,6 +112,7 @@ public class Player: Fighter{
                 case "Hitbox":
                     combatManager.currentFigtherAction.ShowDamageText("Attacker");
                     combatManager.currentFigtherAction.interrupted = true;
+                    RB.velocity = Vector3.up*0f;
                     PC.canJump = false;
                     break;
                 case "Hurtbox": 

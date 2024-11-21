@@ -43,9 +43,11 @@ public class Boss : Fighter
 
     public override IEnumerator Die()
     {
-        Destroy(gameObject,10f);
-        yield return new WaitForSeconds(1f);
-        GameObject explode = Instantiate(DefeatEffect, transform.position, Quaternion.identity);
+        isDying = true;
+        Destroy(gameObject, 4.5f);
+        Vector3 offset = new Vector3(0,0,-1);
+        GameObject explode = Instantiate(DefeatEffect, transform.position+offset, Quaternion.identity);
+        yield return null;
     }
 
     

@@ -52,8 +52,8 @@ public class Enemy : Fighter
     public override IEnumerator Die()
     {
         isDying = true;
-        Destroy(gameObject,0.8f);
-        yield return new WaitForSeconds(0.5f);
+        Destroy(gameObject,0.6f);
+        yield return new WaitForSeconds(0.3f);
         GameObject explode = Instantiate(DefeatEffect, transform.position, Quaternion.identity);
     }
 }

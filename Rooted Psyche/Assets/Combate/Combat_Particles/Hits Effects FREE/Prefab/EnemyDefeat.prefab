@@ -4977,7 +4977,7 @@ GameObject:
   - component: {fileID: 544409808972917690}
   - component: {fileID: 3974814492345034688}
   m_Layer: 0
-  m_Name: Basic Hit 3
+  m_Name: EnemyDefeat
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0

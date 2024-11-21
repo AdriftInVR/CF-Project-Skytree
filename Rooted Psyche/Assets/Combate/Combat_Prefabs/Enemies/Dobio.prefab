@@ -211,6 +211,8 @@ MonoBehaviour:
   maxHealth: 50
   special: 10
   maxSpecial: 0
+  special: 10
+  maxSpecial: 0
   attack: 15
   defense: 4
   speed: 30
