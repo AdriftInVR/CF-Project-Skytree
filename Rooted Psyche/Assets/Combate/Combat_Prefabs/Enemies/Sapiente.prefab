@@ -41,7 +41,7 @@ GameObject:
   m_Component:
   - component: {fileID: 2909788770087496863}
   m_Layer: 0
-  m_Name: Skills
+  m_Name: Actions
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -157,6 +157,7 @@ GameObject:
   - component: {fileID: 5256650465392838968}
   - component: {fileID: 7866798952568874844}
   - component: {fileID: 5590336772868453678}
+  - component: {fileID: 2554795807652530948}
   m_Layer: 0
   m_Name: Sapiente
   m_TagString: Enemy
@@ -215,26 +216,36 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   team: 1
-  fighterName: Tetrinejo
+  fighterName: Sapiente
+  stats: {fileID: 2554795807652530948}
   combatManager: {fileID: 0}
-  stats:
-    health: 0
-    MaxHealth: 0
-    attack: 0
-    defense: 0
-    speed: 0
-    level: 0
-    special: 0
-  anim: {fileID: 0}
-  DefeatEffect: {fileID: 7728366230342544413, guid: 75d7b625fe044a749b94b5aabe6284e0, type: 3}
-  baseStats:
-    health: 0
-    MaxHealth: 0
-    attack: 0
-    defense: 0
-    speed: 0
-    level: 0
-    special: 0
+  anim: {fileID: 4183473760877232037}
+  ActionParent: {fileID: 2909788770087496863}
+  modifyIndicators:
+  - {fileID: 8716103323917899588, guid: 0b4926547b9b74a40932479183f42162, type: 3}
+  - {fileID: 8716103323917899588, guid: e528004d187b1c342919175b2ec2422e, type: 3}
+  - {fileID: 8716103323917899588, guid: bf97cbb841d27f640af6b6cfb259714d, type: 3}
+  DefeatEffect: {fileID: 7728366230342544413, guid: 4612c1165ce238148aeac17f1e5d4fde, type: 3}
+--- !u!114 &2554795807652530948
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3108189636412493705}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 15326b053654aad4b9e8a4e3401cea30, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  health: 50
+  maxHealth: 50
+  special: 0
+  maxSpecial: 0
+  attack: 25
+  defense: 15
+  speed: 20
+  level: 5
 --- !u!1 &4131458133232740081
 GameObject:
   m_ObjectHideFlags: 0
@@ -413,12 +424,12 @@ MonoBehaviour:
   isTeamAction: 0
   selfInflicted: 0
   effectPrefab: {fileID: 3463157229188906966, guid: 47096eff328e11a418ace7db2d72aa97, type: 3}
-  actType: 0
+  actType: 2
   interrupted: 0
-  indicator: {fileID: 8716103323917899588, guid: f9593a735b8fe7842979fbb61cf39a76, type: 3}
-  modType: 1
+  modType: 0
   amount: -5
-  counterAmount: 0
+  cost: 0
+  mult: 1
 --- !u!1 &6067635083838422452
 GameObject:
   m_ObjectHideFlags: 0
