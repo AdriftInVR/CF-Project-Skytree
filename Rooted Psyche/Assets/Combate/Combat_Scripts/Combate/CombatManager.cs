@@ -205,7 +205,7 @@ public class CombatManager : MonoBehaviour{
         {
             effects = GameObject.FindGameObjectsWithTag("VFX");
             yield return new WaitForSeconds(1f);
-        } while (effects[0] != null);
+        } while (effects != null && effects[0] != null );
         Scene activeScene = SceneManager.GetActiveScene();
         yield return null;
         if (activeScene.name.Substring(0,4) == "Boss")
