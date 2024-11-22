@@ -17,6 +17,7 @@ public class VideoHandler : MonoBehaviour
 
     private void Start()
     {
+        End();
         videoPlayer = GetComponent<VideoPlayer>();
         videoPlayer.loopPointReached += OnVideoFinished;
 
@@ -31,6 +32,15 @@ public class VideoHandler : MonoBehaviour
 
         // Iniciar la corrutina para mostrar el texto de "saltar" después de un tiempo
         StartCoroutine(ShowSkipText());
+    }
+
+    private void End()
+    {
+        GameObject objToRemove = GameObject.Find("EXP");
+        if (objToRemove != null) {
+                Destroy(objToRemove);
+            }
+
     }
 
     private void SetVideoPath()

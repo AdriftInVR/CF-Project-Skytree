@@ -8,5 +8,6 @@ public class EnemyKillHandle : MonoBehaviour
     void OnDestroy()
     {
         CombatManager.combatStatus = CombatStatus.CHECK_FOR_VICTORY;
+        Debug.Log(CombatManager.combatStatus);
     }
 }

@@ -4321,6 +4321,7 @@ MonoBehaviour:
   - {fileID: 8021544286448713587, guid: 019d3c61d6873424c84816691d97a32b, type: 3}
   - {fileID: 8021544286448713587, guid: 07d80a931adc0fd4f99aa05c906d6433, type: 3}
   - {fileID: 8021544286448713587, guid: 86ef074f3c6e63d468aff43b716509b2, type: 3}
+  - {fileID: 8021544286448713587, guid: c376b58f586b571499db2c13b229ee42, type: 3}
   enemyParent: {fileID: 716880902}
   spawnDelay: 0.3
 --- !u!4 &518659285
