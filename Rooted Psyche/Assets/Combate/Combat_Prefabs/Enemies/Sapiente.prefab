@@ -173,7 +173,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 3108189636412493705}
   serializedVersion: 2
-  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalRotation: {x: 0, y: 0.7071068, z: 0, w: 0.7071068}
   m_LocalPosition: {x: 0, y: 1.5, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 1
@@ -184,7 +184,7 @@ Transform:
   - {fileID: 3749137708832722321}
   - {fileID: 8869349976921689469}
   m_Father: {fileID: 0}
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 90, z: 0}
 --- !u!114 &7866798952568874844
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -219,7 +219,7 @@ MonoBehaviour:
   fighterName: Sapiente
   stats: {fileID: 2554795807652530948}
   combatManager: {fileID: 0}
-  anim: {fileID: 4183473760877232037}
+  anim: {fileID: 0}
   ActionParent: {fileID: 2909788770087496863}
   modifyIndicators:
   - {fileID: 8716103323917899588, guid: 0b4926547b9b74a40932479183f42162, type: 3}
@@ -441,7 +441,7 @@ GameObject:
   - component: {fileID: 1217418757167440115}
   - component: {fileID: 2528595679916926676}
   - component: {fileID: 8331868112956525743}
-  - component: {fileID: 4183473760877232037}
+  - component: {fileID: 7488289441458749438}
   m_Layer: 0
   m_Name: frog_divided
   m_TagString: Untagged
@@ -538,7 +538,7 @@ MonoBehaviour:
     m_Extent: {x: 2.4708061, y: 2.537125, z: 0}
   m_AlwaysUpdate: 1
   m_AutoRebind: 0
---- !u!95 &4183473760877232037
+--- !u!95 &7488289441458749438
 Animator:
   serializedVersion: 5
   m_ObjectHideFlags: 0
@@ -548,7 +548,7 @@ Animator:
   m_GameObject: {fileID: 6067635083838422452}
   m_Enabled: 1
   m_Avatar: {fileID: 0}
-  m_Controller: {fileID: 9100000, guid: 2ae76e5ddb19e4900a800aef3c384c3c, type: 2}
+  m_Controller: {fileID: 9100000, guid: 3ec66e72a19a40a4283685257007d141, type: 2}
   m_CullingMode: 0
   m_UpdateMode: 0
   m_ApplyRootMotion: 0

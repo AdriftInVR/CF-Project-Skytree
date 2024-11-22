@@ -38,7 +38,10 @@ public class Player: Fighter{
     public override void InitTurn()
     {
         CombatManager.playerTurn = true;
-        PC.canJump = true;
+        if(this.isAlive)
+        {
+            PC.canJump = true;
+        }
         WheelSelection.lockedRotation = false;
         StartCoroutine(combatManager.PlayerTurn(this));
     }
@@ -99,6 +102,10 @@ public class Player: Fighter{
     public override IEnumerator Die()
     {
         //TODO: DeathAnimation
+        PC.canJump = false;
+        anim.ResetTrigger("Death");
+        anim.SetTrigger("Death");
+        anim.SetBool("Dead", this.isAlive);
         yield return new WaitForSeconds(1f);
     }
 
