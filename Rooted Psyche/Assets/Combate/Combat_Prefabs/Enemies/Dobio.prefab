@@ -317,7 +317,7 @@ MonoBehaviour:
   fighterName: "D\xF3bio"
   stats: {fileID: 3471574995868178699}
   combatManager: {fileID: 0}
-  anim: {fileID: 0}
+  anim: {fileID: 911476562675389422}
   ActionParent: {fileID: 2909788770087496863}
   modifyIndicators:
   - {fileID: 8716103323917899588, guid: 0b4926547b9b74a40932479183f42162, type: 3}
@@ -553,7 +553,7 @@ MonoBehaviour:
   isTeamAction: 0
   selfInflicted: 0
   effectPrefab: {fileID: 3463157229188906966, guid: 47096eff328e11a418ace7db2d72aa97, type: 3}
-  actType: 0
+  actType: 2
   interrupted: 0
   modType: 0
   amount: 0
