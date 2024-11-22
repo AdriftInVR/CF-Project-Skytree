@@ -179,6 +179,7 @@ public class CombatManager : MonoBehaviour{
         {
             end = true;
             Debug.Log("El equipo del jugador ha sido derrotado.");
+            SceneManager.LoadScene("Derrota");
         }
         if (enemiesAlive == 0)
         {
