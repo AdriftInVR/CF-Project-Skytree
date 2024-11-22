@@ -12,7 +12,7 @@ GameObject:
   - component: {fileID: 5128436642016093555}
   - component: {fileID: 6217553463852982963}
   - component: {fileID: 7613692668618664351}
-  m_Layer: 5
+  m_Layer: 0
   m_Name: Closed
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -114,7 +114,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 6132090626516015093}
-  m_Layer: 5
+  m_Layer: 0
   m_Name: ClosedRoom
   m_TagString: Untagged
   m_Icon: {fileID: 0}

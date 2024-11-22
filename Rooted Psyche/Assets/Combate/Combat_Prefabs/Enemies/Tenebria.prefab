@@ -10,7 +10,7 @@ GameObject:
   m_Component:
   - component: {fileID: 2909788770087496863}
   m_Layer: 0
-  m_Name: Skills
+  m_Name: Actions
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -126,8 +126,9 @@ GameObject:
   - component: {fileID: 5256650465392838968}
   - component: {fileID: 7866798952568874844}
   - component: {fileID: 5590336772868453678}
+  - component: {fileID: 6562303168008823037}
   m_Layer: 0
-  m_Name: "Tenebr\xEDa"
+  m_Name: Tenebria
   m_TagString: Enemy
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -184,11 +185,36 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   team: 1
-  fighterName: Tetrinejo
+  fighterName: Tenebria
+  stats: {fileID: 6562303168008823037}
   combatManager: {fileID: 0}
   anim: {fileID: 1731962621899063537}
-  DefeatEffect: {fileID: 7728366230342544413, guid: 75d7b625fe044a749b94b5aabe6284e0, type: 3}
-  type: 0
+  ActionParent: {fileID: 2909788770087496863}
+  modifyIndicators:
+  - {fileID: 8716103323917899588, guid: 0b4926547b9b74a40932479183f42162, type: 3}
+  - {fileID: 8716103323917899588, guid: e528004d187b1c342919175b2ec2422e, type: 3}
+  - {fileID: 8716103323917899588, guid: bf97cbb841d27f640af6b6cfb259714d, type: 3}
+  DefeatEffect: {fileID: 7728366230342544413, guid: 4612c1165ce238148aeac17f1e5d4fde, type: 3}
+--- !u!114 &6562303168008823037
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3108189636412493705}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 15326b053654aad4b9e8a4e3401cea30, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  health: 50
+  maxHealth: 50
+  special: 50
+  maxSpecial: 50
+  attack: 25
+  defense: 15
+  speed: 20
+  level: 5
 --- !u!1 &4940535338961823699
 GameObject:
   m_ObjectHideFlags: 0
@@ -335,11 +361,12 @@ MonoBehaviour:
   isTeamAction: 1
   selfInflicted: 0
   effectPrefab: {fileID: 7802979462468201273, guid: bddb971e34eb14d48be30c7b922eb077, type: 3}
-  actType: 0
+  actType: 2
   interrupted: 0
-  indicator: {fileID: 8716103323917899588, guid: 0b4926547b9b74a40932479183f42162, type: 3}
   modType: 1
-  amount: 20
+  amount: 35
+  cost: 15
+  mult: 1
 --- !u!1 &7543147888155051378
 GameObject:
   m_ObjectHideFlags: 0
