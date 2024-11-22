@@ -9,7 +9,17 @@ public class Conection_Server : MonoBehaviourPunCallbacks
     // Start is called before the first frame update
     void Start()
     {
-        PhotonNetwork.ConnectUsingSettings();
+        // Verifica si ya está conectado a Photon
+        if (PhotonNetwork.IsConnected)
+        {
+            Debug.Log("Ya está conectado. Cargando el menú principal...");
+            SceneManager.LoadScene("MenuPrincipal");
+        }
+        else
+        {
+            Debug.Log("Conectándose al servidor...");
+            PhotonNetwork.ConnectUsingSettings();
+        }
     }
 // En caso de que se conecte al servidor se unira al lobby   
     public override void OnConnectedToMaster()

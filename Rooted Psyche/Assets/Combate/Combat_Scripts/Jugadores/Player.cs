@@ -31,6 +31,9 @@ public class Player: Fighter{
     }
 
     private void Update() {
+        if (!isAlive && !isDying) {
+            StartCoroutine(Die());
+        }
         UpdateHealthUI();
         UpdateSpecialUI();
     }
@@ -101,12 +104,12 @@ public class Player: Fighter{
 
     public override IEnumerator Die()
     {
-        //TODO: DeathAnimation
+        isDying = true;
+        this.anim.SetTrigger("Death");
         PC.canJump = false;
-        anim.ResetTrigger("Death");
-        anim.SetTrigger("Death");
-        anim.SetBool("Dead", this.isAlive);
-        yield return new WaitForSeconds(1f);
+        this.anim.SetBool("Dead", true);
+        yield return new WaitForSeconds(0.1f);
+        CombatManager.combatStatus = CombatStatus.WAITING_FOR_FIGHTER;
     }
 
     void OnTriggerEnter(Collider other)
