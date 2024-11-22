@@ -296,8 +296,8 @@ MonoBehaviour:
       m_Calls: []
   m_text: "Skyler se hundir\xE1 en su culpa..."
   m_isRightToLeft: 0
-  m_fontAsset: {fileID: 11400000, guid: a963ef825935a684d869d98f38a1b5a1, type: 2}
-  m_sharedMaterial: {fileID: -2803190767285496319, guid: a963ef825935a684d869d98f38a1b5a1, type: 2}
+  m_fontAsset: {fileID: 11400000, guid: 625f45fd2f54a9f49a41e33e235f8ddc, type: 2}
+  m_sharedMaterial: {fileID: -2803190767285496319, guid: 625f45fd2f54a9f49a41e33e235f8ddc, type: 2}
   m_fontSharedMaterials: []
   m_fontMaterial: {fileID: 0}
   m_fontMaterials: []
