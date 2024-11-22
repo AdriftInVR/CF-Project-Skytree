@@ -427,7 +427,7 @@ MonoBehaviour:
   actType: 2
   interrupted: 0
   modType: 0
-  amount: -5
+  amount: 0
   cost: 0
   mult: 1
 --- !u!1 &6067635083838422452
