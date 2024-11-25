@@ -47,7 +47,7 @@ public class Boss : Fighter
         isDying = true;
         yield return new WaitForSeconds(1f);
         this.anim.SetTrigger("Death");
-        Destroy(gameObject, 4f);
+        Destroy(gameObject, 9.2f);
         GameObject explode = Instantiate(DefeatEffect, transform.position, Quaternion.identity);
         yield return null;
     }
