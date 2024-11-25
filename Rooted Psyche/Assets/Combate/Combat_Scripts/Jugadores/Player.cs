@@ -31,6 +31,9 @@ public class Player: Fighter{
     }
 
     private void Update() {
+        if (!isAlive && !isDying) {
+            StartCoroutine(Die());
+        }
         UpdateHealthUI();
         UpdateSpecialUI();
     }
@@ -38,7 +41,10 @@ public class Player: Fighter{
     public override void InitTurn()
     {
         CombatManager.playerTurn = true;
-        PC.canJump = true;
+        if(this.isAlive)
+        {
+            PC.canJump = true;
+        }
         WheelSelection.lockedRotation = false;
         StartCoroutine(combatManager.PlayerTurn(this));
     }
@@ -98,8 +104,12 @@ public class Player: Fighter{
 
     public override IEnumerator Die()
     {
-        //TODO: DeathAnimation
-        yield return new WaitForSeconds(1f);
+        isDying = true;
+        this.anim.SetTrigger("Death");
+        PC.canJump = false;
+        this.anim.SetBool("Dead", true);
+        yield return new WaitForSeconds(0.1f);
+        CombatManager.combatStatus = CombatStatus.WAITING_FOR_FIGHTER;
     }
 
     void OnTriggerEnter(Collider other)

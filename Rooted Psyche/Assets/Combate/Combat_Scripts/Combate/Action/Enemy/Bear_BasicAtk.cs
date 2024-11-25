@@ -41,6 +41,11 @@ public class Bear_BasicAtk : Action
         yield return null;
     }
 
+    void OnDestroy()
+    {
+        this.complete = true;
+    }
+
     IEnumerator PositionSelf(){
         Vector3 targetPos = this.receiver.transform.position + offset;
         targetPos.y = startPos.y;

@@ -8,6 +8,7 @@ public class PlayerController : MonoBehaviour
     private PlayerInput myInput;
     private static InputAction actionButton;
     private Rigidbody rb;
+    private Player entity;
     public string inputAction;
     public static bool locked = false;
     public bool canJump = false;
@@ -16,13 +17,14 @@ public class PlayerController : MonoBehaviour
     {
         myInput = GetComponent<PlayerInput>();
         rb = GetComponent<Rigidbody>();
+        entity = GetComponent<Player>();
     }
 
     // Update is called once per frame
     void Update()
     {
         actionButton = myInput.actions[inputAction];    
-        if(!locked && !CombatManager.menuOpen)
+        if(!locked && !CombatManager.menuOpen && entity.isAlive)
         {
             if(actionButton.WasPressedThisFrame() && canJump && !locked)
             {

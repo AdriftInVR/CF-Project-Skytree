@@ -4318,10 +4318,10 @@ MonoBehaviour:
   boss: {fileID: 4260195588355564170, guid: 6d00e22a54e7e4e428ed0cb86a42ddaf, type: 3}
   enemies:
   - {fileID: 8021544286448713587, guid: 33f3a8e8a3a1f2048af4165a64fc1e3a, type: 3}
-  - {fileID: 8021544286448713587, guid: 9239aea8762fbbe4385a4c9ba76c9635, type: 3}
   - {fileID: 8021544286448713587, guid: 019d3c61d6873424c84816691d97a32b, type: 3}
   - {fileID: 8021544286448713587, guid: 07d80a931adc0fd4f99aa05c906d6433, type: 3}
   - {fileID: 8021544286448713587, guid: 86ef074f3c6e63d468aff43b716509b2, type: 3}
+  - {fileID: 8021544286448713587, guid: c376b58f586b571499db2c13b229ee42, type: 3}
   enemyParent: {fileID: 716880902}
   spawnDelay: 0.3
 --- !u!4 &518659285
@@ -10176,10 +10176,10 @@ AudioSource:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1380501322}
-  m_Enabled: 0
+  m_Enabled: 1
   serializedVersion: 4
   OutputAudioMixerGroup: {fileID: 0}
-  m_audioClip: {fileID: 8300000, guid: 913a874987110d64e832611310159380, type: 3}
+  m_audioClip: {fileID: 8300000, guid: a5cbaa83f8692c441b4aa751948c77bc, type: 3}
   m_PlayOnAwake: 1
   m_Volume: 1
   m_Pitch: 1
@@ -12561,8 +12561,8 @@ Camera:
   m_GameObject: {fileID: 1804303819}
   m_Enabled: 1
   serializedVersion: 2
-  m_ClearFlags: 1
-  m_BackGroundColor: {r: 0.19215687, g: 0.3019608, b: 0.4745098, a: 0}
+  m_ClearFlags: 2
+  m_BackGroundColor: {r: 0, g: 0, b: 0, a: 0}
   m_projectionMatrixMode: 1
   m_GateFitMode: 2
   m_FOVAxisMode: 0
@@ -12583,8 +12583,8 @@ Camera:
     y: 0
     width: 1
     height: 1
-  near clip plane: 0.3
-  far clip plane: 1000
+  near clip plane: 0.1
+  far clip plane: 800
   field of view: 60
   orthographic: 0
   orthographic size: 5

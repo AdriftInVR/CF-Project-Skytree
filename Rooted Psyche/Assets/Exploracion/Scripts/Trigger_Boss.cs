@@ -11,7 +11,8 @@ public class Trigger_Boss : MonoBehaviour
         {
             Debug.Log("Player has entered the combat zone");
             SceneManager.LoadScene("BossLoboscuro");
-            GetComponent<BoxCollider>().enabled = false;
+           
+            Destroy(this.gameObject);
         }
     }
 }

@@ -46,8 +46,8 @@ public class Boss : Fighter
         CombatManager.combatStatus = CombatStatus.WAITING_FOR_FIGHTER;
         isDying = true;
         yield return new WaitForSeconds(1f);
-        anim.SetTrigger("Death");
-        Destroy(gameObject, 4f);
+        this.anim.SetTrigger("Death");
+        Destroy(gameObject, 9.2f);
         GameObject explode = Instantiate(DefeatEffect, transform.position, Quaternion.identity);
         yield return null;
     }

@@ -22,6 +22,7 @@ public class CombatManager : MonoBehaviour{
     private int index;
     private int turno = 1; // Variable para depuración no hace nada en el estado del juego
     private bool end = false;
+    private bool badEnd = false;
     public static bool isCombatActive = false;
     private bool selectorPositioned = true;
     public static bool playerTurn = true;
@@ -88,7 +89,6 @@ public class CombatManager : MonoBehaviour{
             Debug.LogError($"No se encontró un prefab para el enemigo: {CombatData.EnemyName}");
         }
     }
-    
 
     void SpawnEnemy(GameObject enemyPrefab)
     {
@@ -119,6 +119,7 @@ public class CombatManager : MonoBehaviour{
     IEnumerator CombatLoop(){
         RunHandle.running = false;
         end = false;
+        badEnd = false;
         combatStatus = CombatStatus.NEXT_TURN;
         while (isCombatActive){
             switch (combatStatus){
@@ -175,21 +176,26 @@ public class CombatManager : MonoBehaviour{
                 enemiesAlive++;
             }
         }
-        if (playersAlive == 0)
-        {
-            end = true;
-            Debug.Log("El equipo del jugador ha sido derrotado.");
-        }
         if (enemiesAlive == 0)
         {
             end = true;
             Debug.Log("El equipo enemigo ha sido derrotado.");
+        }
+        if (playersAlive == 0)
+        {
+            badEnd = true;
+            Debug.Log("El equipo del jugador ha sido derrotado.");
         }
         if (end)
         {
             PlayerController.locked = true;
             isCombatActive = false;
             StartCoroutine(WaitForEffects());
+        }
+        if (badEnd)
+        {
+            isCombatActive = false;
+            StartCoroutine(WaitForDeaths());
         }
         else
         {
@@ -205,7 +211,7 @@ public class CombatManager : MonoBehaviour{
         {
             effects = GameObject.FindGameObjectsWithTag("VFX");
             yield return new WaitForSeconds(1f);
-        } while (effects[0] != null);
+        } while (effects != null && effects[0] != null );
         Scene activeScene = SceneManager.GetActiveScene();
         yield return null;
         if (activeScene.name.Substring(0,4) == "Boss")
@@ -218,6 +224,12 @@ public class CombatManager : MonoBehaviour{
             // If its a combate scene, load the "Exploracion" scene
             SceneManager.LoadScene("Exploracion");
         }
+    }
+
+    IEnumerator WaitForDeaths()
+    {
+        yield return new WaitForSeconds(2.5f);
+        SceneManager.LoadScene("Derrota");
     }
 
     // Método para obtener un peleador opuesto al actual en el turno - IA
