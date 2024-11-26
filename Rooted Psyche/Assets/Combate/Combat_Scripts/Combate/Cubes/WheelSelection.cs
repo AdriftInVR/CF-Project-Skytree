@@ -50,7 +50,7 @@ public class WheelSelection : MonoBehaviour
         targetRot.Rotate(Vector3.up,direction*(360f/cubes),Space.Self);
         float targetEuler = targetRot.eulerAngles.y;
         while (!rotationComplete){
-            transform.rotation = Quaternion.Lerp(transform.rotation, targetRot.rotation, 0.11f);
+            transform.rotation = Quaternion.Lerp(transform.rotation, targetRot.rotation, 0.15f);
             if ((Mathf.Abs(targetEuler - transform.eulerAngles.y)<1f&&Mathf.Abs(targetEuler - transform.eulerAngles.y)>-1f))
             {
                 transform.rotation = targetRot.rotation;
@@ -83,7 +83,7 @@ public class WheelSelection : MonoBehaviour
             }
             else
             {
-                cube.rotation = Quaternion.Lerp(cube.rotation, targetRot.rotation, 0.05f);
+                cube.rotation = Quaternion.Lerp(cube.rotation, targetRot.rotation, 0.15f);
             }
             if (Mathf.Abs(targetEuler - cube.localEulerAngles.y)<1f&&Mathf.Abs(targetEuler - cube.localEulerAngles.y)>-1f)
             {
