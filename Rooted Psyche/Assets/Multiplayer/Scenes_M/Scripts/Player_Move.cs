@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.InputSystem;
 using Photon.Pun;
+using UnityEngine.SceneManagement;
 
 public class Player_Move : MonoBehaviour
 {
@@ -20,7 +21,8 @@ public class Player_Move : MonoBehaviour
         rb = GetComponent<Rigidbody>();
         myInput = GetComponent<PlayerInput>();
         SetMaxVelocity(spd);
-        if (GetComponent<PhotonView>().IsMine)
+        if (SceneManager.GetActiveScene().name == "M_CuartoSkyler"){
+            if (GetComponent<PhotonView>().IsMine)
         {
             Camera mainCam = Camera.main;
             if (mainCam != null)
@@ -32,6 +34,8 @@ public class Player_Move : MonoBehaviour
                 Debug.LogWarning("No se encontró una cámara principal");
             }
         }
+        }
+
     }
 
     void FixedUpdate()
