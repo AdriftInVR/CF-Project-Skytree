@@ -32,6 +32,7 @@ public abstract class Action : MonoBehaviour
     public float amount;
     public int cost;
     public float mult = 1f;
+    public AudioSource audioSource;
 
     public IEnumerator Run(){     
         this.complete = false;
@@ -86,7 +87,7 @@ public abstract class Action : MonoBehaviour
     public void SetEmitterAndReceiver(Fighter _emitter, Fighter _receiver){
         this.emitter = _emitter;
         this.receiver = _receiver;
-    }
+    } 
 
     protected abstract IEnumerator OnRun();
 }
