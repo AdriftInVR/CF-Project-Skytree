@@ -2,11 +2,12 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.EventSystems;
+using UnityEngine.SceneManagement;
 
 public class CuartoNavegation : MonoBehaviour
 {
-    public GameObject MainMenu;
-    public GameObject MainMenuFirstButton;
+    public GameObject MainMenu,Opt1,Opt2,Cuarto;
+    public GameObject MainMenuFirstButton, Opt1FirstButton,Opt2FirstButton,CuartoFirstButton;
 
     private GameObject currentMenu = null; // Menú actualmente activo
     private GameObject currentFirstButton = null; // Botón predeterminado del menú activo
@@ -16,6 +17,13 @@ public class CuartoNavegation : MonoBehaviour
     {
         // Actualizar la lógica solo si el menú activo cambia
         CheckMenuState(MainMenu, MainMenuFirstButton);
+        if (SceneManager.GetActiveScene().name == "CuartoSkyler"){
+            // Si la escena es la de cuarto de skyler entonces activa el menu de cuarto
+            CheckMenuState(Opt1, Opt1FirstButton);
+            CheckMenuState(Opt2, Opt2FirstButton);
+            CheckMenuState(Cuarto, CuartoFirstButton);
+        }
+       
     }
 
     private void CheckMenuState(GameObject menu, GameObject firstButton)
