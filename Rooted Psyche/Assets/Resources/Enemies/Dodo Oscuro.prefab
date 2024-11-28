@@ -456,7 +456,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b23f45ef2c1c643ea9922a3e2b9d8a00, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  playerTag: Player
   followRange: 20
   surpriseIcon: {fileID: 3472800913522735044}
   iconDisplayTime: 2

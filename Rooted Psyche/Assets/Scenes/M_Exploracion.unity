@@ -929,35 +929,35 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   bottomRooms:
-  - {fileID: 1808258821074947072, guid: 98adbaceb5b662245a37fe20b4fba38c, type: 3}
-  - {fileID: 1808258821074947072, guid: e6867805bac72fe4a8d3684f16bf46f3, type: 3}
-  - {fileID: 1808258821074947072, guid: 1a004bf5cb1a9a64d96bff75a6609c76, type: 3}
-  - {fileID: 1808258821074947072, guid: e64a8aa2e1f60014dae6317056ecf921, type: 3}
+  - {fileID: 1808258821074947072, guid: 6f0c78091898720478ba41deb6d8816f, type: 3}
+  - {fileID: 1808258821074947072, guid: 03b4549d53c99c84689f2a3f793d7e88, type: 3}
+  - {fileID: 1808258821074947072, guid: 873039b7cbc5a39418d6ffa3dc280a04, type: 3}
+  - {fileID: 1808258821074947072, guid: 1b59f9fb0dc98b64790c62a550bc2c22, type: 3}
   topRooms:
-  - {fileID: 1808258821074947072, guid: c17e8a9ffc5d57148badc9913956ebce, type: 3}
-  - {fileID: 1808258821074947072, guid: 6a979e43d7fd28c4da2b89146201bd56, type: 3}
-  - {fileID: 1808258821074947072, guid: e89eca0d2e23eef4bb126e153b7f4f31, type: 3}
-  - {fileID: 1808258821074947072, guid: e64a8aa2e1f60014dae6317056ecf921, type: 3}
+  - {fileID: 1808258821074947072, guid: c170f260da4f8f24eb2b4c0d525d97ae, type: 3}
+  - {fileID: 1808258821074947072, guid: 59d700ad627ba1846b44da5c8d033a93, type: 3}
+  - {fileID: 1808258821074947072, guid: b6b421fc7c2926c49b94d964c23088aa, type: 3}
+  - {fileID: 1808258821074947072, guid: 0b3d4a606719dc04f8384895dbd7c731, type: 3}
   leftRooms:
-  - {fileID: 1808258821074947072, guid: 5bc7d21d74266824baae345a89dfa4eb, type: 3}
-  - {fileID: 1808258821074947072, guid: d9bedc113a7b97340a2be5f07f3e2f46, type: 3}
-  - {fileID: 1808258821074947072, guid: e89eca0d2e23eef4bb126e153b7f4f31, type: 3}
-  - {fileID: 1808258821074947072, guid: e6867805bac72fe4a8d3684f16bf46f3, type: 3}
+  - {fileID: 1808258821074947072, guid: a64657629d2ce2a42b51ae321c9d6b3e, type: 3}
+  - {fileID: 1808258821074947072, guid: f304a7c4c1dc4c14a9f7cc868f198ec0, type: 3}
+  - {fileID: 1808258821074947072, guid: c80e6ada7861ecf44afd7347542501de, type: 3}
+  - {fileID: 1808258821074947072, guid: 68eb1801302938140a4f1c1f306e39c1, type: 3}
   rightRooms:
-  - {fileID: 1808258821074947072, guid: 6a979e43d7fd28c4da2b89146201bd56, type: 3}
-  - {fileID: 1808258821074947072, guid: 84d2ff9962e53e540b496144cc9b0354, type: 3}
-  - {fileID: 1808258821074947072, guid: 5bc7d21d74266824baae345a89dfa4eb, type: 3}
-  - {fileID: 1808258821074947072, guid: 98adbaceb5b662245a37fe20b4fba38c, type: 3}
-  closedRoom: {fileID: 2727496600493853276, guid: fc9306bda885ba548a6380b136704b28, type: 3}
+  - {fileID: 1808258821074947072, guid: 1d5a78241887b7e4cb7941becd9b6864, type: 3}
+  - {fileID: 1808258821074947072, guid: 426d64aad5bd9aa4898e074a7e14e761, type: 3}
+  - {fileID: 1808258821074947072, guid: c32ca23cc7da94a40b531ce576fbc082, type: 3}
+  - {fileID: 1808258821074947072, guid: 34b8754f2d183874ab06493b4ac2d317, type: 3}
+  closedRoom: {fileID: 2727496600493853276, guid: ec791a186dcf2f249a38e045e1bc5edc, type: 3}
   rooms: []
   bossPrefab: {fileID: 4260195588355564170, guid: 6eb13902e98991642b1de11b03f7b85d, type: 3}
   enemies:
-  - {fileID: 8021544286448713587, guid: e0eabc1f262e1984d8967005c3f39dbb, type: 3}
-  - {fileID: 8021544286448713587, guid: 5b017835db2123c46abe351bb021e20d, type: 3}
-  - {fileID: 8021544286448713587, guid: b1008ad3bd2aa34428a04eadfee647e5, type: 3}
-  - {fileID: 8021544286448713587, guid: 9af2a4a9c510624448676be26772f3ea, type: 3}
-  - {fileID: 8021544286448713587, guid: 92584019cbdcebb4898aabfbdfe6ff08, type: 3}
-  - {fileID: 8021544286448713587, guid: fe6842d2be06a104baa8a9e613026436, type: 3}
+  - {fileID: 8021544286448713587, guid: 9fd280d2ac1605244859c99b7c6154c5, type: 3}
+  - {fileID: 8021544286448713587, guid: e8f00f696e1d1b142839090cf913ecbc, type: 3}
+  - {fileID: 8021544286448713587, guid: f5046e2e7e34cd0418f8fdd953cbf8ca, type: 3}
+  - {fileID: 8021544286448713587, guid: a0a01eaac50e3a648bfa228e8a201a13, type: 3}
+  - {fileID: 8021544286448713587, guid: 10011c66dc3624949b33b07396bf7faa, type: 3}
+  - {fileID: 8021544286448713587, guid: 4e3b21eb27d2e4f4d8b999dc124a9f8d, type: 3}
   enemyParent: {fileID: 716880902}
   spawnDelay: 0.1
 --- !u!1 &530349973 stripped
@@ -2943,8 +2943,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   spawnTime: 0
-  timberPrefab: {fileID: 2654673266276856454, guid: d4341c2cd21765b48a6216bbaded1833, type: 3}
-  brierPrefab: {fileID: 2654673266276856454, guid: 80b2161ef7a07d14587c188e6f6702fa, type: 3}
+  timberPrefabPath: Personajes/Timber_M
+  brierPrefabPath: Personajes/Brier_M
 --- !u!4 &1021374113
 Transform:
   m_ObjectHideFlags: 0
@@ -5472,6 +5472,129 @@ Mesh:
     offset: 0
     size: 0
     path: 
+--- !u!1 &1954017342
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1954017347}
+  - component: {fileID: 1954017346}
+  - component: {fileID: 1954017345}
+  - component: {fileID: 1954017344}
+  - component: {fileID: 1954017343}
+  m_Layer: 0
+  m_Name: Main Camera
+  m_TagString: MainCamera
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!114 &1954017343
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1954017342}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 32956250b4c445f47bd8d1024aba7589, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  player: {fileID: 0}
+  wallLayer:
+    serializedVersion: 2
+    m_Bits: 8
+--- !u!81 &1954017344
+AudioListener:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1954017342}
+  m_Enabled: 1
+--- !u!114 &1954017345
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1954017342}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3d593c02600774e47bd55aaebb96c512, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  player: {fileID: 0}
+--- !u!20 &1954017346
+Camera:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1954017342}
+  m_Enabled: 1
+  serializedVersion: 2
+  m_ClearFlags: 2
+  m_BackGroundColor: {r: 0, g: 0, b: 0, a: 0}
+  m_projectionMatrixMode: 1
+  m_GateFitMode: 2
+  m_FOVAxisMode: 0
+  m_Iso: 200
+  m_ShutterSpeed: 0.005
+  m_Aperture: 16
+  m_FocusDistance: 10
+  m_FocalLength: 50
+  m_BladeCount: 5
+  m_Curvature: {x: 2, y: 11}
+  m_BarrelClipping: 0.25
+  m_Anamorphism: 0
+  m_SensorSize: {x: 36, y: 24}
+  m_LensShift: {x: 0, y: 0}
+  m_NormalizedViewPortRect:
+    serializedVersion: 2
+    x: 0
+    y: 0
+    width: 1
+    height: 1
+  near clip plane: 0.1
+  far clip plane: 800
+  field of view: 60
+  orthographic: 0
+  orthographic size: 5
+  m_Depth: -1
+  m_CullingMask:
+    serializedVersion: 2
+    m_Bits: 95
+  m_RenderingPath: -1
+  m_TargetTexture: {fileID: 0}
+  m_TargetDisplay: 0
+  m_TargetEye: 3
+  m_HDR: 1
+  m_AllowMSAA: 1
+  m_AllowDynamicResolution: 0
+  m_ForceIntoRT: 0
+  m_OcclusionCulling: 1
+  m_StereoConvergence: 10
+  m_StereoSeparation: 0.022
+--- !u!4 &1954017347
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1954017342}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0.2588191, y: -0, z: -0, w: 0.9659258}
+  m_LocalPosition: {x: 0, y: 10, z: -12}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_LocalEulerAnglesHint: {x: 30, y: 0, z: 0}
 --- !u!114 &2012443461 stripped
 MonoBehaviour:
   m_CorrespondingSourceObject: {fileID: 270710601144520162, guid: c119ebdb361ce7f4d804158b39010fe1, type: 3}
@@ -7039,3 +7162,4 @@ SceneRoots:
   - {fileID: 334143158}
   - {fileID: 1380501324}
   - {fileID: 1215325096}
+  - {fileID: 1954017347}

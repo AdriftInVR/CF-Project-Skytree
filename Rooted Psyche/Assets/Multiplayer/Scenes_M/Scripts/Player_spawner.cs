@@ -9,8 +9,9 @@ public class PlayerSpawner : MonoBehaviour
     private float timer;
     private bool hasPlayerSpawned = false;
 
-    public GameObject timberPrefab; // Prefab para el primer jugador
-    public GameObject brierPrefab; // Prefab para el segundo jugador
+    public string timberPrefabPath;
+    public string brierPrefabPath;
+
 
     void Start()
     {
@@ -30,19 +31,19 @@ public class PlayerSpawner : MonoBehaviour
 
     private void SpawnPlayer()
     {
-        GameObject prefabToSpawn;
+        string prefabPath;
 
         // Decide el prefab basado en el número de jugador en el cuarto
         if (PhotonNetwork.LocalPlayer.ActorNumber == 1)
         {
-            prefabToSpawn = timberPrefab; // Primer jugador: Timber
+            prefabPath = timberPrefabPath; // Primer jugador: Timber
         }
         else
         {
-            prefabToSpawn = brierPrefab; // Segundo jugador: brier
+            prefabPath = brierPrefabPath; // Segundo jugador: brier
         }
 
         // Instancia el prefab correspondiente
-        PhotonNetwork.Instantiate(prefabToSpawn.name, new Vector3(3.5f, 1, 5), Quaternion.identity, 0);
+        PhotonNetwork.Instantiate(prefabPath, new Vector3(3.5f, 1, 5), Quaternion.identity, 0);
     }
 }

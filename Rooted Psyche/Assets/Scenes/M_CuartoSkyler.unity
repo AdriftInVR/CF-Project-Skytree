@@ -1990,8 +1990,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   spawnTime: 0
-  timberPrefab: {fileID: 4192612216229252905, guid: 86bb87befe15da84ba42d306a6d39a8e, type: 3}
-  brierPrefab: {fileID: 4192612216229252905, guid: 86bb87befe15da84ba42d306a6d39a8e, type: 3}
+  timberPrefabPath: Personajes/Skyler_M
+  brierPrefabPath: Personajes/Skyler_M
 --- !u!4 &549694845
 Transform:
   m_ObjectHideFlags: 0
