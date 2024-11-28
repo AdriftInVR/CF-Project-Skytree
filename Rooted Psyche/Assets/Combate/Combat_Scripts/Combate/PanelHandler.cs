@@ -96,6 +96,7 @@ public class PanelHandler : MonoBehaviour
     {
         Run.SetActive(true);
         CombatManager.menuOpen = true;
+        PlayerController.locked = true;
         Current = Run;
     }
 
