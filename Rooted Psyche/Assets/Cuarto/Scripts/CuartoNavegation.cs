@@ -17,14 +17,29 @@ public class CuartoNavegation : MonoBehaviour
     {
         // Actualizar la lógica solo si el menú activo cambia
         CheckMenuState(MainMenu, MainMenuFirstButton);
+        ExtraOptions();
+
+       
+    }
+
+    private void ExtraOptions()
+    {
         if (SceneManager.GetActiveScene().name == "CuartoSkyler"){
             // Si la escena es la de cuarto de skyler entonces activa el menu de cuarto
             CheckMenuState(Opt1, Opt1FirstButton);
             CheckMenuState(Opt2, Opt2FirstButton);
             CheckMenuState(Cuarto, CuartoFirstButton);
         }
-       
+        if (SceneManager.GetActiveScene().name == "M_CuartoSkyler"){
+            CheckMenuState(Opt1, Opt1FirstButton);
+            CheckMenuState(Cuarto, CuartoFirstButton);
+        }
+                if (SceneManager.GetActiveScene().name == "M_Exploracion"){
+            CheckMenuState(Opt1, Opt1FirstButton);
+        }
+
     }
+
 
     private void CheckMenuState(GameObject menu, GameObject firstButton)
     {
