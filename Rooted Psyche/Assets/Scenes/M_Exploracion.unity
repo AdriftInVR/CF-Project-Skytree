@@ -2945,6 +2945,7 @@ MonoBehaviour:
   spawnTime: 0
   timberPrefabPath: Personajes/Timber_M
   brierPrefabPath: Personajes/Brier_M
+  cameraFollowScript: {fileID: 0}
 --- !u!4 &1021374113
 Transform:
   m_ObjectHideFlags: 0
@@ -5482,9 +5483,9 @@ GameObject:
   m_Component:
   - component: {fileID: 1954017347}
   - component: {fileID: 1954017346}
-  - component: {fileID: 1954017345}
+  - component: {fileID: 1954017349}
+  - component: {fileID: 1954017348}
   - component: {fileID: 1954017344}
-  - component: {fileID: 1954017343}
   m_Layer: 0
   m_Name: Main Camera
   m_TagString: MainCamera
@@ -5492,22 +5493,6 @@ GameObject:
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
---- !u!114 &1954017343
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1954017342}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 32956250b4c445f47bd8d1024aba7589, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  player: {fileID: 0}
-  wallLayer:
-    serializedVersion: 2
-    m_Bits: 8
 --- !u!81 &1954017344
 AudioListener:
   m_ObjectHideFlags: 0
@@ -5516,19 +5501,6 @@ AudioListener:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1954017342}
   m_Enabled: 1
---- !u!114 &1954017345
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1954017342}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 3d593c02600774e47bd55aaebb96c512, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  player: {fileID: 0}
 --- !u!20 &1954017346
 Camera:
   m_ObjectHideFlags: 0
@@ -5595,6 +5567,35 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 30, y: 0, z: 0}
+--- !u!114 &1954017348
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1954017342}
+  m_Enabled: 0
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 64063cea7f1b0764ab04f44b7a0d9254, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  wallLayer:
+    serializedVersion: 2
+    m_Bits: 8
+--- !u!114 &1954017349
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1954017342}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 526e52501029cd146b09bd0094f9e1f5, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  player1: {fileID: 0}
+  player2: {fileID: 0}
 --- !u!114 &2012443461 stripped
 MonoBehaviour:
   m_CorrespondingSourceObject: {fileID: 270710601144520162, guid: c119ebdb361ce7f4d804158b39010fe1, type: 3}
