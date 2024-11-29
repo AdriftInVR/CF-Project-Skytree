@@ -169,6 +169,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   openSide: 2
   spawned: 0
+  navMeshSurface: {fileID: 0}
 --- !u!1001 &486984881899871221
 PrefabInstance:
   m_ObjectHideFlags: 0

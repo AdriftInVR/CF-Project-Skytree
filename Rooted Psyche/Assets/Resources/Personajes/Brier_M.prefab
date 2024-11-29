@@ -428,6 +428,7 @@ GameObject:
   - component: {fileID: 391424285752288614}
   - component: {fileID: 7535081607838093841}
   - component: {fileID: 1546507818607786980}
+  - component: {fileID: 5039466668587795306}
   m_Layer: 6
   m_Name: Brier
   m_TagString: Player
@@ -643,6 +644,19 @@ MonoBehaviour:
   myInput: {fileID: 0}
   direction2D: {x: 0, y: 0}
   direction3D: {x: 0, y: 0, z: 0}
+--- !u!114 &5039466668587795306
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7972547439563165367}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c01c3f46c717bf24ca682fe55259d5e6, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  playerCamera: {fileID: 2752265818540618955}
 --- !u!1 &8723801145844782749
 GameObject:
   m_ObjectHideFlags: 0
@@ -658,7 +672,7 @@ GameObject:
   - component: {fileID: 1600934046724891691}
   m_Layer: 0
   m_Name: CamaraPlayer
-  m_TagString: Untagged
+  m_TagString: MainCamera
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
