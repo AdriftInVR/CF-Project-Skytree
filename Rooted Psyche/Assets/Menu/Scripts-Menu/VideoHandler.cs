@@ -4,8 +4,9 @@ using UnityEngine.Video;
 using UnityEngine.UI;
 using System.Collections;
 using System;
+using Photon.Pun;
 
-public class VideoHandler : MonoBehaviour
+public class VideoHandler : MonoBehaviourPunCallbacks
 {
     private VideoPlayer videoPlayer;
     [SerializeField] private Text skipText; 
@@ -84,11 +85,27 @@ public class VideoHandler : MonoBehaviour
 
     private void OnVideoFinished(VideoPlayer vp)
     {
+        OnDiscconect();
         ChangeScene();
     }
 
     private void ChangeScene()
     {
         SceneManager.LoadScene(nextScene);
+    }
+    private void OnDiscconect()
+    {
+        if (SceneManager.GetActiveScene().name == "M_SecuenciaFinal"){
+            PhotonNetwork.LeaveRoom();
+        }
+    }
+    public override void OnLeftRoom()
+    {
+        // Cambia a la escena de menú o la que desees
+        SceneManager.LoadScene("MenuPrincipal");
+        GameObject objToRemove = GameObject.Find("EXP");
+        if (objToRemove != null) {
+            Destroy(objToRemove);
+        }
     }
 }

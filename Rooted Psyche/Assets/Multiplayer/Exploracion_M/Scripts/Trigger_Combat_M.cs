@@ -15,7 +15,7 @@ public class Trigger_Combat_M : MonoBehaviourPunCallbacks
             if (PhotonNetwork.IsConnected)
             {
                 // En multijugador: usa Photon para sincronizar el cambio de escena
-                photonView.RPC("ChangeSceneForAll", RpcTarget.All);
+                //photonView.RPC("ChangeSceneForAll", RpcTarget.All);
 
                 // Destruir el objeto en el MasterClient
                 if (PhotonNetwork.IsMasterClient)
