@@ -167,8 +167,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 671127cddbabaf4459b0ecd0d3fa9e6a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  openSide: 0
+  openSide: 1
   spawned: 0
+  navMeshSurface: {fileID: 0}
 --- !u!1001 &486984881899871221
 PrefabInstance:
   m_ObjectHideFlags: 0

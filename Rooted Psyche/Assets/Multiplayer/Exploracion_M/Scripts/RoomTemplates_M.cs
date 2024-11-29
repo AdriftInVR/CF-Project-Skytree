@@ -1,28 +1,21 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-using Photon.Pun;
-using Unity.AI.Navigation;
+using Photon.Pun; // Importamos Photon
 
 public class RoomTemplates_M : MonoBehaviour
 {
     public static RoomTemplates_M instance;
-
     public GameObject[] bottomRooms;
     public GameObject[] topRooms;
     public GameObject[] leftRooms;
     public GameObject[] rightRooms;
     public GameObject closedRoom;
-
-    public List<GameObject> rooms = new List<GameObject>();
-
-    public GameObject bossPrefab;
+    public List<GameObject> rooms;
+    public GameObject boss;
     public GameObject[] enemies;
     public GameObject enemyParent;
-
     public float spawnDelay = 0.1f;
-
-    private bool enemiesSpawned = false;
 
     private void Awake()
     {
@@ -39,56 +32,24 @@ public class RoomTemplates_M : MonoBehaviour
 
     private void Start()
     {
-        // Espera hasta que todas las habitaciones estén generadas
-        StartCoroutine(WaitForRoomGeneration());
+        Invoke("Generate_Lv", 4.0f);
     }
 
-    IEnumerator WaitForRoomGeneration()
+    void Generate_Lv()
     {
-        yield return new WaitForSeconds(spawnDelay + 2f); // Asegúrate de que todas las habitaciones estén listas
-        if (PhotonNetwork.IsMasterClient && !enemiesSpawned)
+        GameObject bossInstance;
+        GameObject roomInstance;
+        
+        // Instanciamos al jefe usando Photon
+        bossInstance = PhotonNetwork.Instantiate(boss.name, rooms[rooms.Count - 1].transform.position, Quaternion.identity);
+        bossInstance.transform.parent = enemyParent.transform;
+        
+        for (int i = 0; i < rooms.Count - 1; i++)
         {
-            SpawnEnemiesAndBoss();
-        }
-    }
-
-private void SpawnEnemiesAndBoss()
-{
-    enemiesSpawned = true;
-
-    // Generar el jefe en la última habitación
-    GameObject bossRoom = rooms[rooms.Count - 1];
-    GameObject bossInstance = PhotonNetwork.Instantiate(bossPrefab.name, bossRoom.transform.position, Quaternion.identity);
-    bossInstance.transform.parent = enemyParent.transform;
-
-    // Generar enemigos en todas las habitaciones excepto la del jefe
-    for (int i = 0; i < rooms.Count - 1; i++)
-    {
-        GameObject room = rooms[i];
-        SpawnEnemyInRoom(room);
-    }
-
-    // Reconstruir el NavMesh
-    RebuildNavMesh();
-}
-
-private void SpawnEnemyInRoom(GameObject room)
-{
-    // Generar un único enemigo por cuarto
-    Vector3 spawnPosition = room.transform.position + new Vector3(Random.Range(-2, 2), 0, Random.Range(-2, 2));
-    GameObject randomEnemy = PhotonNetwork.Instantiate(enemies[Random.Range(0, enemies.Length)].name, spawnPosition, Quaternion.identity);
-    randomEnemy.transform.parent = enemyParent.transform;
-}
-
-
-
-    private void RebuildNavMesh()
-    {
-        // Reconstruir el NavMesh para que incluya todos los elementos nuevos
-        NavMeshSurface[] navMeshSurfaces = FindObjectsOfType<NavMeshSurface>();
-        foreach (var surface in navMeshSurfaces)
-        {
-            surface.BuildNavMesh();
+            // Instanciamos enemigos usando Photon
+            GameObject randomEnemy = enemies[Random.Range(0, enemies.Length)];
+            roomInstance = PhotonNetwork.Instantiate(randomEnemy.name, rooms[i].transform.position, Quaternion.identity);
+            roomInstance.transform.parent = enemyParent.transform;
         }
     }
 }
