@@ -5,32 +5,45 @@ using Photon.Pun;
 
 public class Follow_Player_M : MonoBehaviour
 {
-    private PhotonView photonView;
-    private Camera mainCamera;
     private Vector3 offset = new Vector3(0, 8, -10);
+    public Transform player;
+    private Camera mainCamera;
 
     void Start()
     {
-        photonView = GetComponent<PhotonView>();
+        // Obtén la cámara principal
+        mainCamera = Camera.main;
 
-        if (photonView.IsMine)
+        // Si es el jugador local, activa la cámara para él
+        if (PhotonNetwork.IsConnected && PhotonNetwork.LocalPlayer.IsLocal)
         {
-            mainCamera = Camera.main; // Encuentra la cámara principal
-            if (mainCamera != null)
-            {
-                mainCamera.transform.SetParent(transform); // Asocia la cámara al jugador
-                mainCamera.transform.localPosition = offset; // Ajusta la posición
-                mainCamera.transform.localRotation = Quaternion.identity; // Restablece la rotación
-            }
+            mainCamera.gameObject.SetActive(true);  // Asegúrate de que la cámara esté activada solo para el jugador local
+        }
+        else
+        {
+            mainCamera.gameObject.SetActive(false);  // Desactiva la cámara para otros jugadores
         }
     }
 
     void Update()
     {
-        if (photonView.IsMine && mainCamera != null)
+        if (player != null)
         {
-            Vector3 targetPosition = transform.position + offset;
-            mainCamera.transform.position = Vector3.Lerp(mainCamera.transform.position, targetPosition, 0.5f);
+            // Solo mover la cámara si el jugador local ha sido asignado
+            Vector3 playerPos = new Vector3(player.transform.position.x, 0, player.transform.position.z);
+            transform.position = Vector3.Lerp(transform.position, playerPos + offset, 0.5f);
+        }
+        else
+        {
+            // Esperar hasta que el jugador local esté disponible
+            if (PhotonNetwork.IsConnected && PhotonNetwork.LocalPlayer.IsLocal)
+            {
+                GameObject localPlayer = GameObject.FindWithTag("Player"); // Asegúrate de que el jugador tenga el tag "Player"
+                if (localPlayer != null)
+                {
+                    player = localPlayer.transform;
+                }
+            }
         }
     }
 }
