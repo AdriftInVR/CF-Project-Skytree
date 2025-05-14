@@ -1,2 +1,2 @@
 # CF-Project-Skytree
-Repositorio para el proyecto Skytree de Cosmic Flate
+Repositorio para el proyecto Skytree de Cosmic Flare
